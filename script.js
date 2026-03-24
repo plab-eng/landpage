@@ -1,14 +1,14 @@
 const meusProjetos = [
     {
-        nome: "tableGEMA v2.1",
-        desc: "Exportação profissional de tabelas sem abrir o Revit. Ganho de 90% de produtividade.",
-        tech: "Python | Headless BIM",
+        nome: "tableGEMA v2.1 Civil",
+        desc: "Extração de tabelas Revit para Excel via Headless BIM. Ganho de 90% de produtividade.",
+        tech: "Python | Excel COM",
         videoSrc: "videos/Exportar planilhas.mp4",
         posterSrc: "images/capa_tabelas.jpg"
     },
     {
-        nome: "ExportSheets P-LAB",
-        desc: "Automação de pranchas (PDF/DWG) com subpastas inteligentes e nomenclatura padrão.",
+        nome: "ExportSheets Civil P-LAB",
+        desc: "Exportação profissional de pranchas (PDF/DWG) com organização automática.",
         tech: "C# | Revit API",
         videoSrc: "videos/Exportar Worksets.mp4",
         posterSrc: "images/capa_worksets.jpg"
@@ -35,16 +35,30 @@ function carregarProjetos() {
         container.appendChild(card);
     });
 
-    // Lógica de Play/Pause no Hover
+    // Lógica de Play/Pause no Hover (Essencial P-LAB Civil)
     const vids = document.querySelectorAll('.card-video');
     vids.forEach(v => {
-        const container = v.parentElement;
-        container.addEventListener('mouseenter', () => v.play());
-        container.addEventListener('mouseleave', () => { 
+        const videoContainer = v.parentElement;
+        
+        // No Desktop: Play no mouseenter, Pause no mouseleave
+        videoContainer.addEventListener('mouseenter', () => v.play());
+        videoContainer.addEventListener('mouseleave', () => { 
             v.pause(); 
-            v.currentTime = 0; 
+            v.currentTime = 0; // Opcional: Volta para o início
+        });
+
+        // No Mobile: Toca ao clicar (playsinline garante que não abra em tela cheia)
+        videoContainer.addEventListener('click', () => {
+            if (v.paused) {
+                v.play();
+            } else {
+                v.pause();
+            }
         });
     });
 }
+
+// O envio do formulário agora é gerenciado diretamente pelo HTML (action do FormSubmit)
+// Removemos o eventListener 'submit' antigo para evitar conflitos.
 
 window.onload = carregarProjetos;
