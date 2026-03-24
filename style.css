@@ -1,23 +1,25 @@
 :root {
-    --primary: #004a80;    /* Azul P-LAB */
-    --accent: #3E60DD;     /* Azul Destaque iterCode style */
+    --primary: #2C3E50;
+    --accent: #3E60DD;
+    --success: #4CAF50;
     --light: #ffffff;
     --gray: #f4f7f6;
-    --dark: #333333;
-    --border: #e1e4e8;
+    --text-dark: #2F2F2F;
+    --border: #BDBDBD;
 }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background-color: var(--light);
-    color: var(--dark);
+    color: var(--text-dark);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-.container { width: 90%; max-width: 1100px; margin: auto; }
+.container { width: 92%; max-width: 1100px; margin: auto; }
 
-/* Header */
+/* Header & Logo */
 .main-header {
     background: var(--primary);
     color: white;
@@ -27,84 +29,73 @@ body {
     z-index: 100;
 }
 
-.main-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.logo-link { text-decoration: none; color: inherit; }
+.logo { font-size: 1.5rem; font-weight: bold; margin: 0; }
 
-.logo { font-size: 1.5rem; font-weight: bold; }
-
-.nav-links { display: flex; list-style: none; gap: 20px; }
-.nav-links a { color: white; text-decoration: none; font-weight: 500; }
+.nav-links { display: flex; list-style: none; gap: 15px; padding: 0; }
+.nav-links a { color: #BDC3C7; text-decoration: none; font-size: 0.9rem; }
 
 /* Hero */
-.hero-section {
-    padding: 100px 0;
-    background: var(--light);
-    text-align: left;
-}
-
-.hero-section h2 { font-size: 3rem; margin-bottom: 20px; }
-
-.highlight {
-    background-color: var(--accent);
-    color: white;
-    padding: 0 10px;
-}
-
-/* Sections */
-.section { padding: 80px 0; }
-.section-title { text-align: center; margin-bottom: 40px; }
-.light-gray-bg { background-color: var(--gray); }
+.hero-section { padding: 80px 0; background: var(--light); }
+.hero-section h2 { font-size: 2.8rem; margin-bottom: 20px; }
+.highlight { background-color: var(--accent); color: white; padding: 0 8px; }
 
 /* Grid e Cards */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    gap: 25px;
 }
 
 .skill-card, .case-card {
     background: white;
-    padding: 30px;
+    padding: 25px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     border-top: 4px solid var(--primary);
 }
 
-/* Vídeos nos Cards */
+/* Vídeos Responsivos */
 .card-video-container {
     width: 100%;
     aspect-ratio: 16/9;
     background: #000;
-    margin-bottom: 20px;
-    border-radius: 4px;
+    margin-bottom: 15px;
     overflow: hidden;
+    border-radius: 4px;
 }
 
 .card-video { width: 100%; height: 100%; object-fit: cover; }
 
 /* Botões */
 .btn-primary, .btn-submit {
-    background: var(--primary);
+    background: var(--success);
     color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
+    padding: 14px 28px;
+    border-radius: 4px;
     font-weight: bold;
     border: none;
     cursor: pointer;
-    transition: 0.3s;
+    display: inline-block;
 }
 
-.btn-primary:hover, .btn-submit:hover { background: #00355c; }
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    .hero-section h2 { font-size: 1.8rem; }
+    .hero-section { text-align: center; padding: 50px 0; }
+    
+    .main-header .container { flex-direction: column; gap: 10px; }
+    
+    h1, h2, h3 { overflow-wrap: break-word; } /* Evita corte de texto */
+    
+    .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
+}
 
 /* WhatsApp */
 .whatsapp-float {
     position: fixed;
-    bottom: 40px;
-    right: 40px;
+    bottom: 30px;
+    right: 30px;
     background: #25d366;
     width: 60px;
     height: 60px;
@@ -112,23 +103,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     z-index: 1000;
 }
-
 .whatsapp-float img { width: 35px; }
 
 /* Formulário */
-.form-style {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 600px;
-    margin: auto;
-}
-
-input, textarea {
-    padding: 15px;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-}
+.form-style { display: flex; flex-direction: column; gap: 12px; max-width: 600px; margin: auto; }
+input, textarea { padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; }

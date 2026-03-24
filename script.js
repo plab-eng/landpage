@@ -1,21 +1,14 @@
 const meusProjetos = [
     {
-        nome: "tableGEMA v2.0",
-        desc: "Extração de tabelas Revit para Excel sem abrir o modelo. Ganho de 90% de produtividade.",
-        tech: "Python | Excel COM",
+        nome: "tableGEMA v2.1",
+        desc: "Exportação profissional de tabelas sem abrir o Revit. Ganho de 90% de produtividade.",
+        tech: "Python | Headless BIM",
         videoSrc: "videos/Exportar planilhas.mp4",
         posterSrc: "images/capa_tabelas.jpg"
     },
     {
-        nome: "IFC Editor (Headless)",
-        desc: "Edição de coordenadas e níveis IFC sem software nativo. Tecnologia de ponta P-LAB.",
-        tech: "Python | Headless BIM",
-        videoSrc: "videos/Mudar origem IFC.mp4",
-        posterSrc: "images/capa_ifc.jpg"
-    },
-    {
-        nome: "Workset Automator",
-        desc: "Exportação em lote e organização de modelos. Automação inteligente para projetistas.",
+        nome: "ExportSheets P-LAB",
+        desc: "Automação de pranchas (PDF/DWG) com subpastas inteligentes e nomenclatura padrão.",
         tech: "C# | Revit API",
         videoSrc: "videos/Exportar Worksets.mp4",
         posterSrc: "images/capa_worksets.jpg"
@@ -31,7 +24,7 @@ function carregarProjetos() {
         card.className = 'skill-card';
         card.innerHTML = `
             <div class="card-video-container">
-                <video class="card-video" loop muted poster="${p.posterSrc}">
+                <video class="card-video" loop muted playsinline poster="${p.posterSrc}">
                     <source src="${p.videoSrc}" type="video/mp4">
                 </video>
             </div>
@@ -42,10 +35,15 @@ function carregarProjetos() {
         container.appendChild(card);
     });
 
+    // Lógica de Play/Pause no Hover
     const vids = document.querySelectorAll('.card-video');
     vids.forEach(v => {
-        v.parentElement.addEventListener('mouseenter', () => v.play());
-        v.parentElement.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+        const container = v.parentElement;
+        container.addEventListener('mouseenter', () => v.play());
+        container.addEventListener('mouseleave', () => { 
+            v.pause(); 
+            v.currentTime = 0; 
+        });
     });
 }
 
