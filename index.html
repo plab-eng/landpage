@@ -3,30 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P-LAB | Automação e Tecnologia BIM para Engenharia Civil</title>
+    <title>P-LAB | Engenharia Inteligente e Automatizada</title>
     
-    <meta name="description" content="Aumente a produtividade do seu escritório com Headless BIM e plugins personalizados para Revit.">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-
-    <meta property="og:title" content="P-LAB | Automação BIM de Alta Performance">
-    <meta property="og:description" content="Plugins e soluções Headless BIM para maximizar a produtividade Civil.">
-    <meta property="og:image" content="https://josepicanco.github.io/landpage/images/apple-touch-icon.png">
-
     <link rel="stylesheet" href="style.css">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header class="main-header">
         <div class="container">
-            <a href="index.html" class="logo-link">
-                <h1 class="logo">P-LAB</h1>
-            </a>
+            <a href="index.html" class="logo-link"><h1 class="logo">P-LAB</h1></a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#plugins">Plugins Gratuitos</a></li>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="solucoes.html">Soluções Gratuitas</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
@@ -37,9 +28,9 @@
         <section class="hero-section section">
             <div class="container hero-grid">
                 <div class="hero-text">
-                    <h2>Tecnologia para Engenharia</h2>
-                    <p>A P-LAB simplifica processos construtivos através de automação inteligente, unindo a Engenharia Civil ao poder do Headless BIM.</p>
-                    <a href="#plugins" class="btn-primary">Baixar Soluções Gratuitas</a>
+                    <h2>Engenharia Inteligente e Automatizada</h2>
+                    <p>Desenvolvemos soluções para automações de elaboração de projetos, extração de dados do modelo e integração com nuvem (Autodesk Forma). Eliminamos o trabalho braçal para você focar na engenharia.</p>
+                    <a href="solucoes.html" class="btn-primary">Baixar Automações Gratuitas</a>
                 </div>
                 <div class="hero-mockup">
                     <img src="images/mockup-bim.png" alt="Plataforma P-LAB" class="mockup-img">
@@ -47,54 +38,46 @@
             </div>
         </section>
 
-        <section id="diferenciais" class="section light-bg">
+        <section class="section light-bg">
             <div class="container">
                 <h2 class="text-center section-title">Inovação em Automação</h2>
                 <div class="grid-container">
-                    
                     <div class="skill-card">
-                        <div class="card-image-placeholder">
-                            <img src="images/icon-headless.png" alt="Ícone Headless">
-                        </div>
-                        <h3>Headless BIM Tech</h3>
-                        <p>Edição de coordenadas IFC sem abrir softwares nativos pesados. Performance máxima Civil.</p>
+                        <div class="card-image-placeholder"><img src="images/icon-dev.png" alt="Dev"></div>
+                        <h3>Soluções Personalizadas</h3>
+                        <p>Plugins sob medida em <strong>C# e Python</strong> para elaboração de projetos, extração de quantitativos e análises conforme sua demanda.</p>
                     </div>
 
                     <div class="skill-card">
-                        <div class="card-image-placeholder">
-                            <img src="images/icon-data.png" alt="Ícone Dados">
-                        </div>
-                        <h3>Data Intelligence</h3>
-                        <p>Integração Revit-Excel COM para relatórios automáticos e precisos.</p>
+                        <div class="card-image-placeholder"><img src="images/icon-bolt.png" alt="Agilidade"></div>
+                        <h3>Agilidade em Projetos</h3>
+                        <p>Botoes que eliminam tarefas repetitivas, reduzindo erros e permitindo foco total em soluções técnicas de projeto.</p>
                     </div>
-                    
+
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-headless.png" alt="Headless"></div>
+                        <h3>Headless BIM Tech</h3>
+                        <p>Extração de dados sem precisar abrir o "software mãe" (Revit). Agilidade para coordenação e verificação de modelos.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-data.png" alt="Data Intelligence"></div>
+                        <h3>Data Intelligence</h3>
+                        <p>Extração automatizada para integração direta com PowerBI, Looker Studio, Sienge e plataformas de BI.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="plugins" class="section">
-            <div class="container">
-                <h2 class="text-center section-title">Plugins Gratuitos</h2>
-                <div id="lista-projetos" class="grid-container">
-                    </div>
-            </div>
-        </section>
-
-        <section id="contato" class="section light-bg">
+        <section id="contato" class="section">
             <div class="container">
                 <h2 class="text-center section-title">Fale com P-LAB</h2>
-                
                 <form action="https://formsubmit.co/engpicanco@yahoo.com.br" method="POST" class="form-style">
-                    
-                    <input type="hidden" name="_next" value="https://josepicanco.github.io/landpage/obrigado.html">
-                    <input type="hidden" name="_subject" value="Novo Lead P-LAB Civil!">
                     <input type="hidden" name="_captcha" value="false">
-
                     <input type="text" name="Nome" placeholder="Seu Nome" required>
                     <input type="email" name="Email" placeholder="E-mail Corporativo" required>
-                    <input type="text" name="Documento" placeholder="CNPJ ou CPF (opcional)">
-                    <textarea name="Mensagem" placeholder="Como podemos automatizar seu fluxo de trabalho Civil?" rows="5" required></textarea>
-                    
+                    <input type="text" name="CNPJ_CPF" placeholder="CNPJ ou CPF (opcional)">
+                    <textarea name="Mensagem" placeholder="Como podemos automatizar seu fluxo de trabalho?" rows="5" required></textarea>
                     <button type="submit" class="btn-submit">Solicitar Orçamento</button>
                 </form>
             </div>
@@ -103,43 +86,31 @@
 
     <footer class="main-footer">
         <div class="container footer-grid">
-            
-            <div class="footer-info text-center">
+            <div class="footer-info">
                 <h1 class="logo-footer">P-LAB</h1>
-                <p>Tecnologia e Automação Civil</p>
-                <address class="footer-address">
-                    Joinville - SC<br>
-                    Brasil
-                </address>
+                <p>Joinville - SC</p>
             </div>
-
-            <div class="footer-social text-center">
+            <div class="footer-social">
                 <h3>Siga-nos</h3>
                 <div class="social-icons">
                     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-
-            <div class="footer-contact text-center">
+            <div class="footer-contact">
                 <h3>Contato</h3>
                 <p>(61) 98206-8746</p>
                 <p>engpicanco@yahoo.com.br</p>
-                <a href="https://wa.me/5561982068746" class="btn-whatsapp-footer" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Chamar no Whats
-                </a>
+                <a href="https://wa.me/5561982068746" class="btn-whatsapp-footer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             </div>
         </div>
-        
         <div class="container text-center footer-bottom">
-            <p>&copy; 2026 P-LAB Engenharia & Software. v2.1.0</p>
+            <p>&copy; 2026 P-LAB Engenharia & Software.</p>
         </div>
     </footer>
 
     <a href="https://wa.me/5561982068746" class="whatsapp-float" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
-
-    <script src="script.js"></script>
 </body>
 </html>
