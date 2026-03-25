@@ -4,23 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P-LAB | Engenharia Inteligente e Automatizada</title>
-    
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header class="main-header">
-        <div class="container">
-            <a href="index.html" class="logo-link"><h1 class="logo">P-LAB</h1></a>
+    <header class="main-header sticky-header">
+        <div class="container header-flex">
+            <div class="header-left">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo-icon.png" alt="Logo P-LAB" class="header-logo-img">
+                    <h1 class="logo">P-LAB</h1>
+                </a>
+            </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="solucoes.html">Soluções Gratuitas</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="index.html" data-i18n="nav-home">Início</a></li>
+                    <li><a href="solucoes.html" data-i18n="nav-solutions">Soluções Gratuitas</a></li>
+                    <li><a href="#contato" data-i18n="nav-contact">Contato</a></li>
                 </ul>
             </nav>
+            <div class="header-right">
+                <div class="language-selector">
+                    <button class="lang-btn"><i class="fas fa-globe"></i> <span id="current-lang-label">PT</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="lang-dropdown">
+                        <div class="dropdown-section">
+                            <span class="section-title" data-i18n="lang-suggested">LOCALIZAÇÃO SUGERIDA</span>
+                            <a href="javascript:void(0)" onclick="updateLang('pt')">Brasil (Português)</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <span class="section-title" data-i18n="lang-available">SÍTIOS DISPONÍVEIS</span>
+                            <a href="javascript:void(0)" onclick="updateLang('en')">Global (English)</a>
+                            <a href="javascript:void(0)" onclick="updateLang('es')">España (Español)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -28,42 +46,80 @@
         <section class="hero-section section">
             <div class="container hero-grid">
                 <div class="hero-text">
-                    <h2>Engenharia Inteligente e Automatizada</h2>
-                    <p>Desenvolvemos soluções para automações de elaboração de projetos, extração de dados do modelo e integração com nuvem (Autodesk Forma). Eliminamos o trabalho braçal para você focar na engenharia.</p>
-                    <a href="solucoes.html" class="btn-primary">Baixar Automações Gratuitas</a>
+                    <h2 data-i18n="hero-title">Engenharia Inteligente e Automatizada</h2>
+                    <p data-i18n="hero-desc">Soluções para automação na elaboração de projetos, extração de dados do modelo e integração com nuvem (Autodesk Forma). Eliminamos o trabalho braçal para você focar na engenharia.</p>
+                    <a href="solucoes.html" class="btn-primary" data-i18n="hero-btn">Baixar Automações Gratuitas</a>
                 </div>
                 <div class="hero-mockup">
-                    <img src="images/mockup-bim.png" alt="Plataforma P-LAB" class="mockup-img">
+                    <img src="images/mockup-bim.png" alt="P-LAB" class="mockup-img">
                 </div>
             </div>
         </section>
 
         <section class="section light-bg">
             <div class="container">
-                <h2 class="text-center section-title">Inovação em Automação</h2>
+                <h2 class="text-center section-title-main" data-i18n="title-gestao">Gestão e Cultura BIM</h2>
                 <div class="grid-container">
                     <div class="skill-card">
-                        <div class="card-image-placeholder"><img src="images/icon-dev.png" alt="Dev"></div>
-                        <h3>Soluções Personalizadas</h3>
-                        <p>Plugins sob medida em <strong>C# e Python</strong> para elaboração de projetos, extração de quantitativos e análises conforme sua demanda.</p>
+                        <div class="card-image-placeholder"><img src="images/icon-bep.png"></div>
+                        <h3 data-i18n="g-card1-t">Implementação e Diretrizes</h3>
+                        <p data-i18n="g-card1-d">Criação de documentação estratégica (PEB/BEP e BIM Mandate) e desenvolvimento de Templates BIM no Revit.</p>
                     </div>
-
                     <div class="skill-card">
-                        <div class="card-image-placeholder"><img src="images/icon-bolt.png" alt="Agilidade"></div>
-                        <h3>Agilidade em Projetos</h3>
-                        <p>Botoes que eliminam tarefas repetitivas, reduzindo erros e permitindo foco total em soluções técnicas de projeto.</p>
+                        <div class="card-image-placeholder"><img src="images/icon-culture.png"></div>
+                        <h3 data-i18n="g-card2-t">Cultura e Capacitação</h3>
+                        <p data-i18n="g-card2-d">Garantia da cultura BIM na companhia através de suporte técnico contínuo e treinamento em fluxos Revit e AutoCAD.</p>
                     </div>
-
                     <div class="skill-card">
-                        <div class="card-image-placeholder"><img src="images/icon-headless.png" alt="Headless"></div>
-                        <h3>Headless BIM Tech</h3>
-                        <p>Extração de dados sem precisar abrir o "software mãe" (Revit). Agilidade para coordenação e verificação de modelos.</p>
+                        <div class="card-image-placeholder"><img src="images/icon-stakeholders.png"></div>
+                        <h3 data-i18n="g-card3-t">Gestão de Stakeholders</h3>
+                        <p data-i18n="g-card3-d">Rotinas periódicas de alinhamento e relatórios de progresso para stakeholders.</p>
                     </div>
+                </div>
+            </div>
+        </section>
 
+        <section class="section">
+            <div class="container">
+                <h2 class="text-center section-title-main" data-i18n="title-coord">Coordenação e Engenharia Digital</h2>
+                <div class="grid-container">
                     <div class="skill-card">
-                        <div class="card-image-placeholder"><img src="images/icon-data.png" alt="Data Intelligence"></div>
-                        <h3>Data Intelligence</h3>
-                        <p>Extração automatizada para integração direta com PowerBI, Looker Studio, Sienge e plataformas de BI.</p>
+                        <div class="card-image-placeholder"><img src="images/icon-navis.png"></div>
+                        <h3 data-i18n="c-card1-t">Coordenação Multidisciplinar</h3>
+                        <p data-i18n="c-card1-d">Integração de modelos multidisciplinares em ambiente federado usando Navisworks.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-cde.png"></div>
+                        <h3 data-i18n="c-card2-t">Gerenciamento de CDE</h3>
+                        <p data-i18n="c-card2-d">Gestão do ambiente comum de dados (Autodesk Construction Cloud), controlando acessos e fluxos.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-4d.png"></div>
+                        <h3 data-i18n="c-card3-t">Planejamento e Custos (4D/5D)</h3>
+                        <p data-i18n="c-card3-d">Integração do modelo com cronogramas e orçamentos para análise de construtividade.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section light-bg">
+            <div class="container">
+                <h2 class="text-center section-title-main" data-i18n="title-inov">Inovação e Auditoria de Qualidade</h2>
+                <div class="grid-container">
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-audit.png"></div>
+                        <h3 data-i18n="i-card1-t">Auditoria e Clash Detection</h3>
+                        <p data-i18n="i-card1-d">Processos rigorosos de compatibilização no Navisworks para garantir modelos limpos.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-sql.png"></div>
+                        <h3 data-i18n="i-card2-t">Integração de Sistemas</h3>
+                        <p data-i18n="i-card2-d">Conexão entre o modelo digital e sistemas corporativos (ERP/EPPM) para automação de processos.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-pbi.png"></div>
+                        <h3 data-i18n="i-card3-t">Dashboards e BI</h3>
+                        <p data-i18n="i-card3-d">Visualização de indicadores de performance através de Dashboards no Power BI.</p>
                     </div>
                 </div>
             </div>
@@ -71,14 +127,14 @@
 
         <section id="contato" class="section">
             <div class="container">
-                <h2 class="text-center section-title">Fale com P-LAB</h2>
+                <h2 class="text-center section-title-main" data-i18n="contact-title">Fale com P-LAB</h2>
                 <form action="https://formsubmit.co/engpicanco@yahoo.com.br" method="POST" class="form-style">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="text" name="Nome" placeholder="Seu Nome" required>
                     <input type="email" name="Email" placeholder="E-mail Corporativo" required>
                     <input type="text" name="CNPJ_CPF" placeholder="CNPJ ou CPF (opcional)">
                     <textarea name="Mensagem" placeholder="Como podemos automatizar seu fluxo de trabalho?" rows="5" required></textarea>
-                    <button type="submit" class="btn-submit">Solicitar Orçamento</button>
+                    <button type="submit" class="btn-submit" data-i18n="contact-btn">Solicitar Orçamento</button>
                 </form>
             </div>
         </section>
@@ -91,26 +147,28 @@
                 <p>Joinville - SC</p>
             </div>
             <div class="footer-social">
-                <h3>Siga-nos</h3>
+                <h3 data-i18n="footer-social">Siga-nos</h3>
                 <div class="social-icons">
                     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="footer-contact">
-                <h3>Contato</h3>
-                <p>(61) 98206-8746</p>
-                <p>engpicanco@yahoo.com.br</p>
+                <h3 data-i18n="footer-contact">Contato</h3>
+                <p class="footer-white">(61) 98206-8746</p>
+                <p class="footer-white">engpicanco@yahoo.com.br</p>
                 <a href="https://wa.me/5561982068746" class="btn-whatsapp-footer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             </div>
         </div>
         <div class="container text-center footer-bottom">
-            <p>&copy; 2026 P-LAB Engenharia & Software.</p>
+            <p>&copy; 2026 P-LAB Engenharia & Software. v2.1.0</p>
         </div>
     </footer>
 
     <a href="https://wa.me/5561982068746" class="whatsapp-float" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
+
+    <script src="script.js"></script>
 </body>
 </html>
