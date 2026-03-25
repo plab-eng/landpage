@@ -229,3 +229,61 @@ input, textarea { padding: 15px; border: 1px solid var(--border); border-radius:
         text-align: center;
     }
 }
+/* Container do Hero - Layout em 2 colunas */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide em duas partes iguais */
+    gap: 40px; /* Espaço entre texto e imagem */
+    align-items: center; /* Centraliza verticalmente o texto com a imagem */
+    padding: 60px 0; /* Aumentei o respiro vertical para dar destaque */
+}
+
+.hero-text {
+    text-align: left;
+}
+
+.hero-text h2 {
+    font-size: 2.8rem; /* Aumentei o título para equilibrar com a imagem maior */
+    margin-bottom: 20px;
+    color: var(--primary);
+    line-height: 1.2; /* Melhor legibilidade */
+}
+
+.hero-text p {
+    font-size: 1.2rem; /* Aumentei o texto de apoio */
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Redimensionamento da Imagem (Mockup) - AUMENTADO */
+.hero-mockup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mockup-img {
+    width: 100%;
+    max-width: 650px; /* AUMENTADO de 500px para 650px para dar destaque */
+    height: auto; /* Mantém a proporção */
+    /* Removi a max-height para a imagem crescer */
+    object-fit: contain; /* Garante que a imagem apareça inteira */
+    display: block;
+}
+
+/* Ajuste para Celulares (Responsividade) */
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr; /* Um embaixo do outro */
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .mockup-img {
+        max-width: 350px; /* Ainda menor no celular, mas maior que antes */
+    }
+}
