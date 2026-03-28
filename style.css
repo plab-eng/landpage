@@ -36,12 +36,69 @@ body { margin: 0; font-family: 'Segoe UI', Tahoma, sans-serif; background: var(-
 .hero-text h2 { font-size: 3.2rem; line-height: 1.2; color: var(--primary); font-weight: bold; margin-bottom: 20px; }
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
 
-/* Cards */
-.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.skill-card { background: white; padding: 35px; border-radius: 8px; border-top: 5px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
-.skill-card:hover { transform: translateY(-5px); }
-.card-image-placeholder { width: 100%; height: 180px; background: #f9f9f9; margin-bottom: 20px; border: 1px dashed #ddd; display: flex; align-items: center; justify-content: center; }
-.card-image-placeholder img { max-width: 60px; }
+/* --- BLOCO DE CARDS COM ALINHAMENTO FORÇADO --- */
+.grid-container { 
+    display: grid !important; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important; 
+    gap: 30px !important; 
+    align-items: stretch !important; 
+}
+
+.skill-card { 
+    background: white !important; 
+    padding: 35px !important; 
+    border-radius: 8px !important; 
+    border-top: 5px solid var(--primary) !important; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important; 
+    transition: 0.3s !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.skill-card:hover { transform: translateY(-5px) !important; }
+
+.card-image-placeholder { 
+    width: 100% !important; 
+    height: 250px !important; 
+    margin-bottom: 25px !important; 
+    display: flex !important; 
+    align-items: center !important; 
+    justify-content: center !important; 
+    background: transparent !important;
+    border: none !important;
+    flex-shrink: 0 !important;
+}
+
+.card-image-placeholder img { 
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important; 
+}
+
+.skill-card h3 { 
+    font-size: 1.4rem !important; 
+    color: var(--primary) !important; 
+    margin: 0 0 15px 0 !important;
+    min-height: 3.5rem !important; 
+    display: flex !important;
+    align-items: flex-start !important;
+}
+
+.skill-card p {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    flex-grow: 1 !important;
+    display: block !important;
+    height: auto !important; 
+    overflow: visible !important; 
+}
+
+.pbi-card .card-image-placeholder img {
+    transform: scale(1.3) !important;
+}
+/* --- FIM DO BLOCO DE CARDS --- */
 
 /* Formulário Restaurado */
 .form-style { max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 15px; }
@@ -62,47 +119,7 @@ input, textarea { padding: 15px; border: 1px solid var(--border); border-radius:
 .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 1000; box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
 .whatsapp-float img { width: 38px; }
 
-@media (max-width: 768px) {
-    .header-flex { flex-direction: column; gap: 10px; }
-    .hero-grid { grid-template-columns: 1fr; text-align: center; }
-}
-:root {
-    --primary: #004a80;
-    --success: #4CAF50;
-    --light: #ffffff;
-    --text: #333333;
-    --border: #e1e4e8;
-}
-
-body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--light); color: var(--text); padding-top: 80px; }
-.container { width: 90%; max-width: 1100px; margin: auto; }
-
-/* Sticky Header */
-.main-header { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98); border-bottom: 1px solid var(--border); z-index: 2000; padding: 15px 0; }
-.header-flex { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.6rem; color: var(--primary); font-weight: bold; margin: 0; text-decoration: none; }
-
-/* Language Selector */
-.lang-btn { background: var(--primary); color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 8px; }
-.lang-dropdown { position: absolute; top: 100%; right: 0; width: 250px; background: white; border: 1px solid var(--border); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-radius: 6px; padding: 15px 0; visibility: hidden; opacity: 0; transition: 0.3s; transition-delay: 0.15s; }
-.language-selector:hover .lang-dropdown { visibility: visible; opacity: 1; }
-
-/* Títulos e Cards */
-.section-title-main { font-size: 2.2rem !important; color: var(--primary); font-weight: bold; margin-bottom: 50px; text-align: center; }
-.skill-card { background: white; padding: 35px; border-radius: 8px; border-top: 5px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
-.skill-card h3 { font-size: 1.4rem; color: var(--primary); }
-
-/* Contact Form */
-.form-style { max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 15px; }
-input, textarea { padding: 15px; border: 1px solid var(--border); border-radius: 5px; font-size: 1rem; width: 100%; }
-.btn-submit { background: var(--success); color: white; padding: 16px 35px; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; font-size: 1.1rem; }
-
-/* Footer */
-.main-footer { background: var(--primary); color: white; padding: 60px 0 20px; margin-top: 40px; }
-.social-icons a { color: #ffffff !important; font-size: 2rem !important; margin-right: 15px; text-decoration: none; }
-.btn-whatsapp-footer { background: #25d366; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; }
-.whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 9999; box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-/* --- Plugin Grid Estilo DiRoots --- */
+/* --- SEÇÃO PLUGINS / DIROOTS --- */
 .plugin-grid-diroots {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
@@ -121,169 +138,55 @@ input, textarea { padding: 15px; border: 1px solid var(--border); border-radius:
     flex-direction: column;
 }
 
-.plugin-card-diroots:hover {
-    transform: translateY(-5px);
-}
+.plugin-card-diroots:hover { transform: translateY(-5px); }
 
-.plugin-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
+.plugin-header { text-align: center; margin-bottom: 30px; }
+.plugin-logo-large { height: 80px; width: auto; margin-bottom: 20px; }
+.plugin-header h3 { font-size: 1.8rem; color: var(--primary); margin: 0; }
+.plugin-body { flex-grow: 1; display: flex; flex-direction: column; }
+.plugin-description { font-size: 1.1rem; margin-bottom: 30px; }
 
-.plugin-logo-large {
-    height: 80px;
-    width: auto;
-    margin-bottom: 20px;
-}
+.plugin-video-container { width: 100%; margin-bottom: 30px; border-radius: 4px; overflow: hidden; }
+.plugin-video-container video { width: 100%; display: block; }
 
-.plugin-header h3 {
-    font-size: 1.8rem;
-    color: var(--primary);
-    margin: 0;
-}
+.plugin-actions { display: flex; flex-direction: column; gap: 15px; margin-top: auto; }
+.btn-plugin { width: 100%; padding: 14px; border-radius: 5px; font-weight: bold; text-decoration: none; text-align: center; font-size: 1rem; transition: background 0.3s; }
 
-.plugin-body {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
+.btn-download-instalador { background: var(--success); color: white; }
+.btn-download-instalador:hover { background: #43a047; }
+.btn-download-manual { background: #666; color: white; }
+.btn-download-manual:hover { background: #555; }
 
-.plugin-description {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-}
-
-.plugin-video-container {
-    width: 100%;
-    margin-bottom: 30px;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.plugin-video-container video {
-    width: 100%;
-    display: block;
-}
-
-/* Botões do Plugin */
-.plugin-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: auto;
-}
-
-.btn-plugin {
-    width: 100%;
-    padding: 14px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-    font-size: 1rem;
-    transition: background 0.3s;
-}
-
-.btn-download-instalador {
-    background: var(--success);
-    color: white;
-}
-
-.btn-download-instalador:hover {
-    background: #43a047;
-}
-
-.btn-download-manual {
-    background: #666;
-    color: white;
-}
-
-.btn-download-manual:hover {
-    background: #555;
-}
-
-/* Plataforma pyRevit Box Ajustada */
-.pyrevit-box {
-    background: var(--gray);
-    padding: 40px;
-    border-radius: 8px;
-    margin-bottom: 50px;
-}
-
-.pyrevit-content {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
+/* Plataforma pyRevit */
+.pyrevit-box { background: var(--gray); padding: 40px; border-radius: 8px; margin-bottom: 50px; }
+.pyrevit-content { display: flex; align-items: center; gap: 40px; }
 
 .pyrevit-logo-container img {
-    max-width: 120px;
+    max-width: 300px;
+    filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.1));
 }
 
+/* Responsividade Geral */
 @media (max-width: 768px) {
-    .plugin-grid-diroots {
-        grid-template-columns: 1fr;
-    }
+    .header-flex { flex-direction: column; gap: 10px; }
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    
+    .plugin-grid-diroots { grid-template-columns: 1fr; }
+    
+    /* Ajuste pyRevit solicitado */
     .pyrevit-content {
-        flex-direction: column;
+        flex-direction: column-reverse; /* Coloca a logo acima do texto no mobile */
         text-align: center;
-    }
-}
-/* Container do Hero - Layout em 2 colunas */
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide em duas partes iguais */
-    gap: 40px; /* Espaço entre texto e imagem */
-    align-items: center; /* Centraliza verticalmente o texto com a imagem */
-    padding: 60px 0; /* Aumentei o respiro vertical para dar destaque */
-}
-
-.hero-text {
-    text-align: left;
-}
-
-.hero-text h2 {
-    font-size: 2.8rem; /* Aumentei o título para equilibrar com a imagem maior */
-    margin-bottom: 20px;
-    color: var(--primary);
-    line-height: 1.2; /* Melhor legibilidade */
-}
-
-.hero-text p {
-    font-size: 1.2rem; /* Aumentei o texto de apoio */
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-/* Redimensionamento da Imagem (Mockup) - AUMENTADO */
-.hero-mockup {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.mockup-img {
-    width: 100%;
-    max-width: 650px; /* AUMENTADO de 500px para 650px para dar destaque */
-    height: auto; /* Mantém a proporção */
-    /* Removi a max-height para a imagem crescer */
-    object-fit: contain; /* Garante que a imagem apareça inteira */
-    display: block;
-}
-
-/* Ajuste para Celulares (Responsividade) */
-@media (max-width: 768px) {
-    .hero-grid {
-        grid-template-columns: 1fr; /* Um embaixo do outro */
-        text-align: center;
-        padding: 40px 0;
+        gap: 20px;
     }
 
-    .hero-text {
-        text-align: center;
-    }
-
-    .mockup-img {
-        max-width: 350px; /* Ainda menor no celular, mas maior que antes */
+    .pyrevit-logo-container img {
+        max-width: 200px; /* Tamanho levemente menor para telas pequenas */
+        margin: 0 auto;
     }
 }
+
+/* Hero Texto Adicional */
+.hero-text h2 { font-size: 2.8rem; margin-bottom: 20px; color: var(--primary); line-height: 1.2; }
+.hero-text p { font-size: 1.2rem; margin-bottom: 30px; line-height: 1.6; }
+.mockup-img { width: 100%; max-width: 650px; height: auto; object-fit: contain; display: block; }
