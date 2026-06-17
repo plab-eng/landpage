@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Ideias/Editor
+.vscode/
+.idea/
+.claude/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Dados Sensíveis
+.env
+*.env
+backend/plab_automacoes.db

@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P-LAB | Erro 404 - Página não encontrada</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+    <script>(function(){try{var t=localStorage.getItem('p-lab-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="error-page">
-    <main class="container text-center" style="padding: 100px 0;">
-        <h1 style="font-size: 6rem; color: #004a80;">404</h1>
-        <h2>Ops! Ocorreu um erro de <span class="highlight">coordenadas</span>.</h2>
-        <p style="margin: 20px 0; color: #333;">A página que você procura foi movida ou não existe no servidor P-LAB.</p>
+<body>
+    <main class="container text-center" style="padding: 120px 0; min-height: 60vh;">
+        <h1 style="font-size: 6rem; color: var(--accent); margin-bottom: 0;">404</h1>
+        <h2>Ops! Ocorreu um erro de coordenadas.</h2>
+        <p style="margin: 20px auto 32px; color: var(--text-muted);">A página que você procura foi movida ou não existe no servidor P-LAB.</p>
         <a href="index.html" class="btn-primary">Voltar para a Home</a>
     </main>
 </body>
