@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M9WEG41PNK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-M9WEG41PNK');
-</script>
+    <!-- Aplica o tema antes do render para evitar flash (claro por padrão; respeita preferência do sistema na 1ª visita) -->
+    <script>(function(){try{var t=localStorage.getItem('p-lab-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <!-- Google Analytics 4 (G-M9WEG41PNK) carrega apenas APÓS consentimento de cookies (LGPD) — ver script.js -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P-LAB | Engenharia Inteligente e Automatizada</title>
+    <title>P-LAB | Software e automação para engenharia</title>
+    <meta name="description" content="A P-LAB cria software e automação para engenharia: plugins para Revit e Navisworks, o P-LAB Viewer para revisão BIM e o P-LAB Hub para gestão de escritórios.">
+    <link rel="canonical" href="https://plab-eng.github.io/landpage/">
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://plab-eng.github.io/landpage/">
-    <meta property="og:title" content="P-LAB | Engenharia Inteligente e Automatizada">
-    <meta property="og:description" content="Automação para Revit: Export Schedules e Export Sheets. Ganhe produtividade agora!">
+    <meta property="og:title" content="P-LAB | Software e automação para engenharia">
+    <meta property="og:description" content="Plugins para Revit e Navisworks, o P-LAB Viewer para revisão BIM e o P-LAB Hub para gestão de escritórios de projetos.">
     <meta property="og:image" content="https://plab-eng.github.io/landpage/images/logo-icon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -27,33 +27,42 @@
         <div class="container header-flex">
             <div class="header-left">
                 <a href="index.html" class="logo-link">
-                    <img src="images/logo-icon.png" alt="Logo P-LAB" class="header-logo-img">
-                    <h1 class="logo">P-LAB</h1>
+                    <img src="images/logo-icon.webp" alt="Logo P-LAB" class="header-logo-img logo-invert" width="35" height="36">
+                    <span class="logo">P-LAB</span>
                 </a>
             </div>
-            <nav>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-nav">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="primary-nav" id="primary-nav">
                 <ul class="nav-links">
-                    <li><a href="index.html" data-i18n="nav-home">Início</a></li>
-                    <li><a href="solucoes.html" data-i18n="nav-solutions">Soluções Gratuitas</a></li>
+                    <li><a href="index.html" class="active" data-i18n="nav-home">Início</a></li>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="hub.html" data-i18n="nav-hub">P-LAB Hub</a></li>
+                    <li><a href="consultoria.html" data-i18n="nav-consultoria">Consultoria</a></li>
                     <li><a href="#contato" data-i18n="nav-contact">Contato</a></li>
                 </ul>
-            </nav>
-            <div class="header-right">
-                <div class="language-selector">
-                    <button class="lang-btn"><i class="fas fa-globe"></i> <span id="current-lang-label">PT</span> <i class="fas fa-chevron-down"></i></button>
-                    <div class="lang-dropdown">
-                        <div class="dropdown-section">
-                            <span class="section-title" data-i18n="lang-suggested">LOCALIZAÇÃO SUGERIDA</span>
-                            <a href="javascript:void(0)" onclick="updateLang('pt')">Brasil (Português)</a>
-                        </div>
-                        <div class="dropdown-section">
-                            <span class="section-title" data-i18n="lang-available">SÍTIOS DISPONÍVEIS</span>
-                            <a href="javascript:void(0)" onclick="updateLang('en')">Global (English)</a>
-                            <a href="javascript:void(0)" onclick="updateLang('es')">España (Español)</a>
+                <div class="nav-extra">
+                    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro" title="Alternar tema">
+                        <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                    </button>
+                    <div class="language-selector">
+                        <button class="lang-btn"><i class="fas fa-globe"></i> <span id="current-lang-label">PT</span> <i class="fas fa-chevron-down"></i></button>
+                        <div class="lang-dropdown">
+                            <div class="dropdown-section">
+                                <span class="section-title" data-i18n="lang-suggested">LOCALIZAÇÃO SUGERIDA</span>
+                                <a href="javascript:void(0)" onclick="updateLang('pt')">Brasil (Português)</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <span class="section-title" data-i18n="lang-available">SÍTIOS DISPONÍVEIS</span>
+                                <a href="javascript:void(0)" onclick="updateLang('en')">Global (English)</a>
+                                <a href="javascript:void(0)" onclick="updateLang('es')">España (Español)</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </nav>
         </div>
     </header>
 
@@ -61,94 +70,101 @@
         <section class="hero-section section">
             <div class="container hero-grid">
                 <div class="hero-text">
-                    <h2 data-i18n="hero-title">Engenharia Inteligente e Automatizada</h2>
-                    <p data-i18n="hero-desc">Soluções para automação na elaboração de projetos, extração de dados do modelo e integração com nuvem (Autodesk Forma). Eliminamos o trabalho braçal para você focar na engenharia.</p>
-                    <a href="solucoes.html" class="btn-primary" data-i18n="hero-btn">Baixar Automações Gratuitas</a>
+                    <span class="eyebrow" data-i18n="hero-eyebrow">PLUGINS · PLATAFORMAS · GESTÃO</span>
+                    <h1 data-i18n="hero-title">Software e automação para engenharia</h1>
+                    <p data-i18n="hero-desc">Da automação no Revit à revisão BIM no navegador e à gestão do escritório: três produtos da P-LAB para eliminar o trabalho manual e devolver tempo à engenharia.</p>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">C#</span>
+                        <span class="tech-badge">Revit API</span>
+                        <span class="tech-badge">IFC</span>
+                        <span class="tech-badge">Web</span>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#solucoes" class="btn-primary" data-i18n="hero-btn">Conheça as soluções</a>
+                        <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-secondary" target="_blank" rel="noopener" data-i18n="hero-btn2"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+                    </div>
                 </div>
                 <div class="hero-mockup">
-                    <img src="images/mockup-bim.png" alt="P-LAB" class="mockup-img">
+                    <img src="images/mockup-bim.webp" alt="Visualização de modelo BIM da P-LAB" class="mockup-img" width="800" height="567" fetchpriority="high">
                 </div>
             </div>
         </section>
 
-        <section class="section light-bg">
+        <section id="solucoes" class="section light-bg">
             <div class="container">
-                <h2 class="text-center section-title-main" data-i18n="title-gestao">Gestão e Cultura BIM</h2>
-                <div class="grid-container">
-                    <div class="skill-card">
-                        <div class="card-image-placeholder"><img src="images/icon-bep.png"></div>
-                        <h3 data-i18n="g-card1-t">Implementação e Diretrizes</h3>
-                        <p data-i18n="g-card1-d">Criação de documentação estratégica (PEB/BEP e BIM Mandate) e desenvolvimento de Templates BIM no Revit.</p>
+                <h2 class="text-center section-title-main" data-i18n="axes-title">Três frentes, um objetivo: eliminar trabalho manual</h2>
+                <div class="grid-container axes-grid">
+                    <div class="skill-card axis-card">
+                        <i class="fas fa-puzzle-piece axis-icon"></i>
+                        <span class="axis-tag" data-i18n="axis1-tag">EIXO 1</span>
+                        <h3 data-i18n="axis1-t">Plugins Revit &amp; Navisworks</h3>
+                        <p data-i18n="axis1-d">Automações em Python e C# que eliminam tarefas repetitivas. Export Schedules e Export Sheets já disponíveis — gratuitos.</p>
+                        <a href="solucoes.html" class="btn-card" data-i18n="axis1-btn">Ver plugins <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="skill-card">
-                        <div class="card-image-placeholder"><img src="images/icon-culture.png"></div>
-                        <h3 data-i18n="g-card2-t">Cultura e Capacitação</h3>
-                        <p data-i18n="g-card2-d">Garantia da cultura BIM na companhia através de suporte técnico contínuo e treinamento em fluxos Revit e AutoCAD.</p>
+                    <div class="skill-card axis-card">
+                        <i class="fas fa-cube axis-icon"></i>
+                        <span class="axis-tag" data-i18n="axis2-tag">EIXO 2</span>
+                        <h3 data-i18n="axis2-t">P-LAB Viewer</h3>
+                        <p data-i18n="axis2-d">Plataforma web para visualizar, comparar e revisar projetos BIM (IFC, PDF, DXF) no navegador. Em uso na Vega Engenharia.</p>
+                        <a href="viewer.html" class="btn-card" data-i18n="axis2-btn">Conhecer o Viewer <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="skill-card">
-                        <div class="card-image-placeholder"><img src="images/icon-stakeholders.png"></div>
-                        <h3 data-i18n="g-card3-t">Gestão de Stakeholders</h3>
-                        <p data-i18n="g-card3-d">Rotinas periódicas de alinhamento e relatórios de progresso para stakeholders.</p>
+                    <div class="skill-card axis-card">
+                        <i class="fas fa-gauge-high axis-icon"></i>
+                        <span class="axis-tag" data-i18n="axis3-tag">EIXO 3</span>
+                        <h3 data-i18n="axis3-t">P-LAB Hub</h3>
+                        <p data-i18n="axis3-d">O sistema operacional do escritório de projetos: qualidade, custos, comercial e indicadores no lugar de planilhas soltas.</p>
+                        <a href="hub.html" class="btn-card" data-i18n="axis3-btn">Conhecer o Hub <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="section">
-            <div class="container">
-                <h2 class="text-center section-title-main" data-i18n="title-coord">Coordenação e Engenharia Digital</h2>
-                <div class="grid-container">
-                    <div class="skill-card">
-                        <div class="card-image-placeholder"><img src="images/icon-navis.png"></div>
-                        <h3 data-i18n="c-card1-t">Coordenação Multidisciplinar</h3>
-                        <p data-i18n="c-card1-d">Integração de modelos multidisciplinares em ambiente federado usando Navisworks.</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="card-image-placeholder"><img src="images/icon-cde.png"></div>
-                        <h3 data-i18n="c-card2-t">Gerenciamento de CDE</h3>
-                        <p data-i18n="c-card2-d">Gestão do ambiente comum de dados (Autodesk Construction Cloud), controlando acessos e fluxos.</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="card-image-placeholder"><img src="images/icon-4d.png"></div>
-                        <h3 data-i18n="c-card3-t">Planejamento e Custos (4D/5D)</h3>
-                        <p data-i18n="c-card3-d">Integração do modelo com cronogramas e orçamentos para análise de construtividade.</p>
-                    </div>
+            <div class="container custom-dev">
+                <div class="custom-dev-text">
+                    <span class="eyebrow" data-i18n="custom-eyebrow">DESENVOLVIMENTO SOB MEDIDA</span>
+                    <h2 data-i18n="custom-title">O seu fluxo, virando software</h2>
+                    <p data-i18n="custom-desc">A P-LAB também desenvolve sob demanda: plugins customizados para Revit e Navisworks, sistemas de gestão e ferramentas de análise adaptadas ao processo de cada escritório. Export Schedules, Export Sheets, o Hub e o Viewer nasceram exatamente assim — de necessidades reais de quem projeta.</p>
+                    <a href="#contato" class="btn-primary" data-i18n="custom-btn">Descreva seu fluxo</a>
                 </div>
             </div>
         </section>
 
         <section class="section light-bg">
-            <div class="container">
-                <h2 class="text-center section-title-main" data-i18n="title-inov">Inovação e Auditoria de Qualidade</h2>
-                <div class="grid-container">
-                    <div class="skill-card">
-                        <div class="card-image-placeholder"><img src="images/icon-audit.png"></div>
-                        <h3 data-i18n="i-card1-t">Auditoria e Clash Detection</h3>
-                        <p data-i18n="i-card1-d">Processos rigorosos de compatibilização no Navisworks para garantir modelos limpos.</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="card-image-placeholder"><img src="images/icon-sql.png"></div>
-                        <h3 data-i18n="i-card2-t">Integração de Sistemas</h3>
-                        <p data-i18n="i-card2-d">Conexão entre o modelo digital e sistemas corporativos (ERP/EPPM) para automação de processos.</p>
-                    </div>
-                    <div class="skill-card pbi-card"> 
-    <div class="card-image-placeholder"><img src="images/icon-pbi.png"></div>
-    <h3 data-i18n="i-card3-t">Dashboards e BI</h3>
-    <p data-i18n="i-card3-d">Visualização de indicadores de performance através de Dashboards no Power BI integrados aos dados do modelo.</p>
-</div>
+            <div class="container consultoria-band">
+                <div>
+                    <span class="eyebrow" data-i18n="cons-band-eyebrow">CONSULTORIA BIM</span>
+                    <h2 data-i18n="cons-band-title">Antes do software, o método</h2>
+                    <p data-i18n="cons-band-desc">A P-LAB também atua em consultoria BIM: gestão e cultura, coordenação multidisciplinar e auditoria de qualidade para estruturar o BIM do seu escritório.</p>
                 </div>
+                <a href="consultoria.html" class="btn-secondary" data-i18n="cons-band-btn">Ver consultoria <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
 
         <section id="contato" class="section">
             <div class="container">
-                <h2 class="text-center section-title-main" data-i18n="contact-title">Fale com P-LAB</h2>
-                <form action="https://formsubmit.co/engpicanco@yahoo.com.br" method="POST" class="form-style">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="text" name="Nome" placeholder="Seu Nome" required>
-                    <input type="email" name="Email" placeholder="E-mail Corporativo" required>
-                    <input type="text" name="CNPJ_CPF" placeholder="CNPJ ou CPF (opcional)">
-                    <textarea name="Mensagem" placeholder="Como podemos automatizar seu fluxo de trabalho?" rows="5" required></textarea>
+                <h2 class="text-center section-title-main" data-i18n="contact-title">Fale com a P-LAB</h2>
+                <form action="https://formsubmit.co/engpicanco@yahoo.com.br" method="POST" class="form-style" id="contact-form" novalidate>
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="hidden" name="_next" value="https://plab-eng.github.io/landpage/obrigado.html">
+                    <input type="hidden" name="_subject" value="Novo contato pelo site P-LAB">
+                    <!-- Honeypot anti-spam: invisível para humanos, preenchido por bots -->
+                    <input type="text" name="_honey" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                    <label class="sr-only" for="f-nome">Seu nome</label>
+                    <input type="text" id="f-nome" name="Nome" placeholder="Seu Nome" required>
+
+                    <label class="sr-only" for="f-email">E-mail corporativo</label>
+                    <input type="email" id="f-email" name="Email" placeholder="E-mail Corporativo" required>
+
+                    <label class="sr-only" for="f-doc">CNPJ ou CPF (opcional)</label>
+                    <input type="text" id="f-doc" name="CNPJ_CPF" placeholder="CNPJ ou CPF (opcional)">
+
+                    <label class="sr-only" for="f-msg">Mensagem</label>
+                    <textarea id="f-msg" name="Mensagem" placeholder="Como podemos automatizar seu fluxo de trabalho?" rows="5" required></textarea>
+
+                    <p class="form-error" id="form-error" role="alert" hidden></p>
                     <button type="submit" class="btn-submit" data-i18n="contact-btn">Solicitar Orçamento</button>
                 </form>
             </div>
@@ -158,32 +174,39 @@
     <footer class="main-footer">
         <div class="container footer-grid">
             <div class="footer-info">
-                <h1 class="logo-footer">P-LAB</h1>
+                <span class="logo-footer">P-LAB</span>
+                <p data-i18n="footer-tagline">Software e automação para engenharia.</p>
                 <p>Joinville - SC</p>
+            </div>
+            <div class="footer-nav">
+                <h3 data-i18n="footer-products">Produtos</h3>
+                <ul>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="hub.html" data-i18n="nav-hub">P-LAB Hub</a></li>
+                    <li><a href="consultoria.html" data-i18n="nav-consultoria">Consultoria</a></li>
+                </ul>
             </div>
             <div class="footer-social">
                 <h3 data-i18n="footer-social">Siga-nos</h3>
                 <div class="social-icons">
-    <a href="https://www.linkedin.com/company/plab-eng/posts?lipi=urn%3Ali%3Apage%3Aorganization_admin_admin_dashboard_index%3Bb9c0a3f6-3936-4a2c-9be3-7abc597ee620" target="_blank">
-        <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-</div>
+                    <a href="https://www.linkedin.com/company/plab-eng/" target="_blank" rel="noopener" aria-label="LinkedIn da P-LAB"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
             <div class="footer-contact">
                 <h3 data-i18n="footer-contact">Contato</h3>
-                <p class="footer-white">(61) 98206-8746</p>
+                <p class="footer-white"><a href="tel:+5561982068746">(61) 98206-8746</a></p>
                 <p class="footer-white">engpicanco@yahoo.com.br</p>
-                <a href="https://wa.me/5561982068746" class="btn-whatsapp-footer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-whatsapp-footer" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             </div>
         </div>
         <div class="container text-center footer-bottom">
-            <p>&copy; 2026 P-LAB Engenharia & Software. v2.1.0</p>
+            <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/5561982068746" class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar com a P-LAB no WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="34" height="34">
     </a>
 
     <script src="script.js"></script>

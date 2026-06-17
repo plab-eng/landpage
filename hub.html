@@ -4,20 +4,20 @@
     <!-- Aplica o tema antes do render para evitar flash (claro por padrão; respeita preferência do sistema na 1ª visita) -->
     <script>(function(){try{var t=localStorage.getItem('p-lab-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <!-- Google Analytics 4 (G-M9WEG41PNK) carrega apenas APÓS consentimento de cookies (LGPD) — ver script.js -->
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plugins Gratuitos para Revit | P-LAB</title>
-    <meta name="description" content="Baixe grátis os plugins P-LAB para Revit: Export Schedules (tabelas para Excel) e Export Sheets (pranchas em massa). Instalador configura tudo automaticamente.">
-    <link rel="canonical" href="https://plab-eng.github.io/landpage/solucoes.html">
+    <title>P-LAB Hub | O sistema operacional do seu escritório de projetos</title>
+    <meta name="description" content="P-LAB Hub: gestão completa do escritório de projetos. Qualidade, custos e horas, comercial e indicadores em um só lugar — no lugar de planilhas soltas.">
+    <link rel="canonical" href="https://plab-eng.github.io/landpage/hub.html">
     <link rel="icon" type="image/png" href="images/logo-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://plab-eng.github.io/landpage/solucoes.html">
-    <meta property="og:title" content="Plugins Gratuitos para Revit | P-LAB">
-    <meta property="og:description" content="Export Schedules e Export Sheets: automações gratuitas que eliminam trabalho repetitivo no Revit. Instalador configura pyRevit e Python para você.">
+    <meta property="og:url" content="https://plab-eng.github.io/landpage/hub.html">
+    <meta property="og:title" content="P-LAB Hub | Gestão do escritório de projetos">
+    <meta property="og:description" content="Qualidade, custos, comercial e indicadores do seu escritório de projetos em um só sistema.">
     <meta property="og:image" content="https://plab-eng.github.io/landpage/images/logo-icon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -37,9 +37,9 @@
             <nav class="primary-nav" id="primary-nav">
                 <ul class="nav-links">
                     <li><a href="index.html" data-i18n="nav-home">Início</a></li>
-                    <li><a href="solucoes.html" class="active" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
                     <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
-                    <li><a href="hub.html" data-i18n="nav-hub">P-LAB Hub</a></li>
+                    <li><a href="hub.html" class="active" data-i18n="nav-hub">P-LAB Hub</a></li>
                     <li><a href="consultoria.html" data-i18n="nav-consultoria">Consultoria</a></li>
                     <li><a href="index.html#contato" data-i18n="nav-contact">Contato</a></li>
                 </ul>
@@ -66,79 +66,82 @@
         </div>
     </header>
 
-    <main class="container section">
-        <h1 class="text-center section-title-main" data-i18n="sol-title">Plugins Gratuitos para Revit</h1>
-
-        <section class="pyrevit-box">
-    <div class="pyrevit-content">
-        <div class="pyrevit-text">
-            <h3 data-i18n="py-title">A Plataforma pyRevit</h3>
-            <p data-i18n="py-desc">Nossas soluções utilizam o pyRevit, uma plataforma leve que funciona como uma engine para rodar scripts de forma eficiente dentro do Revit.</p>
-            
-            <p class="pyrevit-notice">
-                <i class="fas fa-info-circle"></i> 
-                <span data-i18n="py-notice"><strong>Não se preocupe:</strong> Caso você ainda não tenha o <strong>pyRevit</strong> ou o <strong>Python</strong> instalado, o nosso instalador configurará tudo automaticamente para você.</span>
-            </p>
-        </div>
-        <div class="pyrevit-logo-container">
-            <img src="images/pyrevit-logo.webp" alt="Logo da plataforma pyRevit" loading="lazy" width="800" height="404">
-        </div>
-    </div>
-</section>
-
-        <div class="plugin-grid-diroots">
-            
-            <div class="plugin-card-diroots">
-                <div class="plugin-header">
-                    <img src="images/logo-export-schedules.png" alt="Export Schedules" class="plugin-logo-large" loading="lazy" width="96" height="96">
-                    <h3 data-i18n="p1-title">Export Schedules</h3>
+    <main>
+        <section class="section hero-section">
+            <div class="container text-center">
+                <span class="eyebrow" data-i18n="hb-eyebrow">EIXO 3 · GESTÃO DE ESCRITÓRIO</span>
+                <h1 data-i18n="hb-hero-title">P-LAB Hub</h1>
+                <p class="hero-lead" data-i18n="hb-hero-desc">O sistema operacional do seu escritório de projetos — no lugar de planilhas soltas e ferramentas genéricas.</p>
+                <div class="tech-badges" style="justify-content:center; display:flex; flex-wrap:wrap;">
+                    <span class="tech-badge">Qualidade</span>
+                    <span class="tech-badge">Custos</span>
+                    <span class="tech-badge">CRM</span>
+                    <span class="tech-badge">Indicadores</span>
                 </div>
-                <div class="plugin-body">
-                    <p class="plugin-description" data-i18n="p1-desc-long">Automatize a extração de dados do seu modelo Revit. Este plugin exporta tabelas Revit diretamente para Excel (.xlsx) via COM, sem a necessidade de abrir o modelo manualmente, economizando tempo precioso na elaboração de orçamentos e listas de materiais.</p>
-                    <div class="tech-badges">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">pyRevit</span>
-                        <span class="tech-badge">Revit API</span>
-                        <span class="tech-badge">Excel COM</span>
+                <p>
+                    <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20Hub." class="btn-primary" target="_blank" rel="noopener" data-i18n="hb-hero-btn">Quero conhecer o Hub</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="section light-bg">
+            <div class="container">
+                <h2 class="text-center section-title-main" data-i18n="hb-mod-title">Cinco módulos, um só cockpit</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-ranking-star feature-icon"></i>
+                        <h3 data-i18n="hb-m1-t">Qualidade</h3>
+                        <p data-i18n="hb-m1-d">Avaliação de projetistas por checklist e ranking gamificado que estimula a melhoria contínua.</p>
                     </div>
-                    <div class="plugin-video-container">
-                        <video controls preload="none" poster="images/poster-schedules.jpg" width="640" height="360">
-                            <source src="videos/Exportar planilhas.mp4" type="video/mp4">
-                        </video>
+                    <div class="feature-card">
+                        <i class="fas fa-clock feature-icon"></i>
+                        <h3 data-i18n="hb-m2-t">Custos e Horas</h3>
+                        <p data-i18n="hb-m2-d">Custo por projeto e por disciplina, integrado ao Runrun.it e ao ClickUp.</p>
                     </div>
-                    <div class="plugin-actions">
-                        <a href="downloads/ExportSchedules_Setup.exe" class="btn-plugin btn-download-instalador" data-i18n="btn-download">Download Instalador</a>
-                        <a href="downloads/Manual_Export_Schedules.pdf" class="btn-plugin btn-download-manual" data-i18n="btn-manual">Download Manual</a>
+                    <div class="feature-card">
+                        <i class="fas fa-handshake feature-icon"></i>
+                        <h3 data-i18n="hb-m3-t">Comercial</h3>
+                        <p data-i18n="hb-m3-d">CRM de propostas e pipeline de vendas para não perder nenhuma oportunidade.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line feature-icon"></i>
+                        <h3 data-i18n="hb-m4-t">Gestão</h3>
+                        <p data-i18n="hb-m4-d">Painel executivo com os indicadores do escritório consolidados em um só lugar.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-gauge-high feature-icon"></i>
+                        <h3 data-i18n="hb-m5-t">Home (cockpit)</h3>
+                        <p data-i18n="hb-m5-d">Visão geral com alertas e o que exige atenção hoje, logo na primeira tela.</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="plugin-card-diroots">
-                <div class="plugin-header">
-                    <img src="images/logo-export-sheets.png" alt="Export Sheets" class="plugin-logo-large" loading="lazy" width="96" height="96">
-                    <h3 data-i18n="p2-title">Export Sheets</h3>
-                </div>
-                <div class="plugin-body">
-                    <p class="plugin-description" data-i18n="p2-desc-long">Gestão eficiente de entregas. Exportação profissional de pranchas para PDF, DWG e DWF em massa. Inclui organização automática em subpastas e vinculação de imagens em DWG, garantindo um As-Built limpo e focado em operação.</p>
-                    <div class="tech-badges">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">pyRevit</span>
-                        <span class="tech-badge">Revit API</span>
-                        <span class="tech-badge">PDF / DWG</span>
+        <section class="section">
+            <div class="container">
+                <h2 class="text-center section-title-main" data-i18n="hb-next-title">No horizonte</h2>
+                <div class="feature-grid two-cols">
+                    <div class="feature-card">
+                        <i class="fas fa-robot feature-icon"></i>
+                        <h3 data-i18n="hb-n1-t">Módulo IA</h3>
+                        <p data-i18n="hb-n1-d">Consultas em linguagem natural sobre os dados do escritório — pergunte e receba a resposta.</p>
                     </div>
-                    <div class="plugin-video-container">
-                        <video controls preload="none" poster="images/poster-sheets.jpg" width="640" height="360">
-                            <source src="videos/Exportar pranchas.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="plugin-actions">
-                        <a href="downloads/ExportSheets_Setup.exe" class="btn-plugin btn-download-instalador" data-i18n="btn-download">Download Instalador</a>
-                        <a href="downloads/Manual_Export_Sheets.pdf" class="btn-plugin btn-download-manual" data-i18n="btn-manual">Download Manual</a>
+                    <div class="feature-card">
+                        <i class="fas fa-link feature-icon"></i>
+                        <h3 data-i18n="hb-n2-t">Integração com o Viewer</h3>
+                        <p data-i18n="hb-n2-d">Conectado ao <a href="viewer.html">P-LAB Viewer</a>, unindo gestão e revisão técnica no mesmo fluxo.</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-        </div>
+        <section class="section light-bg">
+            <div class="container text-center cta-band">
+                <h2 data-i18n="hb-cta-title">Troque a planilha pelo Hub</h2>
+                <p data-i18n="hb-cta-desc">Mostramos como o P-LAB Hub se encaixa no fluxo do seu escritório.</p>
+                <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20Hub." class="btn-primary" target="_blank" rel="noopener" data-i18n="hb-cta-btn">Falar sobre o Hub no WhatsApp</a>
+            </div>
+        </section>
     </main>
 
     <footer class="main-footer">
@@ -174,6 +177,10 @@
             <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0</p>
         </div>
     </footer>
+
+    <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20Hub." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar com a P-LAB no WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="34" height="34">
+    </a>
 
     <script src="script.js"></script>
 </body>

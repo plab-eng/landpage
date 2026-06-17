@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Aplica o tema antes do render para evitar flash (claro por padrão; respeita preferência do sistema na 1ª visita) -->
+    <script>(function(){try{var t=localStorage.getItem('p-lab-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <!-- Google Analytics 4 (G-M9WEG41PNK) carrega apenas APÓS consentimento de cookies (LGPD) — ver script.js -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P-LAB Viewer | Análise e revisão de projetos BIM no navegador</title>
+    <meta name="description" content="P-LAB Viewer: visualize IFC, PDF e DXF no navegador, compare revisões, faça clash detection e gerencie issues. Em português, leve e sem mensalidade em dólar.">
+    <link rel="canonical" href="https://plab-eng.github.io/landpage/viewer.html">
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://plab-eng.github.io/landpage/viewer.html">
+    <meta property="og:title" content="P-LAB Viewer | Revise projetos BIM no navegador">
+    <meta property="og:description" content="Visualize, compare e revise IFC, PDF e DXF direto no navegador. Em uso na Vega Engenharia.">
+    <meta property="og:image" content="https://plab-eng.github.io/landpage/images/logo-icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header sticky-header">
+        <div class="container header-flex">
+            <div class="header-left">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo-icon.webp" alt="Logo P-LAB" class="header-logo-img logo-invert" width="35" height="36">
+                    <span class="logo">P-LAB</span>
+                </a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-nav">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="primary-nav" id="primary-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="nav-home">Início</a></li>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="viewer.html" class="active" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="hub.html" data-i18n="nav-hub">P-LAB Hub</a></li>
+                    <li><a href="consultoria.html" data-i18n="nav-consultoria">Consultoria</a></li>
+                    <li><a href="index.html#contato" data-i18n="nav-contact">Contato</a></li>
+                </ul>
+                <div class="nav-extra">
+                    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro" title="Alternar tema">
+                        <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                    </button>
+                    <div class="language-selector">
+                        <button class="lang-btn"><i class="fas fa-globe"></i> <span id="current-lang-label">PT</span> <i class="fas fa-chevron-down"></i></button>
+                        <div class="lang-dropdown">
+                            <div class="dropdown-section">
+                                <span class="section-title" data-i18n="lang-suggested">LOCALIZAÇÃO SUGERIDA</span>
+                                <a href="javascript:void(0)" onclick="updateLang('pt')">Brasil (Português)</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <span class="section-title" data-i18n="lang-available">SÍTIOS DISPONÍVEIS</span>
+                                <a href="javascript:void(0)" onclick="updateLang('en')">Global (English)</a>
+                                <a href="javascript:void(0)" onclick="updateLang('es')">España (Español)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section hero-section">
+            <div class="container text-center">
+                <span class="eyebrow" data-i18n="vw-eyebrow">EIXO 2 · PLATAFORMA WEB</span>
+                <h1 data-i18n="vw-hero-title">P-LAB Viewer</h1>
+                <p class="hero-lead" data-i18n="vw-hero-desc">Visualize, compare e revise projetos BIM direto no navegador — sem instalar nada.</p>
+                <span class="badge-soft" data-i18n="vw-badge"><i class="fas fa-circle-check"></i> Em uso na Vega Engenharia</span>
+                <div class="tech-badges" style="justify-content:center; display:flex; flex-wrap:wrap;">
+                    <span class="tech-badge">IFC</span>
+                    <span class="tech-badge">PDF</span>
+                    <span class="tech-badge">DXF</span>
+                    <span class="tech-badge">Web</span>
+                    <span class="tech-badge">QR Code</span>
+                </div>
+                <p>
+                    <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20Viewer." class="btn-primary" target="_blank" rel="noopener" data-i18n="vw-hero-btn">Quero conhecer o Viewer</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="section light-bg">
+            <div class="container">
+                <h2 class="text-center section-title-main" data-i18n="vw-feat-title">Tudo o que você precisa para revisar um projeto</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-cube feature-icon"></i>
+                        <h3 data-i18n="vw-f1-t">IFC em 3D no navegador</h3>
+                        <p data-i18n="vw-f1-d">Abra o modelo IFC sem instalar nada: corte, medidas e propriedades de cada elemento.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-pen-ruler feature-icon"></i>
+                        <h3 data-i18n="vw-f2-t">Marcações em PDF e DXF</h3>
+                        <p data-i18n="vw-f2-d">Revise pranchas com balões, setas e stamps de aprovação direto no documento.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-code-compare feature-icon"></i>
+                        <h3 data-i18n="vw-f3-t">Comparação de revisões</h3>
+                        <p data-i18n="vw-f3-d">Veja automaticamente o que foi adicionado, removido ou modificado entre versões.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-clipboard-check feature-icon"></i>
+                        <h3 data-i18n="vw-f4-t">Validação de qualidade do IFC</h3>
+                        <p data-i18n="vw-f4-d">Detecta GUIDs duplicados, Psets faltando e problemas de georreferenciamento.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-triangle-exclamation feature-icon"></i>
+                        <h3 data-i18n="vw-f5-t">Clash detection</h3>
+                        <p data-i18n="vw-f5-d">Identifique conflitos entre disciplinas: estrutural × hidráulico × elétrico.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-list-check feature-icon"></i>
+                        <h3 data-i18n="vw-f6-t">Gestão de issues</h3>
+                        <p data-i18n="vw-f6-d">Pendências vinculadas ao elemento do modelo, com responsável e prazo definidos.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-qrcode feature-icon"></i>
+                        <h3 data-i18n="vw-f7-t">Compartilhamento por QR Code</h3>
+                        <p data-i18n="vw-f7-d">O cliente escaneia a prancha e vê o 3D no celular, por link ou QR Code.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fab fa-discord feature-icon"></i>
+                        <h3 data-i18n="vw-f8-t">Notificações e automação</h3>
+                        <p data-i18n="vw-f8-d">Avisos no Discord e importação automática de pastas monitoradas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="text-center section-title-main" data-i18n="vw-how-title">Como funciona</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <h3 data-i18n="vw-s1-t">Envie o IFC</h3>
+                        <p data-i18n="vw-s1-d">Faça o upload do modelo ou deixe uma pasta monitorada importar sozinha.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <h3 data-i18n="vw-s2-t">Revise no navegador</h3>
+                        <p data-i18n="vw-s2-d">Navegue no 3D, compare revisões, rode clash e registre as issues.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <h3 data-i18n="vw-s3-t">Compartilhe por QR Code</h3>
+                        <p data-i18n="vw-s3-d">Gere um link ou QR Code e o cliente vê o projeto no próprio celular.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section light-bg">
+            <div class="container text-center cta-band">
+                <h2 data-i18n="vw-diff-title">Em português, leve e sem mensalidade em dólar</h2>
+                <p data-i18n="vw-diff-desc">Uma plataforma de revisão BIM pensada para a realidade do escritório brasileiro — rápida de adotar e sem custo atrelado ao câmbio.</p>
+                <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20Viewer." class="btn-primary" target="_blank" rel="noopener" data-i18n="vw-cta-btn">Falar sobre o Viewer no WhatsApp</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <span class="logo-footer">P-LAB</span>
+                <p data-i18n="footer-tagline">Software e automação para engenharia.</p>
+                <p>Joinville - SC</p>
+            </div>
+            <div class="footer-nav">
+                <h3 data-i18n="footer-products">Produtos</h3>
+                <ul>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="hub.html" data-i18n="nav-hub">P-LAB Hub</a></li>
+                    <li><a href="consultoria.html" data-i18n="nav-consultoria">Consultoria</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3 data-i18n="footer-social">Siga-nos</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/plab-eng/" target="_blank" rel="noopener" aria-label="LinkedIn da P-LAB"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h3 data-i18n="footer-contact">Contato</h3>
+                <p class="footer-white"><a href="tel:+5561982068746">(61) 98206-8746</a></p>
+                <p class="footer-white">engpicanco@yahoo.com.br</p>
+                <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-whatsapp-footer" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+        <div class="container text-center footer-bottom">
+            <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20Viewer." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar com a P-LAB no WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="34" height="34">
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

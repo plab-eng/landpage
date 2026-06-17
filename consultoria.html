@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Aplica o tema antes do render para evitar flash (claro por padrão; respeita preferência do sistema na 1ª visita) -->
+    <script>(function(){try{var t=localStorage.getItem('p-lab-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <!-- Google Analytics 4 (G-M9WEG41PNK) carrega apenas APÓS consentimento de cookies (LGPD) — ver script.js -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoria BIM | P-LAB</title>
+    <meta name="description" content="Consultoria BIM da P-LAB: gestão e cultura BIM, coordenação multidisciplinar no Navisworks, auditoria de qualidade e dashboards. Implante BIM com método.">
+    <link rel="canonical" href="https://plab-eng.github.io/landpage/consultoria.html">
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://plab-eng.github.io/landpage/consultoria.html">
+    <meta property="og:title" content="Consultoria BIM | P-LAB">
+    <meta property="og:description" content="Gestão e cultura BIM, coordenação digital e auditoria de qualidade com método e tecnologia.">
+    <meta property="og:image" content="https://plab-eng.github.io/landpage/images/logo-icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header sticky-header">
+        <div class="container header-flex">
+            <div class="header-left">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo-icon.webp" alt="Logo P-LAB" class="header-logo-img logo-invert" width="35" height="36">
+                    <span class="logo">P-LAB</span>
+                </a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-nav">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="primary-nav" id="primary-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="nav-home">Início</a></li>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="hub.html" data-i18n="nav-hub">P-LAB Hub</a></li>
+                    <li><a href="consultoria.html" class="active" data-i18n="nav-consultoria">Consultoria</a></li>
+                    <li><a href="index.html#contato" data-i18n="nav-contact">Contato</a></li>
+                </ul>
+                <div class="nav-extra">
+                    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro" title="Alternar tema">
+                        <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                    </button>
+                    <div class="language-selector">
+                        <button class="lang-btn"><i class="fas fa-globe"></i> <span id="current-lang-label">PT</span> <i class="fas fa-chevron-down"></i></button>
+                        <div class="lang-dropdown">
+                            <div class="dropdown-section">
+                                <span class="section-title" data-i18n="lang-suggested">LOCALIZAÇÃO SUGERIDA</span>
+                                <a href="javascript:void(0)" onclick="updateLang('pt')">Brasil (Português)</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <span class="section-title" data-i18n="lang-available">SÍTIOS DISPONÍVEIS</span>
+                                <a href="javascript:void(0)" onclick="updateLang('en')">Global (English)</a>
+                                <a href="javascript:void(0)" onclick="updateLang('es')">España (Español)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section hero-section">
+            <div class="container text-center">
+                <span class="eyebrow" data-i18n="cons-eyebrow">CONSULTORIA BIM</span>
+                <h1 data-i18n="cons-hero-title">Implante BIM com método, não com tentativa e erro</h1>
+                <p class="hero-lead" data-i18n="cons-hero-desc">Antes de desenvolver software, a P-LAB nasceu na consultoria BIM. Ajudamos escritórios a estruturar gestão, coordenação e qualidade — da diretriz à auditoria.</p>
+                <a href="index.html#contato" class="btn-primary" data-i18n="cons-hero-btn">Falar com um consultor</a>
+            </div>
+        </section>
+
+        <section class="section light-bg">
+            <div class="container">
+                <h2 class="text-center section-title-main" data-i18n="title-gestao">Gestão e Cultura BIM</h2>
+                <div class="grid-container">
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-bep.webp" alt="Implementação e diretrizes BIM" loading="lazy" width="400" height="290"></div>
+                        <h3 data-i18n="g-card1-t">Implementação e Diretrizes</h3>
+                        <p data-i18n="g-card1-d">Criação de documentação estratégica (PEB/BEP e BIM Mandate) e desenvolvimento de Templates BIM no Revit.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-culture.webp" alt="Cultura e capacitação BIM" loading="lazy" width="400" height="305"></div>
+                        <h3 data-i18n="g-card2-t">Cultura e Capacitação</h3>
+                        <p data-i18n="g-card2-d">Garantia da cultura BIM na companhia através de suporte técnico contínuo e treinamento em fluxos Revit e AutoCAD.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-stakeholders.webp" alt="Gestão de stakeholders" loading="lazy" width="400" height="285"></div>
+                        <h3 data-i18n="g-card3-t">Gestão de Stakeholders</h3>
+                        <p data-i18n="g-card3-d">Rotinas periódicas de alinhamento e relatórios de progresso para stakeholders.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="text-center section-title-main" data-i18n="title-coord">Coordenação e Engenharia Digital</h2>
+                <div class="grid-container">
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-navis.webp" alt="Coordenação multidisciplinar no Navisworks" loading="lazy" width="400" height="309"></div>
+                        <h3 data-i18n="c-card1-t">Coordenação Multidisciplinar</h3>
+                        <p data-i18n="c-card1-d">Integração de modelos multidisciplinares em ambiente federado usando Navisworks.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-cde.webp" alt="Gerenciamento de CDE" loading="lazy" width="400" height="299"></div>
+                        <h3 data-i18n="c-card2-t">Gerenciamento de CDE</h3>
+                        <p data-i18n="c-card2-d">Gestão do ambiente comum de dados (Autodesk Construction Cloud), controlando acessos e fluxos.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-4d.webp" alt="Planejamento e custos 4D/5D" loading="lazy" width="400" height="322"></div>
+                        <h3 data-i18n="c-card3-t">Planejamento e Custos (4D/5D)</h3>
+                        <p data-i18n="c-card3-d">Integração do modelo com cronogramas e orçamentos para análise de construtividade.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section light-bg">
+            <div class="container">
+                <h2 class="text-center section-title-main" data-i18n="title-inov">Inovação e Auditoria de Qualidade</h2>
+                <div class="grid-container">
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-audit.webp" alt="Auditoria e clash detection" loading="lazy" width="400" height="420"></div>
+                        <h3 data-i18n="i-card1-t">Auditoria e Clash Detection</h3>
+                        <p data-i18n="i-card1-d">Processos rigorosos de compatibilização no Navisworks para garantir modelos limpos.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="card-image-placeholder"><img src="images/icon-sql.webp" alt="Integração de sistemas" loading="lazy" width="400" height="364"></div>
+                        <h3 data-i18n="i-card2-t">Integração de Sistemas</h3>
+                        <p data-i18n="i-card2-d">Conexão entre o modelo digital e sistemas corporativos (ERP/EPPM) para automação de processos.</p>
+                    </div>
+                    <div class="skill-card pbi-card">
+                        <div class="card-image-placeholder"><img src="images/icon-pbi.webp" alt="Dashboards e Power BI" loading="lazy" width="400" height="210"></div>
+                        <h3 data-i18n="i-card3-t">Dashboards e BI</h3>
+                        <p data-i18n="i-card3-d">Visualização de indicadores de performance através de Dashboards no Power BI integrados aos dados do modelo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container text-center cta-band">
+                <h2 data-i18n="cons-cta-title">Pronto para estruturar o BIM do seu escritório?</h2>
+                <p data-i18n="cons-cta-desc">Conte seu cenário atual e desenhamos um plano de implantação sob medida.</p>
+                <a href="index.html#contato" class="btn-primary" data-i18n="cons-cta-btn">Solicitar diagnóstico</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <span class="logo-footer">P-LAB</span>
+                <p data-i18n="footer-tagline">Software e automação para engenharia.</p>
+                <p>Joinville - SC</p>
+            </div>
+            <div class="footer-nav">
+                <h3 data-i18n="footer-products">Produtos</h3>
+                <ul>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="hub.html" data-i18n="nav-hub">P-LAB Hub</a></li>
+                    <li><a href="consultoria.html" data-i18n="nav-consultoria">Consultoria</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3 data-i18n="footer-social">Siga-nos</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/plab-eng/" target="_blank" rel="noopener" aria-label="LinkedIn da P-LAB"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h3 data-i18n="footer-contact">Contato</h3>
+                <p class="footer-white"><a href="tel:+5561982068746">(61) 98206-8746</a></p>
+                <p class="footer-white">engpicanco@yahoo.com.br</p>
+                <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-whatsapp-footer" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+        <div class="container text-center footer-bottom">
+            <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar com a P-LAB no WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="34" height="34">
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
