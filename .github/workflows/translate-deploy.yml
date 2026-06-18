@@ -1,0 +1,115 @@
+name: Traduzir e publicar (i18n)
+
+# Dispara a cada push na branch principal, EXCETO quando o push mexe apenas
+# nas pastas geradas /en e /es (essas nunca são versionadas, mas ficam aqui
+# como salvaguarda) ou na documentação.
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'en/**'
+      - 'es/**'
+      - '**/*.md'
+
+# Permissões: contents (commitar o cache de volta) + pages/id-token (deploy).
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Evita deploys simultâneos pisando uns nos outros.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2   # permite "git diff HEAD^ HEAD" para ver o que mudou
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependências
+        run: pip install beautifulsoup4
+
+      # Informativo: lista quais HTML da raiz mudaram neste push.
+      # IMPORTANTE — como a economia de cota realmente acontece:
+      # As pastas /en e /es NÃO são versionadas; logo, são regeradas por inteiro
+      # a cada deploy para o site multilíngue ficar completo. Quem evita gastar
+      # a cota é o CACHE persistente (scripts/.translation-cache.json): só o texto
+      # NOVO ou EDITADO é enviado ao DeepL; o resto vem do cache (zero caracteres).
+      - name: Detectar HTML alterados (informativo)
+        run: |
+          echo "HTML da raiz alterados neste push:"
+          git diff --name-only HEAD^ HEAD -- '*.html' || echo "(primeiro commit ou nenhum)"
+
+      - name: Traduzir (gera /en e /es; usa cache para economizar a cota)
+        env:
+          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
+        run: python scripts/translate.py
+
+      # === Commit do CACHE de volta ao repositório (preserva o histórico de traduções) ===
+      # Usa [skip ci] na mensagem para NÃO disparar o workflow de novo (evita loop).
+      - name: Commitar cache de tradução
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add scripts/.translation-cache.json
+          if git diff --cached --quiet; then
+            echo "Cache sem mudanças — nada a commitar."
+          else
+            git commit -m "chore: atualiza cache de tradução [skip ci]"
+            git push
+          fi
+
+      # =================================================================
+      # ===================  PASSO DE DEPLOY (ISOLADO)  =================
+      # Publica RAIZ + /en + /es. Para MIGRAR de host, troque SÓ este bloco
+      # (veja a alternativa FTP/Hostinger comentada logo abaixo).
+      # =================================================================
+      - name: Montar a pasta do site (_site)
+        run: |
+          mkdir -p _site
+          rsync -a \
+            --exclude='.git' --exclude='.github' --exclude='_site' \
+            --exclude='scripts' --exclude='backend' --exclude='*.md' \
+            ./ _site/
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload do artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      # -----------------------------------------------------------------
+      # ALTERNATIVA — DEPLOY VIA FTP PARA A HOSTINGER (public_html)
+      # Para migrar para a Hostinger: COMENTE os 3 passos acima
+      # (Configurar GitHub Pages / Upload do artefato / Deploy no GitHub Pages)
+      # e DESCOMENTE o passo abaixo. Antes, crie os secrets do repositório:
+      #   FTP_HOST, FTP_USER, FTP_PASSWORD  (Settings > Secrets and variables > Actions)
+      # O conteúdo de _site (raiz + /en + /es) vai para public_html.
+      # -----------------------------------------------------------------
+      # - name: Deploy via FTP (Hostinger)
+      #   uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      #   with:
+      #     server:    ${{ secrets.FTP_HOST }}
+      #     username:  ${{ secrets.FTP_USER }}
+      #     password:  ${{ secrets.FTP_PASSWORD }}
+      #     local-dir: ./_site/
+      #     server-dir: public_html/
