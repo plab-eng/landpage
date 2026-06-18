@@ -19,3 +19,9 @@ Thumbs.db
 .env
 *.env
 backend/plab_automacoes.db
+
+# Traduções geradas automaticamente (recriadas a cada deploy pelo translate.py).
+# NÃO versionar /en e /es. O CACHE (scripts/.translation-cache.json) É versionado.
+/en/
+/es/
+_site/
