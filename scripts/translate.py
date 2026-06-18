@@ -122,7 +122,11 @@ def protect(text):
     return esc
 
 def unprotect(text):
-    """Remove as tags <x> e desfaz o escape XML."""
+    """Remove as tags <x> e desfaz o escape XML.
+    Reinsere o espaço quando o DeepL cola a tag protegida numa palavra vizinha
+    (ex.: 'P-LABalso' / 'P-LABtambién') — efeito colateral do ignore_tags."""
+    text = re.sub(r"(?<=\w)(<x>)", r" \1", text)    # palavra+<x>  -> palavra <x>
+    text = re.sub(r"(</x>)(?=\w)", r"\1 ", text)     # </x>+palavra -> </x> palavra
     text = re.sub(r"<x>(.*?)</x>", r"\1", text, flags=re.S)
     return html.unescape(text)
 
