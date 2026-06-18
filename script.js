@@ -26,7 +26,7 @@ const translations = {
         'axis1-t': 'Plugins Revit & Navisworks',
         'axis1-d': 'Automações em Python e C# que eliminam tarefas repetitivas. Export Schedules e Export Sheets já disponíveis — gratuitos.',
         'axis2-t': 'P-LAB Viewer',
-        'axis2-d': 'Plataforma web para visualizar, comparar e revisar projetos BIM (IFC, PDF, DXF) no navegador. Em uso na Vega Engenharia.',
+        'axis2-d': 'Plataforma web para visualizar, comparar e revisar projetos BIM (IFC, PDF, DXF) no navegador. Escritórios de projetos já utilizam.',
         'axis3-t': 'P-LAB Hub',
         'axis3-d': 'O sistema operacional do escritório de projetos: qualidade, custos, comercial e indicadores no lugar de planilhas soltas.',
         'custom-eyebrow': 'DESENVOLVIMENTO SOB MEDIDA',
