@@ -364,7 +364,12 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
 /* ===== PLATAFORMA pyRevit ===== */
 .pyrevit-box { background: var(--bg-alt); padding: 40px; border-radius: var(--radius); margin-bottom: 48px; border: 1px solid var(--border); }
 .pyrevit-content { display: flex; align-items: center; gap: 40px; }
-.pyrevit-logo-container img { max-width: 280px; }
+.pyrevit-logo-container img { max-width: 280px; height: auto; }
+
+/* Troca de logo por tema (versão preta no claro, branca .dark no escuro) */
+.logo-dark { display: none; }
+[data-theme="dark"] .logo-light { display: none; }
+[data-theme="dark"] .logo-dark { display: inline-block; }
 .pyrevit-notice {
     background-color: var(--accent-soft);
     border-left: 4px solid var(--accent);
