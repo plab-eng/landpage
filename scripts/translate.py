@@ -62,14 +62,14 @@ PAGES = {
 # Idiomas-alvo: pasta de saída -> código DeepL
 TARGETS = {"en": "EN-US", "es": "ES"}
 
-# Termos que NÃO devem ser traduzidos (nomes de produto, marcas, siglas técnicas).
-# São protegidos via <x>...</x> + ignore_tags na chamada ao DeepL.
+# Termos que NÃO devem ser traduzidos. Mantenha curto: SÓ nomes de produto que
+# o DeepL traduziria por engano (ex.: "Viewer" -> "Visor"). Siglas e marcas
+# (BIM, IFC, PDF, Revit, Navisworks, AutoCAD, Power BI...) o DeepL já preserva
+# sozinho — protegê-las só atrapalha (gera artefatos como "cBIM" e ordem errada).
 PROTECTED_TERMS = [
-    "P-LAB Viewer", "P-LAB Hub", "P-LAB", "Export Schedules", "Export Sheets",
-    "pyRevit", "Navisworks", "Revit API", "Revit", "AutoCAD", "Autodesk",
-    "Power BI", "Runrun.it", "ClickUp", "Discord", "QR Code", "Forma",
-    "BIM", "IFC", "DXF", "DWG", "DWF", "PDF", "CDE", "ERP", "EPPM", "CRM",
-    "BEP", "PEB", "Excel",
+    "P-LAB Viewer", "P-LAB Hub", "P-LAB",
+    "Export Schedules", "Export Sheets",
+    "pyRevit", "Runrun.it", "ClickUp",
 ]
 PROTECTED_SORTED = sorted(PROTECTED_TERMS, key=len, reverse=True)
 
