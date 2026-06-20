@@ -73,7 +73,7 @@
     <main>
         <section class="section hero-section">
             <div class="container text-center">
-                <span class="eyebrow" data-i18n="vw-eyebrow">EIXO 2 · PLATAFORMA WEB</span>
+                <span class="eyebrow" data-i18n="vw-eyebrow">PLATAFORMA WEB</span>
                 <h1 data-i18n="vw-hero-title">P-LAB Viewer</h1>
                 <p class="hero-lead" data-i18n="vw-hero-desc">Visualize, compare e revise projetos BIM direto no navegador — sem instalar nada.</p>
                 <span class="badge-soft" data-i18n="vw-badge"><i class="fas fa-circle-check"></i> Escritórios de projetos já utilizam</span>
@@ -87,6 +87,257 @@
                 <p>
                     <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20Viewer." class="btn-primary" target="_blank" rel="noopener" data-i18n="vw-hero-btn">Quero conhecer o Viewer</a>
                 </p>
+            </div>
+        </section>
+
+        <!-- ===== DEMONSTRAÇÃO DO P-LAB VIEWER ===== -->
+        <section class="section">
+            <div class="container">
+
+                <!-- PARTE 1 — GRADE DE IMAGENS FIXAS (todas visíveis, não é carrossel) -->
+                <h2 class="text-center section-title-main">Conheça o P-LAB Viewer por dentro</h2>
+                <div class="viewer-grid">
+                    <figure class="viewer-grid-item">
+                        <img src="images/viewer-tela-inicial.webp" loading="lazy" width="700" height="350"
+                             alt="Tela inicial do P-LAB Viewer com login e destaques dos recursos">
+                        <figcaption>
+                            <h3>Acesso pelo navegador, com controle de quem entra</h3>
+                            <p>Cada usuário com seu acesso e suas permissões, num ambiente protegido — e abrindo arquivos PDF e IFC direto no navegador, sem instalar nada.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="viewer-grid-item">
+                        <img src="images/viewer-projetos.webp" loading="lazy" width="700" height="354"
+                             alt="Painel de projetos do P-LAB Viewer com os arquivos do escritório organizados">
+                        <figcaption>
+                            <h3>Todos os projetos do escritório num só lugar</h3>
+                            <p>Organize modelos, revisões e pendências por projeto, com acesso para toda a equipe.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="viewer-grid-item">
+                        <img src="images/viewer-modelo-ifc.webp" loading="lazy" width="700" height="340"
+                             alt="Modelo estrutural IFC em 3D aberto no P-LAB Viewer">
+                        <figcaption>
+                            <h3>Modelos IFC em 3D, leves e fluidos</h3>
+                            <p>Abra e navegue por modelos pesados sem travamentos — direto do navegador, em qualquer dispositivo.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <!-- PARTE 2 — CARROSSEL APENAS DE VÍDEOS =====
+                     Navegação MANUAL (setas/teclado/swipe) — nunca troca sozinho, para não
+                     interromper a narração. Só o vídeo ativo carrega/toca (preload="none" +
+                     play sob demanda via script.js -> initViewerCarousel()). -->
+                <h2 class="text-center section-title-main carousel-heading">Ferramentas de revisão em ação</h2>
+                <div class="carousel" id="viewer-carousel" tabindex="0"
+                     role="region" aria-roledescription="carrossel"
+                     aria-label="Vídeos de demonstração do P-LAB Viewer">
+
+                    <div class="carousel-stage">
+                        <ul class="carousel-track">
+
+                            <!-- Vídeo 1 — medidas, corte, inspeção -->
+                            <li class="carousel-slide is-active" role="group" aria-roledescription="slide"
+                                aria-label="Slide 1 de 3: medição, corte e inspeção do modelo">
+                                <div class="carousel-media">
+                                    <video class="carousel-video" muted loop playsinline preload="none"
+                                           poster="images/viewer-medicao-poster.webp" width="1418" height="720">
+                                        <source src="videos/viewer-medicao.mp4" type="video/mp4">
+                                        <!-- Legendas futuras da narração: gere o .vtt e descomente
+                                        <track kind="captions" srclang="pt" label="Português" src="videos/viewer-medicao.pt.vtt" default> -->
+                                    </video>
+                                    <button type="button" class="carousel-bigplay" aria-label="Reproduzir o vídeo">
+                                        <i class="fas fa-play" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="carousel-video-controls">
+                                        <button type="button" class="cv-btn cv-play" aria-label="Pausar vídeo" aria-pressed="true">
+                                            <i class="fas fa-pause icon-pause" aria-hidden="true"></i><i class="fas fa-play icon-play" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="cv-btn cv-sound" aria-label="Ativar som" aria-pressed="false">
+                                            <i class="fas fa-volume-xmark icon-muted" aria-hidden="true"></i><i class="fas fa-volume-high icon-unmuted" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Vídeo 2 — anotações no modelo IFC -->
+                            <li class="carousel-slide" role="group" aria-roledescription="slide"
+                                aria-label="Slide 2 de 3: anotações e considerações no modelo IFC">
+                                <div class="carousel-media">
+                                    <video class="carousel-video" muted loop playsinline preload="none"
+                                           poster="images/viewer-anotacoes-ifc-poster.webp" width="1418" height="720">
+                                        <source src="videos/viewer-anotacoes-ifc.mp4" type="video/mp4">
+                                        <!-- <track kind="captions" srclang="pt" label="Português" src="videos/viewer-anotacoes-ifc.pt.vtt" default> -->
+                                    </video>
+                                    <button type="button" class="carousel-bigplay" aria-label="Reproduzir o vídeo">
+                                        <i class="fas fa-play" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="carousel-video-controls">
+                                        <button type="button" class="cv-btn cv-play" aria-label="Pausar vídeo" aria-pressed="true">
+                                            <i class="fas fa-pause icon-pause" aria-hidden="true"></i><i class="fas fa-play icon-play" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="cv-btn cv-sound" aria-label="Ativar som" aria-pressed="false">
+                                            <i class="fas fa-volume-xmark icon-muted" aria-hidden="true"></i><i class="fas fa-volume-high icon-unmuted" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Vídeo 3 — anotações em PDF -->
+                            <li class="carousel-slide" role="group" aria-roledescription="slide"
+                                aria-label="Slide 3 de 3: marcações e revisão em prancha PDF">
+                                <div class="carousel-media">
+                                    <video class="carousel-video" muted loop playsinline preload="none"
+                                           poster="images/viewer-anotacoes-pdf-poster.webp" width="1418" height="720">
+                                        <source src="videos/viewer-anotacoes-pdf.mp4" type="video/mp4">
+                                        <!-- <track kind="captions" srclang="pt" label="Português" src="videos/viewer-anotacoes-pdf.pt.vtt" default> -->
+                                    </video>
+                                    <button type="button" class="carousel-bigplay" aria-label="Reproduzir o vídeo">
+                                        <i class="fas fa-play" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="carousel-video-controls">
+                                        <button type="button" class="cv-btn cv-play" aria-label="Pausar vídeo" aria-pressed="true">
+                                            <i class="fas fa-pause icon-pause" aria-hidden="true"></i><i class="fas fa-play icon-play" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="cv-btn cv-sound" aria-label="Ativar som" aria-pressed="false">
+                                            <i class="fas fa-volume-xmark icon-muted" aria-hidden="true"></i><i class="fas fa-volume-high icon-unmuted" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- ===== VÍDEO 4 (COMPARAÇÃO DE REVISÕES) — INATIVO =====
+                                 PARA ATIVAR quando o vídeo estiver pronto:
+                                 1) coloque o arquivo em videos/ e renomeie para viewer-comparacao-revisoes.mp4
+                                 2) gere o poster: images/viewer-comparacao-revisoes-poster.webp
+                                    (use scripts/comprimir-midia.sh ou ffmpeg, como nos vídeos ativos)
+                                 3) descomente o bloco <li class="carousel-slide">...</li> abaixo
+                                 4) descomente também a "LEGENDA DO VÍDEO 4" lá embaixo, em .carousel-captions
+                                 5) o contador "/ N" e o total se ajustam SOZINHOS no JS (total = nº de .carousel-slide);
+                                    atualize só os aria-label estáticos "Slide X de N" para o novo total
+                                 Legenda já definida: título "Compare revisões e veja o que mudou" /
+                                 "Visualize automaticamente o que foi adicionado, removido ou modificado entre versões do modelo — sem caçar diferença manualmente."
+
+                            <li class="carousel-slide" role="group" aria-roledescription="slide"
+                                aria-label="Slide 4 de 4: comparação de revisões do modelo">
+                                <div class="carousel-media">
+                                    <video class="carousel-video" muted loop playsinline preload="none"
+                                           poster="images/viewer-comparacao-revisoes-poster.webp" width="1418" height="720">
+                                        <source src="videos/viewer-comparacao-revisoes.mp4" type="video/mp4">
+                                    </video>
+                                    <button type="button" class="carousel-bigplay" aria-label="Reproduzir o vídeo">
+                                        <i class="fas fa-play" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="carousel-video-controls">
+                                        <button type="button" class="cv-btn cv-play" aria-label="Pausar vídeo" aria-pressed="true">
+                                            <i class="fas fa-pause icon-pause" aria-hidden="true"></i><i class="fas fa-play icon-play" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="cv-btn cv-sound" aria-label="Ativar som" aria-pressed="false">
+                                            <i class="fas fa-volume-xmark icon-muted" aria-hidden="true"></i><i class="fas fa-volume-high icon-unmuted" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            ===== FIM VÍDEO 4 ===== -->
+
+                            <!-- ===== VÍDEO 5 (CLASH DETECTION) — INATIVO =====
+                                 PARA ATIVAR quando o vídeo estiver pronto:
+                                 1) coloque o arquivo em videos/ e renomeie para viewer-clash-detection.mp4
+                                 2) gere o poster: images/viewer-clash-detection-poster.webp
+                                    (use scripts/comprimir-midia.sh ou ffmpeg, como nos vídeos ativos)
+                                 3) descomente o bloco <li class="carousel-slide">...</li> abaixo
+                                 4) descomente também a "LEGENDA DO VÍDEO 5" lá embaixo, em .carousel-captions
+                                 5) o contador "/ N" e o total se ajustam SOZINHOS no JS (total = nº de .carousel-slide);
+                                    atualize só os aria-label estáticos "Slide X de N" para o novo total
+                                 Legenda já definida: título "Detecte interferências entre disciplinas" /
+                                 "Encontre conflitos entre estrutural, hidráulico e elétrico antes da obra — revise as incompatibilidades direto no modelo 3D."
+
+                            <li class="carousel-slide" role="group" aria-roledescription="slide"
+                                aria-label="Slide 5 de 5: detecção de interferências entre disciplinas">
+                                <div class="carousel-media">
+                                    <video class="carousel-video" muted loop playsinline preload="none"
+                                           poster="images/viewer-clash-detection-poster.webp" width="1418" height="720">
+                                        <source src="videos/viewer-clash-detection.mp4" type="video/mp4">
+                                    </video>
+                                    <button type="button" class="carousel-bigplay" aria-label="Reproduzir o vídeo">
+                                        <i class="fas fa-play" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="carousel-video-controls">
+                                        <button type="button" class="cv-btn cv-play" aria-label="Pausar vídeo" aria-pressed="true">
+                                            <i class="fas fa-pause icon-pause" aria-hidden="true"></i><i class="fas fa-play icon-play" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="cv-btn cv-sound" aria-label="Ativar som" aria-pressed="false">
+                                            <i class="fas fa-volume-xmark icon-muted" aria-hidden="true"></i><i class="fas fa-volume-high icon-unmuted" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            ===== FIM VÍDEO 5 ===== -->
+
+                        </ul>
+
+                        <button type="button" class="carousel-arrow carousel-prev" aria-label="Anterior">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="carousel-arrow carousel-next" aria-label="Próximo">
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="carousel-footer">
+                        <p class="carousel-counter" aria-hidden="true"><span class="cc-current">1</span> / <span class="cc-total">3</span></p>
+                        <div class="carousel-captions">
+                            <div class="carousel-caption is-active">
+                                <strong>Meça, corte e inspecione o modelo</strong>
+                                <span>Tire medidas, faça cortes e consulte as propriedades de cada elemento — ferramentas de revisão num fluxo pensado para o jeito brasileiro de projetar, sem se adaptar a programas feitos para outra realidade.</span>
+                            </div>
+                            <div class="carousel-caption">
+                                <strong>Anote e registre considerações direto no modelo</strong>
+                                <span>Marque pendências e observações vinculadas ao elemento, com responsável e prazo — gestão de revisões que segue o processo do escritório brasileiro, não o contrário.</span>
+                            </div>
+                            <div class="carousel-caption">
+                                <strong>Revise pranchas em PDF com marcações</strong>
+                                <span>Balões, setas e carimbos de aprovação sobre o PDF — todo o ciclo de revisão, do modelo à prancha, numa só plataforma feita para o escritório brasileiro.</span>
+                            </div>
+                            <!-- LEGENDA DO VÍDEO 4 (descomente junto com o slide do vídeo 4):
+                            <div class="carousel-caption">
+                                <strong>Compare revisões e veja o que mudou</strong>
+                                <span>Visualize automaticamente o que foi adicionado, removido ou modificado entre versões do modelo — sem caçar diferença manualmente.</span>
+                            </div>
+                            -->
+                            <!-- LEGENDA DO VÍDEO 5 (descomente junto com o slide do vídeo 5):
+                            <div class="carousel-caption">
+                                <strong>Detecte interferências entre disciplinas</strong>
+                                <span>Encontre conflitos entre estrutural, hidráulico e elétrico antes da obra — revise as incompatibilidades direto no modelo 3D.</span>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+
+                    <!-- Anúncio de troca de slide para leitores de tela -->
+                    <p class="sr-only" aria-live="polite" id="carousel-live"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTE 3 — FAIXA DE POSICIONAMENTO -->
+        <section class="section viewer-band">
+            <div class="container text-center">
+                <h2>A revisão de projetos que o mercado já conhece — agora acessível</h2>
+                <p>Visualização de IFC, medição, detecção de interferências, anotações em modelo e PDF, gestão de pendências e compartilhamento por QR Code. Tudo o que um escritório precisa para revisar e aprovar projetos, numa plataforma em português, pensada para a realidade dos projetistas brasileiros e com preço que cabe no orçamento do escritório.</p>
+            </div>
+        </section>
+
+        <!-- ===== QR CODE — compartilhamento ===== -->
+        <section class="section">
+            <div class="container">
+                <figure class="viewer-qr">
+                    <img src="images/viewer-qrcode.webp" loading="lazy" width="720" height="672"
+                         alt="Tela de geração de QR Code no P-LAB Viewer para compartilhar o modelo">
+                    <figcaption>
+                        <h3>Compartilhe por link ou QR Code</h3>
+                        <p>Gere um QR Code da prancha — o cliente escaneia e abre o modelo 3D no próprio celular, sem instalar nada.</p>
+                    </figcaption>
+                </figure>
             </div>
         </section>
 

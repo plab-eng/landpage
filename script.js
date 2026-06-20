@@ -175,6 +175,140 @@ function initMobileMenu() {
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 }
 
+/* ===== Carrossel de mídia do P-LAB Viewer =====
+   Regras:
+   - Navegação MANUAL (setas, teclado ← →, swipe). NUNCA troca de slide sozinho,
+     para não interromper a narração dos vídeos.
+   - Só o slide ATIVO carrega/toca vídeo: os <video> usam preload="none" e o play()
+     só é chamado quando o slide entra em foco (resolve o peso de ter vários vídeos).
+   - Ao tornar-se ativo: autoplay MUDO em loop (playsinline). Ao sair: pausa e volta a mudo.
+   - Respeita prefers-reduced-motion: não dá autoplay; mostra o poster com botão de play. */
+function initViewerCarousel() {
+    const carousel = document.getElementById('viewer-carousel');
+    if (!carousel) return;
+
+    const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+    const captions = Array.from(carousel.querySelectorAll('.carousel-caption'));
+    const prevBtn = carousel.querySelector('.carousel-prev');
+    const nextBtn = carousel.querySelector('.carousel-next');
+    const curEl = carousel.querySelector('.cc-current');
+    const totalEl = carousel.querySelector('.cc-total');
+    const live = carousel.querySelector('#carousel-live');
+    // O total de slides é derivado automaticamente do nº de <li class="carousel-slide">.
+    // AO ATIVAR VÍDEO 4 e/ou 5 (descomentando os <li> no HTML): NÃO é preciso mexer aqui —
+    // 'total' passa de 3 para 4/5 sozinho e o indicador "X / N" se ajusta. No HTML, atualize
+    // apenas o "/ 3" estático do contador e os aria-label "Slide X de N" dos slides existentes.
+    const total = slides.length;
+    if (!total) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 0;
+    if (totalEl) totalEl.textContent = total;
+
+    // <video> de um slide (null se for slide de imagem)
+    const videoOf = (slide) => slide.querySelector('video');
+    const tryPlay = (v) => { const p = v.play(); if (p && p.catch) p.catch(() => { /* autoplay bloqueado */ }); };
+
+    // Sincroniza ícones/estado dos botões com o estado real do vídeo
+    function syncControls(slide) {
+        const v = videoOf(slide);
+        if (!v) return;
+        slide.classList.toggle('is-paused', v.paused);
+        slide.classList.toggle('is-unmuted', !v.muted);
+        const playBtn = slide.querySelector('.cv-play');
+        const soundBtn = slide.querySelector('.cv-sound');
+        if (playBtn) {
+            playBtn.setAttribute('aria-pressed', String(!v.paused));
+            playBtn.setAttribute('aria-label', v.paused ? 'Reproduzir vídeo' : 'Pausar vídeo');
+        }
+        if (soundBtn) {
+            soundBtn.setAttribute('aria-pressed', String(!v.muted));
+            soundBtn.setAttribute('aria-label', v.muted ? 'Ativar som' : 'Silenciar vídeo');
+        }
+    }
+
+    // Ativa um slide: se for vídeo, autoplay mudo (salvo reduced-motion -> só poster)
+    function activate(slide) {
+        const v = videoOf(slide);
+        if (!v) return;
+        v.muted = true;                       // todo vídeo começa mudo
+        if (!reduceMotion) tryPlay(v);        // preload="none": só aqui o vídeo é buscado
+        syncControls(slide);
+    }
+
+    // Sai de um slide de vídeo: pausa e volta a mudo (nada toca em 2º plano)
+    function deactivate(slide) {
+        const v = videoOf(slide);
+        if (!v) return;
+        v.pause();
+        v.muted = true;
+        syncControls(slide);
+    }
+
+    function go(index) {
+        const next = (index + total) % total;
+        if (next === current) return;
+        slides[current].classList.remove('is-active');
+        if (captions[current]) captions[current].classList.remove('is-active');
+        deactivate(slides[current]);
+
+        slides[next].classList.add('is-active');
+        if (captions[next]) captions[next].classList.add('is-active');
+        current = next;
+        if (curEl) curEl.textContent = next + 1;
+        if (live) live.textContent = 'Slide ' + (next + 1) + ' de ' + total;
+        activate(slides[next]);
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => go(current - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => go(current + 1));
+
+    // Teclado ← → quando o carrossel está focado
+    carousel.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); go(current - 1); }
+        else if (e.key === 'ArrowRight') { e.preventDefault(); go(current + 1); }
+    });
+
+    // Controles próprios do vídeo (delegação) — som só toca após clique no botão
+    carousel.addEventListener('click', (e) => {
+        const slide = e.target.closest('.carousel-slide');
+        if (!slide) return;
+        const v = videoOf(slide);
+        if (!v) return;
+        if (e.target.closest('.cv-play, .carousel-bigplay')) {
+            if (v.paused) tryPlay(v); else v.pause();
+            syncControls(slide);
+        } else if (e.target.closest('.cv-sound')) {
+            v.muted = !v.muted;
+            if (!v.muted && v.paused) tryPlay(v);
+            syncControls(slide);
+        }
+    });
+
+    // Mantém os ícones em sincronia se o estado do vídeo mudar por conta própria
+    slides.forEach((slide) => {
+        const v = videoOf(slide);
+        if (!v) return;
+        ['play', 'pause', 'volumechange'].forEach((ev) => v.addEventListener(ev, () => syncControls(slide)));
+    });
+
+    // Swipe por toque (opcional, mobile)
+    const stage = carousel.querySelector('.carousel-stage');
+    let touchX = null;
+    if (stage) {
+        stage.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+        stage.addEventListener('touchend', (e) => {
+            if (touchX === null) return;
+            const dx = e.changedTouches[0].clientX - touchX;
+            if (Math.abs(dx) > 40) go(dx < 0 ? current + 1 : current - 1);
+            touchX = null;
+        }, { passive: true });
+    }
+
+    // Estado inicial: ativa o primeiro slide
+    activate(slides[0]);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     setLangLabel();               // mostra PT/EN/ES conforme o caminho atual
     if (hasConsent()) loadGA();   // visitante que já aceitou em visita anterior
@@ -183,4 +317,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initThemeToggle();
     initMobileMenu();
+    initViewerCarousel();
 });
