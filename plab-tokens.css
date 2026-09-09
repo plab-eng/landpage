@@ -1,0 +1,333 @@
+/* ============================================================
+   P-LAB — Design System Override
+   Derivado de: Dovetail (styles.refero.design) — "blueprint control room"
+
+   Carregar DEPOIS de style.css:
+     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="plab-tokens.css">
+
+   Fonte: trocar o link do Google Fonts para incluir Inter:
+     https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap
+   ============================================================ */
+
+/* ---------- 1. TOKENS ---------- */
+:root {
+  /* neutros — light */
+  --bg:            #FFFFFF;
+  --bg-alt:        #F7F7F7;
+  --surface:       #FFFFFF;
+  --text:          #0A0A0A;
+  --text-muted:    #6B6B6B;
+  --border:        #E4E4E4;
+  --border-strong: #D0D0D0;
+  --grid-line:     rgba(10, 10, 10, .05);
+
+  /* acento — light (contraste 5.0:1 com branco) */
+  --accent:        #0E7A45;
+  --accent-hover:  #0A6238;
+  --accent-soft:   rgba(14, 122, 69, .10);
+
+  /* botão primário — desvio consciente do Dovetail (ver DESIGN.md) */
+  --btn-primary-bg: var(--accent);
+  --btn-primary-fg: #FFFFFF;
+
+  /* forma */
+  --radius:        8px;
+  --radius-tag:    4px;
+  --card-shadow:   none;
+  --header-bg:     rgba(255, 255, 255, .9);
+  --transition:    .2s ease;
+
+  /* tipografia — uma família só */
+  --font-title: 'Inter', system-ui, sans-serif;
+  --font-body:  'Inter', system-ui, sans-serif;
+  --font-mono:  'JetBrains Mono', ui-monospace, monospace;
+}
+
+[data-theme="dark"] {
+  --bg:            #0A0A0A;  /* Page Ink   */
+  --bg-alt:        #141414;  /* Deep Coal  */
+  --surface:       #1E1E1E;  /* Card Carbon*/
+  --text:          #FFFFFF;  /* Snow       */
+  --text-muted:    #9F9F9F;  /* Ash        */
+  --border:        #313131;  /* Steel      */
+  --border-strong: #454545;  /* Graphite   */
+  --grid-line:     #1E1E1E;
+
+  --accent:        #34D07A;
+  --accent-hover:  #5BE39B;
+  --accent-soft:   rgba(52, 208, 122, .12);
+
+  --btn-primary-bg: var(--accent);
+  --btn-primary-fg: #0A0A0A;
+
+  --card-shadow:   none;
+  --header-bg:     rgba(10, 10, 10, .85);
+}
+
+/* ---------- 2. TIPOGRAFIA ---------- */
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -.19px;
+  font-feature-settings: "liga" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .logo, .logo-footer {
+  font-family: var(--font-title);
+  font-weight: 600;
+}
+
+/* display — hero */
+.hero-text h1,
+.hero-text h2 {
+  font-size: clamp(2.25rem, 5vw, 4rem);   /* 36 → 64px */
+  line-height: 1.13;
+  letter-spacing: -2.3px;
+  font-weight: 600;
+}
+
+/* heading-lg / heading — títulos de seção */
+.section-title-main,
+.cta-band h2,
+.consultoria-band h2 {
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem); /* 28 → 40px */
+  line-height: 1.2;
+  letter-spacing: -.84px;
+  font-weight: 600;
+}
+
+/* heading-sm — títulos de card */
+.feature-card h3,
+.plugin-header h3,
+.step-card h3,
+.axis-card h3,
+.skill-card h3,
+.viewer-qr figcaption h3 {
+  font-size: 1.25rem;      /* 20px */
+  line-height: 1.4;
+  letter-spacing: -.42px;
+  font-weight: 600;
+}
+
+/* body / body-sm */
+p,
+.feature-card p,
+.plugin-description,
+.step-card p,
+.hero-text p {
+  font-family: var(--font-body);
+  letter-spacing: -.19px;
+}
+
+.hero-text p { font-size: 1.0625rem; line-height: 1.55; }
+
+/* eyebrow — mono com tracking POSITIVO */
+.stats-band .eyebrow,
+.eyebrow,
+.badge-soft {
+  font-family: var(--font-mono);
+  font-size: .75rem;        /* 12px */
+  line-height: 1.4;
+  letter-spacing: .85px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* nav e labels — 14px / 500 */
+.nav-links a,
+.btn-primary, .btn-submit,
+.btn-plugin, .btn-download-instalador, .btn-download-manual,
+.lang-btn, .cookie-btn {
+  font-family: var(--font-body);
+  font-size: .875rem;
+  font-weight: 500;
+  letter-spacing: -.17px;
+}
+
+/* stat — número grande, engineered */
+.stat-num {
+  font-family: var(--font-title);
+  font-weight: 600;
+  letter-spacing: -2.02px;
+  line-height: 1.14;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: .875rem;
+  letter-spacing: -.17px;
+  color: var(--text-muted);
+}
+
+/* ---------- 3. SUPERFÍCIES — tom, não elevação ---------- */
+.feature-card,
+.plugin-card-diroots,
+.skill-card,
+.axis-card,
+.step-card,
+.testimonial-card,
+.carousel-stage,
+.lang-dropdown {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+
+/* hover: sem sombra, sem levantar — só a borda acende */
+.feature-card:hover,
+.plugin-card-diroots:hover,
+.skill-card:hover,
+.axis-card:hover,
+.testimonial-card:hover {
+  box-shadow: none;
+  transform: none;
+  border-color: var(--border-strong);
+}
+
+/* imagens e molduras */
+.viewer-grid-item img,
+.viewer-qr img,
+.mockup-img,
+.carousel-media {
+  box-shadow: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* header */
+.main-header,
+.main-header.is-scrolled,
+[data-theme="dark"] .main-header.is-scrolled {
+  box-shadow: none;
+  border-bottom: 1px solid var(--border);
+  background: var(--header-bg);
+}
+
+/* elementos flutuantes: sombra mínima só onde é funcional */
+.whatsapp-float { box-shadow: 0 2px 8px rgba(0, 0, 0, .35); }
+.cookie-banner  { box-shadow: none; border-top: 1px solid var(--border); }
+.carousel-arrow { box-shadow: none; border: 1px solid var(--border-strong); }
+
+/* bandas alternadas por tom */
+.light-bg,
+.stats-band,
+.consultoria-band,
+.pyrevit-box { background: var(--bg-alt); }
+
+.cta-band {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---------- 4. BOTÕES ---------- */
+.btn-primary, .btn-submit {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-fg);
+  border: none;
+  border-radius: var(--radius);
+  padding: 12px 16px;  /* era 10px: 10px dava 41px de altura, abaixo do minimo de 44px de toque do site */
+  box-shadow: none;
+  transition: background var(--transition);
+}
+
+.btn-primary:hover, .btn-submit:hover {
+  background: var(--accent-hover);
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-plugin,
+.btn-download-manual,
+.btn-whatsapp-footer {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  box-shadow: none;
+}
+
+.btn-plugin:hover,
+.btn-download-manual:hover,
+.btn-whatsapp-footer:hover {
+  background: var(--surface);
+  border-color: var(--text-muted);
+  transform: none;
+}
+
+/* ---------- 5. TAGS E CHIPS — 4px ---------- */
+.tech-badge,
+.badge-soft,
+.pyrevit-notice {
+  border-radius: var(--radius-tag);
+  border: 1px solid var(--border);
+  background: transparent;
+  box-shadow: none;
+}
+
+.tech-badge:hover,
+[data-theme="dark"] .tech-badge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: transparent;
+  transform: none;
+}
+
+/* ---------- 6. ACENTO FUNCIONAL ---------- */
+.feature-icon,
+.axis-icon,
+.step-num,
+[data-theme="dark"] .step-num,
+.pyrevit-notice i,
+.social-icons a:hover {
+  color: var(--accent);
+  background: transparent;
+}
+
+.nav-links a.active,
+.nav-links a:hover { color: var(--accent); }
+
+a { color: var(--accent); }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- 7. GRID WIREFRAME ---------- */
+.hero-bg,
+.hero-grid {
+  background-image:
+    repeating-linear-gradient(to right,  var(--grid-line) 0 1px, transparent 1px 56px),
+    repeating-linear-gradient(to bottom, var(--grid-line) 0 1px, transparent 1px 56px);
+  background-position: center top;
+}
+
+/* sem spotlight/gradiente — o Dovetail é plano */
+.hero-spotlight::before,
+[data-theme="dark"] .hero-spotlight::before { background: none; opacity: 0; }
+
+/* ---------- 8. FORMA E DENSIDADE ---------- */
+.container { max-width: 1200px; }
+.section    { padding-block: clamp(64px, 8vw, 96px); }
+
+input, textarea, select {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: .875rem;
+  padding: 10px 12px;
+  box-shadow: none;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+  outline: none;
+}
