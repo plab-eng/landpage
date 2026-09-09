@@ -1004,3 +1004,42 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
     text-transform: uppercase;
     color: var(--text-muted);
 }
+
+/* ===== PLANOS / PREÇOS ===== */
+.planos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; align-items: stretch; }
+.plano-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.plano-card--destaque { border-color: var(--accent); }
+.plano-nome { font-family: var(--font-title); font-weight: 600; font-size: 1.35rem; margin: 0; }
+.plano-preco { display: flex; flex-direction: column; gap: 2px; }
+.plano-valor { font-family: var(--font-title); font-weight: 600; font-size: 2.1rem; line-height: 1.1; letter-spacing: -1.2px; }
+.plano-valor--gratis { color: var(--accent); }
+.plano-cond { font-size: 0.9rem; color: var(--text-muted); }
+.plano-lista { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; flex-grow: 1; }
+.plano-lista li { display: flex; gap: 10px; font-size: 0.95rem; color: var(--text-muted); }
+.plano-lista li::before { content: '+'; color: var(--accent); font-family: var(--font-mono); flex-shrink: 0; }
+.plano-card .btn-primary, .plano-card .btn-plugin { text-align: center; }
+
+/* Selo de plano num botão do add-in */
+.plano-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.85px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: var(--radius-tag, 4px);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+}
+.plano-tag--gratis { color: var(--accent); border-color: var(--accent); }

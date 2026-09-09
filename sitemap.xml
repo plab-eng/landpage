@@ -151,4 +151,34 @@
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
+   <url>
+      <loc>https://plab-eng.github.io/landpage/planos.html</loc>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://plab-eng.github.io/landpage/planos.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://plab-eng.github.io/landpage/en/planos.html"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://plab-eng.github.io/landpage/es/planos.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://plab-eng.github.io/landpage/planos.html"/>
+      <lastmod>2026-09-09</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://plab-eng.github.io/landpage/en/planos.html</loc>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://plab-eng.github.io/landpage/planos.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://plab-eng.github.io/landpage/en/planos.html"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://plab-eng.github.io/landpage/es/planos.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://plab-eng.github.io/landpage/planos.html"/>
+      <lastmod>2026-09-09</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://plab-eng.github.io/landpage/es/planos.html</loc>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://plab-eng.github.io/landpage/planos.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://plab-eng.github.io/landpage/en/planos.html"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://plab-eng.github.io/landpage/es/planos.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://plab-eng.github.io/landpage/planos.html"/>
+      <lastmod>2026-09-09</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
 </urlset>

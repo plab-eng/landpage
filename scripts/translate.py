@@ -55,6 +55,7 @@ PAGES = {
     "solucoes.html": "solucoes.html",
     "viewer.html": "viewer.html",
     "plab-os.html": "plab-os.html",
+    "planos.html": "planos.html",
     "hub.html": "hub.html",   # stub de redirecionamento (URL antiga)
     "consultoria.html": "consultoria.html",
     "obrigado.html": "obrigado.html",
