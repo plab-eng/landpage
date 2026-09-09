@@ -1,230 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Aplica o tema antes do render para evitar flash (claro por padrão; respeita preferência do sistema na 1ª visita) -->
-    <script>(function(){try{var t=localStorage.getItem('p-lab-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
-    <!-- Google Analytics 4 (G-M9WEG41PNK) carrega apenas APÓS consentimento de cookies (LGPD) — ver script.js -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P-LAB OS | O sistema operacional do seu escritório de projetos</title>
-    <meta name="description" content="P-LAB OS: plataforma modular para escritórios de projeto. Comercial, custos, gestão de horas, qualidade e visualização BIM — vendidos módulo a módulo.">
-    <link rel="canonical" href="https://plab-eng.github.io/landpage/hub.html">
-    <link rel="alternate" hreflang="pt-BR" href="https://plab-eng.github.io/landpage/hub.html">
-    <link rel="alternate" hreflang="en" href="https://plab-eng.github.io/landpage/en/hub.html">
-    <link rel="alternate" hreflang="es" href="https://plab-eng.github.io/landpage/es/hub.html">
-    <link rel="alternate" hreflang="x-default" href="https://plab-eng.github.io/landpage/hub.html">
+    <!-- Stub de redirecionamento: esta era a URL do "P-LAB Hub", que virou "P-LAB OS"
+         em setembro/2026. O arquivo fica aqui só para não quebrar links já
+         compartilhados e resultados de busca antigos. O caminho é RELATIVO de
+         propósito: assim o mesmo stub funciona em /, /en/ e /es/.
+         Não indexar: o conteúdo real vive em plab-os.html. -->
+    <meta name="robots" content="noindex, follow">
+    <meta http-equiv="refresh" content="0; url=plab-os.html">
+    <link rel="canonical" href="https://plab-eng.github.io/landpage/plab-os.html">
     <link rel="icon" type="image/png" href="images/logo-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://plab-eng.github.io/landpage/hub.html">
-    <meta property="og:title" content="P-LAB OS | Plataforma modular para escritórios de projeto">
-    <meta property="og:description" content="Qualidade, custos, comercial e indicadores do seu escritório de projetos em um só sistema.">
-    <meta property="og:image" content="https://plab-eng.github.io/landpage/images/logo-icon.png">
+    <title>P-LAB OS</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="plab-tokens.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>location.replace('plab-os.html');</script>
 </head>
 <body>
-    <header class="main-header sticky-header">
-        <div class="container header-flex">
-            <div class="header-left">
-                <a href="index.html" class="logo-link">
-                    <img src="images/logo-icon.webp" alt="Logo P-LAB" class="header-logo-img logo-invert" width="35" height="36">
-                    <span class="logo">P-LAB</span>
-                </a>
-            </div>
-            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-nav">
-                <span></span><span></span><span></span>
-            </button>
-            <nav class="primary-nav" id="primary-nav">
-                <ul class="nav-links">
-                    <li><a href="index.html" data-i18n="nav-home">Início</a></li>
-                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
-                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
-                    <li><a href="hub.html" class="active" data-i18n="nav-hub">P-LAB OS</a></li>
-                    <li><a href="consultoria.html" data-i18n="nav-consultoria">Consultoria</a></li>
-                    <li><a href="index.html#contato" data-i18n="nav-contact">Contato</a></li>
-                </ul>
-                <div class="nav-extra">
-                    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro" title="Alternar tema">
-                        <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
-                    </button>
-                    <div class="language-selector">
-                        <button class="lang-btn"><i class="fas fa-globe"></i> <span id="current-lang-label">PT</span> <i class="fas fa-chevron-down"></i></button>
-                        <div class="lang-dropdown">
-                            <div class="dropdown-section">
-                                <span class="section-title" data-i18n="lang-suggested">LOCALIZAÇÃO SUGERIDA</span>
-                                <a href="javascript:void(0)" onclick="plabSwitchLang('pt')" data-lang="pt" data-no-translate>Brasil (Português)</a>
-                            </div>
-                            <div class="dropdown-section">
-                                <span class="section-title" data-i18n="lang-available">SÍTIOS DISPONÍVEIS</span>
-                                <a href="javascript:void(0)" onclick="plabSwitchLang('en')" data-lang="en" data-no-translate>Global (English)</a>
-                                <a href="javascript:void(0)" onclick="plabSwitchLang('es')" data-lang="es" data-no-translate>España (Español)</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="section hero-section">
-            <div class="container text-center">
-                <span class="eyebrow" data-i18n="hb-eyebrow">PLATAFORMA MODULAR</span>
-                <h1 data-i18n="hb-hero-title">P-LAB OS</h1>
-                <p class="hero-lead" data-i18n="hb-hero-desc">O sistema operacional do escritório de projetos: gestão, ambiente comum de dados e dimensionamento — vendidos módulo a módulo. Você contrata só o que usa e os módulos falam do mesmo projeto.</p>
-                <div class="tech-badges" style="justify-content:center; display:flex; flex-wrap:wrap;">
-                    <span class="tech-badge">Comercial</span>
-                    <span class="tech-badge">Custos</span>
-                    <span class="tech-badge">Gestão</span>
-                    <span class="tech-badge">Qualidade</span>
-                    <span class="tech-badge">Viewer</span>
-                </div>
-                <p>
-                    <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20OS." class="btn-primary" target="_blank" rel="noopener" data-i18n="hb-hero-btn">Quero conhecer o P-LAB OS</a>
-                </p>
-
-                <!-- [VÍDEO] Tour da plataforma. Quando gravar, trocar este .media-slot por:
-                <div class="plugin-video-container" style="max-width:900px;margin:40px auto 0">
-                    <video controls preload="none" poster="images/poster-plab-os.jpg" width="1280" height="720">
-                        <source src="videos/plab-os-tour.mp4" type="video/mp4">
-                    </video>
-                </div> -->
-                <div class="media-slot" style="max-width:900px;margin:40px auto 0">
-                    <span class="media-slot__label" data-i18n="slot-video">Vídeo em breve</span>
-                    <span class="media-slot__file">videos/plab-os-tour.mp4</span>
-                    <p class="media-slot__hint" data-i18n="hb-slot-tour">Tour de 60–90s: login, carteira de projetos, e entrar em um projeto passando por Comercial, Custos e Gestão.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section light-bg">
-            <div class="container">
-                <h2 class="text-center section-title-main" data-i18n="hb-mod-title">Os módulos que já estão no ar</h2>
-                <div class="feature-grid three-cols">
-                    <div class="feature-card">
-                        <i class="fas fa-folder-open feature-icon"></i>
-                        <h3 data-i18n="hb-m0-t">Home</h3>
-                        <p data-i18n="hb-m0-d">A carteira de projetos: a entrada da plataforma e o ponto comum de todos os outros módulos.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-handshake feature-icon"></i>
-                        <h3 data-i18n="hb-m3-t">Comercial</h3>
-                        <p data-i18n="hb-m3-d">Propostas, contratos e funil de vendas — do primeiro contato ao projeto fechado.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-chart-line feature-icon"></i>
-                        <h3 data-i18n="hb-m2-t">Custos</h3>
-                        <p data-i18n="hb-m2-d">Custo por projeto, previsto contra realizado e margem — dá para ver qual projeto está pagando a conta.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-clock feature-icon"></i>
-                        <h3 data-i18n="hb-m4-t">Gestão</h3>
-                        <p data-i18n="hb-m4-d">Apontamento de horas por projeto e por disciplina, alimentando direto o módulo de custos.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-clipboard-check feature-icon"></i>
-                        <h3 data-i18n="hb-m5-t">Qualidade</h3>
-                        <p data-i18n="hb-m5-d">Revisões, pendências e decisões do projeto registradas no lugar certo, em vez de perdidas no e-mail.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-cube feature-icon"></i>
-                        <h3 data-i18n="hb-m6-t">Viewer</h3>
-                        <p data-i18n="hb-m6-d">Modelos IFC, PDF e DXF no navegador, ligados ao mesmo projeto. Conheça o <a href="viewer.html">P-LAB Viewer</a>.</p>
-                    </div>
-                </div>
-
-                <!-- [IMAGEM] Print do painel. Quando tiver, trocar por:
-                <img src="images/plab-os-painel.webp" alt="Painel do P-LAB OS" width="1280" height="720" loading="lazy"> -->
-                <div class="media-slot" style="max-width:900px;margin:40px auto 0">
-                    <span class="media-slot__label" data-i18n="slot-img">Imagem em breve</span>
-                    <span class="media-slot__file">images/plab-os-painel.webp</span>
-                    <p class="media-slot__hint" data-i18n="hb-slot-painel">Print do painel de um projeto real (com nomes de cliente trocados) mostrando os módulos na lateral.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2 class="text-center section-title-main" data-i18n="hb-next-title">No horizonte</h2>
-                <div class="feature-grid three-cols">
-                    <div class="feature-card">
-                        <i class="fas fa-ruler-combined feature-icon"></i>
-                        <h3 data-i18n="hb-n3-t">Dimensionamento</h3>
-                        <p data-i18n="hb-n3-d">Cálculo hidrossanitário por norma — esgoto por tensão trativa, água fria, pluvial e elevatória — dentro da plataforma, ligado ao mesmo projeto. <strong>Em breve.</strong></p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-bolt feature-icon"></i>
-                        <h3 data-i18n="hb-n4-t">MEP</h3>
-                        <p data-i18n="hb-n4-d">O cálculo elétrico e as verificações MEP saindo do Revit e virando dado consultável do projeto. <strong>Em breve.</strong></p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-robot feature-icon"></i>
-                        <h3 data-i18n="hb-n1-t">Módulo IA</h3>
-                        <p data-i18n="hb-n1-d">Consultas em linguagem natural sobre os dados do escritório — pergunte e receba a resposta.</p>
-                    </div>
-                </div>
-
-                <!-- [VÍDEO/IMAGEM] Demonstração do dimensionamento. Trocar quando gravar. -->
-                <div class="media-slot" style="max-width:900px;margin:40px auto 0">
-                    <span class="media-slot__label" data-i18n="slot-video">Vídeo em breve</span>
-                    <span class="media-slot__file">videos/plab-os-dimensionamento.mp4</span>
-                    <p class="media-slot__hint" data-i18n="hb-slot-dim">Gravar quando o módulo estiver pronto: lançar os dados de um trecho e o resultado do dimensionamento saindo na tela.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section light-bg">
-            <div class="container text-center cta-band">
-                <h2 data-i18n="hb-cta-title">Troque a planilha pelo P-LAB OS</h2>
-                <p data-i18n="hb-cta-desc">Mostramos como a plataforma se encaixa no fluxo do seu escritório — e por qual módulo faz sentido começar.</p>
-                <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20OS." class="btn-primary" target="_blank" rel="noopener" data-i18n="hb-cta-btn">Falar sobre o P-LAB OS no WhatsApp</a>
-            </div>
-        </section>
+    <main class="container section text-center">
+        <h1>P-LAB OS</h1>
+        <p>Esta página mudou de endereço. Se o navegador não redirecionar sozinho,
+           <a href="plab-os.html">clique aqui para ir ao P-LAB OS</a>.</p>
     </main>
-
-    <footer class="main-footer">
-        <div class="container footer-grid">
-            <div class="footer-info">
-                <span class="logo-footer">P-LAB</span>
-                <p data-i18n="footer-tagline">Software e automação para engenharia.</p>
-                <p>Joinville - SC</p>
-            </div>
-            <div class="footer-nav">
-                <h3 data-i18n="footer-products">Produtos</h3>
-                <ul>
-                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
-                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
-                    <li><a href="hub.html" data-i18n="nav-hub">P-LAB OS</a></li>
-                    <li><a href="consultoria.html" data-i18n="nav-consultoria">Consultoria</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <h3 data-i18n="footer-social">Siga-nos</h3>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/company/plab-eng/" target="_blank" rel="noopener" aria-label="LinkedIn da P-LAB"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="footer-contact">
-                <h3 data-i18n="footer-contact">Contato</h3>
-                <p class="footer-white"><a href="tel:+5561982068746">(61) 98206-8746</a></p>
-                <p class="footer-white">devpicanco@gmail.com</p>
-                <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-whatsapp-footer" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            </div>
-        </div>
-        <div class="container text-center footer-bottom">
-            <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0</p>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20OS." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar com a P-LAB no WhatsApp">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="34" height="34">
-    </a>
-
-    <script src="script.js"></script>
 </body>
 </html>

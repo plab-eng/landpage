@@ -54,7 +54,8 @@ PAGES = {
     "index.html": "",
     "solucoes.html": "solucoes.html",
     "viewer.html": "viewer.html",
-    "hub.html": "hub.html",
+    "plab-os.html": "plab-os.html",
+    "hub.html": "hub.html",   # stub de redirecionamento (URL antiga)
     "consultoria.html": "consultoria.html",
     "obrigado.html": "obrigado.html",
 }
@@ -67,7 +68,7 @@ TARGETS = {"en": "EN-US", "es": "ES"}
 # (BIM, IFC, PDF, Revit, Navisworks, AutoCAD, Power BI...) o DeepL já preserva
 # sozinho — protegê-las só atrapalha (gera artefatos como "cBIM" e ordem errada).
 PROTECTED_TERMS = [
-    "P-LAB Viewer", "P-LAB Hub", "P-LAB",
+    "P-LAB Viewer", "P-LAB OS", "P-LAB",
     "Export Schedules", "Export Sheets",
     "pyRevit", "Runrun.it", "ClickUp",
 ]
