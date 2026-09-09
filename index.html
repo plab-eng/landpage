@@ -24,9 +24,23 @@
     <meta property="og:description" content="Plugins para Revit e Navisworks, o P-LAB Viewer para revisão BIM e o P-LAB Hub para gestão de escritórios de projetos.">
     <meta property="og:image" content="https://plab-eng.github.io/landpage/images/logo-icon.png">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="progresso" aria-hidden="true"></div>
+    <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+        <defs>
+            <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+            <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></symbol>
+            <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18"/></symbol>
+            <symbol id="icon-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+            <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+            <symbol id="icon-automacao" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></symbol>
+            <symbol id="icon-cube" viewBox="0 0 24 24"><path d="M12 2 21 7v10l-9 5-9-5V7z"/><path d="M12 22V12M3 7l9 5 9-5"/></symbol>
+            <symbol id="icon-gauge" viewBox="0 0 24 24"><path d="M4 15a8 8 0 1 1 16 0"/><path d="M12 12l3.5-2.5"/><circle cx="12" cy="12" r="1"/></symbol>
+            <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path class="icon-fill" d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18.1c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-2.9.9.9-2.8-.2-.3A8.1 8.1 0 1 1 12 20.1zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.3-3.2-2.8-.2-.4.2-.4.5-1.2.1-.1.1-.3 0-.4-.1-.1-.5-1.3-.7-1.8-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.5.3-.2.2-.8.8-.8 2 0 1.3.9 2.5 1 2.7.1.2 1.6 2.6 4.1 3.6 2.5 1 2.5.7 3 .6.4-.1 1.4-.6 1.6-1.1.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.4-.3z"/></symbol>
+            <symbol id="icon-linkedin" viewBox="0 0 24 24"><rect class="icon-fill" x="2.5" y="2.5" width="19" height="19" rx="3"/><circle cx="7.3" cy="7.7" r="1.5" fill="#fff"/><rect x="6" y="10.4" width="2.6" height="8.1" fill="#fff"/><rect x="10.6" y="13.3" width="2.6" height="5.2" fill="#fff"/><path d="M10.6 13.3c0-1.6 1.2-2.9 3.1-2.9 2 0 3.2 1.3 3.2 3.4v4.7h-2.6v-4.3c0-.9-.4-1.5-1.2-1.5-.7 0-1.1.5-1.3 1-.1.2-.1.5-.1.7v4.1h-.1z" fill="#fff"/></symbol>
+        </defs>
+    </svg>
     <header class="main-header sticky-header">
         <div class="container header-flex">
             <div class="header-left">
@@ -49,10 +63,10 @@
                 </ul>
                 <div class="nav-extra">
                     <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro" title="Alternar tema">
-                        <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                        <svg class="icon icon-moon" aria-hidden="true"><use href="#icon-moon"/></svg><svg class="icon icon-sun" aria-hidden="true"><use href="#icon-sun"/></svg>
                     </button>
                     <div class="language-selector">
-                        <button class="lang-btn"><i class="fas fa-globe"></i> <span id="current-lang-label">PT</span> <i class="fas fa-chevron-down"></i></button>
+                        <button class="lang-btn"><svg class="icon" aria-hidden="true"><use href="#icon-globe"/></svg> <span id="current-lang-label">PT</span> <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg></button>
                         <div class="lang-dropdown">
                             <div class="dropdown-section">
                                 <span class="section-title" data-i18n="lang-suggested">LOCALIZAÇÃO SUGERIDA</span>
@@ -71,7 +85,8 @@
     </header>
 
     <main>
-        <section class="hero-section section">
+        <section class="hero-section hero-spotlight section" data-parallax-root>
+            <div class="hero-bg" data-parallax="0.15" aria-hidden="true"></div>
             <div class="container hero-grid">
                 <div class="hero-text">
                     <span class="eyebrow" data-i18n="hero-eyebrow">PLUGINS · PLATAFORMAS · GESTÃO</span>
@@ -86,39 +101,104 @@
                     </div>
                     <div class="hero-actions">
                         <a href="#solucoes" class="btn-primary" data-i18n="hero-btn">Conheça as soluções</a>
-                        <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-secondary" target="_blank" rel="noopener" data-i18n="hero-btn2"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+                        <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-secondary" target="_blank" rel="noopener" data-i18n="hero-btn2"><svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg> Falar no WhatsApp</a>
                     </div>
                 </div>
-                <div class="hero-mockup">
+                <div class="hero-mockup" data-parallax="-0.06">
                     <img src="images/mockup-bim.webp" alt="Visualização de modelo BIM da P-LAB" class="mockup-img" width="800" height="567" fetchpriority="high">
+                </div>
+            </div>
+        </section>
+
+        <!-- [SUBSTITUA] Números e depoimentos abaixo são FICTÍCIOS — placeholders para
+             visualizar o layout. Troque pelos números e clientes reais do José antes
+             de publicar. Ver checklist da skill criador-de-sites (references/checklist.md). -->
+        <section class="stats-band">
+            <div class="container">
+                <span class="eyebrow reveal">NÚMEROS (EXEMPLO — SUBSTITUIR)</span>
+                <div class="stats-grid">
+                    <div class="reveal">
+                        <span class="stat-num" data-valor="25" data-sufixo="+">25+</span>
+                        <span class="stat-label">Escritórios usando os produtos</span>
+                    </div>
+                    <div class="reveal">
+                        <span class="stat-num" data-valor="1200" data-sufixo="+">1.200+</span>
+                        <span class="stat-label">Downloads dos plugins gratuitos</span>
+                    </div>
+                    <div class="reveal">
+                        <span class="stat-num" data-valor="4500" data-sufixo="+">4.500+</span>
+                        <span class="stat-label">Horas de trabalho manual economizadas</span>
+                    </div>
+                    <div class="reveal">
+                        <span class="stat-num" data-valor="3">3</span>
+                        <span class="stat-label">Produtos em produção ativa</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section light-bg">
+            <div class="container">
+                <h2 class="text-center section-title-main reveal" data-i18n="testimonials-title">O que dizem os escritórios que já usam</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card reveal">
+                        <p class="testimonial-quote">“Automatizamos a extração de pranchas que levava um dia inteiro para poucos minutos. A equipe de projeto ganhou o tempo de volta.”</p>
+                        <div class="testimonial-author">
+                            <span class="testimonial-avatar">MA</span>
+                            <div>
+                                <div class="testimonial-name">Marcos Alencar</div>
+                                <div class="testimonial-role">Coordenador BIM, Vetor Engenharia (exemplo)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <p class="testimonial-quote">“O P-LAB Viewer virou nosso canal padrão de revisão com o cliente. Simples de compartilhar, sem precisar instalar nada.”</p>
+                        <div class="testimonial-author">
+                            <span class="testimonial-avatar">RS</span>
+                            <div>
+                                <div class="testimonial-name">Renata Sousa</div>
+                                <div class="testimonial-role">Gerente de Projetos, Construtora Horizonte (exemplo)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <p class="testimonial-quote">“O suporte entende engenharia, não só código. Isso muda completamente a conversa.”</p>
+                        <div class="testimonial-author">
+                            <span class="testimonial-avatar">DF</span>
+                            <div>
+                                <div class="testimonial-name">Diego Farias</div>
+                                <div class="testimonial-role">Sócio, Farias &amp; Lima Estruturas (exemplo)</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="solucoes" class="section light-bg">
             <div class="container">
-                <h2 class="text-center section-title-main" data-i18n="axes-title">Três frentes, um objetivo: eliminar trabalho manual</h2>
+                <h2 class="text-center section-title-main revela-texto" data-i18n="axes-title">Três frentes, um objetivo: eliminar trabalho manual</h2>
                 <div class="grid-container axes-grid">
-                    <div class="skill-card axis-card">
-                        <i class="fas fa-puzzle-piece axis-icon"></i>
+                    <div class="skill-card axis-card reveal">
+                        <svg class="icon axis-icon" aria-hidden="true"><use href="#icon-automacao"/></svg>
                         <span class="axis-tag" data-i18n="axis1-tag">AUTOMAÇÃO</span>
                         <h3 data-i18n="axis1-t">Plugins Revit &amp; Navisworks</h3>
                         <p data-i18n="axis1-d">Automações em Python e C# que eliminam tarefas repetitivas. Export Schedules e Export Sheets já disponíveis — gratuitos.</p>
-                        <a href="solucoes.html" class="btn-card" data-i18n="axis1-btn">Ver plugins <i class="fas fa-arrow-right"></i></a>
+                        <a href="solucoes.html" class="btn-card" data-i18n="axis1-btn">Ver plugins <svg class="icon seta" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
                     </div>
-                    <div class="skill-card axis-card">
-                        <i class="fas fa-cube axis-icon"></i>
+                    <div class="skill-card axis-card reveal">
+                        <svg class="icon axis-icon" aria-hidden="true"><use href="#icon-cube"/></svg>
                         <span class="axis-tag" data-i18n="axis2-tag">PLATAFORMA WEB</span>
                         <h3 data-i18n="axis2-t">P-LAB Viewer</h3>
                         <p data-i18n="axis2-d">Plataforma web para visualizar, comparar e revisar projetos BIM (IFC, PDF, DXF) no navegador. Escritórios de projetos já utilizam.</p>
-                        <a href="viewer.html" class="btn-card" data-i18n="axis2-btn">Conhecer o Viewer <i class="fas fa-arrow-right"></i></a>
+                        <a href="viewer.html" class="btn-card" data-i18n="axis2-btn">Conhecer o Viewer <svg class="icon seta" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
                     </div>
-                    <div class="skill-card axis-card">
-                        <i class="fas fa-gauge-high axis-icon"></i>
+                    <div class="skill-card axis-card reveal">
+                        <svg class="icon axis-icon" aria-hidden="true"><use href="#icon-gauge"/></svg>
                         <span class="axis-tag" data-i18n="axis3-tag">GESTÃO DE ESCRITÓRIO</span>
                         <h3 data-i18n="axis3-t">P-LAB Hub</h3>
                         <p data-i18n="axis3-d">O sistema operacional do escritório de projetos: qualidade, custos, comercial e indicadores no lugar de planilhas soltas.</p>
-                        <a href="hub.html" class="btn-card" data-i18n="axis3-btn">Conhecer o Hub <i class="fas fa-arrow-right"></i></a>
+                        <a href="hub.html" class="btn-card" data-i18n="axis3-btn">Conhecer o Hub <svg class="icon seta" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
                     </div>
                 </div>
             </div>
@@ -126,7 +206,7 @@
 
         <section class="section">
             <div class="container custom-dev">
-                <div class="custom-dev-text">
+                <div class="custom-dev-text reveal">
                     <span class="eyebrow" data-i18n="custom-eyebrow">DESENVOLVIMENTO SOB MEDIDA</span>
                     <h2 data-i18n="custom-title">O seu fluxo, virando software</h2>
                     <p data-i18n="custom-desc">A P-LAB também desenvolve sob demanda: plugins customizados para Revit e Navisworks, sistemas de gestão e ferramentas de análise adaptadas ao processo de cada escritório. Export Schedules, Export Sheets, o Hub e o Viewer nasceram exatamente assim — de necessidades reais de quem projeta.</p>
@@ -136,13 +216,13 @@
         </section>
 
         <section class="section light-bg">
-            <div class="container consultoria-band">
+            <div class="container consultoria-band reveal">
                 <div>
                     <span class="eyebrow" data-i18n="cons-band-eyebrow">CONSULTORIA BIM</span>
                     <h2 data-i18n="cons-band-title">Antes do software, o método</h2>
                     <p data-i18n="cons-band-desc">A P-LAB também atua em consultoria BIM: gestão e cultura, coordenação multidisciplinar e auditoria de qualidade para estruturar o BIM do seu escritório.</p>
                 </div>
-                <a href="consultoria.html" class="btn-secondary" data-i18n="cons-band-btn">Ver consultoria <i class="fas fa-arrow-right"></i></a>
+                <a href="consultoria.html" class="btn-secondary" data-i18n="cons-band-btn">Ver consultoria <svg class="icon seta" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
             </div>
         </section>
 
@@ -194,14 +274,14 @@
             <div class="footer-social">
                 <h3 data-i18n="footer-social">Siga-nos</h3>
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/company/plab-eng/" target="_blank" rel="noopener" aria-label="LinkedIn da P-LAB"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/company/plab-eng/" target="_blank" rel="noopener" aria-label="LinkedIn da P-LAB"><svg class="icon" style="font-size:1.6rem" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
                 </div>
             </div>
             <div class="footer-contact">
                 <h3 data-i18n="footer-contact">Contato</h3>
                 <p class="footer-white"><a href="tel:+5561982068746">(61) 98206-8746</a></p>
                 <p class="footer-white">engpicanco@yahoo.com.br</p>
-                <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-whatsapp-footer" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-whatsapp-footer" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg> WhatsApp</a>
             </div>
         </div>
         <div class="container text-center footer-bottom">
@@ -210,7 +290,7 @@
     </footer>
 
     <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar com a P-LAB no WhatsApp">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="34" height="34">
+        <svg class="icon icon-fill" style="width:34px;height:34px;color:#fff" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
     </a>
 
     <script src="script.js"></script>

@@ -309,6 +309,150 @@ function initViewerCarousel() {
     activate(slides[0]);
 }
 
+/* =========================================================
+   Camadas, profundidade e movimento (home)
+   Ver references/premium.md da skill criador-de-sites.
+   Toda função checa se seus elementos existem e sai em silêncio
+   se não existirem — nada aqui quebra as páginas que não usam isso.
+   ========================================================= */
+const REDUCE_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const TEM_HOVER = window.matchMedia('(hover: hover)').matches;
+
+// Header ganha sombra e encolhe um pouco depois de rolar ~40px.
+function initHeaderScroll() {
+    const header = document.querySelector('.main-header');
+    if (!header) return;
+    let ticking = false;
+    function atualizar() {
+        header.classList.toggle('is-scrolled', window.scrollY > 40);
+        ticking = false;
+    }
+    addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(atualizar); ticking = true; }
+    }, { passive: true });
+    atualizar();
+}
+
+// Revela seções/cards ao entrarem na tela (atraso escalonado entre irmãos) e
+// prepara os títulos .revela-texto, quebrando o texto em palavras mascaradas.
+function initReveal() {
+    document.querySelectorAll('.revela-texto').forEach((el) => {
+        const texto = el.textContent.trim();
+        if (!texto) return;
+        el.setAttribute('aria-label', texto);
+        el.innerHTML = texto.split(' ').map((palavra, i) =>
+            '<span class="palavra" aria-hidden="true"><i style="--d:' + (i * 55) + 'ms">' + palavra + '</i></span>'
+        ).join(' ');
+    });
+
+    const alvos = document.querySelectorAll('.reveal, .revela-texto');
+    if (!alvos.length) return;
+
+    const io = new IntersectionObserver((entradas) => {
+        entradas.forEach((entrada) => {
+            if (!entrada.isIntersecting) return;
+            entrada.target.classList.add('is-visible');
+            io.unobserve(entrada.target);
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+    // Escalona irmãos do mesmo pai (cards de uma grade, por exemplo).
+    const contagemPorPai = new Map();
+    alvos.forEach((el) => {
+        const pai = el.parentElement;
+        const indice = contagemPorPai.get(pai) || 0;
+        contagemPorPai.set(pai, indice + 1);
+        el.style.setProperty('--reveal-delay', (indice % 6) * 90 + 'ms');
+        io.observe(el);
+    });
+}
+
+// Brilho radial no hero seguindo o cursor. Só liga em dispositivo com mouse real.
+function initHeroSpotlight() {
+    if (REDUCE_MOTION || !TEM_HOVER) return;
+    const hero = document.querySelector('.hero-spotlight');
+    if (!hero) return;
+    hero.addEventListener('pointermove', (e) => {
+        const r = hero.getBoundingClientRect();
+        hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        hero.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+}
+
+// Leve inclinação 3D no mockup do hero, seguindo o cursor.
+function initHeroTilt() {
+    if (REDUCE_MOTION || !TEM_HOVER) return;
+    const wrap = document.querySelector('.hero-mockup');
+    const img = wrap ? wrap.querySelector('.mockup-img') : null;
+    if (!wrap || !img) return;
+    wrap.addEventListener('pointermove', (e) => {
+        const r = wrap.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        img.style.setProperty('--tilt-y', (px * 8) + 'deg');
+        img.style.setProperty('--tilt-x', (py * -8) + 'deg');
+    });
+    wrap.addEventListener('pointerleave', () => {
+        img.style.setProperty('--tilt-x', '0deg');
+        img.style.setProperty('--tilt-y', '0deg');
+    });
+}
+
+// Parallax leve no fundo do hero. Desligado em telas pequenas e com movimento reduzido.
+function initParallax() {
+    if (REDUCE_MOTION) return;
+    const camadas = Array.from(document.querySelectorAll('[data-parallax]'));
+    if (!camadas.length) return;
+    let ticking = false;
+    function atualizar() {
+        if (window.innerWidth < 900) {
+            camadas.forEach((el) => { el.style.transform = ''; });
+        } else {
+            const y = window.scrollY;
+            camadas.forEach((el) => {
+                const fator = parseFloat(el.dataset.parallax) || 0;
+                el.style.transform = 'translate3d(0,' + (y * fator) + 'px,0)';
+            });
+        }
+        ticking = false;
+    }
+    addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(atualizar); ticking = true; }
+    }, { passive: true });
+    atualizar();
+}
+
+// Contadores da faixa de prova social: sobem de 0 até o valor real ao entrar na tela.
+// O valor real já é o texto do HTML (data-valor) — sem JS, o número certo aparece igual.
+function initCounters() {
+    const contadores = document.querySelectorAll('.stat-num[data-valor]');
+    if (!contadores.length) return;
+
+    function anima(el) {
+        const alvo = parseInt(el.dataset.valor, 10);
+        const sufixo = el.dataset.sufixo || '';
+        if (REDUCE_MOTION || !alvo) { el.textContent = alvo + sufixo; return; }
+        const duracao = 1200;
+        const inicio = performance.now();
+        function passo(agora) {
+            const p = Math.min((agora - inicio) / duracao, 1);
+            const valor = Math.round(alvo * (1 - Math.pow(1 - p, 3)));
+            el.textContent = valor + sufixo;
+            if (p < 1) requestAnimationFrame(passo);
+        }
+        requestAnimationFrame(passo);
+    }
+
+    const io = new IntersectionObserver((entradas) => {
+        entradas.forEach((entrada) => {
+            if (!entrada.isIntersecting) return;
+            anima(entrada.target);
+            io.unobserve(entrada.target);
+        });
+    }, { threshold: 0.4 });
+    contadores.forEach((el) => io.observe(el));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     setLangLabel();               // mostra PT/EN/ES conforme o caminho atual
     if (hasConsent()) loadGA();   // visitante que já aceitou em visita anterior
@@ -318,4 +462,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initThemeToggle();
     initMobileMenu();
     initViewerCarousel();
+    initHeaderScroll();
+    initReveal();
+    initHeroSpotlight();
+    initHeroTilt();
+    initParallax();
+    initCounters();
 });

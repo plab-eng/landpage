@@ -86,7 +86,7 @@ a { color: var(--accent); }
     padding: 14px 0;
 }
 .header-flex { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-.logo-link { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-link { display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 6px 0; margin: -6px 0; }
 .header-logo-img { height: 34px; width: auto; }
 .logo { font-size: 1.5rem; color: var(--text); font-weight: 700; margin: 0; }
 .nav-links { display: flex; list-style: none; gap: 22px; margin: 0; padding: 0; }
@@ -113,9 +113,9 @@ a { color: var(--accent); }
     transition: border-color var(--transition), color var(--transition);
 }
 .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
-.theme-toggle .fa-sun { display: none; }
-[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
-[data-theme="dark"] .theme-toggle .fa-sun { display: inline; }
+.theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: inline; }
 
 /* ===== SELETOR DE IDIOMA ===== */
 .language-selector { position: relative; }
@@ -168,11 +168,23 @@ a { color: var(--accent); }
 }
 
 /* ===== HERO ===== */
+/* .hero-bg é a camada 0 (fundo) do modelo de profundidade: grid sutil + dois
+   brilhos suaves, deslocando-se mais lento que o scroll via [data-parallax]. */
 .hero-section {
+    position: relative;
+    overflow: hidden;   /* .hero-bg extrapola a section de propósito (parallax) */
+}
+.hero-bg {
+    position: absolute;
+    inset: -15% -8%;
+    z-index: 0;
+    pointer-events: none;
     background-image:
+        radial-gradient(480px circle at 15% 15%, var(--accent-soft), transparent 60%),
+        radial-gradient(420px circle at 88% 80%, var(--accent-soft), transparent 55%),
         linear-gradient(var(--grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background-size: auto, auto, 40px 40px, 40px 40px;
 }
 .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
 .hero-text h1, .hero-text h2 {
@@ -285,8 +297,8 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
 .footer-info p, .footer-white { color: var(--text-muted); margin: 5px 0; }
 .footer-social h3, .footer-contact h3 { color: var(--text); }
 .social-icons { display: flex; gap: 18px; margin-top: 14px; }
-.social-icons a { color: var(--text-muted); font-size: 1.8rem; transition: color var(--transition); }
-.social-icons a:hover { color: var(--accent); }
+.social-icons a { color: var(--text-muted); font-size: 1.8rem; transition: color var(--transition), transform var(--transition); display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+.social-icons a:hover { color: var(--accent); transform: translateY(-2px); }
 .btn-whatsapp-footer {
     background: var(--accent);
     color: #fff;
@@ -473,13 +485,17 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 18px;
+    margin: 10px 0 -8px;
+    padding: 8px 0;
     color: var(--accent);
     font-weight: 600;
     text-decoration: none;
     transition: gap var(--transition);
+    position: relative;
 }
 .btn-card:hover { gap: 12px; }
+.btn-card .seta { transition: transform var(--transition); }
+.btn-card:hover .seta { transform: translateX(3px); }
 
 /* ===== CARDS DE EIXO (home) ===== */
 .axes-grid { margin-top: 8px; }
@@ -581,7 +597,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
     .hero-text h1, .hero-text h2 { font-size: 2.1rem; }
     .hero-actions { justify-content: center; }
     .hero-text .tech-badges { display: flex; flex-wrap: wrap; justify-content: center; }
-    .hero-mockup { order: -1; }
     .plugin-grid-diroots { grid-template-columns: 1fr; }
     .pyrevit-content { flex-direction: column-reverse; text-align: center; gap: 20px; }
     .pyrevit-logo-container img { max-width: 200px; margin: 0 auto; }
@@ -822,6 +837,115 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .viewer-qr figcaption { margin-top: 16px; }
 .viewer-qr figcaption h3 { font-size: 1.15rem; margin: 0 0 6px; }
 .viewer-qr figcaption p { font-size: 0.95rem; color: var(--text-muted); margin: 0 auto; max-width: 52ch; }
+
+/* =========================================================
+   CAMADAS, PROFUNDIDADE E MOVIMENTO (home)
+   Ver references/premium.md da skill criador-de-sites.
+   Tudo aqui é aditivo e degrada em silêncio nas páginas que
+   não têm as classes/elementos correspondentes.
+   ========================================================= */
+
+/* ===== ÍCONES SVG INLINE (substituem o Font Awesome na home) ===== */
+.icon { width: 1em; height: 1em; vertical-align: -0.14em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.icon-fill { fill: currentColor; stroke: none; }
+
+/* ===== BARRA DE PROGRESSO DE LEITURA ===== */
+.progresso { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); z-index: 3000; transform: scaleX(0); transform-origin: 0 50%; }
+@supports (animation-timeline: scroll(root)) {
+    .progresso { animation: plab-progresso linear both; animation-timeline: scroll(root); transform: none; }
+    @keyframes plab-progresso { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+
+/* ===== HEADER: reage ao scroll ===== */
+.main-header { transition: box-shadow var(--transition), padding var(--transition); }
+.main-header.is-scrolled { box-shadow: 0 4px 20px rgba(15, 20, 25, 0.1); padding: 10px 0; }
+[data-theme="dark"] .main-header.is-scrolled { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); }
+
+/* ===== REVELAÇÃO AO ROLAR (IntersectionObserver em script.js) ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* ===== REVELAÇÃO DE TEXTO POR PALAVRA (só os títulos-chave) ===== */
+.revela-texto .palavra { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.revela-texto .palavra i {
+    display: inline-block; font-style: inherit;
+    transform: translateY(105%);
+    transition: transform .8s cubic-bezier(.2,.8,.2,1);
+    transition-delay: var(--d, 0ms);
+}
+.revela-texto.is-visible .palavra i { transform: none; }
+
+/* ===== SPOTLIGHT NO HERO (brilho seguindo o cursor) ===== */
+.hero-spotlight { position: relative; }
+.hero-spotlight::before {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background: radial-gradient(480px circle at var(--mx, 50%) var(--my, 15%), var(--accent-soft), transparent 70%);
+    opacity: .7;
+}
+[data-theme="dark"] .hero-spotlight::before { opacity: .16; }
+.hero-grid { position: relative; z-index: 1; }
+
+/* ===== TILT 3D NO MOCKUP DO HERO (JS define --tilt-x/--tilt-y) ===== */
+.hero-mockup { perspective: 1200px; }
+.mockup-img { transition: transform .3s ease; transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)); }
+
+/* ===== CARDS: acabamento premium no hover ===== */
+.axis-card, .skill-card { position: relative; overflow: hidden; }
+.axis-card::before, .skill-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--accent); transform: scaleX(0); transform-origin: 0 50%;
+    transition: transform .35s ease;
+}
+.axis-card:hover::before, .skill-card:hover::before { transform: scaleX(1); }
+.axis-icon { transition: transform .3s ease; }
+.axis-card:hover .axis-icon { transform: scale(1.15) rotate(-6deg); }
+
+/* ===== BADGES: aceso ao passar o mouse ===== */
+.tech-badge { transition: transform var(--transition), border-color var(--transition), background var(--transition); }
+.tech-badge:hover { transform: translateY(-2px); border-color: var(--accent); background: var(--accent-soft); }
+[data-theme="dark"] .tech-badge:hover { color: var(--accent); }
+
+/* ===== FAIXA ESCURA: PROVA SOCIAL ===== */
+.stats-band { background: #0D1117; color: #E6EDF3; padding: 64px 0; }
+.stats-band .eyebrow { color: #3FB950; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 32px; text-align: center; }
+.stat-num { display: block; font-family: var(--font-mono); font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 700; color: #3FB950; line-height: 1; margin-bottom: 8px; }
+.stat-label { color: #8B949E; font-size: 0.95rem; }
+
+/* ===== DEPOIMENTOS ===== */
+.testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; margin-top: 8px; }
+.testimonial-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 30px; box-shadow: var(--card-shadow); transition: transform var(--transition), border-color var(--transition);
+}
+.testimonial-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.testimonial-quote { font-size: 1.05rem; color: var(--text); margin: 0 0 20px; line-height: 1.55; }
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.testimonial-avatar {
+    width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+    background: var(--accent-soft); color: var(--accent-hover);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-title); font-weight: 700; font-size: 1rem;
+}
+[data-theme="dark"] .testimonial-avatar { color: var(--accent); }
+.testimonial-name { font-weight: 600; color: var(--text); font-size: 0.95rem; line-height: 1.3; }
+.testimonial-role { color: var(--text-muted); font-size: 0.85rem; }
+
+@media (max-width: 860px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 20px; }
+}
+
+/* ===== Efeitos que não devem rodar com movimento reduzido ===== */
+@media (prefers-reduced-motion: reduce) {
+    .progresso { display: none; }
+    .hero-spotlight::before { display: none; }
+}
 
 /* Reduz movimento se o usuário pedir */
 @media (prefers-reduced-motion: reduce) {
