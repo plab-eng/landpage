@@ -72,10 +72,13 @@
         </div>
     </header>
 
-    <!-- ATENCAO: os CTAs de assinatura apontam para o WhatsApp de proposito.
-         O checkout (plab-os.vercel.app/assinar) le a tabela `planos` do Supabase,
-         que ainda tem o preco antigo (R$ 139,90). Quando a migration com os precos
-         novos rodar, trocar os tres CTAs de volta para /assinar. -->
+    <!-- Os CTAs levam para o CADASTRO, nao para o checkout.
+         Modelo freemium (10/09/2026): a pessoa cria conta de graca, ja usa o
+         Viewer gratuito, e faz o upgrade la dentro se quiser. Nao existe
+         checkout publico -- no freemium a conta vem antes do pagamento, entao
+         quem cadastra e o proprio Supabase Auth do app.
+         A migracao de preco por usuario ja rodou; o preco anunciado aqui e o
+         mesmo que a tela de assinatura calcula. -->
     <main>
         <section class="section hero-section">
             <div class="container text-center">
@@ -103,7 +106,7 @@
                             <li data-i18n="pl-v-i3">Histórico do que foi decidido e por quem</li>
                             <li data-i18n="pl-v-i4">Compartilhamento com o cliente por link</li>
                         </ul>
-                        <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20quero%20assinar%20o%20P-LAB%20Viewer." class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-i18n="pl-v-btn">Quero o Viewer</a>
+                        <a href="https://plab-os.vercel.app/" class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-i18n="pl-v-btn">Criar conta grátis</a>
                     </div>
 
                     <div class="plano-card plano-card--destaque">
@@ -115,9 +118,9 @@
                         <ul class="plano-lista">
                             <li data-i18n="pl-c-i1">Tudo do Viewer e tudo do P-LAB OS</li>
                             <li data-i18n="pl-c-i2">Modelo e gestão falando do mesmo projeto</li>
-                            <li data-i18n="pl-c-i3">7 dias de teste, com tudo liberado</li>
+                            <li data-i18n="pl-c-i3">15 dias de teste, com tudo liberado</li>
                         </ul>
-                        <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20quero%20come%C3%A7ar%20o%20teste%20do%20plano%20Completo." class="btn-primary" target="_blank" rel="noopener" data-i18n="pl-c-btn">Começar o teste</a>
+                        <a href="https://plab-os.vercel.app/" class="btn-primary" target="_blank" rel="noopener" data-i18n="pl-c-btn">Começar grátis</a>
                     </div>
 
                     <div class="plano-card">
@@ -132,7 +135,7 @@
                             <li data-i18n="pl-o-i3">Gestão: apontamento de horas por projeto</li>
                             <li data-i18n="pl-o-i4">Qualidade: revisões, pendências e decisões</li>
                         </ul>
-                        <a href="https://wa.me/5561982068746?text=Ol%C3%A1%2C%20quero%20assinar%20o%20P-LAB%20OS." class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-i18n="pl-o-btn">Quero o P-LAB OS</a>
+                        <a href="https://plab-os.vercel.app/" class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-i18n="pl-o-btn">Criar conta grátis</a>
                     </div>
 
                 </div>
