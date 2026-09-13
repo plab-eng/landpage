@@ -30,7 +30,7 @@ A chave da API é lida da variável de ambiente DEEPL_API_KEY (nunca no código)
 Equivalentes por env: FORCE_TRANSLATE=1, MOCK_TRANSLATE=1.
 
 >>> DOMÍNIO BASE — TROQUE AQUI SE O SITE MUDAR DE ENDEREÇO <<<
-    Ex.: GitHub Pages -> "https://plab-eng.github.io/landpage"
+    Ex.: GitHub Pages -> "https://plabdev.com.br"
          Hostinger    -> "https://www.seudominio.com.br"
 """
 
@@ -45,7 +45,7 @@ import urllib.parse
 
 # ============================ CONFIGURAÇÃO ============================
 
-BASE_URL = "https://plab-eng.github.io/landpage"   # <<< TROQUE AQUI o domínio base
+BASE_URL = "https://plabdev.com.br"   # <<< TROQUE AQUI o domínio base
 
 DEEPL_ENDPOINT = "https://api-free.deepl.com/v2/translate"
 

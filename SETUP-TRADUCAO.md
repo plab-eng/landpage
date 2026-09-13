@@ -76,9 +76,9 @@ Acompanhe em **Actions** (aba do repositório). O workflow vai:
 3. Publicar o site (raiz + `/en` + `/es`) no GitHub Pages.
 
 Ao terminar, os endereços ficam assim:
-- Português: `https://plab-eng.github.io/landpage/`
-- Inglês: `https://plab-eng.github.io/landpage/en/`
-- Espanhol: `https://plab-eng.github.io/landpage/es/`
+- Português: `https://plabdev.com.br/`
+- Inglês: `https://plabdev.com.br/en/`
+- Espanhol: `https://plabdev.com.br/es/`
 
 O seletor de idioma (🌐 no topo) alterna entre as três versões mantendo a página atual.
 
@@ -154,7 +154,7 @@ O endereço base aparece em **dois lugares** — atualize os dois:
    atualizar o `BASE` do bloco que gera o `sitemap.xml`.
 
 Exemplos de `BASE_URL`:
-- GitHub Pages: `https://plab-eng.github.io/landpage`
+- GitHub Pages: `https://plabdev.com.br`
 - Domínio próprio na Hostinger: `https://www.seudominio.com.br`
 
 ---

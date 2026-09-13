@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://plab-eng.github.io/landpage/sitemap.xml
+Sitemap: https://plabdev.com.br/sitemap.xml
