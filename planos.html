@@ -106,7 +106,7 @@
                             <li data-i18n="pl-v-i3">Histórico do que foi decidido e por quem</li>
                             <li data-i18n="pl-v-i4">Compartilhamento com o cliente por link</li>
                         </ul>
-                        <a href="https://plab-os.vercel.app/" class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-i18n="pl-v-btn">Criar conta grátis</a>
+                        <a href="https://plab-os.vercel.app/assinar?plano=viewer" class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-i18n="pl-v-btn">Criar conta grátis</a>
                     </div>
 
                     <div class="plano-card plano-card--destaque">
@@ -120,7 +120,7 @@
                             <li data-i18n="pl-c-i2">Modelo e gestão falando do mesmo projeto</li>
                             <li data-i18n="pl-c-i3">15 dias de teste, com tudo liberado</li>
                         </ul>
-                        <a href="https://plab-os.vercel.app/" class="btn-primary" target="_blank" rel="noopener" data-i18n="pl-c-btn">Começar grátis</a>
+                        <a href="https://plab-os.vercel.app/assinar?plano=completo" class="btn-primary" target="_blank" rel="noopener" data-i18n="pl-c-btn">Começar grátis</a>
                     </div>
 
                     <div class="plano-card">
@@ -135,7 +135,7 @@
                             <li data-i18n="pl-o-i3">Gestão: apontamento de horas por projeto</li>
                             <li data-i18n="pl-o-i4">Qualidade: revisões, pendências e decisões</li>
                         </ul>
-                        <a href="https://plab-os.vercel.app/" class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-i18n="pl-o-btn">Criar conta grátis</a>
+                        <a href="https://plab-os.vercel.app/assinar?plano=os" class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-i18n="pl-o-btn">Criar conta grátis</a>
                     </div>
 
                 </div>
@@ -376,5 +376,77 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Preço com uma fonte só (13/09/2026): os números acima, escritos à
+         mão, são a RESERVA. Se o banco responder, eles saem daqui; se a
+         chamada falhar (rede fora, RPC fora do ar), o HTML estático
+         continua valendo — a vitrine nunca fica em branco por causa disto.
+
+         Só troca os planos que JÁ EXISTEM em `planos` (viewer, os,
+         completo) — os módulos de plugin (Documentação, Elétrica, Hidro...)
+         ainda não têm linha no banco, e os cards deles ficam como estão até
+         a ponte pagamento → licença existir.
+
+         Só roda na página em português: o texto ao redor do preço já foi
+         traduzido pelo DeepL para /en/ e /es/ (scripts/translate.py) — e
+         embutir frase em português ali apagaria a tradução. -->
+    <script>
+    (function () {
+      if (/\/(en|es)\//.test(location.pathname)) return;
+
+      var URL_BASE = 'https://rydgthtnlccryhvgghkw.supabase.co';
+      // Chave "anon": pública por natureza, a mesma classe de chave que já
+      // vai embutida no bundle do P-LAB OS (RULES.md §6) — não é segredo.
+      var ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5ZGd0aHRubGNjcnlodmdnaGt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4NjA5NzksImV4cCI6MjEwMDQzNjk3OX0.xLjIqUBjgorHad7gD8rZKI4kboSz5_S6DgP9MR5T1zM';
+
+      var CARTOES = { viewer: 'pl-v', os: 'pl-o', completo: 'pl-c' };
+
+      function real(v) {
+        return 'R$ ' + Number(v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      fetch(URL_BASE + '/rest/v1/rpc/vitrine_de_planos', {
+        headers: { apikey: ANON_KEY, Authorization: 'Bearer ' + ANON_KEY },
+      })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (planos) {
+          var porChave = {};
+          planos.forEach(function (p) { porChave[p.chave] = p; });
+
+          // Economia do combo Completo vs. Viewer + OS separados — a MESMA
+          // conta que hoje está escrita à mão no texto ("economia de 20%"),
+          // agora calculada: se o preço mudar, o texto acompanha sozinho.
+          var viewer = porChave.viewer, os = porChave.os, completo = porChave.completo;
+          var economia = null;
+          if (viewer && os && completo) {
+            var separado = Number(viewer.valor_usuario_parcela) + Number(os.valor_usuario_parcela);
+            if (separado > 0 && Number(completo.valor_usuario_parcela) < separado) {
+              economia = Math.round((1 - Number(completo.valor_usuario_parcela) / separado) * 100);
+            }
+          }
+
+          Object.keys(CARTOES).forEach(function (chave) {
+            var p = porChave[chave];
+            if (!p) return; // sem esta linha no banco: mantém o texto estático
+            var prefixo = CARTOES[chave];
+            var elValor = document.querySelector('[data-i18n="' + prefixo + '-v"]');
+            var elCond = document.querySelector('[data-i18n="' + prefixo + '-c"]');
+            if (!elValor || !elCond) return;
+
+            elValor.textContent = p.parcelas + 'x ' + real(p.valor_usuario_parcela);
+
+            var cond = 'por usuário, no plano anual · ou ' + real(p.valor_usuario_mensal) + '/mês sem compromisso';
+            if (chave === 'completo' && economia !== null) {
+              cond += ' · economia de ' + economia + '%';
+            }
+            elCond.textContent = cond;
+          });
+        })
+        .catch(function () {
+          // Sem resposta do banco: o preço estático já escrito na página
+          // é o que fica — reserva, não erro.
+        });
+    })();
+    </script>
 </body>
 </html>
