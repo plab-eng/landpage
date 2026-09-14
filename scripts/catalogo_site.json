@@ -1,0 +1,39 @@
+{
+  "_leia": "Curadoria do catálogo do site (docs/superpowers/plans/2026-09-14-catalogo-automatico.md). Lançado vem do catalogo.json do último release do add-in; aqui só entra o que o release não diz: nome melhor para o site, botão para esconder e a lista de Em breve. Item de Em breve some sozinho quando um botão com o mesmo texto sai num release.",
+  "cartoes": {
+    "free": { "flags": ["free", "livre"] },
+    "tools": { "flags": ["tools", "export"] },
+    "mep": { "flags": ["mep", "export"] },
+    "documentacao": { "flags": ["documentacao", "export"] }
+  },
+  "renomear": {
+    "PLAB_Mep_QuedaTensao": "Calcular Queda de Tensão",
+    "PLAB_Mep_TagsHidAutomatica": "Tag Automática",
+    "PLAB_Tools_CotaAutomatica": "Cota Automática"
+  },
+  "ocultar": [],
+  "em_breve": {
+    "free": [
+      "Transferir Parâmetros",
+      "Eliminar Duplicados",
+      "Limpar Grupos",
+      "Alinhar Tags / Spots",
+      "Numerar Detalhes",
+      "Ordenar Viewports"
+    ],
+    "tools": [
+      "Visibilidade Links",
+      "Exportar Worksets"
+    ],
+    "mep": [
+      "Conectar Tubos",
+      "Anotar Circuitos, Conduletes e Disjuntores",
+      "Quadros: monitorar e redimensionar",
+      "Verificador NBR 5410",
+      "Croqui → Hidrossanitário",
+      "Prumadas, suportes e seta de fluxo",
+      "Verificador NBR 8160 / 5626"
+    ],
+    "documentacao": []
+  }
+}
