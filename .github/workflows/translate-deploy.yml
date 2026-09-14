@@ -10,6 +10,16 @@ on:
       - 'en/**'
       - 'es/**'
       - '**/*.md'
+  # Release novo do add-in: build/pack.ps1 (repo P-LAB) mostra o comando
+  #   gh api repos/plab-eng/landpage/dispatches -f event_type=release-addin
+  repository_dispatch:
+    types: [ release-addin ]
+  # Reserva: se ninguém avisar, o catálogo é conferido uma vez por dia
+  # (09:17 UTC = 06:17 em Brasília). Sem mudança, o cache de tradução faz
+  # a rodada custar zero de DeepL.
+  schedule:
+    - cron: '17 9 * * *'
+  workflow_dispatch:
 
 # Permissões: contents (commitar o cache de volta) + pages/id-token (deploy).
 permissions:
@@ -53,22 +63,27 @@ jobs:
           echo "HTML da raiz alterados neste push:"
           git diff --name-only HEAD^ HEAD -- '*.html' || echo "(primeiro commit ou nenhum)"
 
+      # Cartões de módulo de planos.html a partir do catalogo.json do último
+      # release do add-in. Nunca falha o deploy: sem catálogo, nada muda.
+      - name: Montar catálogo de botões (último release do add-in)
+        run: python scripts/montar_catalogo.py
+
       - name: Traduzir (gera /en e /es; usa cache para economizar a cota)
         env:
           DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
         run: python scripts/translate.py
 
-      # === Commit do CACHE de volta ao repositório (preserva o histórico de traduções) ===
+      # === Commit do CATÁLOGO + CACHE de volta ao repositório ===
       # Usa [skip ci] na mensagem para NÃO disparar o workflow de novo (evita loop).
-      - name: Commitar cache de tradução
+      - name: Commitar catálogo e cache de tradução
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add scripts/.translation-cache.json
+          git add scripts/.translation-cache.json planos.html
           if git diff --cached --quiet; then
-            echo "Cache sem mudanças — nada a commitar."
+            echo "Catálogo e cache sem mudanças — nada a commitar."
           else
-            git commit -m "chore: atualiza cache de tradução [skip ci]"
+            git commit -m "chore: catálogo do add-in e cache de tradução [skip ci]"
             git push
           fi
 

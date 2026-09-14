@@ -104,6 +104,47 @@ Cache: scripts/.translation-cache.json (360 entradas)
 
 ---
 
+## Catálogo automático de botões
+
+Os cartões de módulo de `planos.html` (P-LAB Free, Tools, MEP, Documentação)
+não são digitados à mão: são montados no deploy, **antes** da tradução, a
+partir do que o add-in realmente entrega.
+
+- **De onde vêm os botões:** `catalogo.json`, anexado ao **último release**
+  publicado em `plab-eng/P-LAB-releases` (não a branch de desenvolvimento do
+  add-in). Esse arquivo é gerado pelo console `PLAB.Catalogo` dentro do
+  `build/pack.ps1` do repo P-LAB, por reflexão sobre a ribbon — não existe
+  lista mantida à mão do que foi lançado.
+- **Quando roda:** a cada `push` na `main` (como hoje), quando o `pack.ps1`
+  dispara `repository_dispatch` do tipo `release-addin` (o José roda isso
+  depois de publicar um release), numa rodada diária às 06:17 (horário de
+  Brasília) como reserva, e pelo botão manual (**Actions → Run workflow**).
+- **O que o José edita:** só `scripts/catalogo_site.json` — `renomear` (nome
+  melhor para o site), `ocultar` (botão que não deve aparecer) e `em_breve`
+  (a lista curada por cartão). **Nunca** edite à mão os `<li>` entre os
+  marcadores `<!-- catalogo:<cartao> --> ... <!-- /catalogo:<cartao> -->` em
+  `planos.html` — o próximo deploy sobrescreve.
+- **"Em breve" some sozinho:** quando um botão com o mesmo texto (ignorando
+  acento, caixa, quebra de linha e espaço) aparece no release, o item
+  correspondente de `em_breve` deixa de ser mostrado — não precisa tirar
+  manualmente da lista.
+- **Nunca derruba o site:** se o release não tiver `catalogo.json`, se o
+  download falhar ou o JSON vier inválido, o script (`scripts/montar_catalogo.py`)
+  só avisa no log do Actions e deixa `planos.html` como está.
+- **Testar localmente**, sem publicar nada (usa uma cópia do HTML):
+  ```bash
+  # Windows PowerShell:
+  #   $env:CATALOGO_URL="file:///C:/caminho/catalogo.json"
+  #   $env:PLANOS_HTML="C:/caminho/planos-copia.html"
+  # Linux/Mac/Git Bash:
+  CATALOGO_URL="file:///C:/caminho/catalogo.json" PLANOS_HTML=planos-copia.html python scripts/montar_catalogo.py
+  ```
+  Rode os testes com `python -m unittest scripts/test_montar_catalogo.py`.
+- **Contrato completo** (formato do `catalogo.json`, decisões e travas):
+  `docs/superpowers/plans/2026-09-14-catalogo-automatico.md`.
+
+---
+
 ## Editar o conteúdo no dia a dia
 
 1. Edite **apenas os arquivos em português** (raiz).
@@ -189,3 +230,6 @@ O resto do workflow (tradução + cache) continua igual.
 | `/en/`, `/es/` | Traduções geradas | **Não** (recriadas no deploy) |
 | `.github/workflows/translate-deploy.yml` | Traduz + publica | Sim |
 | `sitemap.xml` | URLs dos 3 idiomas (hreflang) | Sim |
+| `scripts/montar_catalogo.py` | Monta os cartões de módulo a partir do release do add-in | Sim |
+| `scripts/catalogo_site.json` | Curadoria do catálogo (renomear/ocultar/em breve) | Sim |
+| `scripts/test_montar_catalogo.py` | Testes do catálogo (`python -m unittest`) | Sim |
