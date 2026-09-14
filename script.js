@@ -102,6 +102,42 @@ function initTracking() {
             trackEvent('download', { plugin: arquivo });
         });
     });
+    // Instalador do PLAB Assistant (ver initDownloadInstalador) e a lista de releases.
+    document.querySelectorAll('a[data-instalador]').forEach(a => {
+        a.addEventListener('click', () => trackEvent('download', {
+            plugin: 'plab-assistant',
+            versao: a.dataset.versao || 'pagina-do-release',
+        }));
+    });
+    document.querySelectorAll('a[data-releases]').forEach(a => {
+        a.addEventListener('click', () => trackEvent('releases_click', { local: a.className || 'link' }));
+    });
+}
+
+/* ===== Download direto do instalador do PLAB Assistant =====
+   O nome do .exe muda a cada versão (PLAB-Assistant-1.0.9.exe), então não dá
+   para fixar o link. A página pergunta ao GitHub qual é o .exe do último
+   release e troca o href do botão: o clique já baixa o instalador.
+   Sem resposta (rede, limite de 60 consultas/hora por visitante), o botão
+   continua indo para a página do último release — que é o href do HTML. */
+function initDownloadInstalador() {
+    const links = document.querySelectorAll('a[data-instalador]');
+    if (!links.length) return;
+    fetch('https://api.github.com/repos/plab-eng/P-LAB-releases/releases/latest', {
+        headers: { Accept: 'application/vnd.github+json' },
+    })
+        .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
+        .then(release => {
+            const exe = (release.assets || []).find(asset => /\.exe$/i.test(asset.name));
+            if (!exe) return;
+            links.forEach(a => {
+                a.href = exe.browser_download_url;
+                a.removeAttribute('target'); // download não abre aba em branco
+                a.dataset.versao = release.tag_name || '';
+                a.title = exe.name;
+            });
+        })
+        .catch(() => { /* mantém o link para a página do último release */ });
 }
 
 /* ===== Validação do formulário de contato ===== */
@@ -457,6 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setLangLabel();               // mostra PT/EN/ES conforme o caminho atual
     if (hasConsent()) loadGA();   // visitante que já aceitou em visita anterior
     buildCookieBanner();
+    initDownloadInstalador();
     initTracking();
     initContactForm();
     initThemeToggle();
