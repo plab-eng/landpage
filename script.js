@@ -182,7 +182,17 @@ function initContactForm() {
             return;
         }
         if (errorBox) errorBox.hidden = true;
-        trackEvent('form_submit', { form: 'contato' });
+
+        // O e-mail atravessa para a obrigado.html, que é onde a conversão é
+        // contada (Enhanced Conversions manda o hash, nunca o texto puro). Só
+        // esta aba, e apagado assim que usado. Sem armazenamento, perde-se o
+        // Enhanced Conversions — a conversão em si continua contando.
+        try {
+            sessionStorage.setItem('plab_lead', JSON.stringify({ email: email }));
+        } catch (err) { /* janela anônima: segue sem enriquecer */ }
+
+        const origem = form.Origem ? form.Origem.value : 'home';
+        trackEvent('form_submit', { form: 'contato', origem: origem });
     });
 }
 

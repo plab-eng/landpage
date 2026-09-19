@@ -71,5 +71,25 @@
             <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener">Chame no WhatsApp</a>.
         </p>
     </main>
+    <!-- A conversão é contada AQUI: esta página só é alcançada depois que o
+         formsubmit aceitou o envio, então é a prova de lead real (o evento no
+         submit corria o risco de ser cortado pelo POST na mesma aba).
+
+         O `conversion` do Ads fica comentado até a ação existir na conta
+         P-LAB Tech e render o label (o send_to completo). O gerar_lead já
+         mede pelo GA4 desde agora. -->
+    <script>
+      try {
+        var ud = JSON.parse(sessionStorage.getItem('plab_lead') || 'null');
+        if (ud && ud.email) {
+          gtag('set', 'user_data', { email: ud.email });
+          sessionStorage.removeItem('plab_lead');
+        }
+      } catch (e) { /* sem sessionStorage: conta a conversão sem enriquecer */ }
+
+      // gtag('event', 'conversion', { send_to: 'AW-18462540145/COLE_O_LABEL_AQUI' });
+      gtag('event', 'gerar_lead', { form: 'contato', origem: 'site' });
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>
