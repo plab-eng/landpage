@@ -113,8 +113,15 @@ function buildCookieBanner() {
 
 /* ===== Rastreamento de eventos (só dispara se consentido) ===== */
 function initTracking() {
+    // WhatsApp é conversão secundária da campanha: todos os links têm
+    // target="_blank", então a aba continua viva e o evento não se perde.
+    // O `conversion` do Ads entra quando a ação existir na conta P-LAB Tech
+    // e render o label (o send_to completo).
     document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
-        a.addEventListener('click', () => trackEvent('whatsapp_click', { local: a.className || 'link' }));
+        a.addEventListener('click', () => {
+            trackEvent('whatsapp_click', { local: a.className || 'link' });
+            // trackEvent('conversion', { send_to: 'AW-18462540145/LABEL_WHATSAPP' });
+        });
     });
     document.querySelectorAll('a[href^="downloads/"]').forEach(a => {
         a.addEventListener('click', () => {
