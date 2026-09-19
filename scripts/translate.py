@@ -228,6 +228,15 @@ def rewrite_paths(soup):
             if el.has_attr(attr):
                 el[attr] = fix_path(el[attr])
 
+def rewrite_form_next(soup, lang_dir):
+    """O _next do formsubmit é URL absoluta: em /en e /es ele apontaria para a
+    página de obrigado em português. Como é lá que a conversão é medida, o
+    visitante estrangeiro cairia numa página no idioma errado — e mesmo assim
+    converteria, porque o gtag roda igual. Aqui o destino vira o da pasta."""
+    destino = "%s/%s/obrigado.html" % (BASE_URL, lang_dir)
+    for el in soup.find_all("input", attrs={"name": "_next"}):
+        el["value"] = destino
+
 def rewrite_seo(soup, lang_dir, rel):
     soup.html["lang"] = lang_dir
     lang_url = "%s/%s/%s" % (BASE_URL, lang_dir, rel)
@@ -287,6 +296,7 @@ def translate_page(fname, rel, lang_dir, deepl_lang, cache, api_key, mock, force
             el[attr] = tr
 
     rewrite_paths(soup)
+    rewrite_form_next(soup, lang_dir)
     rewrite_seo(soup, lang_dir, rel)
 
     out_dir = os.path.join(ROOT, lang_dir)
