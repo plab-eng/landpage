@@ -37,38 +37,58 @@ function setLangLabel() {
     });
 }
 
-/* ===== LGPD: Consentimento de cookies + Google Analytics 4 ===== */
-const GA_ID = 'G-M9WEG41PNK';
+/* ===== LGPD: Consentimento de cookies (Consent Mode v2) =====
+   A tag do Google carrega no <head> de todas as páginas, com consentimento
+   NEGADO por padrão. Aqui só atualizamos o estado quando a pessoa aceita.
+
+   Por que mudou (19/09/2026): antes o gtag só era injetado depois do
+   "Aceitar", e quem recusava ou ignorava o banner não gerava ping nenhum —
+   o Google não recebia sinal e não tinha o que modelar. Com o Consent Mode,
+   o ping sai SEM cookie quando não há consentimento, e a conversão perdida
+   é estimada em vez de sumir. */
 const CONSENT_KEY = 'p-lab-cookie-consent';
 
-// Carrega o GA4 dinamicamente — chamado SOMENTE após o aceite do usuário
-function loadGA() {
-    if (window.__gaLoaded) return;
-    window.__gaLoaded = true;
-    const s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { dataLayer.push(arguments); };
-    gtag('js', new Date());
-    gtag('config', GA_ID);
-}
-
-function hasConsent() {
-    return localStorage.getItem(CONSENT_KEY) === 'accepted';
-}
-
-// Dispara evento no GA4 apenas se houver consentimento
-function trackEvent(name, params) {
-    if (hasConsent() && typeof window.gtag === 'function') {
-        gtag('event', name, params || {});
+// Já escolheu alguma coisa (aceitou ou recusou)? Então o banner não volta.
+// Em janela anônima o acesso ao armazenamento LEVANTA — e aí o banner aparece
+// de novo, que é melhor do que a página quebrar.
+function jaDecidiuCookies() {
+    try {
+        return Boolean(localStorage.getItem(CONSENT_KEY));
+    } catch (e) {
+        return false;
     }
+}
+
+function guardarConsentimento(valor) {
+    try {
+        localStorage.setItem(CONSENT_KEY, valor);
+    } catch (e) {
+        // Sem armazenamento a escolha não sobrevive ao recarregar — é o pior
+        // que acontece, e não vale derrubar a página por isso.
+    }
+}
+
+// Libera cookie e dados de anúncio. Recusar não chama nada: o padrão negado
+// do <head> continua valendo, e o ping segue saindo sem cookie.
+function concederConsentimento() {
+    if (typeof window.gtag !== 'function') return;
+    gtag('consent', 'update', {
+        ad_storage:         'granted',
+        ad_user_data:       'granted',
+        ad_personalization: 'granted',
+        analytics_storage:  'granted'
+    });
+}
+
+// Dispara evento no GA4 e no Ads. Sem o `if` de consentimento: quem decide o
+// que pode ser gravado é o Consent Mode, não este arquivo.
+function trackEvent(name, params) {
+    if (typeof window.gtag === 'function') gtag('event', name, params || {});
 }
 
 // Cria o banner de cookies (somente se o usuário ainda não decidiu)
 function buildCookieBanner() {
-    if (localStorage.getItem(CONSENT_KEY)) return;
+    if (jaDecidiuCookies()) return;
     const banner = document.createElement('div');
     banner.className = 'cookie-banner';
     banner.setAttribute('role', 'dialog');
@@ -81,12 +101,12 @@ function buildCookieBanner() {
         '</div>';
     document.body.appendChild(banner);
     document.getElementById('cookie-accept').addEventListener('click', () => {
-        localStorage.setItem(CONSENT_KEY, 'accepted');
-        loadGA();
+        guardarConsentimento('accepted');
+        concederConsentimento();
         banner.remove();
     });
     document.getElementById('cookie-reject').addEventListener('click', () => {
-        localStorage.setItem(CONSENT_KEY, 'rejected');
+        guardarConsentimento('rejected');
         banner.remove();
     });
 }
@@ -491,7 +511,8 @@ function initCounters() {
 
 document.addEventListener('DOMContentLoaded', () => {
     setLangLabel();               // mostra PT/EN/ES conforme o caminho atual
-    if (hasConsent()) loadGA();   // visitante que já aceitou em visita anterior
+    // O consentimento guardado de visitas anteriores é aplicado no <head>,
+    // antes do primeiro ping — aqui já seria tarde.
     buildCookieBanner();
     initDownloadInstalador();
     initTracking();

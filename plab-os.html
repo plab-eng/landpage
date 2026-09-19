@@ -3,7 +3,46 @@
 <head>
     <!-- Aplica o tema antes do render para evitar flash (claro por padrão; respeita preferência do sistema na 1ª visita) -->
     <script>(function(){try{var t=localStorage.getItem('p-lab-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
-    <!-- Google Analytics 4 (G-M9WEG41PNK) carrega apenas APÓS consentimento de cookies (LGPD) — ver script.js -->
+    <!-- Consent Mode v2 (19/09/2026): a tag carrega SEMPRE, com consentimento
+         negado por padrão; o aceite do banner só atualiza o estado (script.js).
+         Antes o gtag só era injetado depois do "Aceitar", e quem recusava ou
+         ignorava o banner não gerava ping nenhum — o Google não recebia sinal e
+         não tinha o que modelar. GA4 G-M9WEG41PNK · Ads AW-18462540145. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      gtag('consent', 'default', {
+        ad_storage:            'denied',
+        ad_user_data:          'denied',
+        ad_personalization:    'denied',
+        analytics_storage:     'denied',
+        functionality_storage: 'granted',
+        security_storage:      'granted',
+        wait_for_update: 500
+      });
+      gtag('set', 'ads_data_redaction', true);
+      gtag('set', 'url_passthrough', true);
+
+      // Quem já aceitou numa visita anterior: atualiza ANTES do primeiro ping,
+      // senão o page_view sai marcado como negado. A chave é a mesma do
+      // script.js (CONSENT_KEY).
+      try {
+        if (localStorage.getItem('p-lab-cookie-consent') === 'accepted') {
+          gtag('consent', 'update', {
+            ad_storage:         'granted',
+            ad_user_data:       'granted',
+            ad_personalization: 'granted',
+            analytics_storage:  'granted'
+          });
+        }
+      } catch (e) {}
+
+      gtag('js', new Date());
+      gtag('config', 'G-M9WEG41PNK');
+      gtag('config', 'AW-18462540145');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9WEG41PNK"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P-LAB OS | O sistema operacional do seu escritório de projetos</title>
