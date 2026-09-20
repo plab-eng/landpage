@@ -75,9 +75,8 @@
          formsubmit aceitou o envio, então é a prova de lead real (o evento no
          submit corria o risco de ser cortado pelo POST na mesma aba).
 
-         O `conversion` do Ads fica comentado até a ação existir na conta
-         P-LAB Tech e render o label (o send_to completo). O gerar_lead já
-         mede pelo GA4 desde agora. -->
+         A conversão do Ads é a principal da conta; a importada do GA4 fica
+         como secundária, para o mesmo lead não ser contado duas vezes. -->
     <script>
       try {
         var ud = JSON.parse(sessionStorage.getItem('plab_lead') || 'null');
@@ -87,7 +86,7 @@
         }
       } catch (e) { /* sem sessionStorage: conta a conversão sem enriquecer */ }
 
-      // gtag('event', 'conversion', { send_to: 'AW-18462540145/COLE_O_LABEL_AQUI' });
+      gtag('event', 'conversion', { send_to: 'AW-18462540145/E6STCJC8hP4cEPGC0ONE' });
       gtag('event', 'gerar_lead', { form: 'contato', origem: 'site' });
     </script>
     <script src="script.js"></script>
