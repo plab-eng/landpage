@@ -3,6 +3,8 @@
 <head>
     <!-- Aplica o tema antes do render para evitar flash (claro por padrão; respeita preferência do sistema na 1ª visita) -->
     <script>(function(){try{var t=localStorage.getItem('p-lab-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <!-- Botão Apoiar do menu: quem fechou no × não vê por 1 dia (script.js). -->
+    <script>try{if(Date.now()<Number(localStorage.getItem('p-lab-apoio-oculto-ate')))document.documentElement.setAttribute('data-apoio-oculto','');}catch(e){}</script>
     <!-- Consent Mode v2 (19/09/2026): a tag carrega SEMPRE, com consentimento
          negado por padrão; o aceite do banner só atualiza o estado (script.js).
          Antes o gtag só era injetado depois do "Aceitar", e quem recusava ou
@@ -89,6 +91,10 @@
                     <li><a href="index.html#contato" data-i18n="nav-contact">Contato</a></li>
                 </ul>
                 <div class="nav-extra">
+                    <div class="nav-apoio">
+                        <a href="apoiar.html" class="nav-apoio__link" data-apoio-menu><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.4.7-1.3 2.2-2.4 4.3-2.4 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z"/></svg>Apoiar</a>
+                        <button type="button" class="nav-apoio__fechar" data-apoio-fechar aria-label="Ocultar por hoje" title="Ocultar por hoje">&times;</button>
+                    </div>
                     <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro" title="Alternar tema">
                         <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
                     </button>

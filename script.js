@@ -208,6 +208,23 @@ function initApoio() {
     });
 }
 
+/* ===== Botão Apoiar do menu =====
+   O × esconde por 1 dia naquele navegador. A leitura acontece no <head> de
+   cada página (antes da pintura); aqui só grava o prazo e esconde já. */
+function initApoioMenu() {
+    const UM_DIA = 24 * 60 * 60 * 1000;
+    document.querySelectorAll('[data-apoio-fechar]').forEach(botao => {
+        botao.addEventListener('click', () => {
+            try { localStorage.setItem('p-lab-apoio-oculto-ate', String(Date.now() + UM_DIA)); } catch (e) { /* sem storage: some só nesta página */ }
+            document.documentElement.setAttribute('data-apoio-oculto', '');
+            trackEvent('apoio_menu_fechar');
+        });
+    });
+    document.querySelectorAll('a[data-apoio-menu]').forEach(a => {
+        a.addEventListener('click', () => trackEvent('apoio_menu_click'));
+    });
+}
+
 /* ===== Validação do formulário de contato ===== */
 function initContactForm() {
     const form = document.getElementById('contact-form');
@@ -576,6 +593,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTracking();
     initContactForm();
     initApoio();
+    initApoioMenu();
     initThemeToggle();
     initMobileMenu();
     initViewerCarousel();

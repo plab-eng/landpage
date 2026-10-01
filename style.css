@@ -1114,3 +1114,63 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 }
 /* O QR fica preto no branco nos dois temas: leitor de câmera falha com QR invertido. */
 img.apoio-qr { background: #ffffff; }
+
+/* ===== Botão Apoiar no menu =====
+   Uma pílula só com o link e o × separados por hairline, na altura (40px)
+   do botão de tema e do seletor de idioma. Verde só no coração e no hover. */
+.nav-apoio {
+    display: inline-flex;
+    align-items: stretch;
+    min-height: 40px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color var(--transition);
+}
+.nav-apoio:hover { border-color: var(--accent); }
+.nav-apoio__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+.nav-apoio__link:hover { color: var(--accent); }
+.nav-apoio__link svg { width: 14px; height: 14px; fill: var(--accent); flex-shrink: 0; }
+.nav-apoio__fechar {
+    background: transparent;
+    border: 0;
+    border-left: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0 10px;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+}
+.nav-apoio__fechar:hover { color: var(--text); }
+[data-apoio-oculto] .nav-apoio { display: none; }
+/* Entre o hambúrguer (860px) e ~1200px o menu não comporta o botão inteiro:
+   fica só o coração (o texto segue para leitor de tela) e os links aproximam. */
+@media (min-width: 861px) and (max-width: 1199px) {
+    .nav-links { gap: 16px; }
+    .nav-apoio__link { font-size: 0; gap: 0; }
+    .nav-apoio__link svg { width: 16px; height: 16px; }
+}
+/* Abaixo de ~1100px nem o coração + × cabe sem quebrar os links em duas linhas:
+   fica só o coração. Fechar continua possível nas telas maiores e no celular. */
+@media (min-width: 861px) and (max-width: 1099px) {
+    .nav-apoio__fechar { display: none; }
+}
+@media (min-width: 861px) and (max-width: 999px) {
+    .nav-links { gap: 12px; }
+    .nav-extra { gap: 10px; }
+}
+/* No menu do celular os três controles não cabem lado a lado: a pílula não
+   encolhe (encolhida, o overflow cortava o ×) e a linha pode quebrar. */
+.nav-apoio { flex-shrink: 0; }
+@media (max-width: 860px) {
+    .nav-extra { flex-wrap: wrap; }
+}
