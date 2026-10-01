@@ -71,6 +71,8 @@ TARGETS = {"en": "EN-US", "es": "ES"}
 # sozinho — protegê-las só atrapalha (gera artefatos como "cBIM" e ordem errada).
 PROTECTED_TERMS = [
     "P-LAB Viewer", "P-LAB OS", "P-LAB",
+    # O espanhol virava "Asistente" / "Asistente de PLAB" (01/10/2026).
+    "PLAB Assistant", "PLAB ASSISTANT", "Assistant",
     "Export Schedules", "Export Sheets",
     "pyRevit", "Runrun.it", "ClickUp",
 ]
