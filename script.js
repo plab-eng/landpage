@@ -127,7 +127,9 @@ function initTracking() {
             trackEvent('download', { plugin: arquivo });
         });
     });
-    // Instalador do PLAB Assistant (ver initDownloadInstalador) e a lista de releases.
+    // Instalador do P-LAB para Revit (ver initDownloadInstalador) e a lista de releases.
+    // O parâmetro 'plab-assistant' é o nome antigo do add-in e fica assim de
+    // propósito: trocar quebra a série histórica do evento no GA4.
     document.querySelectorAll('a[data-instalador]').forEach(a => {
         a.addEventListener('click', () => trackEvent('download', {
             plugin: 'plab-assistant',
@@ -144,7 +146,7 @@ function initTracking() {
     });
 }
 
-/* ===== Download direto do instalador do PLAB Assistant =====
+/* ===== Download direto do instalador do P-LAB para Revit =====
    O nome do .exe muda a cada versão (PLAB-Assistant-1.0.9.exe), então não dá
    para fixar o link. A página pergunta ao GitHub qual é o .exe do último
    release e troca o href do botão: o clique já baixa o instalador.
