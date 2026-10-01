@@ -1112,3 +1112,5 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
     .apoio-card { grid-template-columns: 1fr; }
     .apoio-qr { margin: 0 auto; }
 }
+/* O QR fica preto no branco nos dois temas: leitor de câmera falha com QR invertido. */
+img.apoio-qr { background: #ffffff; }

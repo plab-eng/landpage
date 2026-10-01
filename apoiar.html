@@ -123,13 +123,10 @@
         <section class="section light-bg">
             <div class="container">
                 <div class="plano-card apoio-card">
-                    <!-- PENDENTE: QR do PIX. Trocar este .media-slot por
-                         <img src="images/pix-qr.png" alt="QR Code do PIX da P-LAB" width="220" height="220" class="apoio-qr">
-                         quando o José mandar o QR (ou a chave + cidade para gerar o BR Code). -->
-                    <div class="media-slot apoio-qr">
-                        <span class="media-slot__label">QR Code do PIX</span>
-                        <span class="media-slot__file">images/pix-qr.png</span>
-                    </div>
+                    <!-- QR estático (BR Code) sem valor: quem paga digita o quanto quer.
+                         Gerado a partir da chave, com nome PICANCO ENGENHARIA e cidade MANAUS
+                         (a do cadastro do CNPJ). Trocou a chave? Gere o QR de novo. -->
+                    <img src="images/pix-qr.png" alt="QR Code do PIX da P-LAB" width="220" height="220" class="apoio-qr">
 
                     <div class="apoio-info">
                         <h2 class="plano-nome">Apoie por PIX</h2>
@@ -137,10 +134,10 @@
 
                         <span class="botao-painel">Chave PIX</span>
                         <div class="pix-chave">
-                            <!-- PENDENTE: chave PIX do José. Fica dentro de <code> porque o
-                                 translate.py não traduz <code> — sem isso o DeepL pode
-                                 mexer na chave nas versões /en e /es. -->
-                            <code id="pix-chave">CHAVE-PIX-PENDENTE</code>
+                            <!-- Chave = CNPJ, só dígitos (todo banco aceita assim). Fica dentro
+                                 de <code> porque o translate.py não traduz <code> — sem isso o
+                                 DeepL pode mexer na chave nas versões /en e /es. -->
+                            <code id="pix-chave">37452086000101</code>
                             <button type="button" class="btn-secondary" data-pix-copiar>Copiar chave</button>
                         </div>
                         <p class="pix-status" id="pix-status" role="status" aria-live="polite"></p>
@@ -149,8 +146,8 @@
                         <span hidden id="pix-msg-ok">Chave copiada. Cole no app do banco, na opção PIX.</span>
                         <span hidden id="pix-msg-manual">A chave ficou selecionada: use Ctrl+C para copiar.</span>
 
-                        <!-- PENDENTE: nome do beneficiário como aparece no app do banco. -->
-                        <p class="apoio-beneficiario">Beneficiário: <strong data-no-translate>BENEFICIARIO-PENDENTE</strong> — confira o nome no app antes de confirmar.</p>
+                        <!-- Razão social do CNPJ da chave: é o nome que o app de quem paga mostra. -->
+                        <p class="apoio-beneficiario">Chave CNPJ. O app do banco vai mostrar <strong data-no-translate>JOSE PICANCO SERVICOS DE ENGENHARIA E CONSTRUCAO LTDA</strong>, a empresa por trás da P-LAB. Confira o nome antes de confirmar.</p>
 
                         <!-- Link de cartão (opcional): descomentar quando houver.
                              target="_blank" é obrigatório — sem nova aba o GA4 subconta o clique.
