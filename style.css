@@ -1199,3 +1199,6 @@ img.apoio-qr { background: #ffffff; }
 /* Os dois cartões da aba Assistant têm alturas bem diferentes (o do PIX tem
    o QR): sem isso o do plano estica e fica com um vão no meio. */
 #assistant .planos-grid { align-items: start; }
+/* Aviso de promoção acima dos planos avulsos: mesmo desenho da faixa de
+   equipe, mas antes da grade, então a margem fica embaixo. */
+.promo-band { margin: 0 0 28px; }
