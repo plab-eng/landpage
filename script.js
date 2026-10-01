@@ -137,6 +137,11 @@ function initTracking() {
     document.querySelectorAll('a[data-releases]').forEach(a => {
         a.addEventListener('click', () => trackEvent('releases_click', { local: a.className || 'link' }));
     });
+    // Página Apoiar: link de pagamento externo (cartão). O target="_blank" do
+    // HTML é o que garante que o evento sai antes de a aba trocar.
+    document.querySelectorAll('a[data-apoio-pagamento]').forEach(a => {
+        a.addEventListener('click', () => trackEvent('apoio_pagamento', { meio: a.dataset.apoioPagamento || 'link' }));
+    });
 }
 
 /* ===== Download direto do instalador do PLAB Assistant =====
@@ -163,6 +168,44 @@ function initDownloadInstalador() {
             });
         })
         .catch(() => { /* mantém o link para a página do último release */ });
+}
+
+/* ===== Página Apoiar: copiar a chave PIX =====
+   Clipboard API primeiro; se o navegador recusar (permissão, contexto sem
+   HTTPS), seleciona o texto da chave para a pessoa copiar no teclado. As
+   mensagens vêm do HTML para saírem traduzidas em /en e /es. */
+function initApoio() {
+    const botao = document.querySelector('[data-pix-copiar]');
+    const chave = document.getElementById('pix-chave');
+    const status = document.getElementById('pix-status');
+    if (!botao || !chave || !status) return;
+    const msg = id => (document.getElementById(id) || {}).textContent || '';
+
+    function selecionar() {
+        const faixa = document.createRange();
+        faixa.selectNodeContents(chave);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(faixa);
+    }
+
+    botao.addEventListener('click', () => {
+        trackEvent('apoio_pix_copiar');
+        const texto = chave.textContent.trim();
+        const pronto = navigator.clipboard && window.isSecureContext
+            ? navigator.clipboard.writeText(texto)
+            : Promise.reject();
+        pronto
+            .then(() => {
+                status.textContent = msg('pix-msg-ok');
+                status.classList.add('pix-status--ok');
+            })
+            .catch(() => {
+                selecionar();
+                status.textContent = msg('pix-msg-manual');
+                status.classList.remove('pix-status--ok');
+            });
+    });
 }
 
 /* ===== Validação do formulário de contato ===== */
@@ -532,6 +575,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initDownloadInstalador();
     initTracking();
     initContactForm();
+    initApoio();
     initThemeToggle();
     initMobileMenu();
     initViewerCarousel();

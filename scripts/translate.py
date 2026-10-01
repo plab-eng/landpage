@@ -59,6 +59,7 @@ PAGES = {
     "hub.html": "hub.html",   # stub de redirecionamento (URL antiga)
     "consultoria.html": "consultoria.html",
     "obrigado.html": "obrigado.html",
+    "apoiar.html": "apoiar.html",   # aberta pelo botão Doar do add-in
 }
 
 # Idiomas-alvo: pasta de saída -> código DeepL

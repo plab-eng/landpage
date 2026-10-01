@@ -1084,3 +1084,31 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .plano-tag a:hover { color: var(--accent); }
 /* Dentro de faixa, o botao outline nao estica: fica ao lado do texto, como o CTA da faixa de equipe */
 .equipe-band .btn-plugin { width: auto; padding-inline: 24px; }
+
+/* ===== APOIAR (apoiar.html) =====
+   O card reaproveita .plano-card; aqui só vira grade QR | informações,
+   e a chave PIX ganha a caixa mono com o botão de copiar ao lado. */
+.apoio-card { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: start; max-width: 860px; margin: 0 auto; }
+.apoio-qr { width: 220px; height: 220px; min-height: 0; border-radius: var(--radius); }
+.apoio-info { display: flex; flex-direction: column; gap: 12px; }
+.apoio-info p { margin: 0; color: var(--text-muted); }
+.pix-chave { display: flex; gap: 8px; align-items: stretch; flex-wrap: wrap; }
+.pix-chave code {
+    flex: 1 1 240px;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    word-break: break-all;
+    user-select: all;
+}
+.pix-status { min-height: 1.2em; font-size: 0.85rem; }
+.apoio-info .pix-status--ok { color: var(--accent); }
+.apoio-beneficiario strong { color: var(--text); }
+@media (max-width: 720px) {
+    .apoio-card { grid-template-columns: 1fr; }
+    .apoio-qr { margin: 0 auto; }
+}

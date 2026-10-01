@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Aplica o tema antes do render para evitar flash (claro por padrão; respeita preferência do sistema na 1ª visita) -->
+    <script>(function(){try{var t=localStorage.getItem('p-lab-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <!-- Consent Mode v2 (19/09/2026): a tag carrega SEMPRE, com consentimento
+         negado por padrão; o aceite do banner só atualiza o estado (script.js).
+         Antes o gtag só era injetado depois do "Aceitar", e quem recusava ou
+         ignorava o banner não gerava ping nenhum — o Google não recebia sinal e
+         não tinha o que modelar. GA4 G-M9WEG41PNK · Ads AW-18462540145. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      gtag('consent', 'default', {
+        ad_storage:            'denied',
+        ad_user_data:          'denied',
+        ad_personalization:    'denied',
+        analytics_storage:     'denied',
+        functionality_storage: 'granted',
+        security_storage:      'granted',
+        wait_for_update: 500
+      });
+      gtag('set', 'ads_data_redaction', true);
+      gtag('set', 'url_passthrough', true);
+
+      // Quem já aceitou numa visita anterior: atualiza ANTES do primeiro ping,
+      // senão o page_view sai marcado como negado. A chave é a mesma do
+      // script.js (CONSENT_KEY).
+      try {
+        if (localStorage.getItem('p-lab-cookie-consent') === 'accepted') {
+          gtag('consent', 'update', {
+            ad_storage:         'granted',
+            ad_user_data:       'granted',
+            ad_personalization: 'granted',
+            analytics_storage:  'granted'
+          });
+        }
+      } catch (e) {}
+
+      gtag('js', new Date());
+      gtag('config', 'G-M9WEG41PNK');
+      gtag('config', 'AW-18462540145');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9WEG41PNK"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoiar a P-LAB | P-LAB</title>
+    <meta name="description" content="O P-LAB para Revit é gratuito e mantido pela P-LAB. Se ele economiza horas no seu dia, apoie o desenvolvimento por PIX.">
+    <link rel="canonical" href="https://plabdev.com.br/apoiar.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/apoiar.html">
+    <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/apoiar.html">
+    <link rel="alternate" hreflang="es" href="https://plabdev.com.br/es/apoiar.html">
+    <link rel="alternate" hreflang="x-default" href="https://plabdev.com.br/apoiar.html">
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://plabdev.com.br/apoiar.html">
+    <meta property="og:title" content="Apoiar a P-LAB | P-LAB">
+    <meta property="og:description" content="O P-LAB para Revit é gratuito e mantido pela P-LAB. Apoie o desenvolvimento por PIX.">
+    <meta property="og:image" content="https://plabdev.com.br/images/logo-icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="plab-tokens.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header sticky-header">
+        <div class="container header-flex">
+            <div class="header-left">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo-icon.webp" alt="Logo P-LAB" class="header-logo-img logo-invert" width="35" height="36">
+                    <span class="logo">P-LAB</span>
+                </a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-nav">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="primary-nav" id="primary-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="nav-home">Início</a></li>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
+                    <li><a href="planos.html" data-i18n="nav-planos">Planos</a></li>
+                    <li><a href="consultoria.html" data-i18n="nav-consultoria">Consultoria</a></li>
+                    <li><a href="index.html#contato" data-i18n="nav-contact">Contato</a></li>
+                </ul>
+                <div class="nav-extra">
+                    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro" title="Alternar tema">
+                        <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                    </button>
+                    <div class="language-selector">
+                        <button class="lang-btn"><i class="fas fa-globe"></i> <span id="current-lang-label">PT</span> <i class="fas fa-chevron-down"></i></button>
+                        <div class="lang-dropdown">
+                            <div class="dropdown-section">
+                                <span class="section-title" data-i18n="lang-suggested">LOCALIZAÇÃO SUGERIDA</span>
+                                <a href="javascript:void(0)" onclick="plabSwitchLang('pt')" data-lang="pt" data-no-translate>Brasil (Português)</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <span class="section-title" data-i18n="lang-available">SÍTIOS DISPONÍVEIS</span>
+                                <a href="javascript:void(0)" onclick="plabSwitchLang('en')" data-lang="en" data-no-translate>Global (English)</a>
+                                <a href="javascript:void(0)" onclick="plabSwitchLang('es')" data-lang="es" data-no-translate>España (Español)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section hero-section">
+            <div class="container text-center">
+                <span class="eyebrow">APOIAR</span>
+                <h1>O P-LAB para Revit é gratuito. Quem mantém é a P-LAB.</h1>
+                <p class="hero-lead">Cada botão do add-in é escrito, testado e atualizado pela P-LAB a cada versão nova do Revit. Se ele economiza horas no seu dia, um apoio por PIX ajuda a pagar esse trabalho.</p>
+            </div>
+        </section>
+
+        <section class="section light-bg">
+            <div class="container">
+                <div class="plano-card apoio-card">
+                    <!-- PENDENTE: QR do PIX. Trocar este .media-slot por
+                         <img src="images/pix-qr.png" alt="QR Code do PIX da P-LAB" width="220" height="220" class="apoio-qr">
+                         quando o José mandar o QR (ou a chave + cidade para gerar o BR Code). -->
+                    <div class="media-slot apoio-qr">
+                        <span class="media-slot__label">QR Code do PIX</span>
+                        <span class="media-slot__file">images/pix-qr.png</span>
+                    </div>
+
+                    <div class="apoio-info">
+                        <h2 class="plano-nome">Apoie por PIX</h2>
+                        <p>Aponte a câmera do app do banco para o QR Code ou copie a chave abaixo. Qualquer valor ajuda.</p>
+
+                        <span class="botao-painel">Chave PIX</span>
+                        <div class="pix-chave">
+                            <!-- PENDENTE: chave PIX do José. Fica dentro de <code> porque o
+                                 translate.py não traduz <code> — sem isso o DeepL pode
+                                 mexer na chave nas versões /en e /es. -->
+                            <code id="pix-chave">CHAVE-PIX-PENDENTE</code>
+                            <button type="button" class="btn-secondary" data-pix-copiar>Copiar chave</button>
+                        </div>
+                        <p class="pix-status" id="pix-status" role="status" aria-live="polite"></p>
+                        <!-- Mensagens do botão de copiar ficam no HTML, e não no script.js,
+                             para o translate.py traduzi-las nas versões /en e /es. -->
+                        <span hidden id="pix-msg-ok">Chave copiada. Cole no app do banco, na opção PIX.</span>
+                        <span hidden id="pix-msg-manual">A chave ficou selecionada: use Ctrl+C para copiar.</span>
+
+                        <!-- PENDENTE: nome do beneficiário como aparece no app do banco. -->
+                        <p class="apoio-beneficiario">Beneficiário: <strong data-no-translate>BENEFICIARIO-PENDENTE</strong> — confira o nome no app antes de confirmar.</p>
+
+                        <!-- Link de cartão (opcional): descomentar quando houver.
+                             target="_blank" é obrigatório — sem nova aba o GA4 subconta o clique.
+                        <a href="LINK-DO-CARTAO" class="btn-secondary" target="_blank" rel="noopener" data-apoio-pagamento="cartao">Apoiar com cartão</a>
+                        -->
+
+                        <ul class="plano-lista">
+                            <li><span>O apoio não desbloqueia nada: o add-in é o mesmo para quem apoia e para quem não apoia.</span></li>
+                            <li><span>Empresa que precisa de nota fiscal: fale com a P-LAB pelo <a href="index.html#contato">contato do site</a> antes de pagar.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="equipe-band">
+                    <div>
+                        <span class="botao-painel">P-LAB PARA REVIT</span>
+                        <h3>Ainda não tem o add-in?</h3>
+                        <p>Baixe grátis. Uma instalação só, para todas as versões do Revit suportadas.</p>
+                    </div>
+                    <p class="hero-actions">
+                        <a href="https://github.com/plab-eng/P-LAB-releases/releases/latest" class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-instalador>Baixar grátis</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <span class="logo-footer">P-LAB</span>
+                <p data-i18n="footer-tagline">Software e automação para engenharia.</p>
+                <p>Joinville - SC</p>
+            </div>
+            <div class="footer-nav">
+                <h3 data-i18n="footer-products">Produtos</h3>
+                <ul>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
+                    <li><a href="planos.html" data-i18n="nav-planos">Planos</a></li>
+                    <li><a href="consultoria.html" data-i18n="nav-consultoria">Consultoria</a></li>
+                    <li><a href="apoiar.html">Apoiar</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3 data-i18n="footer-social">Siga-nos</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/plab-eng/" target="_blank" rel="noopener" aria-label="LinkedIn da P-LAB"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h3 data-i18n="footer-contact">Contato</h3>
+                <p class="footer-white"><a href="tel:+5547989168641">(47) 98916-8641</a></p>
+                <p class="footer-white">devpicanco@gmail.com</p>
+                <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-whatsapp-footer" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+        <div class="container text-center footer-bottom">
+            <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar com a P-LAB no WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="34" height="34">
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
