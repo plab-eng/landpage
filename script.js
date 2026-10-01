@@ -192,7 +192,8 @@ function initApoio() {
     }
 
     botao.addEventListener('click', () => {
-        trackEvent('apoio_pix_copiar');
+        // Mesmo botão na apoiar.html (doação) e na planos.html (Assistant).
+        trackEvent('apoio_pix_copiar', { contexto: botao.dataset.pixCopiar || 'apoio' });
         const texto = chave.textContent.trim();
         const pronto = navigator.clipboard && window.isSecureContext
             ? navigator.clipboard.writeText(texto)

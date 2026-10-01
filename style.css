@@ -1174,3 +1174,28 @@ img.apoio-qr { background: #ffffff; }
 @media (max-width: 860px) {
     .nav-extra { flex-wrap: wrap; }
 }
+
+/* ===== Aba Assistant (planos.html): cartão "Assinar no PIX" =====
+   Reaproveita o QR, a caixa da chave e o status da apoiar.html. */
+.assinar-pix .apoio-qr { align-self: center; }
+.passos-pix { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; color: var(--text-muted); font-size: 0.95rem; }
+.passos-pix strong { color: var(--text); }
+.assinar-pix .pix-status { margin: -8px 0 0; color: var(--text-muted); }
+.assinar-pix .pix-status--ok { color: var(--accent); }
+/* Com a aba "Assistant" (mais longa que "Planos") o menu volta a não caber
+   entre 861 e 999px: fonte um pouco menor e nomes sem quebrar no meio. */
+@media (min-width: 861px) and (max-width: 999px) {
+    .nav-links { gap: 10px; }
+    .nav-links a { font-size: 0.88rem; white-space: nowrap; }
+}
+@media (min-width: 861px) and (max-width: 999px) {
+    .logo-link { white-space: nowrap; flex-shrink: 0; }
+}
+/* 861–899px: nem o coração cabe sem empurrar o seletor de idioma para fora.
+   Nessa faixa estreita o Apoiar fica só no rodapé. */
+@media (min-width: 861px) and (max-width: 899px) {
+    .nav-apoio { display: none; }
+}
+/* Os dois cartões da aba Assistant têm alturas bem diferentes (o do PIX tem
+   o QR): sem isso o do plano estica e fica com um vão no meio. */
+#assistant .planos-grid { align-items: start; }

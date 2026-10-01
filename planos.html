@@ -47,8 +47,8 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9WEG41PNK"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planos e preços | P-LAB</title>
-    <meta name="description" content="Planos da P-LAB: visualizar modelo é gratuito para sempre. Assine o Viewer, o P-LAB OS ou os dois, e baixe grátis o P-LAB para Revit.">
+    <title>PLAB Assistant e planos | P-LAB</title>
+    <meta name="description" content="PLAB Assistant, a IA que lê e altera o seu modelo do Revit, com o P-LAB OS e o P-LAB Viewer inclusos: R$ 999,90 por usuário no PIX. Viewer e P-LAB OS também avulsos, e o P-LAB para Revit gratuito.">
     <link rel="canonical" href="https://plabdev.com.br/planos.html">
     <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/planos.html">
     <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/planos.html">
@@ -61,8 +61,8 @@
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://plabdev.com.br/planos.html">
-    <meta property="og:title" content="Planos e preços | P-LAB">
-    <meta property="og:description" content="Visualizar modelo é gratuito. Você paga para registrar pendências, comparar revisões e gerir o escritório.">
+    <meta property="og:title" content="PLAB Assistant e planos | P-LAB">
+    <meta property="og:description" content="A IA que lê e altera o seu modelo do Revit, com o P-LAB OS e o P-LAB Viewer inclusos.">
     <meta property="og:image" content="https://plabdev.com.br/images/logo-icon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="plab-tokens.css">
@@ -86,7 +86,7 @@
                     <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
                     <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
                     <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
-                    <li><a href="planos.html" class="active" data-i18n="nav-planos">Planos</a></li>
+                    <li><a href="planos.html" class="active" data-i18n="nav-planos">Assistant</a></li>
                     <li><a href="consultoria.html" data-i18n="nav-consultoria">Consultoria</a></li>
                     <li><a href="index.html#contato" data-i18n="nav-contact">Contato</a></li>
                 </ul>
@@ -127,16 +127,66 @@
     <main>
         <section class="section hero-section">
             <div class="container text-center">
-                <span class="eyebrow" data-i18n="pl-eyebrow">PLANOS E PREÇOS</span>
-                <h1 data-i18n="pl-title">Começa de graça e cresce com o escritório</h1>
-                <p class="hero-lead" data-i18n="pl-lead">Visualizar modelo não se cobra: o P-LAB Viewer é gratuito para sempre, e o P-LAB para Revit é gratuito para baixar e usar. Você paga quando quiser registrar, comparar e gerir.</p>
+                <span class="eyebrow" data-i18n="pl-eyebrow">PLAB ASSISTANT</span>
+                <h1 data-i18n="pl-title">A IA que lê e altera o seu modelo do Revit</h1>
+                <p class="hero-lead" data-i18n="pl-lead">Assine o PLAB Assistant e leve junto o P-LAB OS e o P-LAB Viewer, sem custo a mais. O add-in P-LAB para Revit continua gratuito para todos.</p>
+            </div>
+        </section>
+        <!-- ============ PLAB ASSISTANT (o plano pago) ============
+             Venda pelo PIX: o QR é o mesmo da apoiar.html (estático, sem valor;
+             quem paga digita R$ 999,90). Não há pedido no P-LAB OS amarrando o
+             pagamento à conta: o comprovante chega pelo WhatsApp e a liberação
+             é manual. Cartão (12x) entra quando o P-LAB OS tiver o plano. -->
+        <section class="section" id="assistant">
+            <div class="container">
+                <div class="planos-grid">
+
+                    <div class="plano-card plano-card--destaque">
+                        <span class="plano-tag plano-tag--gratis">P-LAB OS e Viewer inclusos</span>
+                        <h2 class="plano-nome">PLAB Assistant</h2>
+                        <div class="plano-preco">
+                            <span class="plano-valor">12x R$ 99,90</span>
+                            <span class="plano-cond">por usuário, no plano anual · R$ 999,90 à vista no PIX · parcelado no cartão em breve</span>
+                        </div>
+                        <ul class="plano-lista">
+                            <li>PLAB Assistant: a IA que lê e altera o seu modelo do Revit</li>
+                            <li>P-LAB OS incluso: comercial, custos, gestão e qualidade</li>
+                            <li>P-LAB Viewer incluso: pendências, revisões e compartilhamento</li>
+                            <li>P-LAB para Revit com todos os módulos, que é gratuito para todos</li>
+                        </ul>
+                        <a href="#assinar-pix" class="btn-primary">Assinar no PIX</a>
+                    </div>
+
+                    <div class="plano-card assinar-pix" id="assinar-pix">
+                        <h3 class="plano-nome">Assinar no PIX</h3>
+                        <ol class="passos-pix">
+                            <li>Pague <strong>R$ 999,90</strong> por usuário pelo QR Code ou pela chave.</li>
+                            <li>Mande o comprovante no WhatsApp, com o e-mail da sua conta P-LAB.</li>
+                            <li>A P-LAB libera o acesso nessa conta.</li>
+                        </ol>
+                        <img src="images/pix-qr.png" alt="QR Code do PIX da P-LAB" width="220" height="220" class="apoio-qr">
+                        <span class="botao-painel">Chave PIX</span>
+                        <div class="pix-chave">
+                            <!-- Dentro de <code>: o translate.py não traduz, a chave chega intacta em /en e /es. -->
+                            <code id="pix-chave">37452086000101</code>
+                            <button type="button" class="btn-secondary" data-pix-copiar="assistant">Copiar chave</button>
+                        </div>
+                        <p class="pix-status" id="pix-status" role="status" aria-live="polite"></p>
+                        <span hidden id="pix-msg-ok">Chave copiada. Cole no app do banco, na opção PIX.</span>
+                        <span hidden id="pix-msg-manual">A chave ficou selecionada: use Ctrl+C para copiar.</span>
+                        <p class="plano-cond">O app do banco vai mostrar <strong data-no-translate>JOSE PICANCO SERVICOS DE ENGENHARIA E CONSTRUCAO LTDA</strong>, a empresa por trás da P-LAB.</p>
+                        <a href="https://wa.me/5547989168641?text=Ol%C3%A1%21%20Paguei%20o%20PLAB%20Assistant%20no%20PIX%20%28R%24%20999%2C90%29.%20Segue%20o%20comprovante.%20E-mail%20da%20minha%20conta%20P-LAB%3A%20" class="btn-primary" target="_blank" rel="noopener">Enviar comprovante no WhatsApp</a>
+                        <p class="plano-cond">Ainda não tem conta? <a href="https://app.plabdev.com.br/" target="_blank" rel="noopener">Crie a sua no P-LAB</a> antes de pagar.</p>
+                    </div>
+
+                </div>
             </div>
         </section>
 
         <section class="section light-bg">
             <div class="container">
-                <span class="eyebrow" data-i18n="pl-ass-eyebrow">ASSINATURA</span>
-                <h2 class="section-title-main" data-i18n="pl-ass-title">Escolha por onde começar</h2>
+                <span class="eyebrow" data-i18n="pl-ass-eyebrow">SÓ A PLATAFORMA WEB</span>
+                <h2 class="section-title-main" data-i18n="pl-ass-title">Ou assine só o Viewer e o P-LAB OS</h2>
                 <div class="planos-grid">
 
                     <div class="plano-card">
@@ -301,8 +351,8 @@
 
                     <div class="feature-card modulo-card">
                         <h3 data-i18n="md-ass-t">PLAB Assistant</h3>
-                        <p><span class="plano-tag" data-i18n="md-ass-tag">Pago · em breve</span></p>
-                        <p data-i18n="md-ass-d">A IA que lê e altera o seu modelo do Revit. Vai ser um recurso pago, à parte do add-in gratuito.</p>
+                        <p><span class="plano-tag" data-i18n="md-ass-tag">Pago</span></p>
+                        <p data-i18n="md-ass-d">A IA que lê e altera o seu modelo do Revit. Vem com o P-LAB OS e o P-LAB Viewer. <a href="#assistant">Ver o plano</a>.</p>
                     </div>
 
                 </div>
@@ -340,7 +390,7 @@
                     <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
                     <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
                     <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
-                    <li><a href="planos.html" data-i18n="nav-planos">Planos</a></li>
+                    <li><a href="planos.html" data-i18n="nav-planos">Assistant</a></li>
                     <li><a href="consultoria.html" data-i18n="nav-consultoria">Consultoria</a></li>
                     <li><a href="apoiar.html">Apoiar</a></li>
                 </ul>
