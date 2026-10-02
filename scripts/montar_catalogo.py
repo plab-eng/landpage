@@ -1,12 +1,20 @@
 """
-Monta as listas dos cartões de módulo de planos.html a partir do catalogo.json
-do último release do add-in (docs/superpowers/plans/2026-09-14-catalogo-automatico.md).
+Monta as listas de botões da aba Plugins (solucoes.html, seção #botoes) a
+partir do catalogo.json do último release do add-in
+(docs/superpowers/plans/2026-09-14-catalogo-automatico.md).
+
+Cada cartão escolhe os botões por painel da ribbon ("paineis") ou por flag
+de licença ("flags"). Desde 01/10/2026 o add-in é gratuito e os cartões são
+por painel; o modo por flag fica para quando a cobrança voltar. O botão do
+Assistant (flag "assistant") nunca entra em lista: é pago e tem cartão
+próprio, fixo no HTML.
 
 Roda no workflow ANTES do translate.py: o que é gerado aqui é o que o DeepL
-traduz para /en e /es. Nunca derruba o deploy — sem catálogo utilizável,
-planos.html fica exatamente como está.
+traduz para /en e /es. Nunca derruba o deploy — sem catálogo utilizável, o
+HTML fica exatamente como está.
 
-Uso local:  CATALOGO_URL=file:///C:/caminho/catalogo.json PLANOS_HTML=copia.html python scripts/montar_catalogo.py
+Uso local:  CATALOGO_URL=file:///C:/caminho/catalogo.json CATALOGO_HTML=copia.html python scripts/montar_catalogo.py
+(PLANOS_HTML, o nome antigo da variável, ainda é aceito.)
 """
 import html
 import json
@@ -52,13 +60,15 @@ def baixar_catalogo(url, timeout=20):
         with urllib.request.urlopen(url, timeout=timeout) as resposta:
             return validar_catalogo(json.loads(resposta.read().decode("utf-8")))
     except Exception as erro:  # rede, 404 sem anexo, JSON ruim: tudo vira "não mexe"
-        print("catalogo: sem catálogo utilizável (%s) — planos.html fica como está" % erro)
+        print("catalogo: sem catálogo utilizável (%s) — o HTML fica como está" % erro)
         return None
 
 
 def itens_do_cartao(catalogo, config, cartao):
     """[(texto, em_breve)] na ordem da ribbon, e depois os Em breve que ainda não saíram."""
-    flags = set(config["cartoes"][cartao]["flags"])
+    regra = config["cartoes"][cartao]
+    paineis = set(regra.get("paineis", []))
+    flags = set(regra.get("flags", []))
     renomear = config.get("renomear", {})
     ocultar = set(config.get("ocultar", []))
 
@@ -70,7 +80,12 @@ def itens_do_cartao(catalogo, config, cartao):
 
     itens, vistos = [], set()
     for b in visiveis:
-        if b["flag"] not in flags:
+        if b["flag"] == "assistant":
+            continue  # pago, com cartão próprio no HTML
+        if paineis:
+            if b.get("painel") not in paineis:
+                continue
+        elif b["flag"] not in flags:
             continue
         texto = renomear.get(b["id"], b["rotulo"])
         chave = normalizar(texto)
@@ -113,13 +128,15 @@ def aplicar(html_texto, catalogo, config):
     novo = MARCADOR.sub(trocar, html_texto)
     faltando = set(config["cartoes"]) - encontrados
     if faltando:
-        raise ValueError("planos.html sem marcador para: %s" % ", ".join(sorted(faltando)))
+        raise ValueError("HTML sem marcador para: %s" % ", ".join(sorted(faltando)))
     return novo
 
 
 def main():
     url = os.environ.get("CATALOGO_URL", URL_PADRAO)
-    caminho_html = os.environ.get("PLANOS_HTML", os.path.join(RAIZ, "planos.html"))
+    caminho_html = (os.environ.get("CATALOGO_HTML") or os.environ.get("PLANOS_HTML")
+                    or os.path.join(RAIZ, "solucoes.html"))
+    pagina = os.path.basename(caminho_html)
     with open(os.path.join(RAIZ, "scripts", "catalogo_site.json"), encoding="utf-8") as f:
         config = json.load(f)
 
@@ -132,7 +149,7 @@ def main():
     try:
         novo = aplicar(atual, catalogo, config)
     except ValueError as erro:
-        print("catalogo: não aplicado (%s) — planos.html fica como está" % erro)
+        print("catalogo: não aplicado (%s) — %s fica como está" % (erro, pagina))
         return 0
 
     if novo == atual:
@@ -140,7 +157,7 @@ def main():
     else:
         with open(caminho_html, "w", encoding="utf-8", newline="") as f:
             f.write(novo)
-        print("catalogo: planos.html atualizado com a versão %s" % catalogo.get("versao"))
+        print("catalogo: %s atualizado com a versão %s" % (pagina, catalogo.get("versao")))
     return 0
 
 

@@ -1180,3 +1180,8 @@ img.apoio-qr { background: #ffffff; }
     .nav-links { gap: 16px; }
     .nav-apoio__link { font-size: 0; gap: 0; }
 }
+/* planos.html: link para a lista de botões, que mora na aba Plugins. */
+.planos-mais { margin: 28px 0 0; color: var(--text-muted); }
+/* Os 5 exemplos da aba Plugins: 3 colunas no máximo (3 + 2), em vez de
+   4 + 1 com um cartão sozinho na linha. */
+#exemplos .botao-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }

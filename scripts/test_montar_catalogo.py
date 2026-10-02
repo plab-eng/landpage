@@ -26,8 +26,8 @@ CONFIG = {
 }
 
 
-def botao(id_, rotulo, flag):
-    return {"id": id_, "rotulo": rotulo, "painel": "X", "flag": flag, "flag_painel": flag, "comando": "C"}
+def botao(id_, rotulo, flag, painel="X"):
+    return {"id": id_, "rotulo": rotulo, "painel": painel, "flag": flag, "flag_painel": flag, "comando": "C"}
 
 
 CATALOGO = {
@@ -93,6 +93,53 @@ class Itens(unittest.TestCase):
     def test_assistant_nao_entra_em_cartao_nenhum(self):
         for cartao in CONFIG["cartoes"]:
             self.assertNotIn("Assistant (API)", [t for t, _ in mc.itens_do_cartao(CATALOGO, CONFIG, cartao)])
+
+
+# Desde 01/10/2026: add-in gratuito, cartões por painel da ribbon.
+CONFIG_PAINEL = {
+    "cartoes": {"tools": {"paineis": ["Tools", "Assistant"]}, "mep": {"paineis": ["MEP"]}},
+    "renomear": {"PLAB_Tools_CotaAutomatica": "Cota Automática"},
+    "ocultar": [],
+    "em_breve": {"tools": ["Numerar Detalhes", "Limpar Grupos"], "mep": ["Conectar Tubos"]},
+}
+
+CATALOGO_PAINEL = {
+    "versao": "1.0.17",
+    "botoes": [
+        botao("PLAB_Tools_TransferirEstado", "Transferir Estado", "free", "Tools"),
+        botao("PLAB_Tools_LimparGrupos", "Limpar Grupos", "free", "Tools"),
+        botao("PLAB_Tools_CotaAutomatica", "Cota Automatica", "documentacao", "Tools"),
+        botao("PLAB_Mep_Eletrica", "Elétrica", "livre", "MEP"),
+        botao("PLAB_Assistant_Toggle", "Assistant (API)", "assistant", "Assistant"),
+        botao("PLAB_Suporte", "Suporte", "livre", "Assistant"),
+    ],
+}
+
+
+class PorPainel(unittest.TestCase):
+    def test_junta_os_paineis_na_ordem_da_ribbon_sem_olhar_a_licenca(self):
+        itens = mc.itens_do_cartao(CATALOGO_PAINEL, CONFIG_PAINEL, "tools")
+        self.assertEqual([t for t, _ in itens],
+                         ["Transferir Estado", "Limpar Grupos", "Cota Automática", "Suporte", "Numerar Detalhes"])
+
+    def test_botao_pago_do_assistant_fica_de_fora_mesmo_no_painel_dele(self):
+        textos = [t for t, _ in mc.itens_do_cartao(CATALOGO_PAINEL, CONFIG_PAINEL, "tools")]
+        self.assertNotIn("Assistant (API)", textos)
+
+    def test_cada_painel_no_seu_cartao(self):
+        self.assertEqual(mc.itens_do_cartao(CATALOGO_PAINEL, CONFIG_PAINEL, "mep"),
+                         [("Elétrica", False), ("Conectar Tubos", True)])
+
+    def test_em_breve_lancado_some(self):
+        self.assertNotIn(("Limpar Grupos", True), mc.itens_do_cartao(CATALOGO_PAINEL, CONFIG_PAINEL, "tools"))
+
+    def test_config_real_do_site_e_valida(self):
+        caminho = os.path.join(os.path.dirname(os.path.abspath(__file__)), "catalogo_site.json")
+        with open(caminho, encoding="utf-8") as f:
+            config = json.load(f)
+        for cartao, regra in config["cartoes"].items():
+            self.assertTrue(regra.get("paineis") or regra.get("flags"), cartao)
+            self.assertIn(cartao, config["em_breve"])
 
 
 class Aplicar(unittest.TestCase):

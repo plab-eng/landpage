@@ -48,7 +48,7 @@
    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P-LAB para Revit | P-LAB</title>
-    <meta name="description" content="P-LAB para Revit, o add-in gratuito que documenta sozinho, tira a tarefa repetitiva e calcula dentro do modelo: tags, cotas, vistas, pranchas e cálculo elétrico.">
+    <meta name="description" content="P-LAB para Revit, o add-in gratuito que documenta sozinho, tira a tarefa repetitiva e calcula dentro do modelo: cotas, vistas, pranchas, exportação e cálculo elétrico.">
     <link rel="canonical" href="https://plabdev.com.br/solucoes.html">
     <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/solucoes.html">
     <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/solucoes.html">
@@ -123,7 +123,7 @@
                 <p class="hero-lead" data-i18n="sol-lead">Documentação que se resolve sozinha, tarefas repetitivas em lote e cálculo de engenharia dentro do modelo. Gratuito: baixe e use todas as ferramentas hoje.</p>
                 <p class="hero-actions" style="justify-content:center">
                     <a href="https://github.com/plab-eng/P-LAB-releases/releases/latest" class="btn-primary" target="_blank" rel="noopener" data-instalador data-i18n="sol-hero-btn">Baixar gratuitamente</a>
-                    <a href="planos.html#modulos" class="btn-secondary" data-i18n="sol-hero-btn2">Ver os módulos</a>
+                    <a href="#botoes" class="btn-secondary" data-i18n="sol-hero-btn2">Ver todos os botões</a>
                     <a href="https://github.com/plab-eng/P-LAB-releases/releases" class="btn-secondary" target="_blank" rel="noopener" data-releases data-i18n="sol-hero-btn3">Últimos instaladores</a>
                 </p>
                 <p class="text-center" style="margin-top:20px">
@@ -139,7 +139,7 @@
                     <div class="feature-card">
                         <i class="fas fa-pen-ruler feature-icon"></i>
                         <h3 data-i18n="sol-o1-t">Documentar</h3>
-                        <p data-i18n="sol-o1-d">Tags e cotas posicionadas pelo próprio add-in, seguindo o padrão que você configurou uma vez. A prancha sai pronta em vez de sair no braço.</p>
+                        <p data-i18n="sol-o1-d">Cotas posicionadas pelo próprio add-in, seguindo o padrão que você configurou uma vez. A prancha sai pronta em vez de sair no braço.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-list-check feature-icon"></i>
@@ -155,32 +155,16 @@
             </div>
         </section>
 
-        <!-- ============ DOCUMENTAÇÃO ============ -->
-        <section class="section">
+        <!-- ============ ALGUNS EXEMPLOS ============
+             Cinco botões com descrição e vídeo. A lista completa vem logo
+             abaixo (#botoes), montada a partir do release do add-in. -->
+        <section class="section" id="exemplos">
             <div class="container">
-                <span class="botao-painel" data-i18n="pn1">DOCUMENTAÇÃO</span>
-                <h2 class="section-title-main" data-i18n="pn1-title">Tags e cotas sem trabalho manual</h2>
+                <span class="botao-painel">ALGUNS EXEMPLOS</span>
+                <h2 class="section-title-main">Alguns botões em ação</h2>
                 <div class="botao-grid">
                     <div class="feature-card botao-card">
-                        <h3 data-i18n="bt-tag-t">Tag Automática</h3>
-                        <span class="plano-tag"><a href="planos.html" data-i18n="tag-doc">Documentação</a></span>
-                        <p data-i18n="bt-tag-d">Tagueia pelo contexto: sem nada selecionado, tagueia a vista inteira; com seleção, só o que você escolheu. Usa a família de tag definida para cada categoria.</p>
-                        <!-- [VÍDEO] Quando o arquivo existir, trocar o .media-slot abaixo por:
-                        <div class="plugin-video-container">
-                            <video controls preload="none" poster="images/poster-tag-automatica.jpg" width="640" height="360">
-                                <source src="videos/tag-automatica.mp4" type="video/mp4">
-                            </video>
-                        </div> -->
-                        <div class="media-slot">
-                            <span class="media-slot__label" data-i18n="slot-video">Vídeo em breve</span>
-                            <span class="media-slot__file">videos/tag-automatica.mp4</span>
-                            <p class="media-slot__hint" data-i18n="slot-tag-hint">Gravar: vista com peças sem tag, clicar no botão, tags aparecendo posicionadas.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card botao-card">
                         <h3 data-i18n="bt-cota-t">Cota Automática</h3>
-                        <span class="plano-tag"><a href="planos.html" data-i18n="tag-doc">Documentação</a></span>
                         <p data-i18n="bt-cota-d">Gera as cotas de locação a partir da configuração salva, sem clicar ponto a ponto.</p>
                         <!-- [VÍDEO] Trocar por <video src="videos/cota-automatica.mp4"> quando gravado -->
                         <div class="media-slot">
@@ -191,29 +175,7 @@
                     </div>
 
                     <div class="feature-card botao-card">
-                        <h3 data-i18n="bt-config-t">Config Tags</h3>
-                        <span class="plano-tag"><a href="planos.html" data-i18n="tag-doc">Documentação</a></span>
-                        <p data-i18n="bt-config-d">Define a família de tag por categoria, a seta de fluxo e as opções que os outros botões usam. Configura uma vez e vale para o projeto inteiro.</p>
-                        <!-- [IMAGEM] Print da janela de configuração -->
-                        <div class="media-slot">
-                            <span class="media-slot__label" data-i18n="slot-img">Imagem em breve</span>
-                            <span class="media-slot__file">images/config-tags.webp</span>
-                            <p class="media-slot__hint" data-i18n="slot-config-hint">Print da janela de configuração já preenchida.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ VISTAS, PRANCHAS E EXPORTAÇÃO ============ -->
-        <section class="section light-bg">
-            <div class="container">
-                <span class="botao-painel" data-i18n="pn2">VISTAS, PRANCHAS E ENTREGA</span>
-                <h2 class="section-title-main" data-i18n="pn2-title">Da vista à prancha entregue</h2>
-                <div class="botao-grid">
-                    <div class="feature-card botao-card">
                         <h3 data-i18n="bt-vistas-t">Gerar Vistas</h3>
-                        <span class="plano-tag"><a href="planos.html" data-i18n="tag-doc">Documentação</a></span>
                         <p data-i18n="bt-vistas-d">Cria plantas, ampliações e cortes a partir de ambientes ou de uma seleção — em lote e com nomenclatura padronizada.</p>
                         <!-- [VÍDEO] Trocar por <video src="videos/gerar-vistas.mp4"> quando gravado -->
                         <div class="media-slot">
@@ -224,8 +186,7 @@
                     </div>
 
                     <div class="feature-card botao-card">
-                        <h3 data-i18n="bt-pranchas-t">Gerador de Pranchas</h3>
-                        <span class="plano-tag"><a href="planos.html" data-i18n="tag-doc">Documentação</a></span>
+                        <h3 data-i18n="bt-pranchas-t">Gerenciador de Pranchas</h3>
                         <p data-i18n="bt-pranchas-d">Monta as pranchas a partir de um template e posiciona as vistas automaticamente.</p>
                         <!-- [VÍDEO] Trocar por <video src="videos/gerador-pranchas.mp4"> quando gravado -->
                         <div class="media-slot">
@@ -236,19 +197,7 @@
                     </div>
 
                     <div class="feature-card botao-card">
-                        <h3 data-i18n="bt-level-t">LevelManager</h3>
-                        <p data-i18n="bt-level-d">Confere como os elementos estão distribuídos por nível e reatribui o nível de destino da seleção — o corretor de quem herdou modelo bagunçado.</p>
-                        <!-- [IMAGEM] Print do painel com a distribuição por nível -->
-                        <div class="media-slot">
-                            <span class="media-slot__label" data-i18n="slot-img">Imagem em breve</span>
-                            <span class="media-slot__file">images/levelmanager.webp</span>
-                            <p class="media-slot__hint" data-i18n="slot-level-hint">Print da janela com a contagem de elementos por nível.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card botao-card">
                         <h3 data-i18n="bt-pranchas-exp-t">Exportar Pranchas</h3>
-                        <span class="plano-tag"><a href="planos.html" data-i18n="tag-doc">Documentação</a></span>
                         <p data-i18n="bt-pranchas-exp-d">Exporta pranchas em PDF, DWG e DWF em massa, com o nome montado no seu padrão e organização automática em subpastas.</p>
                         <div class="plugin-video-container">
                             <video controls preload="none" poster="images/poster-sheets.jpg" width="640" height="360">
@@ -258,40 +207,7 @@
                     </div>
 
                     <div class="feature-card botao-card">
-                        <h3 data-i18n="bt-sched-t">Exportar Tabelas</h3>
-                        <span class="plano-tag"><a href="planos.html" data-i18n="tag-doc">Documentação</a></span>
-                        <p data-i18n="bt-sched-d">Leva as tabelas do Revit direto para o Excel, prontas para orçamento e lista de material — sem copiar e colar.</p>
-                        <div class="plugin-video-container">
-                            <video controls preload="none" poster="images/poster-schedules.jpg" width="640" height="360">
-                                <source src="videos/Exportar planilhas.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ MEP ============ -->
-        <section class="section">
-            <div class="container">
-                <span class="botao-painel" data-i18n="pn3">ELÉTRICA E HIDRÁULICA</span>
-                <h2 class="section-title-main" data-i18n="pn3-title">Cálculo de engenharia dentro do Revit</h2>
-                <div class="botao-grid">
-                    <div class="feature-card botao-card">
-                        <h3 data-i18n="bt-queda-t">Queda de Tensão</h3>
-                        <span class="plano-tag"><a href="planos.html" data-i18n="tag-mep">MEP</a></span>
-                        <p data-i18n="bt-queda-d">Calcula a queda de tensão percentual dos circuitos conforme a <strong>NBR 5410</strong> e grava o resultado no parâmetro do elemento — o valor vai junto para a tabela e para a prancha.</p>
-                        <!-- [VÍDEO] Trocar por <video src="videos/queda-tensao.mp4"> quando gravado -->
-                        <div class="media-slot">
-                            <span class="media-slot__label" data-i18n="slot-video">Vídeo em breve</span>
-                            <span class="media-slot__file">videos/queda-tensao.mp4</span>
-                            <p class="media-slot__hint" data-i18n="slot-queda-hint">Gravar: quadro com circuitos, clicar no botão, tabela mostrando a porcentagem preenchida.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card botao-card">
                         <h3 data-i18n="bt-circ-t">Transferir Circuitos</h3>
-                        <span class="plano-tag"><a href="planos.html" data-i18n="tag-mep">MEP</a></span>
                         <p data-i18n="bt-circ-d">Move circuitos de um quadro de distribuição para outro em uma única operação — e um único Ctrl+Z desfaz tudo.</p>
                         <!-- [VÍDEO] Trocar por <video src="videos/transferir-circuitos.mp4"> quando gravado -->
                         <div class="media-slot">
@@ -304,10 +220,80 @@
             </div>
         </section>
 
+        <!-- ============ TODOS OS BOTÕES ============
+             Listas entre os marcadores catalogo:... são geradas no deploy por
+             scripts/montar_catalogo.py a partir do catalogo.json do último
+             release, agrupadas pelo painel da ribbon. Para mudar "Em breve",
+             nome ou esconder um botão, edite scripts/catalogo_site.json —
+             edição à mão aqui é sobrescrita. -->
+        <section class="section light-bg" id="botoes">
+            <div class="container">
+                <span class="botao-painel">TODOS OS BOTÕES</span>
+                <h2 class="section-title-main">O que vem no add-in, painel por painel</h2>
+                <p class="planos-intro">A mesma organização da ribbon do Revit. A lista acompanha cada versão nova do add-in.</p>
+                <div class="modulos-grid">
+                    <div class="feature-card modulo-card">
+                        <h3>Tools</h3>
+                        <p>Modelo, vínculos, vistas, pranchas, cotas e exportação.</p>
+                        <ul class="plano-lista">
+                            <!-- catalogo:tools -->
+                            <li>Transferir Estado</li>
+                            <li>Copiar Propriedades</li>
+                            <li>Copiar entre Projetos</li>
+                            <li>Vínculos</li>
+                            <li>Painel P-LAB</li>
+                            <li>Limpar Grupos</li>
+                            <li>Identificar Pintura</li>
+                            <li>Alinhar Norte</li>
+                            <li>DXF/PDF Legenda</li>
+                            <li>Gerar Vistas</li>
+                            <li>Gerenciador de Pranchas</li>
+                            <li>Cota Automática</li>
+                            <li>Config Cotas</li>
+                            <li>Exportar</li>
+                            <li>Suporte</li>
+                            <li><span>Transferir Parâmetros</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Eliminar Duplicados</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Alinhar Tags / Spots</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Numerar Detalhes</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Ordenar Viewports</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Memória Seleção</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Visibilidade Links</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Exportar Worksets</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <!-- /catalogo:tools -->
+                        </ul>
+                    </div>
+
+                    <div class="feature-card modulo-card">
+                        <h3>MEP</h3>
+                        <p>Elétrica e hidrossanitário pela norma brasileira, direto no modelo.</p>
+                        <ul class="plano-lista">
+                            <!-- catalogo:mep -->
+                            <li>Elétrica</li>
+                            <li>Conectar Tubos</li>
+                            <li><span>Anotar Circuitos, Conduletes e Disjuntores</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Quadros: monitorar e redimensionar</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Verificador NBR 5410</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Croqui → Hidrossanitário</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Prumadas, suportes e seta de fluxo</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Verificador NBR 8160 / 5626</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <!-- /catalogo:mep -->
+                        </ul>
+                    </div>
+
+                    <div class="feature-card modulo-card">
+                        <h3>PLAB Assistant</h3>
+                        <p><span class="plano-tag">Pago</span></p>
+                        <p>A IA que lê e altera o seu modelo do Revit. Vem com o P-LAB OS e o P-LAB Viewer. <a href="planos.html#assistant">Ver o plano</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ============ SOB MEDIDA (escritórios) ============
              Mesma oferta e mesmo preço do bloco "Plugin adaptado ao seu
              escritório" de planos.html — mudou lá, muda aqui. -->
-        <section class="section light-bg" id="sob-medida">
+        <section class="section" id="sob-medida">
             <div class="container">
                 <span class="botao-painel" data-i18n="sol-sm">PARA ESCRITÓRIOS</span>
                 <h2 class="section-title-main" data-i18n="sol-sm-title">O plugin do jeito que o seu escritório trabalha</h2>
@@ -337,13 +323,13 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section light-bg">
             <div class="container text-center cta-band">
                 <h2 data-i18n="sol-cta-t">Instale de graça e veja funcionando</h2>
                 <p data-i18n="sol-cta-d">A instalação leva menos de dois minutos e todas as ferramentas já ficam disponíveis.</p>
                 <p class="hero-actions" style="justify-content:center">
                     <a href="https://github.com/plab-eng/P-LAB-releases/releases/latest" class="btn-primary" target="_blank" rel="noopener" data-instalador data-i18n="sol-cta-btn">Baixar gratuitamente</a>
-                    <a href="planos.html#modulos" class="btn-secondary" data-i18n="sol-cta-btn2">Ver os módulos</a>
+                    <a href="#botoes" class="btn-secondary" data-i18n="sol-cta-btn2">Ver todos os botões</a>
                     <a href="https://github.com/plab-eng/P-LAB-releases/releases" class="btn-secondary" target="_blank" rel="noopener" data-releases data-i18n="sol-cta-btn3">Últimos instaladores</a>
                 </p>
             </div>

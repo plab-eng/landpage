@@ -1,10 +1,17 @@
 {
-  "_leia": "Curadoria do catálogo do site (docs/superpowers/plans/2026-09-14-catalogo-automatico.md). Lançado vem do catalogo.json do último release do add-in; aqui só entra o que o release não diz: nome melhor para o site, botão para esconder e a lista de Em breve. Item de Em breve some sozinho quando um botão com o mesmo texto sai num release.",
+  "_leia": "Curadoria do catálogo da aba Plugins (solucoes.html, #botoes). Lançado vem do catalogo.json do último release do add-in; aqui só entra o que o release não diz: nome melhor para o site, botão para esconder e a lista de Em breve. Cada cartão junta os botões dos painéis da ribbon listados em 'paineis' (ou, se a cobrança voltar, das flags em 'flags'). Item de Em breve some sozinho quando um botão com o mesmo texto sai num release.",
   "cartoes": {
-    "free": { "flags": ["free", "livre"] },
-    "tools": { "flags": ["tools", "export"] },
-    "mep": { "flags": ["mep", "export"] },
-    "documentacao": { "flags": ["documentacao", "export"] }
+    "tools": {
+      "paineis": [
+        "Tools",
+        "Assistant"
+      ]
+    },
+    "mep": {
+      "paineis": [
+        "MEP"
+      ]
+    }
   },
   "renomear": {
     "PLAB_Mep_QuedaTensao": "Calcular Queda de Tensão",
@@ -13,7 +20,7 @@
   },
   "ocultar": [],
   "em_breve": {
-    "free": [
+    "tools": [
       "Transferir Parâmetros",
       "Eliminar Duplicados",
       "Limpar Grupos",
@@ -22,9 +29,7 @@
       "Ordenar Viewports",
       "Identificar Pintura",
       "Alinhar Norte",
-      "Memória Seleção"
-    ],
-    "tools": [
+      "Memória Seleção",
       "Visibilidade Links",
       "Exportar Worksets"
     ],
@@ -36,7 +41,6 @@
       "Croqui → Hidrossanitário",
       "Prumadas, suportes e seta de fluxo",
       "Verificador NBR 8160 / 5626"
-    ],
-    "documentacao": []
+    ]
   }
 }
