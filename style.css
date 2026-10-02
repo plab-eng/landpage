@@ -1152,22 +1152,6 @@ img.apoio-qr { background: #ffffff; }
 }
 .nav-apoio__fechar:hover { color: var(--text); }
 [data-apoio-oculto] .nav-apoio { display: none; }
-/* Entre o hambúrguer (860px) e ~1200px o menu não comporta o botão inteiro:
-   fica só o coração (o texto segue para leitor de tela) e os links aproximam. */
-@media (min-width: 861px) and (max-width: 1199px) {
-    .nav-links { gap: 16px; }
-    .nav-apoio__link { font-size: 0; gap: 0; }
-    .nav-apoio__link svg { width: 16px; height: 16px; }
-}
-/* Abaixo de ~1100px nem o coração + × cabe sem quebrar os links em duas linhas:
-   fica só o coração. Fechar continua possível nas telas maiores e no celular. */
-@media (min-width: 861px) and (max-width: 1099px) {
-    .nav-apoio__fechar { display: none; }
-}
-@media (min-width: 861px) and (max-width: 999px) {
-    .nav-links { gap: 12px; }
-    .nav-extra { gap: 10px; }
-}
 /* No menu do celular os três controles não cabem lado a lado: a pílula não
    encolhe (encolhida, o overflow cortava o ×) e a linha pode quebrar. */
 .nav-apoio { flex-shrink: 0; }
@@ -1182,23 +1166,17 @@ img.apoio-qr { background: #ffffff; }
 .passos-pix strong { color: var(--text); }
 .assinar-pix .pix-status { margin: -8px 0 0; color: var(--text-muted); }
 .assinar-pix .pix-status--ok { color: var(--accent); }
-/* Com a aba "Assistant" (mais longa que "Planos") o menu volta a não caber
-   entre 861 e 999px: fonte um pouco menor e nomes sem quebrar no meio. */
-@media (min-width: 861px) and (max-width: 999px) {
-    .nav-links { gap: 10px; }
-    .nav-links a { font-size: 0.88rem; white-space: nowrap; }
-}
-@media (min-width: 861px) and (max-width: 999px) {
-    .logo-link { white-space: nowrap; flex-shrink: 0; }
-}
-/* 861–899px: nem o coração cabe sem empurrar o seletor de idioma para fora.
-   Nessa faixa estreita o Apoiar fica só no rodapé. */
-@media (min-width: 861px) and (max-width: 899px) {
-    .nav-apoio { display: none; }
-}
 /* Os dois cartões da aba Assistant têm alturas bem diferentes (o do PIX tem
    o QR): sem isso o do plano estica e fica com um vão no meio. */
 #assistant .planos-grid { align-items: start; }
 /* Aviso de promoção acima dos planos avulsos: mesmo desenho da faixa de
    equipe, mas antes da grade, então a margem fica embaixo. */
 .promo-band { margin: 0 0 28px; }
+/* Nome de aba e logo nunca quebram em duas linhas ("P-LAB / Viewer"). */
+.nav-links a, .logo-link { white-space: nowrap; }
+/* 861–939px (logo acima do hambúrguer): o Apoiar mostra só o coração (o
+   texto segue para leitor de tela) e os links aproximam. Acima disso, nada. */
+@media (min-width: 861px) and (max-width: 939px) {
+    .nav-links { gap: 16px; }
+    .nav-apoio__link { font-size: 0; gap: 0; }
+}
