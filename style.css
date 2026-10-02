@@ -1190,3 +1190,19 @@ img.apoio-qr { background: #ffffff; }
 #outras-plataformas .botao-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); margin-bottom: 28px; }
 #outras-plataformas .selos-plataforma { display: flex; gap: 8px; flex-wrap: wrap; }
 .print-plataforma { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--border); }
+/* Menus traduzidos (en/es): "Asesoramiento", "Complementos", "Consulting" e
+   "Apoyar/Support" são mais longos que em português, e o seletor de idioma
+   saía da tela até ~1100px. Mesma receita do português, numa faixa maior. */
+@media (min-width: 861px) and (max-width: 1199px) {
+    html:not([lang="pt-BR"]) .nav-links { gap: 16px; }
+    html:not([lang="pt-BR"]) .nav-apoio__link { font-size: 0; gap: 0; }
+}
+@media (min-width: 861px) and (max-width: 1059px) {
+    html:not([lang="pt-BR"]) .nav-links { gap: 12px; }
+    html:not([lang="pt-BR"]) .nav-links a { font-size: 0.9rem; }
+    html:not([lang="pt-BR"]) .nav-apoio__fechar { display: none; }
+}
+@media (min-width: 861px) and (max-width: 899px) {
+    html:not([lang="pt-BR"]) .nav-links { gap: 10px; }
+    html:not([lang="pt-BR"]) .nav-extra { gap: 10px; }
+}
