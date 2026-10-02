@@ -1185,3 +1185,8 @@ img.apoio-qr { background: #ffffff; }
 /* Os 5 exemplos da aba Plugins: 3 colunas no máximo (3 + 2), em vez de
    4 + 1 com um cartão sozinho na linha. */
 #exemplos .botao-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+/* Aba Plugins, "Além do Revit": 2 x 2 (sem estourar no celular) e os dois selos
+   lado a lado; o print, quando entrar, ocupa a largura do cartão. */
+#outras-plataformas .botao-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); margin-bottom: 28px; }
+#outras-plataformas .selos-plataforma { display: flex; gap: 8px; flex-wrap: wrap; }
+.print-plataforma { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--border); }

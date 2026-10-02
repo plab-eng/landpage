@@ -73,6 +73,7 @@ PROTECTED_TERMS = [
     "P-LAB Viewer", "P-LAB OS", "P-LAB",
     # O espanhol virava "Asistente" / "Asistente de PLAB" (01/10/2026).
     "PLAB Assistant", "PLAB ASSISTANT", "Assistant",
+    "Clash Works",
     "Export Schedules", "Export Sheets",
     "pyRevit", "Runrun.it", "ClickUp",
 ]
