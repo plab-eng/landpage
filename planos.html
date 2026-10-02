@@ -180,7 +180,7 @@
         </section>
         <!-- ============ PLAB ASSISTANT (o plano pago) ============
              Venda pelo PIX: o QR é o mesmo da apoiar.html (estático, sem valor;
-             quem paga digita R$ 999,90). Não há pedido no P-LAB OS amarrando o
+             quem paga digita o valor do plano: Assistant R$ 999,90, OS R$ 299,90, Viewer R$ 199,90). Não há pedido no P-LAB OS amarrando o
              pagamento à conta: o comprovante chega pelo WhatsApp e a liberação
              é manual. O mensal recorrente no cartão (R$ 99,90) entra quando o José configurar a cobrança. -->
         <section class="section" id="assistant">
@@ -192,7 +192,8 @@
                         <h2 class="plano-nome">PLAB Assistant</h2>
                         <div class="plano-preco">
                             <span class="plano-valor">R$ 99,90/mês</span>
-                            <span class="plano-cond">por usuário, sem compromisso, no cartão (em breve) · ou R$ 999,90 à vista no PIX pelo ano todo</span>
+                            <span class="plano-cond">por usuário, sem compromisso · ou 12x R$ 99,90 no plano anual · no cartão, em breve</span>
+                            <span class="plano-cond plano-avista">À vista: <strong>R$ 999,90</strong> no PIX (1x no cartão em breve)</span>
                         </div>
                         <ul class="plano-lista">
                             <li>PLAB Assistant: a IA que lê e altera o seu modelo do Revit</li>
@@ -204,10 +205,16 @@
                     </div>
 
                     <div class="plano-card assinar-pix" id="assinar-pix">
-                        <h3 class="plano-nome">Assinar no PIX</h3>
+                        <h3 class="plano-nome">Pagar à vista no PIX</h3>
                         <ol class="passos-pix">
-                            <li>Pague <strong>R$ 999,90</strong> por usuário, que valem um ano, pelo QR Code ou pela chave.</li>
-                            <li>Mande o comprovante no WhatsApp, com o e-mail da sua conta P-LAB.</li>
+                            <li>Pague o valor do plano, por usuário, pelo QR Code ou pela chave. Vale um ano.
+                                <ul class="valores-pix">
+                                    <li>PLAB Assistant <strong>R$ 999,90</strong></li>
+                                    <li>P-LAB OS <strong>R$ 299,90</strong></li>
+                                    <li>P-LAB Viewer <strong>R$ 199,90</strong></li>
+                                </ul>
+                            </li>
+                            <li>Mande o comprovante no WhatsApp, dizendo o plano e o e-mail da sua conta P-LAB.</li>
                             <li>A P-LAB libera o acesso nessa conta.</li>
                         </ol>
                         <img src="images/pix-qr.png" alt="QR Code do PIX da P-LAB" width="220" height="220" class="apoio-qr">
@@ -215,13 +222,13 @@
                         <div class="pix-chave">
                             <!-- Dentro de <code>: o translate.py não traduz, a chave chega intacta em /en e /es. -->
                             <code id="pix-chave">37452086000101</code>
-                            <button type="button" class="btn-secondary" data-pix-copiar="assistant">Copiar chave</button>
+                            <button type="button" class="btn-secondary" data-pix-copiar="planos">Copiar chave</button>
                         </div>
                         <p class="pix-status" id="pix-status" role="status" aria-live="polite"></p>
                         <span hidden id="pix-msg-ok">Chave copiada. Cole no app do banco, na opção PIX.</span>
                         <span hidden id="pix-msg-manual">A chave ficou selecionada: use Ctrl+C para copiar.</span>
                         <p class="plano-cond">O app do banco vai mostrar <strong data-no-translate>JOSE PICANCO SERVICOS DE ENGENHARIA E CONSTRUCAO LTDA</strong>, a empresa por trás da P-LAB.</p>
-                        <a href="https://wa.me/5547989168641?text=Ol%C3%A1%21%20Paguei%20o%20PLAB%20Assistant%20no%20PIX%20%28R%24%20999%2C90%29.%20Segue%20o%20comprovante.%20E-mail%20da%20minha%20conta%20P-LAB%3A%20" class="btn-primary" target="_blank" rel="noopener">Enviar comprovante no WhatsApp</a>
+                        <a href="https://wa.me/5547989168641?text=Ol%C3%A1%21%20Paguei%20um%20plano%20da%20P-LAB%20no%20PIX.%20Plano%3A%20%20.%20E-mail%20da%20minha%20conta%20P-LAB%3A%20%20.%20Segue%20o%20comprovante." class="btn-primary" target="_blank" rel="noopener">Enviar comprovante no WhatsApp</a>
                         <p class="plano-cond">Ainda não tem conta? <a href="https://app.plabdev.com.br/" target="_blank" rel="noopener">Crie a sua no P-LAB</a> antes de pagar.</p>
                     </div>
 
@@ -260,6 +267,7 @@
                         <div class="plano-preco">
                             <span class="plano-valor" data-i18n="pl-v-v">12x R$ 19,90</span>
                             <span class="plano-cond" data-i18n="pl-v-c">por usuário, no plano anual · ou R$ 29,90/mês sem compromisso</span>
+                            <span class="plano-cond plano-avista">À vista: <strong>R$ 199,90</strong> no PIX (1x no cartão em breve)</span>
                         </div>
                         <ul class="plano-lista">
                             <li data-i18n="pl-v-i1">Registro de pendências e issues no modelo</li>
@@ -268,6 +276,7 @@
                             <li data-i18n="pl-v-i4">Compartilhamento com o cliente por link</li>
                         </ul>
                         <a href="https://app.plabdev.com.br/assinar?plano=viewer" class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-i18n="pl-v-btn">Criar conta grátis</a>
+                        <a href="#assinar-pix" class="plano-pix-link">Pagar à vista no PIX</a>
                     </div>
 
                     <div class="plano-card">
@@ -275,6 +284,7 @@
                         <div class="plano-preco">
                             <span class="plano-valor" data-i18n="pl-o-v">12x R$ 29,90</span>
                             <span class="plano-cond" data-i18n="pl-o-c">por usuário, no plano anual · ou R$ 39,90/mês sem compromisso</span>
+                            <span class="plano-cond plano-avista">À vista: <strong>R$ 299,90</strong> no PIX (1x no cartão em breve)</span>
                         </div>
                         <ul class="plano-lista">
                             <li data-i18n="pl-o-i1">Comercial: propostas, contratos e funil</li>
@@ -282,6 +292,7 @@
                             <li data-i18n="pl-o-i3">Gestão: apontamento de horas por projeto</li>
                         </ul>
                         <a href="https://app.plabdev.com.br/assinar?plano=os" class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-i18n="pl-o-btn">Criar conta grátis</a>
+                        <a href="#assinar-pix" class="plano-pix-link">Pagar à vista no PIX</a>
                     </div>
 
                 </div>
