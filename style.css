@@ -1206,3 +1206,7 @@ img.apoio-qr { background: #ffffff; }
     html:not([lang="pt-BR"]) .nav-links { gap: 10px; }
     html:not([lang="pt-BR"]) .nav-extra { gap: 10px; }
 }
+/* Aba Plugins, #botoes: terceira coluna com o PLAB Assistant e, embaixo, o
+   cartão do plugin sob medida (a chamada é o botão verde, não a borda). */
+.modulos-coluna { display: flex; flex-direction: column; gap: 24px; }
+.modulo-card--sob-medida .btn-primary { align-self: flex-start; }
