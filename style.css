@@ -1218,3 +1218,5 @@ img.apoio-qr { background: #ffffff; }
    um cartão sozinho). Os selos do sob medida ficam centralizados. */
 .axes-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); }
 .sob-medida-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 auto 28px; }
+/* Aba Assistant: a faixa do Assistant personalizado vem logo depois do plano. */
+.assistant-personalizado { margin-top: 28px; }
