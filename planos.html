@@ -127,7 +127,55 @@
             <div class="container text-center">
                 <span class="eyebrow" data-i18n="pl-eyebrow">PLAB ASSISTANT</span>
                 <h1 data-i18n="pl-title">A IA que lê e altera o seu modelo do Revit</h1>
-                <p class="hero-lead" data-i18n="pl-lead">Assine o PLAB Assistant e leve junto o P-LAB OS e o P-LAB Viewer, sem custo a mais. O add-in P-LAB para Revit continua gratuito para todos.</p>
+                <p class="hero-lead" data-i18n="pl-lead">Assine o PLAB Assistant e leve junto o P-LAB OS e o P-LAB Viewer, sem custo a mais. O add-in <a href="solucoes.html">P-LAB para Revit</a> continua gratuito para todos.</p>
+            </div>
+        </section>
+
+        <!-- ============ O QUE O ASSISTANT FAZ ============
+             Texto a partir do que o vídeo de demonstração mostra (docs/PLAB
+             Assistant.mp4 no repo P-LAB). A imagem é a janela do Assistant
+             recortada do vídeo, sem o projeto do cliente que estava atrás.
+             O vídeo em si espera o José: ele mostra o modelo e o carimbo de
+             um cliente, com nome do proprietário. -->
+        <section class="section light-bg" id="o-que-faz">
+            <div class="container">
+                <span class="eyebrow">O QUE ELE FAZ</span>
+                <h2 class="section-title-main">Converse com o seu modelo do Revit</h2>
+                <div class="feature-grid three-cols">
+                    <div class="feature-card">
+                        <i class="fas fa-comments feature-icon"></i>
+                        <h3>Peça em português</h3>
+                        <p>Escreva o que precisa, como "crie uma vista 3D" ou "pinte as paredes por tipo", e ele faz no modelo aberto.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-magnifying-glass feature-icon"></i>
+                        <h3>Lê o modelo antes de agir</h3>
+                        <p>Conta, filtra e lista o que está no projeto, como as paredes de cada tipo, e responde com os números.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-robot feature-icon"></i>
+                        <h3>Escolha a IA</h3>
+                        <p>Funciona com os principais modelos do mercado, como Claude e GPT. O provedor e o modelo se escolhem na própria janela.</p>
+                    </div>
+                </div>
+
+                <div class="assistant-midias">
+                    <figure class="assistant-midia">
+                        <img src="images/assistant-tela-inicial.webp" alt="Tela inicial do PLAB Assistant dentro do Revit, com a escolha de provedor e modelo de IA" width="491" height="360" loading="lazy">
+                        <figcaption>A tela inicial do PLAB Assistant, dentro do Revit.</figcaption>
+                    </figure>
+                    <!-- [VÍDEO] Quando o José liberar, trocar o .media-slot por:
+                    <div class="plugin-video-container">
+                        <video controls preload="none" poster="images/assistant-tela-inicial.webp" width="1274" height="720">
+                            <source src="videos/plab-assistant-demo.mp4" type="video/mp4">
+                        </video>
+                    </div> -->
+                    <div class="media-slot">
+                        <span class="media-slot__label">Vídeo em breve</span>
+                        <span class="media-slot__file">videos/plab-assistant-demo.mp4</span>
+                        <p class="media-slot__hint">Demonstração: pedir uma vista 3D, contar as paredes e pintar por tipo, tudo pelo chat.</p>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- ============ PLAB ASSISTANT (o plano pago) ============
@@ -181,7 +229,7 @@
             </div>
         </section>
 
-        <section class="section light-bg">
+        <section class="section light-bg" id="plataforma-web">
             <div class="container">
                 <span class="eyebrow" data-i18n="pl-ass-eyebrow">SÓ A PLATAFORMA WEB</span>
                 <h2 class="section-title-main" data-i18n="pl-ass-title">Ou assine só o Viewer e o P-LAB OS</h2>
@@ -240,41 +288,6 @@
         </section>
 
         <section class="section">
-            <div class="container">
-                <span class="eyebrow" data-i18n="pl-plug-eyebrow">P-LAB PARA REVIT</span>
-                <h2 class="section-title-main" data-i18n="pl-plug-title">Automação dentro do Revit</h2>
-                <p class="planos-intro" data-i18n="pl-plug-intro">Uma instalação só, com todos os botões liberados. Sem cartão e sem plano para escolher.</p>
-
-                <!-- 01/10/2026: o add-in ficou gratuito. Os cartões "Um módulo", "Dois
-                     módulos", "Suíte" e "P-LAB Total" saíram da vitrine, mas os planos
-                     continuam no P-LAB OS: a cobrança pode voltar. Ver o histórico do git
-                     para o markup dos cartões. -->
-                <div class="equipe-band">
-                    <div>
-                        <span class="botao-painel" data-i18n="pl-free-eyebrow">GRATUITO</span>
-                        <h3 data-i18n="pl-free-t">Baixe e use tudo</h3>
-                        <p data-i18n="pl-free-d">Todos os botões do add-in, sem cartão e sem prazo de teste. Se ele ajuda no seu dia, você pode <a href="apoiar.html">apoiar a P-LAB</a>.</p>
-                    </div>
-                    <p class="hero-actions">
-                        <a href="https://github.com/plab-eng/P-LAB-releases/releases/latest" class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-instalador data-i18n="pl-p1-btn">Baixar grátis</a>
-                        <a href="https://github.com/plab-eng/P-LAB-releases/releases" class="btn-secondary" target="_blank" rel="noopener" data-releases data-i18n="pl-p1-btn2">Últimos instaladores</a>
-                    </p>
-                </div>
-
-                <p class="planos-mais">Quer ver tudo o que vem no add-in? <a href="solucoes.html#botoes">Todos os botões, painel por painel</a>.</p>
-
-                <div class="equipe-band sob-medida-band">
-                    <div>
-                        <span class="botao-painel" data-i18n="pl-sm-eyebrow">SOB MEDIDA · PROPOSTA</span>
-                        <h3 data-i18n="pl-sm-t">Plugin adaptado ao seu escritório</h3>
-                        <p data-i18n="pl-sm-d">Partimos da base que já existe e ajustamos ao fluxo do escritório — comportamento, parâmetros, nomenclatura, template e famílias. Licença vitalícia por código, que funciona sem servidor e sem conta Autodesk. <strong>De R$ 4.900 a R$ 12.000</strong>, fechado em proposta conforme o escopo.</p>
-                    </div>
-                    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20de%20plugin%20sob%20medida." class="btn-primary" target="_blank" rel="noopener" data-i18n="pl-p2-btn">Pedir uma proposta</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section light-bg">
             <div class="container text-center cta-band">
                 <h2 data-i18n="pl-cta-t">Não sabe qual faz sentido?</h2>
                 <p data-i18n="pl-cta-d">Conte como é o fluxo do seu escritório e a gente diz por onde começar — inclusive se a resposta for continuar no gratuito.</p>

@@ -1180,8 +1180,6 @@ img.apoio-qr { background: #ffffff; }
     .nav-links { gap: 16px; }
     .nav-apoio__link { font-size: 0; gap: 0; }
 }
-/* planos.html: link para a lista de botões, que mora na aba Plugins. */
-.planos-mais { margin: 28px 0 0; color: var(--text-muted); }
 /* Os 5 exemplos da aba Plugins: 3 colunas no máximo (3 + 2), em vez de
    4 + 1 com um cartão sozinho na linha. */
 #exemplos .botao-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
@@ -1210,3 +1208,13 @@ img.apoio-qr { background: #ffffff; }
    cartão do plugin sob medida (a chamada é o botão verde, não a borda). */
 .modulos-coluna { display: flex; flex-direction: column; gap: 24px; }
 .modulo-card--sob-medida .btn-primary { align-self: flex-start; }
+/* Aba Assistant, "O que ele faz": imagem da tela inicial e espaço do vídeo,
+   lado a lado (empilham no celular). A imagem não passa do tamanho real. */
+.assistant-midias { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 24px; margin-top: 40px; align-items: center; }
+.assistant-midia { margin: 0; text-align: center; }
+.assistant-midia img { max-width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--border); }
+.assistant-midia figcaption { margin-top: 10px; font-size: 0.9rem; color: var(--text-muted); }
+/* Home: com o PLAB Assistant são quatro frentes, em 2 x 2 (3 + 1 deixava
+   um cartão sozinho). Os selos do sob medida ficam centralizados. */
+.axes-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); }
+.sob-medida-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 auto 28px; }
