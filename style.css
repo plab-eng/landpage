@@ -1230,3 +1230,4 @@ img.apoio-qr { background: #ffffff; }
 .formas-cartao li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; color: var(--text-muted); }
 .formas-cartao strong { color: var(--text); white-space: nowrap; }
 .btn-em-breve { opacity: 0.55; cursor: not-allowed; pointer-events: none; text-align: center; }
+.forma-breve { font-style: normal; font-size: 0.8rem; color: var(--text-muted); margin-left: 4px; }

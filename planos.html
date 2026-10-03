@@ -276,33 +276,45 @@
                         <h3 class="plano-nome" data-i18n="pl-v-n">Viewer</h3>
                         <div class="plano-preco">
                             <span class="plano-valor" data-i18n="pl-v-v">12x R$ 19,90</span>
-                            <span class="plano-cond" data-i18n="pl-v-c">por usuário, no plano anual · ou R$ 29,90/mês sem compromisso</span>
-                            <span class="plano-cond plano-avista">À vista: <strong>R$ 199,90</strong> no PIX (1x no cartão em breve)</span>
+                            <span class="plano-cond">por usuário, no cartão</span>
                         </div>
+                        <!-- As três formas de cartão do Asaas. Anual e mensal vêm do banco
+                             (data-preco, preenchido pelo script da vitrine no fim da página). -->
+                        <ul class="formas-cartao">
+                            <li><span>Anual parcelado</span> <strong data-preco="viewer-anual">12x R$ 19,90</strong></li>
+                            <li><span>Mensal, sem compromisso</span> <strong data-preco="viewer-mensal">R$ 29,90/mês</strong></li>
+                            <li><span>À vista, 1x no cartão <em class="forma-breve">em breve</em></span> <strong>R$ 199,90</strong></li>
+                        </ul>
                         <ul class="plano-lista">
                             <li data-i18n="pl-v-i1">Registro de pendências e issues no modelo</li>
                             <li data-i18n="pl-v-i2">Comparação entre revisões</li>
                             <li data-i18n="pl-v-i3">Histórico do que foi decidido e por quem</li>
                             <li data-i18n="pl-v-i4">Compartilhamento com o cliente por link</li>
                         </ul>
-                        <a href="https://app.plabdev.com.br/assinar?plano=viewer" class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-i18n="pl-v-btn">Criar conta grátis</a>
-                        <a href="#assinar-pix" class="plano-pix-link">Pagar à vista no PIX</a>
+                        <a href="https://app.plabdev.com.br/assinar?plano=viewer" class="btn-primary" target="_blank" rel="noopener" data-i18n="pl-v-btn">Assinar no cartão</a>
+                        <a href="#assinar-pix" class="plano-pix-link">Prefere o PIX? Pague à vista: R$ 199,90</a>
                     </div>
 
                     <div class="plano-card">
                         <h3 class="plano-nome" data-i18n="pl-o-n">P-LAB OS</h3>
                         <div class="plano-preco">
                             <span class="plano-valor" data-i18n="pl-o-v">12x R$ 29,90</span>
-                            <span class="plano-cond" data-i18n="pl-o-c">por usuário, no plano anual · ou R$ 39,90/mês sem compromisso</span>
-                            <span class="plano-cond plano-avista">À vista: <strong>R$ 299,90</strong> no PIX (1x no cartão em breve)</span>
+                            <span class="plano-cond">por usuário, no cartão</span>
                         </div>
+                        <!-- As três formas de cartão do Asaas. Anual e mensal vêm do banco
+                             (data-preco, preenchido pelo script da vitrine no fim da página). -->
+                        <ul class="formas-cartao">
+                            <li><span>Anual parcelado</span> <strong data-preco="os-anual">12x R$ 29,90</strong></li>
+                            <li><span>Mensal, sem compromisso</span> <strong data-preco="os-mensal">R$ 39,90/mês</strong></li>
+                            <li><span>À vista, 1x no cartão <em class="forma-breve">em breve</em></span> <strong>R$ 299,90</strong></li>
+                        </ul>
                         <ul class="plano-lista">
                             <li data-i18n="pl-o-i1">Comercial: propostas, contratos e funil</li>
                             <li data-i18n="pl-o-i2">Custos: previsto contra realizado e margem</li>
                             <li data-i18n="pl-o-i3">Gestão: apontamento de horas por projeto</li>
                         </ul>
-                        <a href="https://app.plabdev.com.br/assinar?plano=os" class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-i18n="pl-o-btn">Criar conta grátis</a>
-                        <a href="#assinar-pix" class="plano-pix-link">Pagar à vista no PIX</a>
+                        <a href="https://app.plabdev.com.br/assinar?plano=os" class="btn-primary" target="_blank" rel="noopener" data-i18n="pl-o-btn">Assinar no cartão</a>
+                        <a href="#assinar-pix" class="plano-pix-link">Prefere o PIX? Pague à vista: R$ 299,90</a>
                     </div>
 
                 </div>
@@ -425,9 +437,12 @@
             var prefixo = CARTOES[chave];
             var elValor = document.querySelector('[data-i18n="' + prefixo + '-v"]');
             var elCond = document.querySelector('[data-i18n="' + prefixo + '-c"]');
-            if (!elValor || !elCond) return;
-
-            elValor.textContent = p.parcelas + 'x ' + real(p.valor_usuario_parcela);
+            var elAnual = document.querySelector('[data-preco="' + chave + '-anual"]');
+            var elMensal = document.querySelector('[data-preco="' + chave + '-mensal"]');
+            if (elAnual) elAnual.textContent = p.parcelas + 'x ' + real(p.valor_usuario_parcela);
+            if (elMensal) elMensal.textContent = real(p.valor_usuario_mensal) + '/mês';
+            if (elValor) elValor.textContent = p.parcelas + 'x ' + real(p.valor_usuario_parcela);
+            if (!elCond) return;
 
             var cond = 'por usuário, no plano anual · ou ' + real(p.valor_usuario_mensal) + '/mês sem compromisso';
             if (chave === 'completo' && economia !== null) {
