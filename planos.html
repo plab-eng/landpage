@@ -192,16 +192,26 @@
                         <h2 class="plano-nome">PLAB Assistant</h2>
                         <div class="plano-preco">
                             <span class="plano-valor">R$ 99,90/mês</span>
-                            <span class="plano-cond">por usuário, sem compromisso · ou 12x R$ 99,90 no plano anual · no cartão, em breve</span>
-                            <span class="plano-cond plano-avista">À vista: <strong>R$ 999,90</strong> no PIX (1x no cartão em breve)</span>
+                            <span class="plano-cond">por usuário, no cartão</span>
                         </div>
+                        <!-- As três formas de cartão do Asaas. O desconto existe só no à vista. -->
+                        <ul class="formas-cartao">
+                            <li><span>Mensal, sem compromisso</span> <strong>R$ 99,90/mês</strong></li>
+                            <li><span>Anual parcelado</span> <strong>12x R$ 99,90</strong></li>
+                            <li><span>À vista, 1x no cartão</span> <strong>R$ 999,90</strong></li>
+                        </ul>
                         <ul class="plano-lista">
                             <li>PLAB Assistant: a IA que lê e altera o seu modelo do Revit</li>
                             <li>P-LAB OS incluso: comercial, custos e gestão de horas</li>
                             <li>P-LAB Viewer incluso: pendências, revisões e compartilhamento</li>
                             <li>P-LAB para Revit com todos os botões, que é gratuito para todos</li>
                         </ul>
-                        <a href="#assinar-pix" class="btn-primary">Assinar no PIX</a>
+                        <!-- O plano "assistant" ainda não existe no checkout do P-LAB OS
+                             (docs/PROMPT-assistant-e-cartao-asaas.md no repo plab-os). Quando
+                             existir, trocar o <span> abaixo por:
+                        <a href="https://app.plabdev.com.br/assinar?plano=assistant" class="btn-primary" target="_blank" rel="noopener">Assinar no cartão</a> -->
+                        <span class="btn-primary btn-em-breve" aria-disabled="true">Assinar no cartão · em breve</span>
+                        <a href="#assinar-pix" class="plano-pix-link">Prefere o PIX? Pague à vista: R$ 999,90</a>
                     </div>
 
                     <div class="plano-card assinar-pix" id="assinar-pix">
