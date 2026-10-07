@@ -60,6 +60,8 @@ PAGES = {
     "consultoria.html": "consultoria.html",
     "obrigado.html": "obrigado.html",
     "apoiar.html": "apoiar.html",   # aberta pelo botão Doar do add-in
+    "por-que.html": "por-que.html",
+    "novidades.html": "novidades.html",   # conteúdo gerado por scripts/gerar_novidades.py
 }
 
 # Idiomas-alvo: pasta de saída -> código DeepL
