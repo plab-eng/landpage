@@ -33,12 +33,24 @@ MARCA_INICIO = "<!-- novidades:inicio -->"
 MARCA_FIM = "<!-- novidades:fim -->"
 OCULTAR = ("(em desenvolvimento)", "(em teste)")
 
+# Termos internos das notas -> termos de usuario. Aplicado so na geracao do
+# HTML (o markdown de origem nao muda); vale para as proximas releases.
+TERMOS = [
+    ("Turbine", "configurações de IA (engrenagem)"),
+    ("Agente externo", "conectar o Claude Code ou o Codex"),
+]
+
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def inline(texto):
     """Escapa o HTML e converte `codigo` em <code>."""
-    saida = html.escape(texto.strip(), quote=False)
+    texto = texto.strip()
+    for interno, usuario in TERMOS:
+        if texto.startswith(interno):  # no inicio do item: mantem a maiuscula
+            texto = usuario[0].upper() + usuario[1:] + texto[len(interno):]
+        texto = texto.replace(interno, usuario).replace(interno.lower(), usuario)
+    saida = html.escape(texto, quote=False)
     return re.sub(r"`([^`]+)`", r"<code>\1</code>", saida)
 
 
