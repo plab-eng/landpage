@@ -1231,3 +1231,11 @@ img.apoio-qr { background: #ffffff; }
 .formas-cartao strong { color: var(--text); white-space: nowrap; }
 .btn-em-breve { opacity: 0.55; cursor: not-allowed; pointer-events: none; text-align: center; }
 .forma-breve { font-style: normal; font-size: 0.8rem; color: var(--text-muted); margin-left: 4px; }
+
+/* ===== NOVIDADES (novidades.html, gerada por scripts/gerar_novidades.py) ===== */
+.releases { max-width: 800px; }
+.release { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 32px; margin-bottom: 16px; }
+.release h2 { font-size: 1.5rem; margin: 0 0 16px; }
+.release-data { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; color: var(--accent); margin-left: 8px; }
+.release ul { margin: 0; padding-left: 20px; }
+.release li { color: var(--text-muted); margin-bottom: 8px; }

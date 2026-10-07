@@ -3,11 +3,11 @@
 <head>
     <!-- Aplica o tema antes do render para evitar flash (claro por padrão; respeita preferência do sistema na 1ª visita) -->
     <script>(function(){try{var t=localStorage.getItem('p-lab-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
-    <!-- Consent Mode v2 (19/09/2026): a tag carrega SEMPRE, com consentimento
-         negado por padrão; o aceite do banner só atualiza o estado (script.js).
-         Antes o gtag só era injetado depois do "Aceitar", e quem recusava ou
-         ignorava o banner não gerava ping nenhum — o Google não recebia sinal e
-         não tinha o que modelar. GA4 G-M9WEG41PNK · Ads AW-18462540145. -->
+    <!-- Botão Apoiar do menu: quem fechou no × não vê por 1 dia (script.js). -->
+    <script>try{if(Date.now()<Number(localStorage.getItem('p-lab-apoio-oculto-ate')))document.documentElement.setAttribute('data-apoio-oculto','');}catch(e){}</script>
+    <!-- Consent Mode v2: a tag carrega SEMPRE, com consentimento negado por
+         padrão; o aceite do banner só atualiza o estado (script.js). Mesmo
+         bloco das outras páginas. GA4 G-M9WEG41PNK · Ads AW-18462540145. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -24,9 +24,6 @@
       gtag('set', 'ads_data_redaction', true);
       gtag('set', 'url_passthrough', true);
 
-      // Quem já aceitou numa visita anterior: atualiza ANTES do primeiro ping,
-      // senão o page_view sai marcado como negado. A chave é a mesma do
-      // script.js (CONSENT_KEY).
       try {
         if (localStorage.getItem('p-lab-cookie-consent') === 'accepted') {
           gtag('consent', 'update', {
@@ -45,22 +42,22 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9WEG41PNK"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apoiar a P-LAB | P-LAB</title>
-    <meta name="description" content="As ferramentas gratuitas do add-in da P-LAB para Revit são mantidas pela P-LAB. Se elas economizam horas no seu dia, apoie o desenvolvimento por PIX.">
-    <link rel="canonical" href="https://plabdev.com.br/apoiar.html">
-    <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/apoiar.html">
-    <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/apoiar.html">
-    <link rel="alternate" hreflang="es" href="https://plabdev.com.br/es/apoiar.html">
-    <link rel="alternate" hreflang="x-default" href="https://plabdev.com.br/apoiar.html">
+    <title>Novidades | P-LAB</title>
+    <meta name="description" content="Novidades do P-LAB e do PLAB Assistant: o que mudou em cada versão liberada.">
+    <link rel="canonical" href="https://plabdev.com.br/novidades.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/novidades.html">
+    <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/novidades.html">
+    <link rel="alternate" hreflang="es" href="https://plabdev.com.br/es/novidades.html">
+    <link rel="alternate" hreflang="x-default" href="https://plabdev.com.br/novidades.html">
     <link rel="icon" type="image/png" href="images/logo-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://plabdev.com.br/apoiar.html">
-    <meta property="og:title" content="Apoiar a P-LAB | P-LAB">
-    <meta property="og:description" content="As ferramentas gratuitas do add-in da P-LAB para Revit são mantidas pela P-LAB. Apoie o desenvolvimento por PIX.">
+    <meta property="og:url" content="https://plabdev.com.br/novidades.html">
+    <meta property="og:title" content="Novidades | P-LAB">
+    <meta property="og:description" content="O que mudou em cada versão do P-LAB e do PLAB Assistant.">
     <meta property="og:image" content="https://plabdev.com.br/images/logo-icon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="plab-tokens.css">
@@ -86,9 +83,13 @@
                     <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
                     <li><a href="consultoria.html" data-i18n="nav-consultoria">Consultoria</a></li>
                     <li><a href="por-que.html" data-i18n="nav-por-que">Por que o P-LAB</a></li>
-                    <li><a href="novidades.html" data-i18n="nav-novidades">Novidades</a></li>
+                    <li><a href="novidades.html" class="active" data-i18n="nav-novidades">Novidades</a></li>
                 </ul>
                 <div class="nav-extra">
+                    <div class="nav-apoio">
+                        <a href="apoiar.html" class="nav-apoio__link" data-apoio-menu><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.4.7-1.3 2.2-2.4 4.3-2.4 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z"/></svg>Apoiar</a>
+                        <button type="button" class="nav-apoio__fechar" data-apoio-fechar aria-label="Ocultar por hoje" title="Ocultar por hoje">&times;</button>
+                    </div>
                     <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro" title="Alternar tema">
                         <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
                     </button>
@@ -111,70 +112,52 @@
         </div>
     </header>
 
-    <main>
+        <main>
         <section class="section hero-section">
             <div class="container text-center">
-                <span class="eyebrow">APOIAR</span>
-                <h1>Ferramentas gratuitas no Revit. Quem mantém é a P-LAB.</h1>
-                <p class="hero-lead">Cada botão do add-in é escrito, testado e atualizado pela P-LAB a cada versão nova do Revit. Se ele economiza horas no seu dia, um apoio por PIX ajuda a pagar esse trabalho.</p>
+                <span class="eyebrow">NOVIDADES</span>
+                <h1>O que mudou em cada versão</h1>
+                <p class="hero-lead">As notas das versões do P-LAB e do PLAB Assistant, da mais nova para a mais antiga. Aqui entra só o que já foi liberado.</p>
             </div>
         </section>
 
         <section class="section light-bg">
-            <div class="container">
-                <div class="plano-card apoio-card">
-                    <!-- QR estático (BR Code) sem valor: quem paga digita o quanto quer.
-                         Gerado a partir da chave, com nome PICANCO ENGENHARIA e cidade MANAUS
-                         (a do cadastro do CNPJ). Trocou a chave? Gere o QR de novo. -->
-                    <img src="images/pix-qr.png" alt="QR Code do PIX da P-LAB" width="220" height="220" class="apoio-qr">
-
-                    <div class="apoio-info">
-                        <h2 class="plano-nome">Apoie por PIX</h2>
-                        <p>Aponte a câmera do app do banco para o QR Code ou copie a chave abaixo. Qualquer valor ajuda.</p>
-
-                        <span class="botao-painel">Chave PIX</span>
-                        <div class="pix-chave">
-                            <!-- Chave = CNPJ, só dígitos (todo banco aceita assim). Fica dentro
-                                 de <code> porque o translate.py não traduz <code> — sem isso o
-                                 DeepL pode mexer na chave nas versões /en e /es. -->
-                            <code id="pix-chave">37452086000101</code>
-                            <button type="button" class="btn-secondary" data-pix-copiar>Copiar chave</button>
-                        </div>
-                        <p class="pix-status" id="pix-status" role="status" aria-live="polite"></p>
-                        <!-- Mensagens do botão de copiar ficam no HTML, e não no script.js,
-                             para o translate.py traduzi-las nas versões /en e /es. -->
-                        <span hidden id="pix-msg-ok">Chave copiada. Cole no app do banco, na opção PIX.</span>
-                        <span hidden id="pix-msg-manual">A chave ficou selecionada: use Ctrl+C para copiar.</span>
-
-                        <!-- Razão social do CNPJ da chave: é o nome que o app de quem paga mostra. -->
-                        <p class="apoio-beneficiario">Chave CNPJ. O app do banco vai mostrar <strong data-no-translate>JOSE PICANCO SERVICOS DE ENGENHARIA E CONSTRUCAO LTDA</strong>, a empresa por trás da P-LAB. Confira o nome antes de confirmar.</p>
-
-                        <!-- Link de cartão (opcional): descomentar quando houver.
-                             target="_blank" é obrigatório — sem nova aba o GA4 subconta o clique.
-                        <a href="LINK-DO-CARTAO" class="btn-secondary" target="_blank" rel="noopener" data-apoio-pagamento="cartao">Apoiar com cartão</a>
-                        -->
-
-                        <ul class="plano-lista">
-                            <li><span>O apoio não desbloqueia nada: o add-in é o mesmo para quem apoia e para quem não apoia.</span></li>
-                            <li><span>Empresa que precisa de nota fiscal: fale com a P-LAB pelo <a href="index.html#contato">contato do site</a> antes de pagar.</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="equipe-band">
-                    <div>
-                        <span class="botao-painel">ADD-IN PARA REVIT</span>
-                        <h3>Ainda não tem o add-in?</h3>
-                        <p>Baixe grátis. Uma instalação só, para todas as versões do Revit suportadas.</p>
-                    </div>
-                    <p class="hero-actions">
-                        <a href="https://github.com/plab-eng/P-LAB-releases/releases/latest" class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-instalador>Baixar grátis</a>
-                    </p>
-                </div>
+            <div class="container releases">
+                <!-- Conteúdo gerado por scripts/gerar_novidades.py a partir de
+                     docs/notas-release-2.0.x.md (repo P-LAB). Não edite à mão:
+                     rode o script no release. -->
+                <!-- novidades:inicio -->
+                <article class="release" id="v2-0-2">
+                    <h2>Versão 2.0.2 <span class="release-data">06/10</span></h2>
+                    <ul>
+                        <li>Leituras prontas: listar pranchas, vistas e tipos e consultar o modelo respondem na hora, sem IA.</li>
+                        <li>Pedido de "ver" nunca altera o modelo.</li>
+                        <li>Freio de laço: se o Assistant repetir a mesma tentativa sem avançar, ele para e pergunta (Sim/Não).</li>
+                        <li>Receitas guiadas ganham Cancelar.</li>
+                        <li>Registro de uso separado por versão, para facilitar o diagnóstico.</li>
+                    </ul>
+                </article>
+                <article class="release" id="v2-0-1">
+                    <h2>Versão 2.0.1 <span class="release-data">06/10</span></h2>
+                    <ul>
+                        <li>Receitas guiadas: formulários de padronização e perfis do escritório; executor com prévia e edição do plano.</li>
+                        <li>Ler o padrão de um projeto modelo e mapear o modelo (marque um exemplo, veja a prévia na vista).</li>
+                        <li>IA pontual só onde precisa; Treinamento para ver e editar as regras aprendidas; medição de uso.</li>
+                        <li>Receitas passam a chegar por atualização, sem reinstalar.</li>
+                        <li>Normas NBR 10844 (pluvial) e NBR 8160 (esgoto) no dimensionamento.</li>
+                    </ul>
+                </article>
+                <article class="release" id="v2-0-0">
+                    <h2>Versão 2.0.0 <span class="release-data">05/10</span></h2>
+                    <ul>
+                        <li>Turbine mais nítido, com aviso quando a chave informada é inválida.</li>
+                        <li>Agente externo com instrução pronta para colar.</li>
+                        <li>Ferramentas aprendidas passam a rodar na hora, sem esperar a IA.</li>
+                        <li>Mensagem clara quando o limite de uso do mês é atingido.</li>
+                        <li>Proteção do código do add-in.</li>
+                    </ul>
+                </article>
+                <!-- novidades:fim -->
             </div>
         </section>
     </main>
@@ -216,10 +199,6 @@
             <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0</p>
         </div>
     </footer>
-
-    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar com a P-LAB no WhatsApp">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="34" height="34">
-    </a>
 
     <script src="script.js"></script>
 </body>

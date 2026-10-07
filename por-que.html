@@ -3,11 +3,11 @@
 <head>
     <!-- Aplica o tema antes do render para evitar flash (claro por padrão; respeita preferência do sistema na 1ª visita) -->
     <script>(function(){try{var t=localStorage.getItem('p-lab-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
-    <!-- Consent Mode v2 (19/09/2026): a tag carrega SEMPRE, com consentimento
-         negado por padrão; o aceite do banner só atualiza o estado (script.js).
-         Antes o gtag só era injetado depois do "Aceitar", e quem recusava ou
-         ignorava o banner não gerava ping nenhum — o Google não recebia sinal e
-         não tinha o que modelar. GA4 G-M9WEG41PNK · Ads AW-18462540145. -->
+    <!-- Botão Apoiar do menu: quem fechou no × não vê por 1 dia (script.js). -->
+    <script>try{if(Date.now()<Number(localStorage.getItem('p-lab-apoio-oculto-ate')))document.documentElement.setAttribute('data-apoio-oculto','');}catch(e){}</script>
+    <!-- Consent Mode v2: a tag carrega SEMPRE, com consentimento negado por
+         padrão; o aceite do banner só atualiza o estado (script.js). Mesmo
+         bloco das outras páginas. GA4 G-M9WEG41PNK · Ads AW-18462540145. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -24,9 +24,6 @@
       gtag('set', 'ads_data_redaction', true);
       gtag('set', 'url_passthrough', true);
 
-      // Quem já aceitou numa visita anterior: atualiza ANTES do primeiro ping,
-      // senão o page_view sai marcado como negado. A chave é a mesma do
-      // script.js (CONSENT_KEY).
       try {
         if (localStorage.getItem('p-lab-cookie-consent') === 'accepted') {
           gtag('consent', 'update', {
@@ -45,22 +42,22 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9WEG41PNK"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apoiar a P-LAB | P-LAB</title>
-    <meta name="description" content="As ferramentas gratuitas do add-in da P-LAB para Revit são mantidas pela P-LAB. Se elas economizam horas no seu dia, apoie o desenvolvimento por PIX.">
-    <link rel="canonical" href="https://plabdev.com.br/apoiar.html">
-    <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/apoiar.html">
-    <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/apoiar.html">
-    <link rel="alternate" hreflang="es" href="https://plabdev.com.br/es/apoiar.html">
-    <link rel="alternate" hreflang="x-default" href="https://plabdev.com.br/apoiar.html">
+    <title>Por que o P-LAB | P-LAB</title>
+    <meta name="description" content="O que o P-LAB faz de diferente para projetos de engenharia no Revit: privacidade conforme a LGPD, português e normas ABNT, ferramentas gratuitas, Revit 2021 a 2027, preço aberto e uma IA que escolhe passos testados.">
+    <link rel="canonical" href="https://plabdev.com.br/por-que.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/por-que.html">
+    <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/por-que.html">
+    <link rel="alternate" hreflang="es" href="https://plabdev.com.br/es/por-que.html">
+    <link rel="alternate" hreflang="x-default" href="https://plabdev.com.br/por-que.html">
     <link rel="icon" type="image/png" href="images/logo-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://plabdev.com.br/apoiar.html">
-    <meta property="og:title" content="Apoiar a P-LAB | P-LAB">
-    <meta property="og:description" content="As ferramentas gratuitas do add-in da P-LAB para Revit são mantidas pela P-LAB. Apoie o desenvolvimento por PIX.">
+    <meta property="og:url" content="https://plabdev.com.br/por-que.html">
+    <meta property="og:title" content="Por que o P-LAB | P-LAB">
+    <meta property="og:description" content="Privacidade conforme a LGPD, português e normas ABNT, ferramentas gratuitas, Revit 2021 a 2027 e uma IA que escolhe passos testados.">
     <meta property="og:image" content="https://plabdev.com.br/images/logo-icon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="plab-tokens.css">
@@ -85,10 +82,14 @@
                     <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
                     <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
                     <li><a href="consultoria.html" data-i18n="nav-consultoria">Consultoria</a></li>
-                    <li><a href="por-que.html" data-i18n="nav-por-que">Por que o P-LAB</a></li>
+                    <li><a href="por-que.html" class="active" data-i18n="nav-por-que">Por que o P-LAB</a></li>
                     <li><a href="novidades.html" data-i18n="nav-novidades">Novidades</a></li>
                 </ul>
                 <div class="nav-extra">
+                    <div class="nav-apoio">
+                        <a href="apoiar.html" class="nav-apoio__link" data-apoio-menu><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.4.7-1.3 2.2-2.4 4.3-2.4 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z"/></svg>Apoiar</a>
+                        <button type="button" class="nav-apoio__fechar" data-apoio-fechar aria-label="Ocultar por hoje" title="Ocultar por hoje">&times;</button>
+                    </div>
                     <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro" title="Alternar tema">
                         <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
                     </button>
@@ -111,70 +112,65 @@
         </div>
     </header>
 
+    <!-- Página de posicionamento (PLANO-2.0.4, F5). Não cita nenhum concorrente.
+         Cada afirmação segue o que o produto cumpre hoje e o texto de
+         transparência do repo P-LAB; qualquer mudança aqui passa pelo José. -->
     <main>
         <section class="section hero-section">
             <div class="container text-center">
-                <span class="eyebrow">APOIAR</span>
-                <h1>Ferramentas gratuitas no Revit. Quem mantém é a P-LAB.</h1>
-                <p class="hero-lead">Cada botão do add-in é escrito, testado e atualizado pela P-LAB a cada versão nova do Revit. Se ele economiza horas no seu dia, um apoio por PIX ajuda a pagar esse trabalho.</p>
+                <span class="eyebrow">POR QUE O P-LAB</span>
+                <h1>Feito para o projeto brasileiro, no Revit</h1>
+                <p class="hero-lead">Seis pontos que explicam como o P-LAB trabalha: o que acontece com os seus dados, em que idioma e norma ele calcula, o que é gratuito e como a IA age no seu modelo.</p>
             </div>
         </section>
 
-        <section class="section light-bg">
+        <section class="section light-bg" id="pontos">
             <div class="container">
-                <div class="plano-card apoio-card">
-                    <!-- QR estático (BR Code) sem valor: quem paga digita o quanto quer.
-                         Gerado a partir da chave, com nome PICANCO ENGENHARIA e cidade MANAUS
-                         (a do cadastro do CNPJ). Trocou a chave? Gere o QR de novo. -->
-                    <img src="images/pix-qr.png" alt="QR Code do PIX da P-LAB" width="220" height="220" class="apoio-qr">
-
-                    <div class="apoio-info">
-                        <h2 class="plano-nome">Apoie por PIX</h2>
-                        <p>Aponte a câmera do app do banco para o QR Code ou copie a chave abaixo. Qualquer valor ajuda.</p>
-
-                        <span class="botao-painel">Chave PIX</span>
-                        <div class="pix-chave">
-                            <!-- Chave = CNPJ, só dígitos (todo banco aceita assim). Fica dentro
-                                 de <code> porque o translate.py não traduz <code> — sem isso o
-                                 DeepL pode mexer na chave nas versões /en e /es. -->
-                            <code id="pix-chave">37452086000101</code>
-                            <button type="button" class="btn-secondary" data-pix-copiar>Copiar chave</button>
-                        </div>
-                        <p class="pix-status" id="pix-status" role="status" aria-live="polite"></p>
-                        <!-- Mensagens do botão de copiar ficam no HTML, e não no script.js,
-                             para o translate.py traduzi-las nas versões /en e /es. -->
-                        <span hidden id="pix-msg-ok">Chave copiada. Cole no app do banco, na opção PIX.</span>
-                        <span hidden id="pix-msg-manual">A chave ficou selecionada: use Ctrl+C para copiar.</span>
-
-                        <!-- Razão social do CNPJ da chave: é o nome que o app de quem paga mostra. -->
-                        <p class="apoio-beneficiario">Chave CNPJ. O app do banco vai mostrar <strong data-no-translate>JOSE PICANCO SERVICOS DE ENGENHARIA E CONSTRUCAO LTDA</strong>, a empresa por trás da P-LAB. Confira o nome antes de confirmar.</p>
-
-                        <!-- Link de cartão (opcional): descomentar quando houver.
-                             target="_blank" é obrigatório — sem nova aba o GA4 subconta o clique.
-                        <a href="LINK-DO-CARTAO" class="btn-secondary" target="_blank" rel="noopener" data-apoio-pagamento="cartao">Apoiar com cartão</a>
-                        -->
-
-                        <ul class="plano-lista">
-                            <li><span>O apoio não desbloqueia nada: o add-in é o mesmo para quem apoia e para quem não apoia.</span></li>
-                            <li><span>Empresa que precisa de nota fiscal: fale com a P-LAB pelo <a href="index.html#contato">contato do site</a> antes de pagar.</span></li>
-                        </ul>
+                <div class="feature-grid three-cols">
+                    <div class="feature-card" id="privacidade">
+                        <i class="fas fa-user-shield feature-icon"></i>
+                        <h3>Privacidade e LGPD</h3>
+                        <p>O modelo do Revit, os arquivos do projeto e os nomes de projeto, elementos, vistas e pranchas não são enviados à P-LAB. As receitas guiadas mandam apenas contadores de uso: o tempo de cada passo, os cliques e as chamadas de IA. O contexto que vai para a IA é filtrado no seu computador.</p>
+                        <p>As ferramentas que o Assistant cria ficam guardadas no seu computador. A cópia enviada à P-LAB (o pedido, o código e os nomes dos campos) pode ser desligada nas configurações, é apagada após 12 meses (exceto quando vira uma funcionalidade publicada) e se apoia no legítimo interesse (LGPD, art. 7º, IX). Para pedir informações ou a exclusão: devpicanco@gmail.com.</p>
+                    </div>
+                    <div class="feature-card" id="portugues-abnt">
+                        <i class="fas fa-language feature-icon"></i>
+                        <h3>Português e normas ABNT</h3>
+                        <p>Você escreve em português e o Assistant responde em português. Os cálculos seguem as normas brasileiras: esgoto pela NBR 8160, águas pluviais pela NBR 10844 e queda de tensão dos circuitos pelo limite da NBR 5410 (4% para circuitos terminais). Cada resultado traz a norma e a tabela de onde saiu.</p>
+                    </div>
+                    <div class="feature-card" id="tools-gratis">
+                        <i class="fas fa-toolbox feature-icon"></i>
+                        <h3>Tools gratuitas</h3>
+                        <p>O add-in <a href="solucoes.html">P-LAB para Revit</a>, com os botões de produtividade, é gratuito e não precisa do Assistant. Quem quiser a IA assina o PLAB Assistant por cima; quem não quiser continua com as Tools.</p>
+                    </div>
+                    <div class="feature-card" id="revit-versoes">
+                        <i class="fas fa-layer-group feature-icon"></i>
+                        <h3>Revit 2021 a 2027</h3>
+                        <p>O P-LAB funciona nas versões de 2021 a 2027 do Revit, para o escritório não precisar trocar de ferramenta quando atualiza o programa.</p>
+                    </div>
+                    <div class="feature-card" id="preco-aberto">
+                        <i class="fas fa-receipt feature-icon"></i>
+                        <h3>Preço aberto</h3>
+                        <p>Os valores, as formas de pagamento e o que cada plano inclui estão na página pública de <a href="planos.html">planos</a>, para você saber quanto custa antes de falar com qualquer pessoa.</p>
+                    </div>
+                    <div class="feature-card" id="ia-passos-testados">
+                        <i class="fas fa-list-check feature-icon"></i>
+                        <h3>IA que escolhe passos testados</h3>
+                        <p>As receitas e os fluxos guiados do Assistant são o que o mercado chama de agentes de IA: você dá o objetivo e ele planeja e executa os passos. No P-LAB, a IA escolhe passos já testados e mostra o plano antes de aplicar, sem escrever código novo a cada pedido. É mais previsível, mais barato e não roda código desconhecido no seu modelo.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="section">
-            <div class="container">
-                <div class="equipe-band">
-                    <div>
-                        <span class="botao-painel">ADD-IN PARA REVIT</span>
-                        <h3>Ainda não tem o add-in?</h3>
-                        <p>Baixe grátis. Uma instalação só, para todas as versões do Revit suportadas.</p>
-                    </div>
-                    <p class="hero-actions">
-                        <a href="https://github.com/plab-eng/P-LAB-releases/releases/latest" class="btn-plugin btn-download-manual" target="_blank" rel="noopener" data-instalador>Baixar grátis</a>
-                    </p>
-                </div>
+            <div class="container text-center">
+                <span class="eyebrow">PRÓXIMO PASSO</span>
+                <h2 class="section-title-main">Veja o que o Assistant faz e quanto custa</h2>
+                <p class="hero-lead">Para acompanhar o que mudou em cada versão, leia as <a href="novidades.html">novidades</a>.</p>
+                <p>
+                    <a href="planos.html" class="btn-primary">Ver o Assistant e os planos</a>
+                    <a href="solucoes.html" class="btn-secondary">Conhecer as Tools gratuitas</a>
+                </p>
             </div>
         </section>
     </main>
@@ -216,10 +212,6 @@
             <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0</p>
         </div>
     </footer>
-
-    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar com a P-LAB no WhatsApp">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="34" height="34">
-    </a>
 
     <script src="script.js"></script>
 </body>
