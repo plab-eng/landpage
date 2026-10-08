@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Aplica o tema antes do render para evitar flash (claro por padrão; respeita preferência do sistema na 1ª visita) -->
+    <script>(function(){try{var t=localStorage.getItem('p-lab-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <!-- Botão Apoiar do menu: quem fechou no × não vê por 1 dia (script.js). -->
+    <script>try{if(Date.now()<Number(localStorage.getItem('p-lab-apoio-oculto-ate')))document.documentElement.setAttribute('data-apoio-oculto','');}catch(e){}</script>
+    <!-- Consent Mode v2 (19/09/2026): a tag carrega SEMPRE, com consentimento
+         negado por padrão; o aceite do banner só atualiza o estado (script.js).
+         Antes o gtag só era injetado depois do "Aceitar", e quem recusava ou
+         ignorava o banner não gerava ping nenhum — o Google não recebia sinal e
+         não tinha o que modelar. GA4 G-M9WEG41PNK · Ads AW-18462540145. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      gtag('consent', 'default', {
+        ad_storage:            'denied',
+        ad_user_data:          'denied',
+        ad_personalization:    'denied',
+        analytics_storage:     'denied',
+        functionality_storage: 'granted',
+        security_storage:      'granted',
+        wait_for_update: 500
+      });
+      gtag('set', 'ads_data_redaction', true);
+      gtag('set', 'url_passthrough', true);
+
+      // Quem já aceitou numa visita anterior: atualiza ANTES do primeiro ping,
+      // senão o page_view sai marcado como negado. A chave é a mesma do
+      // script.js (CONSENT_KEY).
+      try {
+        if (localStorage.getItem('p-lab-cookie-consent') === 'accepted') {
+          gtag('consent', 'update', {
+            ad_storage:         'granted',
+            ad_user_data:       'granted',
+            ad_personalization: 'granted',
+            analytics_storage:  'granted'
+          });
+        }
+      } catch (e) {}
+
+      gtag('js', new Date());
+      gtag('config', 'G-M9WEG41PNK');
+      gtag('config', 'AW-18462540145');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9WEG41PNK"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços BIM | P-LAB</title>
+    <meta name="description" content="Serviços BIM da P-LAB para escritórios de projeto: famílias Revit paramétricas, templates, modelagem, as built por nuvem de pontos, coordenação no Navisworks, implantação BIM e dados 4D/5D.">
+    <link rel="canonical" href="https://plabdev.com.br/servicos-bim.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/servicos-bim.html">
+    <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/servicos-bim.html">
+    <link rel="alternate" hreflang="es" href="https://plabdev.com.br/es/servicos-bim.html">
+    <link rel="alternate" hreflang="x-default" href="https://plabdev.com.br/servicos-bim.html">
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://plabdev.com.br/servicos-bim.html">
+    <meta property="og:title" content="Serviços BIM | P-LAB">
+    <meta property="og:description" content="Famílias Revit, templates, modelagem, as built por nuvem de pontos e coordenação BIM para escritórios de projeto.">
+    <meta property="og:image" content="https://plabdev.com.br/images/logo-icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="plab-tokens.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header sticky-header">
+        <div class="container header-flex">
+            <div class="header-left">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo-icon.webp" alt="Logo P-LAB" class="header-logo-img logo-invert" width="35" height="36">
+                    <span class="logo">P-LAB</span>
+                </a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-nav">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="primary-nav" id="primary-nav">
+                <ul class="nav-links">
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="planos.html" data-i18n="nav-planos">Assistant</a></li>
+                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
+                    <li><a href="servicos-bim.html" class="active" data-i18n="nav-consultoria">Serviços BIM</a></li>
+                </ul>
+                <div class="nav-extra">
+                    <div class="nav-apoio">
+                        <a href="apoiar.html" class="nav-apoio__link" data-apoio-menu><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.4.7-1.3 2.2-2.4 4.3-2.4 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z"/></svg>Apoiar</a>
+                        <button type="button" class="nav-apoio__fechar" data-apoio-fechar aria-label="Ocultar por hoje" title="Ocultar por hoje">&times;</button>
+                    </div>
+                    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro" title="Alternar tema">
+                        <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                    </button>
+                    <div class="language-selector">
+                        <button class="lang-btn"><i class="fas fa-globe"></i> <span id="current-lang-label">PT</span> <i class="fas fa-chevron-down"></i></button>
+                        <div class="lang-dropdown">
+                            <div class="dropdown-section">
+                                <span class="section-title" data-i18n="lang-suggested">LOCALIZAÇÃO SUGERIDA</span>
+                                <a href="javascript:void(0)" onclick="plabSwitchLang('pt')" data-lang="pt" data-no-translate>Brasil (Português)</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <span class="section-title" data-i18n="lang-available">SÍTIOS DISPONÍVEIS</span>
+                                <a href="javascript:void(0)" onclick="plabSwitchLang('en')" data-lang="en" data-no-translate>Global (English)</a>
+                                <a href="javascript:void(0)" onclick="plabSwitchLang('es')" data-lang="es" data-no-translate>España (Español)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section hero-section">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <span class="eyebrow">SERVIÇOS BIM</span>
+                    <h1>Serviços BIM para escritórios de projeto</h1>
+                    <p class="hero-lead">Famílias Revit, templates, modelagem, as built por nuvem de pontos, coordenação e implantação. Uma equipe que projeta, modela e também escreve o software que automatiza o seu Revit.</p>
+                    <p class="hero-actions">
+                        <a href="#contato" class="btn-primary">Pedir orçamento</a>
+                        <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20de%20servi%C3%A7os%20BIM." class="btn-secondary" target="_blank" rel="noopener">Falar no WhatsApp</a>
+                    </p>
+                </div>
+                <img src="images/servicos-bim-hero.webp" alt="Edificação em nuvem de pontos, em modelo BIM e construída" width="800" height="567" loading="lazy" class="servico-img">
+            </div>
+        </section>
+
+        <section class="section light-bg" id="servicos">
+            <div class="container">
+                <span class="botao-painel">O QUE FAZEMOS</span>
+                <h2 class="section-title-main">Da família Revit ao modelo coordenado</h2>
+                <div class="botao-grid servicos-grid">
+                    <div class="feature-card botao-card">
+                        <img src="images/servico-familias.webp" alt="Famílias Revit paramétricas: porta, janela, lavatório, quadro elétrico e fossa com conectores" width="1600" height="1200" loading="lazy" class="servico-img">
+                        <h3>Famílias Revit paramétricas</h3>
+                        <p>Criamos famílias a partir do catálogo do fabricante, de PDF, DWG ou croqui: tipos, parâmetros compartilhados, níveis de detalhe e, nas instalações, conectores de tubo e eletroduto.</p>
+                        <span class="botao-painel">ENTREGA</span>
+                        <ul class="plano-lista">
+                            <li>Arquivos .rfa leves, também em IFC</li>
+                            <li>Famílias de instalações com conectores</li>
+                            <li>Tags e anotações da própria família</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <img src="images/servico-templates.webp" alt="Pranchas padronizadas a partir de um template do escritório" width="1600" height="1200" loading="lazy" class="servico-img">
+                        <h3>Templates e padrões</h3>
+                        <p>O template do escritório pronto para começar projeto: parâmetros, filtros, tabelas, estilos de linha e o padrão de pranchas e nomes.</p>
+                        <span class="botao-painel">ENTREGA</span>
+                        <ul class="plano-lista">
+                            <li>Template .rte do escritório</li>
+                            <li>Parâmetros compartilhados</li>
+                            <li>Padrão de pranchas e nomenclatura</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <img src="images/servico-modelagem.webp" alt="Planta 2D virando modelo BIM com as instalações à vista" width="1600" height="1200" loading="lazy" class="servico-img">
+                        <h3>Modelagem BIM e as built</h3>
+                        <p>Arquitetura e instalações hidrossanitárias e elétricas modeladas a partir de DWG, PDF ou nuvem de pontos, inclusive o as built do que já foi construído.</p>
+                        <span class="botao-painel">ENTREGA</span>
+                        <ul class="plano-lista">
+                            <li>Modelo .rvt e IFC</li>
+                            <li>Hidrossanitário e elétrica</li>
+                            <li>As built a partir de nuvem de pontos</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <img src="images/servico-coordenacao.webp" alt="Conflitos entre duto, viga e tubulação marcados e resolvidos" width="1600" height="1200" loading="lazy" class="servico-img">
+                        <h3>Coordenação e compatibilização</h3>
+                        <p>Modelos federados no Navisworks, conflitos testados disciplina por disciplina e um relatório do que resolver, inclusive no Autodesk Construction Cloud.</p>
+                        <span class="botao-painel">ENTREGA</span>
+                        <ul class="plano-lista">
+                            <li>Relatório de conflitos</li>
+                            <li>BCF para abrir no Revit</li>
+                            <li>Rodadas de revisão</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <img src="images/servico-implantacao.webp" alt="Etapas da implantação BIM no escritório" width="1600" height="1200" loading="lazy" class="servico-img">
+                        <h3>Implantação e cultura BIM</h3>
+                        <p>Diagnóstico do escritório, plano de execução BIM, capacitação da equipe e acompanhamento até o fluxo andar sozinho.</p>
+                        <span class="botao-painel">ENTREGA</span>
+                        <ul class="plano-lista">
+                            <li>Diagnóstico do escritório</li>
+                            <li>BEP / PEB</li>
+                            <li>Treinamento em Revit e Navisworks</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <img src="images/servico-dados.webp" alt="Modelo ligado a cronograma, custo e painel de indicadores" width="1600" height="1200" loading="lazy" class="servico-img">
+                        <h3>Dados, 4D/5D e BI</h3>
+                        <p>Quantitativos e cronograma ligados ao modelo, painéis no Power BI e integração com o ERP do escritório.</p>
+                        <span class="botao-painel">ENTREGA</span>
+                        <ul class="plano-lista">
+                            <li>Quantitativos tirados do modelo</li>
+                            <li>Cronograma e custo (4D/5D)</li>
+                            <li>Painéis no Power BI</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="nuvem-de-pontos">
+            <div class="container destaque-grid">
+                        <img src="images/servico-nuvem-pontos.webp" alt="Escâner a laser levantando uma sala em nuvem de pontos" width="1600" height="1200" loading="lazy" class="servico-img">
+                <div>
+                    <span class="botao-painel">AS BUILT</span>
+                    <h2 class="section-title-main">Do escaneamento a laser ao modelo do que existe</h2>
+                    <p>Levantamos a edificação com escâner a laser e transformamos a nuvem de pontos em modelo BIM: paredes, estrutura e instalações aparentes, com a medida do que foi construído. É a base para reforma, ampliação e regularização.</p>
+                    <ul class="plano-lista">
+                        <li>Levantamento com escâner a laser</li>
+                        <li>Nuvem de pontos registrada</li>
+                        <li>Modelo as built em Revit e IFC</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section light-bg">
+            <div class="container">
+                <span class="botao-painel">COMO TRABALHAMOS</span>
+                <h2 class="section-title-main">Escopo fechado antes, entrega em etapas</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <h3>Diagnóstico</h3>
+                        <p>Uma conversa sobre o seu fluxo, os arquivos que existem e o que precisa sair no fim.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <h3>Proposta fechada</h3>
+                        <p>Escopo, prazo e valor definidos antes de começar. Sem surpresa no meio do caminho.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <h3>Entrega em etapas</h3>
+                        <p>Cada etapa passa pela sua revisão antes da próxima começar.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <h3>Ajustes e suporte</h3>
+                        <p>Depois da entrega, ajustamos o que o uso real mostrar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <span class="botao-painel">POR QUE A P-LAB</span>
+                <h2 class="section-title-main">Serviço feito por quem também faz o software</h2>
+                <div class="feature-grid three-cols">
+                    <div class="feature-card">
+                        <i class="fas fa-gears feature-icon"></i>
+                        <h3>Pronto para automatizar</h3>
+                        <p>Famílias e templates saem no padrão que o <a href="solucoes.html">P-LAB para Revit</a> e o <a href="planos.html">PLAB Assistant</a> automatizam: o que hoje é serviço amanhã vira botão.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-ruler-combined feature-icon"></i>
+                        <h3>Norma brasileira</h3>
+                        <p>Instalações modeladas e conferidas pelas normas brasileiras, com a nomenclatura que o escritório já usa.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-building feature-icon"></i>
+                        <h3>Experiência de escritório</h3>
+                        <p>A P-LAB nasceu na consultoria BIM e segue modelando projetos reais todos os meses.</p>
+                    </div>
+                </div>
+
+                <span class="botao-painel formatos-titulo">FORMATOS QUE RECEBEMOS E ENTREGAMOS</span>
+                <div class="tech-badges formatos">
+                    <span class="tech-badge">RVT</span>
+                    <span class="tech-badge">RFA</span>
+                    <span class="tech-badge">RTE</span>
+                    <span class="tech-badge">IFC</span>
+                    <span class="tech-badge">DWG</span>
+                    <span class="tech-badge">PDF</span>
+                    <span class="tech-badge">NWC / NWD</span>
+                    <span class="tech-badge">BCF</span>
+                    <span class="tech-badge">RCP / E57</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section light-bg">
+            <div class="container">
+                <h2 class="text-center section-title-main">Conte o que você precisa</h2>
+                <p class="text-center" style="max-width:60ch;margin:0 auto 28px">Diga o serviço, os arquivos que você tem e o prazo. Respondemos com a proposta. Prefere conversar agora? O WhatsApp está no canto da tela.</p>
+                <form action="https://formsubmit.co/devpicanco@gmail.com" method="POST" class="form-style" id="contact-form" novalidate>
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="hidden" name="_next" value="https://plabdev.com.br/obrigado.html">
+                    <input type="hidden" name="_subject" value="Lead Serviços BIM">
+                    <input type="hidden" name="Origem" value="servicos-bim">
+                    <!-- Honeypot anti-spam: invisível para humanos, preenchido por bots -->
+                    <input type="text" name="_honey" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                    <label class="sr-only" for="f-nome">Seu nome</label>
+                    <input type="text" id="f-nome" name="Nome" placeholder="Seu Nome" required>
+
+                    <label class="sr-only" for="f-email">E-mail corporativo</label>
+                    <input type="email" id="f-email" name="Email" placeholder="E-mail Corporativo" required>
+
+                    <label class="sr-only" for="f-doc">CNPJ ou CPF (opcional)</label>
+                    <input type="text" id="f-doc" name="CNPJ_CPF" placeholder="CNPJ ou CPF (opcional)">
+
+                    <label class="sr-only" for="f-msg">Mensagem</label>
+                    <textarea id="f-msg" name="Mensagem" placeholder="Qual serviço, quais arquivos você tem e para quando?" rows="5" required></textarea>
+
+                    <p class="form-error" id="form-error" role="alert" hidden></p>
+                    <button type="submit" class="btn-submit">Pedir orçamento</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <span class="logo-footer">P-LAB</span>
+                <p data-i18n="footer-tagline">Software e automação para engenharia.</p>
+                <p>Joinville - SC</p>
+            </div>
+            <div class="footer-nav">
+                <h3 data-i18n="footer-products">Produtos</h3>
+                <ul>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
+                    <li><a href="planos.html" data-i18n="nav-planos">Assistant</a></li>
+                    <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
+                    <li><a href="apoiar.html">Apoiar</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3 data-i18n="footer-social">Siga-nos</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/plab-eng/" target="_blank" rel="noopener" aria-label="LinkedIn da P-LAB"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h3 data-i18n="footer-contact">Contato</h3>
+                <p class="footer-white"><a href="tel:+5547989168641">(47) 98916-8641</a></p>
+                <p class="footer-white">devpicanco@gmail.com</p>
+                <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-whatsapp-footer" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+        <div class="container text-center footer-bottom">
+            <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar com a P-LAB no WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="34" height="34">
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

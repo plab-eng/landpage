@@ -57,7 +57,8 @@ PAGES = {
     "plab-os.html": "plab-os.html",
     "planos.html": "planos.html",
     "hub.html": "hub.html",   # stub de redirecionamento (URL antiga)
-    "consultoria.html": "consultoria.html",
+    "servicos-bim.html": "servicos-bim.html",
+    "consultoria.html": "consultoria.html",   # stub de redirecionamento (URL antiga)
     "obrigado.html": "obrigado.html",
     "apoiar.html": "apoiar.html",   # aberta pelo botão Doar do add-in
 }
