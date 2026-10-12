@@ -1240,3 +1240,6 @@ img.apoio-qr { background: #ffffff; }
 .destaque-grid p { color: var(--text-muted); margin: 0 0 16px; }
 .formatos-titulo { display: block; margin-top: 48px; }
 .tech-badges.formatos { margin-top: 12px; }
+/* Aba Assistant: aviso da oferta de lançamento, logo abaixo do preço. */
+.oferta-lancamento { margin: 0; padding: 12px 14px; border: 1px solid var(--accent); border-radius: var(--radius); background: var(--accent-soft); color: var(--text); font-size: 0.95rem; }
+.oferta-lancamento .botao-painel { display: block; color: var(--accent); margin-bottom: 4px; }
