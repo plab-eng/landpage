@@ -195,7 +195,8 @@
                             <span class="plano-cond">por usuário, no plano anual, no cartão</span>
                         </div>
                         <!-- Oferta de lançamento: o à vista (PIX ou 1x no cartão) sai por
-                             R$ 999,90, contra R$ 1.798,80 do parcelado (12 x 149,90). -->
+                             R$ 999,90, contra R$ 1.798,80 do parcelado (12 x 149,90).
+                             Todo plano vale um ano a partir do primeiro pagamento, inclusive o 12x. -->
                         <p class="oferta-lancamento"><span class="botao-painel">OFERTA ESPECIAL DE LANÇAMENTO</span> <strong>R$ 999,90 à vista</strong>, no PIX ou em 1x no cartão, em vez de R$ 1.798,80 no parcelado.</p>
                         <!-- As formas de pagar o Assistant. O desconto existe só no à vista. -->
                         <ul class="formas-cartao">
@@ -206,14 +207,10 @@
                         <ul class="plano-lista">
                             <li>PLAB Assistant: a IA que lê e altera o seu modelo do Revit</li>
                             <li>P-LAB OS incluso: comercial, custos e gestão de horas</li>
-                            <li>P-LAB Viewer incluso: pendências, revisões e compartilhamento</li>
+                            <li>P-LAB Viewer completo incluso: pendências, revisões e compartilhamento</li>
                             <li>P-LAB para Revit com todos os botões, que é gratuito para todos</li>
                         </ul>
-                        <!-- O plano "assistant" ainda não existe no checkout do P-LAB OS
-                             (docs/PROMPT-assistant-e-cartao-asaas.md no repo plab-os). Quando
-                             existir, trocar o <span> abaixo por:
-                        <a href="https://app.plabdev.com.br/assinar?plano=assistant" class="btn-primary" target="_blank" rel="noopener">Assinar no cartão</a> -->
-                        <span class="btn-primary btn-em-breve" aria-disabled="true">Assinar no cartão · em breve</span>
+                        <a href="https://app.plabdev.com.br/assinar?plano=assistant" class="btn-primary" target="_blank" rel="noopener">Assinar no cartão</a>
                         <a href="#assinar-pix" class="plano-pix-link">Prefere o PIX? Pague à vista: R$ 999,90</a>
                     </div>
 
@@ -227,8 +224,8 @@
                                     <li>P-LAB Viewer <strong>R$ 199,90</strong></li>
                                 </ul>
                             </li>
-                            <li>Mande o comprovante no WhatsApp, dizendo o plano e o e-mail da sua conta P-LAB.</li>
-                            <li>A P-LAB libera o acesso nessa conta.</li>
+                            <li>Preencha o formulário abaixo com <strong>o e-mail da sua conta P-LAB</strong> e anexe o comprovante. A conta precisa existir antes: <a href="https://app.plabdev.com.br/" target="_blank" rel="noopener">crie a sua no P-LAB</a>.</li>
+                            <li>A P-LAB confere o PIX no banco e libera o acesso na sua conta, valendo um ano. Você recebe um e-mail quando estiver liberado. A liberação acontece <strong>depois da conferência</strong>, não na hora.</li>
                         </ol>
                         <img src="images/pix-qr.png" alt="QR Code do PIX da P-LAB" width="220" height="220" class="apoio-qr">
                         <span class="botao-painel">Chave PIX</span>
@@ -241,8 +238,34 @@
                         <span hidden id="pix-msg-ok">Chave copiada. Cole no app do banco, na opção PIX.</span>
                         <span hidden id="pix-msg-manual">A chave ficou selecionada: use Ctrl+C para copiar.</span>
                         <p class="plano-cond">O app do banco vai mostrar <strong data-no-translate>JOSE PICANCO SERVICOS DE ENGENHARIA E CONSTRUCAO LTDA</strong>, a empresa por trás da P-LAB.</p>
-                        <a href="https://wa.me/5547989168641?text=Ol%C3%A1%21%20Paguei%20um%20plano%20da%20P-LAB%20no%20PIX.%20Plano%3A%20%20.%20E-mail%20da%20minha%20conta%20P-LAB%3A%20%20.%20Segue%20o%20comprovante." class="btn-primary" target="_blank" rel="noopener">Enviar comprovante no WhatsApp</a>
-                        <p class="plano-cond">Ainda não tem conta? <a href="https://app.plabdev.com.br/" target="_blank" rel="noopener">Crie a sua no P-LAB</a> antes de pagar.</p>
+                        <form id="form-comprovante" class="form-style form-comprovante" novalidate>
+                            <h4 class="comprovante-titulo">Enviar o comprovante</h4>
+                            <label>E-mail da sua conta P-LAB
+                                <input type="email" name="email" required autocomplete="email" placeholder="voce@escritorio.com.br">
+                            </label>
+                            <label>Plano que você pagou
+                                <select name="plano" required>
+                                    <option value="assistant">PLAB Assistant, R$ 999,90 por pessoa</option>
+                                    <option value="os">P-LAB OS, R$ 299,90 por pessoa</option>
+                                    <option value="viewer">P-LAB Viewer, R$ 199,90 por pessoa</option>
+                                </select>
+                            </label>
+                            <label>Comprovante (PDF, JPG, PNG ou WEBP, até 5 MB)
+                                <input type="file" name="comprovante" required accept="application/pdf,image/jpeg,image/png,image/webp">
+                            </label>
+                            <!-- Campo-isca: gente não vê, robô preenche. Não remover, não mudar o nome. -->
+                            <div class="comprovante-isca" aria-hidden="true">
+                                <input type="text" name="website" tabindex="-1" autocomplete="off">
+                            </div>
+                            <button type="submit" class="btn-primary">Enviar comprovante</button>
+                            <p id="comprovante-status" class="comprovante-status" role="status" aria-live="polite"></p>
+                            <!-- Textos que o script usa: ficam aqui, e não no JS, para o translate.py traduzi-los. -->
+                            <span hidden id="comprovante-msg-enviando">Enviando…</span>
+                            <span hidden id="comprovante-msg-ok">Recebemos! Assim que o PIX for conferido, o acesso é liberado na sua conta e você recebe um e-mail.</span>
+                            <span hidden id="comprovante-msg-falha">Não foi possível enviar agora. Tente de novo ou fale pelo WhatsApp.</span>
+                            <span hidden id="comprovante-msg-rede">Sem conexão. Tente de novo ou fale pelo WhatsApp.</span>
+                        </form>
+                        <p class="plano-cond">Prefere falar com a gente? <a href="https://wa.me/5547989168641?text=Ol%C3%A1%21%20Paguei%20um%20plano%20da%20P-LAB%20no%20PIX.%20Plano%3A%20%20.%20E-mail%20da%20minha%20conta%20P-LAB%3A%20%20.%20Segue%20o%20comprovante." target="_blank" rel="noopener">Chame no WhatsApp</a>. O comprovante não libera nada sozinho: o acesso sai depois que o PIX é conferido.</p>
                     </div>
 
                 </div>
@@ -285,8 +308,8 @@
                              (data-preco, preenchido pelo script da vitrine no fim da página). -->
                         <ul class="formas-cartao">
                             <li><span>Anual parcelado</span> <strong data-preco="viewer-anual">12x R$ 19,90</strong></li>
-                            <li><span>Mensal, sem compromisso</span> <strong data-preco="viewer-mensal">R$ 29,90/mês</strong></li>
-                            <li><span>À vista, 1x no cartão <em class="forma-breve">em breve</em></span> <strong>R$ 199,90</strong></li>
+                            <li class="forma-indisponivel"><span>Mensal, sem compromisso <em class="forma-breve">em breve</em></span> <strong data-preco="viewer-mensal">R$ 29,90/mês</strong></li>
+                            <li><span>À vista, 1x no cartão</span> <strong data-preco="viewer-avista">R$ 199,90</strong></li>
                         </ul>
                         <ul class="plano-lista">
                             <li data-i18n="pl-v-i1">Registro de pendências e issues no modelo</li>
@@ -308,8 +331,8 @@
                              (data-preco, preenchido pelo script da vitrine no fim da página). -->
                         <ul class="formas-cartao">
                             <li><span>Anual parcelado</span> <strong data-preco="os-anual">12x R$ 29,90</strong></li>
-                            <li><span>Mensal, sem compromisso</span> <strong data-preco="os-mensal">R$ 39,90/mês</strong></li>
-                            <li><span>À vista, 1x no cartão <em class="forma-breve">em breve</em></span> <strong>R$ 299,90</strong></li>
+                            <li class="forma-indisponivel"><span>Mensal, sem compromisso <em class="forma-breve">em breve</em></span> <strong data-preco="os-mensal">R$ 39,90/mês</strong></li>
+                            <li><span>À vista, 1x no cartão</span> <strong data-preco="os-avista">R$ 299,90</strong></li>
                         </ul>
                         <ul class="plano-lista">
                             <li data-i18n="pl-o-i1">Comercial: propostas, contratos e funil</li>
@@ -325,7 +348,7 @@
                     <div>
                         <span class="botao-painel" data-i18n="pl-eq-eyebrow">EQUIPE</span>
                         <h3 data-i18n="pl-eq-t">Escritório com time montado</h3>
-                        <p data-i18n="pl-eq-d">Até 5 usuários no P-LAB OS por <strong>12x R$ 99,90</strong> — em vez dos R$ 149,50 do preço por usuário. Acima de 5, a gente monta a proposta.</p>
+                        <p data-i18n="pl-eq-d">No P-LAB OS o preço é por pessoa, com um teto para a equipe. No 12x, 1 pessoa paga R$ 29,90, 2 pagam R$ 59,80 e 3 pagam R$ 89,70 por mês; de 4 a 5 pessoas o valor fecha em <strong>12x R$ 99,90</strong> ou <strong>R$ 999,90 à vista</strong>. Acima de 5, a gente monta a proposta.</p>
                     </div>
                     <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20o%20plano%20de%20equipe%20do%20P-LAB%20OS." class="btn-primary" target="_blank" rel="noopener" data-i18n="pl-eq-btn">Falar sobre equipe</a>
                 </div>
@@ -407,8 +430,7 @@
       // vai embutida no bundle do P-LAB OS (RULES.md §6) — não é segredo.
       var ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5ZGd0aHRubGNjcnlodmdnaGt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4NjA5NzksImV4cCI6MjEwMDQzNjk3OX0.xLjIqUBjgorHad7gD8rZKI4kboSz5_S6DgP9MR5T1zM';
 
-      var CARTOES = { viewer: 'pl-v', os: 'pl-o', completo: 'pl-c', um_modulo: 'pl-m1', dois_modulos: 'pl-m2', suite: 'pl-m3', total: 'pl-m4' };
-      var PRECISA_AVISTA = { um_modulo: 1, dois_modulos: 1, suite: 1, total: 1 };
+      var CARTOES = { viewer: 'pl-v', os: 'pl-o' };
 
       function real(v) {
         return 'R$ ' + Number(v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -421,18 +443,6 @@
         .then(function (planos) {
           var porChave = {};
           planos.forEach(function (p) { porChave[p.chave] = p; });
-
-          // Economia do combo Completo vs. Viewer + OS separados — a MESMA
-          // conta que hoje está escrita à mão no texto ("economia de 20%"),
-          // agora calculada: se o preço mudar, o texto acompanha sozinho.
-          var viewer = porChave.viewer, os = porChave.os, completo = porChave.completo;
-          var economia = null;
-          if (viewer && os && completo) {
-            var separado = Number(viewer.valor_usuario_parcela) + Number(os.valor_usuario_parcela);
-            if (separado > 0 && Number(completo.valor_usuario_parcela) < separado) {
-              economia = Math.round((1 - Number(completo.valor_usuario_parcela) / separado) * 100);
-            }
-          }
 
           Object.keys(CARTOES).forEach(function (chave) {
             var p = porChave[chave];
@@ -448,27 +458,53 @@
             if (!elCond) return;
 
             var cond = 'por usuário, no plano anual · ou ' + real(p.valor_usuario_mensal) + '/mês sem compromisso';
-            if (chave === 'completo' && economia !== null) {
-              cond += ' · economia de ' + economia + '%';
-            }
-            // Os planos de plugin (um_modulo, dois_modulos, suite, total)
-            // anunciam também o preço à vista no PIX — o texto estático já
-            // trazia isso, e sem calcular aqui a atualização apagaria essa
-            // parte. `preco.avista` de preco_do_plano NÃO está disponível
-            // aqui (vitrine é catálogo, não conta por empresa); a mesma
-            // conta (parcela × parcelas × (1 − desconto)) reproduz o valor
-            // de 1 usuário, que é o que o texto anuncia.
-            if (chave in PRECISA_AVISTA) {
-              var avista = Number(p.valor_usuario_parcela) * Number(p.parcelas) * (1 - Number(p.desconto_avista || 0));
-              cond += ' · ' + real(avista) + ' à vista no PIX';
-            }
-            elCond.textContent = cond;
+            // À vista (PIX ou 1x no cartão): valor fixo do banco, por pessoa.
+            var elAvista = document.querySelector('[data-preco="' + chave + '-avista"]');
+            if (elAvista && p.valor_usuario_avista) elAvista.textContent = real(p.valor_usuario_avista);
+            if (elCond) elCond.textContent = cond;
           });
         })
         .catch(function () {
           // Sem resposta do banco: o preço estático já escrito na página
           // é o que fica — reserva, não erro.
         });
+    })();
+    </script>
+    <script>
+    /* Formulário do comprovante de PIX. A função é pública: não leva chave nenhuma, e o
+       Content-Type é do navegador (multipart com boundary), nunca definido à mão. */
+    (function () {
+      var form = document.getElementById('form-comprovante');
+      if (!form) return;
+      var status = document.getElementById('comprovante-status');
+      var URL = 'https://rydgthtnlccryhvgghkw.supabase.co/functions/v1/registrar-comprovante';
+      function msg(id) { var el = document.getElementById(id); return el ? el.textContent : ''; }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var botao = form.querySelector('button[type="submit"]');
+        botao.disabled = true;
+        status.className = 'comprovante-status';
+        status.textContent = msg('comprovante-msg-enviando');
+        fetch(URL, { method: 'POST', body: new FormData(form) })
+          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, corpo: j }; }, function () { return { ok: false, corpo: {} }; }); })
+          .then(function (r) {
+            if (r.ok && r.corpo.ok) {
+              status.className = 'comprovante-status comprovante-status--ok';
+              status.textContent = msg('comprovante-msg-ok');
+              form.reset();
+              if (typeof trackEvent === 'function') trackEvent('comprovante_pix_enviado');
+            } else {
+              status.className = 'comprovante-status comprovante-status--erro';
+              status.textContent = r.corpo.erro || msg('comprovante-msg-falha');
+            }
+          })
+          .catch(function () {
+            status.className = 'comprovante-status comprovante-status--erro';
+            status.textContent = msg('comprovante-msg-rede');
+          })
+          .then(function () { botao.disabled = false; });
+      });
     })();
     </script>
 </body>

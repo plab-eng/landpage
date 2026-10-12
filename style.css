@@ -1243,3 +1243,16 @@ img.apoio-qr { background: #ffffff; }
 /* Aba Assistant: aviso da oferta de lançamento, logo abaixo do preço. */
 .oferta-lancamento { margin: 0; padding: 12px 14px; border: 1px solid var(--accent); border-radius: var(--radius); background: var(--accent-soft); color: var(--text); font-size: 0.95rem; }
 .oferta-lancamento .botao-painel { display: block; color: var(--accent); margin-bottom: 4px; }
+/* Aba Assistant: forma de pagamento que ainda não existe (mensal do Viewer e do OS),
+   mostrada apagada e sem botão, e o formulário do comprovante de PIX. */
+.formas-cartao .forma-indisponivel { opacity: 0.6; }
+.form-comprovante { max-width: none; margin: 8px 0 0; gap: 12px; }
+.form-comprovante label { display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem; color: var(--text-muted); }
+.form-comprovante select { padding: 14px; border: 1px solid var(--border); border-radius: var(--radius); font-family: inherit; font-size: 1rem; background: var(--surface); color: var(--text); width: 100%; }
+.form-comprovante select:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.form-comprovante input[type="file"] { padding: 10px; font-size: 0.9rem; }
+.comprovante-titulo { margin: 8px 0 0; font-size: 1.05rem; }
+.comprovante-isca { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.comprovante-status { min-height: 1.2em; margin: 0; font-size: 0.9rem; color: var(--text-muted); }
+.comprovante-status--ok { color: var(--accent); }
+.comprovante-status--erro { color: #c0392b; }
