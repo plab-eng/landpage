@@ -1208,12 +1208,79 @@ img.apoio-qr { background: #ffffff; }
    cartão do plugin sob medida (a chamada é o botão verde, não a borda). */
 .modulos-coluna { display: flex; flex-direction: column; gap: 24px; }
 .modulo-card--sob-medida .btn-primary { align-self: flex-start; }
-/* Aba Assistant, "O que ele faz": imagem da tela inicial e espaço do vídeo,
-   lado a lado (empilham no celular). A imagem não passa do tamanho real. */
-.assistant-midias { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 24px; margin-top: 40px; align-items: center; }
-.assistant-midia { margin: 0; text-align: center; }
+/* Aba Assistant, "O que ele faz": a interface comprova o produto e o vídeo
+   ocupa a largura principal para que a demonstração do Revit permaneça legível. */
+.assistant-midias { display: flex; flex-direction: column; align-items: center; gap: 34px; margin-top: 40px; }
+.assistant-midia { width: min(100%, 480px); margin: 0; text-align: center; }
 .assistant-midia img { max-width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--border); }
 .assistant-midia figcaption { margin-top: 10px; font-size: 0.9rem; color: var(--text-muted); }
+.assistant-video-bloco { width: min(100%, 1120px); text-align: center; }
+.assistant-video { position: relative; margin-bottom: 0; background: #151d29; box-shadow: 0 20px 50px rgba(10, 18, 30, 0.2); }
+.assistant-video video { height: auto; aspect-ratio: 64 / 27; background: #111925; }
+.assistant-video-capa {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(140px, 0.75fr) minmax(260px, 1.6fr) auto;
+    align-items: center;
+    gap: clamp(18px, 4vw, 56px);
+    padding: clamp(24px, 5vw, 70px);
+    border: 0;
+    color: #f7fbff;
+    text-align: left;
+    cursor: pointer;
+    background:
+        radial-gradient(circle at 18% 46%, rgba(63, 208, 203, 0.22), transparent 28%),
+        linear-gradient(118deg, #182332 0%, #202c3c 58%, #15202d 100%);
+}
+.assistant-video-capa::after { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: calc(var(--radius) - 4px); pointer-events: none; }
+.assistant-video-capa:focus-visible { outline: 3px solid #f7c52b; outline-offset: 4px; }
+.assistant-video-robo {
+    justify-self: center;
+    width: clamp(130px, 18vw, 230px);
+    aspect-ratio: 1;
+    background: url('images/plab-trabalhando-sprites-1024.png') 0 100% / 400% 400% no-repeat;
+    filter: drop-shadow(0 18px 18px rgba(0, 0, 0, 0.28));
+}
+.assistant-video-chamada { display: grid; gap: 10px; position: relative; z-index: 1; }
+.assistant-video-chamada strong { max-width: 20ch; font-size: clamp(1.35rem, 3vw, 2.6rem); line-height: 1.08; letter-spacing: -0.025em; }
+.assistant-video-chamada span { max-width: 38ch; color: #cbd6e3; font-size: clamp(0.92rem, 1.5vw, 1.08rem); }
+.assistant-video-play {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: clamp(58px, 7vw, 82px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    color: #172230;
+    background: #f7c52b;
+    box-shadow: 0 10px 30px rgba(247, 197, 43, 0.28);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.assistant-video-capa:hover .assistant-video-play { transform: scale(1.07); box-shadow: 0 14px 34px rgba(247, 197, 43, 0.38); }
+.assistant-video.is-playing .assistant-video-capa { display: none; }
+.assistant-video-legenda { margin: 12px 0 0; color: var(--text-muted); font-size: 0.9rem; }
+@media (max-width: 700px) {
+    .assistant-midias { gap: 28px; }
+    .assistant-midia { width: min(100%, 390px); }
+    .assistant-video-capa { grid-template-columns: 92px 1fr auto; gap: 12px; padding: 18px; }
+    .assistant-video-robo { width: 92px; }
+    .assistant-video-chamada { gap: 5px; }
+    .assistant-video-chamada strong { font-size: clamp(1rem, 4.2vw, 1.3rem); }
+    .assistant-video-chamada span { display: none; }
+    .assistant-video-play { width: 48px; }
+}
+@media (max-width: 430px) {
+    .assistant-video-capa { grid-template-columns: 60px 1fr 36px; gap: 8px; padding: 14px; }
+    .assistant-video-robo { width: 60px; }
+    .assistant-video-chamada strong { font-size: 0.92rem; }
+    .assistant-video-play { width: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .assistant-video-play { transition: none; }
+}
 /* Home: com o PLAB Assistant são quatro frentes, em 2 x 2 (3 + 1 deixava
    um cartão sozinho). Os selos do sob medida ficam centralizados. */
 .axes-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); }

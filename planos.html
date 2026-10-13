@@ -164,11 +164,22 @@
                         <img src="images/assistant-tela-inicial.webp" alt="Tela inicial atual do PLAB Assistant dentro do Revit, com sugestões de comandos e o campo para pedir ações" width="1056" height="1093" loading="lazy">
                         <figcaption>A tela inicial atual do PLAB Assistant, integrada ao Revit.</figcaption>
                     </figure>
-                    <div class="plugin-video-container">
-                        <video controls preload="none" poster="images/assistant-tela-inicial.webp" width="2560" height="1080" aria-label="Demonstração do PLAB Assistant executando uma tarefa dentro do Revit">
-                            <source src="videos/plab-assistant-demo.mp4" type="video/mp4">
-                            Seu navegador não consegue reproduzir este vídeo.
-                        </video>
+                    <div class="assistant-video-bloco">
+                        <div class="plugin-video-container assistant-video">
+                            <video controls preload="metadata" width="2560" height="1080" aria-label="Demonstração do PLAB Assistant executando uma tarefa dentro do Revit">
+                                <source src="videos/plab-assistant-demo.mp4" type="video/mp4">
+                                Seu navegador não consegue reproduzir este vídeo.
+                            </video>
+                            <button class="assistant-video-capa" type="button" aria-label="Reproduzir demonstração do PLAB Assistant no Revit">
+                                <span class="assistant-video-robo" aria-hidden="true"></span>
+                                <span class="assistant-video-chamada">
+                                    <strong>Veja o PLAB Assistant trabalhando no Revit</strong>
+                                    <span>Do pedido em português à ação no modelo.</span>
+                                </span>
+                                <span class="assistant-video-play" aria-hidden="true"><i class="fas fa-play"></i></span>
+                            </button>
+                        </div>
+                        <p class="assistant-video-legenda">Demonstração real do Assistant executando uma tarefa no projeto.</p>
                     </div>
                 </div>
             </div>

@@ -587,6 +587,22 @@ function initCounters() {
     contadores.forEach((el) => io.observe(el));
 }
 
+function initAssistantVideo() {
+    document.querySelectorAll('.assistant-video').forEach((container) => {
+        const video = container.querySelector('video');
+        const capa = container.querySelector('.assistant-video-capa');
+        if (!video || !capa) return;
+
+        capa.addEventListener('click', () => {
+            container.classList.add('is-playing');
+            const inicio = video.play();
+            if (inicio && typeof inicio.catch === 'function') {
+                inicio.catch(() => container.classList.remove('is-playing'));
+            }
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     setLangLabel();               // mostra PT/EN/ES conforme o caminho atual
     // O consentimento guardado de visitas anteriores é aplicado no <head>,
@@ -606,4 +622,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroTilt();
     initParallax();
     initCounters();
+    initAssistantVideo();
 });
