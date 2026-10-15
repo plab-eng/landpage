@@ -211,4 +211,64 @@
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
    </url>
+   <url>
+      <loc>https://plabdev.com.br/por-que.html</loc>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/por-que.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/por-que.html"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://plabdev.com.br/es/por-que.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://plabdev.com.br/por-que.html"/>
+      <lastmod>2026-10-07</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://plabdev.com.br/en/por-que.html</loc>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/por-que.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/por-que.html"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://plabdev.com.br/es/por-que.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://plabdev.com.br/por-que.html"/>
+      <lastmod>2026-10-07</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://plabdev.com.br/es/por-que.html</loc>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/por-que.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/por-que.html"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://plabdev.com.br/es/por-que.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://plabdev.com.br/por-que.html"/>
+      <lastmod>2026-10-07</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://plabdev.com.br/novidades.html</loc>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/novidades.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/novidades.html"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://plabdev.com.br/es/novidades.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://plabdev.com.br/novidades.html"/>
+      <lastmod>2026-10-07</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   <url>
+      <loc>https://plabdev.com.br/en/novidades.html</loc>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/novidades.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/novidades.html"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://plabdev.com.br/es/novidades.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://plabdev.com.br/novidades.html"/>
+      <lastmod>2026-10-07</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   <url>
+      <loc>https://plabdev.com.br/es/novidades.html</loc>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/novidades.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/novidades.html"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://plabdev.com.br/es/novidades.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://plabdev.com.br/novidades.html"/>
+      <lastmod>2026-10-07</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
 </urlset>
