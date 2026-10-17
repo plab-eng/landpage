@@ -84,6 +84,28 @@ function concederConsentimento() {
 // que pode ser gravado é o Consent Mode, não este arquivo.
 function trackEvent(name, params) {
     if (typeof window.gtag === 'function') gtag('event', name, params || {});
+    contarNoPainel(name, params || {});
+}
+
+// Conta o clique também no painel de admin do P-LAB OS (16/10/2026), com a
+// região de onde veio. Não grava cookie nem nada no navegador, e o IP não é
+// guardado: a cidade é deduzida na borda (app.plabdev.com.br/api/interacao)
+// e o IP morre lá. 'conversion' fica de fora — é o mesmo clique do WhatsApp
+// repetido para o Ads. sendBeacon em text/plain: sem preflight de CORS e
+// sobrevive à troca de página do download. Falhar aqui não atrapalha nada.
+const EVENTOS_DO_PAINEL = ['download', 'whatsapp_click', 'form_submit', 'releases_click',
+    'apoio_menu_click', 'apoio_menu_fechar', 'apoio_pagamento', 'apoio_pix_copiar',
+    'comprovante_pix_enviado'];
+
+function contarNoPainel(name, params) {
+    if (!EVENTOS_DO_PAINEL.includes(name) || !navigator.sendBeacon) return;
+    const detalhe = params.plugin || params.local || params.meio || params.contexto || params.origem || params.form || '';
+    try {
+        navigator.sendBeacon('https://app.plabdev.com.br/api/interacao', new Blob(
+            [JSON.stringify({ evento: name, detalhe: String(detalhe), pagina: location.pathname })],
+            { type: 'text/plain' }
+        ));
+    } catch (e) { /* telemetria não pode quebrar o site */ }
 }
 
 // Cria o banner de cookies (somente se o usuário ainda não decidiu)
