@@ -95,10 +95,39 @@ function trackEvent(name, params) {
 // sobrevive à troca de página do download. Falhar aqui não atrapalha nada.
 const EVENTOS_DO_PAINEL = ['download', 'whatsapp_click', 'form_submit', 'releases_click',
     'apoio_menu_click', 'apoio_menu_fechar', 'apoio_pagamento', 'apoio_pix_copiar',
-    'comprovante_pix_enviado'];
+    'comprovante_pix_enviado', 'visita'];
+
+// Navegador da equipe (20/10/2026): abrir o site com ?interno=1 marca este
+// navegador e ele deixa de ser contado no painel; ?interno=0 desmarca. É um
+// sinal salvo só aqui, não identifica ninguém. O GA4 continua igual.
+const CHAVE_INTERNO = 'plab-interno';
+function navegadorInterno() {
+    try {
+        const pedido = new URLSearchParams(location.search).get('interno');
+        if (pedido === '1') localStorage.setItem(CHAVE_INTERNO, '1');
+        if (pedido === '0') localStorage.removeItem(CHAVE_INTERNO);
+        return localStorage.getItem(CHAVE_INTERNO) === '1';
+    } catch (e) { return false; }
+}
+
+// De onde veio quem chegou: utm_source, ou o domínio de quem mandou. Passar de
+// uma página do site para outra não é origem nova, vai sem detalhe.
+function origemDoTrafego() {
+    try {
+        const utm = new URLSearchParams(location.search).get('utm_source');
+        if (utm) return utm;
+        if (!document.referrer) return 'direto';
+        const host = new URL(document.referrer).hostname.replace(/^www\./, '');
+        return host === location.hostname.replace(/^www\./, '') ? '' : host;
+    } catch (e) { return ''; }
+}
+
+function contarVisita() {
+    contarNoPainel('visita', { origem: origemDoTrafego() });
+}
 
 function contarNoPainel(name, params) {
-    if (!EVENTOS_DO_PAINEL.includes(name) || !navigator.sendBeacon) return;
+    if (!EVENTOS_DO_PAINEL.includes(name) || !navigator.sendBeacon || navegadorInterno()) return;
     const detalhe = params.plugin || params.local || params.meio || params.contexto || params.origem || params.form || '';
     try {
         navigator.sendBeacon('https://app.plabdev.com.br/api/interacao', new Blob(
@@ -632,6 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
     buildCookieBanner();
     initDownloadInstalador();
     initTracking();
+    contarVisita();               // painel do P-LAB OS (sem cookie, sem IP)
     initContactForm();
     initApoio();
     initApoioMenu();
