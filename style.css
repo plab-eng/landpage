@@ -1364,3 +1364,26 @@ img.apoio-qr { background: #ffffff; }
 .plano-pagar .plano-botao { margin-top: 0; text-align: center; }
 .plano-pagar .plano-cond { margin: 4px 0 0; font-size: 0.85rem; }
 .pix-valor { font-size: 1.4rem; margin: 4px 0 12px; }
+/* Botões em ação em roda (21/10/2026): no desktop, 8 cartões em volta do Revit
+   numa grade 3x3 com o centro reservado; abaixo de 1100px, grade normal. */
+.botao-hub { display: none; }
+.botao-card--todos { text-decoration: none; color: inherit; justify-content: center; }
+@media (min-width: 1100px) {
+    #exemplos .botao-roda { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .botao-hub { display: flex; align-items: center; justify-content: center; position: relative; }
+    /* A imagem já traz o anel tracejado e os pontos; o nome fica no círculo do meio. */
+    .botao-hub img { width: 100%; max-width: 420px; height: auto; border-radius: var(--radius); }
+}
+.selo-logo { width: 28px; height: 28px; vertical-align: middle; object-fit: contain; }
+
+/* Miniatura com play e popup de vídeo dos botões (21/10/2026). */
+.midia-play { position: relative; display: block; padding: 0; border: 0; background: none; cursor: pointer; width: 100%; }
+.midia-play img { display: block; width: 100%; height: auto; }
+.midia-play__icone { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: var(--accent); box-shadow: 0 4px 16px rgba(0,0,0,.25); transition: transform .15s; }
+.midia-play__icone::after { content: ""; position: absolute; left: 26px; top: 20px; border-style: solid; border-width: 12px 0 12px 20px; border-color: transparent transparent transparent #fff; }
+.midia-play:hover .midia-play__icone, .midia-play:focus-visible .midia-play__icone { transform: scale(1.08); }
+.video-popup { width: min(1100px, 94vw); padding: 0; border: 0; border-radius: var(--radius); background: #000; }
+.video-popup::backdrop { background: rgba(0,0,0,.75); }
+.video-popup video { display: block; width: 100%; max-height: 85vh; }
+.video-popup__fechar { position: absolute; top: 6px; right: 10px; z-index: 1; border: 0; background: rgba(0,0,0,.5); color: #fff; font-size: 28px; line-height: 1; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
+.botao-hub__nome { position: absolute; font-size: 2rem; font-weight: 600; color: var(--text); letter-spacing: .5px; }
