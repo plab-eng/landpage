@@ -48,7 +48,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PLAB Assistant e planos | P-LAB</title>
-    <meta name="description" content="PLAB Assistant em dois planos: PLAB Júnior (12x R$ 149,90 por licença, R$ 999,90 à vista na promoção de lançamento) e PLAB Pleno, o agente que modela no Revit (12x R$ 350). P-LAB OS e P-LAB Viewer inclusos.">
+    <meta name="description" content="PLAB Assistant em dois planos: PLAB Júnior (12x R$ 149,90 por licença ou R$ 1.499,00 à vista) e PLAB Pleno, o agente que modela no Revit (12x R$ 350). P-LAB OS e P-LAB Viewer inclusos.">
     <link rel="canonical" href="https://plabdev.com.br/planos.html">
     <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/planos.html">
     <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/planos.html">
@@ -62,7 +62,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://plabdev.com.br/planos.html">
     <meta property="og:title" content="PLAB Assistant e planos | P-LAB">
-    <meta property="og:description" content="PLAB Assistant em dois planos: PLAB Júnior (12x R$ 149,90 por licença, R$ 999,90 à vista na promoção de lançamento) e PLAB Pleno, o agente que modela no Revit (12x R$ 350). P-LAB OS e P-LAB Viewer inclusos.">
+    <meta property="og:description" content="PLAB Assistant em dois planos: PLAB Júnior (12x R$ 149,90 por licença ou R$ 1.499,00 à vista) e PLAB Pleno, o agente que modela no Revit (12x R$ 350). P-LAB OS e P-LAB Viewer inclusos.">
     <meta property="og:image" content="https://plabdev.com.br/images/logo-icon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="plab-tokens.css">
@@ -204,8 +204,7 @@
                             <span class="plano-valor"><span data-preco-parcela="assistant">R$ 149,90</span></span>
                             <span class="plano-cond">por licença, por mês, no plano anual em 12x no cartão</span>
                         </div>
-                        <p class="plano-anual">ou <s data-promo-cheio="assistant">R$ 1.499,00</s> <strong data-preco-avista="assistant">R$ 999,90</strong> à vista, no PIX ou 1x no cartão (12 meses pelo preço de 10)</p>
-                        <p class="oferta-lancamento" data-promo="assistant"><span class="botao-painel">PROMOÇÃO DE LANÇAMENTO</span> R$ 999,90 à vista para as 10 primeiras empresas<span data-promo-vagas-texto="assistant"></span>.</p>
+                        <p class="plano-anual">ou <strong data-preco-avista="assistant">R$ 1.499,00</strong> à vista, no PIX ou 1x no cartão (12 meses pelo preço de 10)</p>
                         <p class="plano-destrava">Pergunte, consulte e rode os botões e receitas no seu modelo.</p>
                         <hr class="plano-divisor">
                         <div class="plano-bloco">
@@ -272,7 +271,7 @@
                     <div class="plano-card plano-card--tracejado plano-card--em-breve">
                         <span class="plano-tag">Em breve</span>
                         <h3 class="plano-nome"><span data-no-translate>PLAB Sênior</span></h3>
-                        <p class="plano-destrava">O próximo nível do Assistant, depois que o <span data-no-translate>PLAB Pleno</span> estiver em uso nos escritórios.</p>
+                        <p class="plano-destrava">O próximo nível do Assistant.</p>
                         <hr class="plano-divisor">
                         <p class="plano-cond">Sem preço ainda. Entre na lista e avisamos quando abrir.</p>
                         <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20entrar%20na%20lista%20de%20espera%20do%20PLAB%20S%C3%AAnior." class="btn-secondary plano-botao" target="_blank" rel="noopener">Entrar na lista de espera</a>
@@ -304,7 +303,7 @@
                         <ol class="passos-pix">
                             <li>Pague o valor do plano, por usuário, pelo QR Code ou pela chave. Vale um ano.
                                 <ul class="valores-pix">
-                                    <li><span data-no-translate>PLAB Júnior</span> <strong>R$ 999,90</strong> (promoção de lançamento, 10 primeiras empresas; depois R$ 1.499,00)</li>
+                                    <li><span data-no-translate>PLAB Júnior</span> <strong>R$ 1.499,00</strong></li>
                                     <li><span data-no-translate>PLAB Pleno</span> <strong>R$ 3.500,00</strong></li>
                                     <li>P-LAB OS <strong>R$ 299,90</strong></li>
                                     <li>P-LAB Viewer <strong>R$ 199,90</strong></li>
@@ -331,7 +330,7 @@
                             </label>
                             <label>Plano que você pagou
                                 <select name="plano" required>
-                                    <option value="assistant">PLAB Júnior, R$ 999,90 por pessoa (promoção)</option>
+                                    <option value="assistant">PLAB Júnior, R$ 1.499,00 por pessoa</option>
                                     <option value="assistant_pleno">PLAB Pleno, R$ 3.500,00 por pessoa</option>
                                     <option value="os">P-LAB OS, R$ 299,90 por pessoa</option>
                                     <option value="viewer">P-LAB Viewer, R$ 199,90 por pessoa</option>
@@ -439,14 +438,6 @@
                         <a href="#assinar-pix" class="plano-pix-link">Prefere o PIX? Pague à vista: R$ 299,90</a>
                     </div>
 
-                </div>
-                <div class="equipe-band">
-                    <div>
-                        <span class="botao-painel" data-i18n="pl-eq-eyebrow">EQUIPE</span>
-                        <h3 data-i18n="pl-eq-t">Escritório com time montado</h3>
-                        <p data-i18n="pl-eq-d">No P-LAB OS o preço é por pessoa, com um teto para a equipe. No 12x, 1 pessoa paga R$ 29,90, 2 pagam R$ 59,80 e 3 pagam R$ 89,70 por mês; de 4 a 5 pessoas o valor fecha em <strong>12x R$ 99,90</strong> ou <strong>R$ 999,90 à vista</strong>. Acima de 5, a gente monta a proposta.</p>
-                    </div>
-                    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20o%20plano%20de%20equipe%20do%20P-LAB%20OS." class="btn-primary" target="_blank" rel="noopener" data-i18n="pl-eq-btn">Falar sobre equipe</a>
                 </div>
                 <p class="text-center" style="margin-top:28px">
                     <span class="plano-tag plano-tag--gratis" data-i18n="pl-free-line">Visualizar modelo é gratuito, sempre — basta criar a conta</span>
