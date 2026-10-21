@@ -48,7 +48,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PLAB Assistant e planos | P-LAB</title>
-    <meta name="description" content="PLAB Assistant, a IA que lê e altera o seu modelo do Revit, com o P-LAB OS e o P-LAB Viewer inclusos: 12x R$ 149,90 por usuário, ou R$ 999,90 à vista na oferta de lançamento. Viewer e P-LAB OS também avulsos, e o P-LAB para Revit gratuito.">
+    <meta name="description" content="PLAB Assistant em dois planos: PLAB Júnior (12x R$ 149,90 por licença, R$ 999,90 à vista na promoção de lançamento) e PLAB Pleno, o agente que modela no Revit (12x R$ 350). P-LAB OS e P-LAB Viewer inclusos.">
     <link rel="canonical" href="https://plabdev.com.br/planos.html">
     <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/planos.html">
     <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/planos.html">
@@ -62,7 +62,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://plabdev.com.br/planos.html">
     <meta property="og:title" content="PLAB Assistant e planos | P-LAB">
-    <meta property="og:description" content="A IA que lê e altera o seu modelo do Revit, com o P-LAB OS e o P-LAB Viewer inclusos.">
+    <meta property="og:description" content="PLAB Assistant em dois planos: PLAB Júnior (12x R$ 149,90 por licença, R$ 999,90 à vista na promoção de lançamento) e PLAB Pleno, o agente que modela no Revit (12x R$ 350). P-LAB OS e P-LAB Viewer inclusos.">
     <meta property="og:image" content="https://plabdev.com.br/images/logo-icon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="plab-tokens.css">
@@ -184,48 +184,128 @@
                 </div>
             </div>
         </section>
-        <!-- ============ PLAB ASSISTANT (o plano pago) ============
-             Venda pelo PIX: o QR é o mesmo da apoiar.html (estático, sem valor;
-             quem paga digita o valor do plano: Assistant R$ 999,90, OS R$ 299,90, Viewer R$ 199,90). Não há pedido no P-LAB OS amarrando o
-             pagamento à conta: o comprovante chega pelo WhatsApp e a liberação
-             é manual. O Assistant não tem mensal: só 12x R$ 149,90 e o à vista de lançamento (12/10/2026). -->
+        <!-- ============ PLAB ASSISTANT: PLAB Júnior e PLAB Pleno (20/10/2026) ============
+             Formato da página de preços da Ideatura (referência do José): cartões
+             com nome, preço por licença, frase do que destrava, créditos de IA,
+             camada de modelos, integrações, formatos, suporte e o botão no pé.
+             Preços e vagas da promoção vêm do banco (vitrine_de_planos); os nomes
+             dos modelos vêm das rotas reais do servidor (modelos_da_vitrine) —
+             nunca escritos aqui, porque o modelo troca sem release.
+             O HTML abaixo é a reserva estática se o banco não responder. -->
         <section class="section" id="assistant">
             <div class="container">
-                <div class="planos-grid">
+                <span class="eyebrow" data-i18n="pl-niveis-eyebrow">PLAB ASSISTANT · PLANOS</span>
+                <h2 class="section-title-main" data-i18n="pl-niveis-title">Escolha o nível do seu Assistant</h2>
+                <div class="planos-grid planos-grid--assistant">
 
-                    <div class="plano-card plano-card--destaque">
-                        <span class="plano-tag plano-tag--gratis">Promoção · P-LAB OS e Viewer grátis</span>
-                        <h2 class="plano-nome">PLAB Assistant</h2>
+                    <div class="plano-card plano-card--tracejado" data-plano="assistant">
+                        <h3 class="plano-nome"><span data-no-translate>PLAB Júnior</span></h3>
                         <div class="plano-preco">
-                            <span class="plano-valor">12x R$ 149,90</span>
-                            <span class="plano-cond">por usuário, no plano anual, no cartão</span>
+                            <span class="plano-valor"><span data-preco-parcela="assistant">R$ 149,90</span></span>
+                            <span class="plano-cond">por licença, por mês, no plano anual em 12x no cartão</span>
                         </div>
-                        <!-- Oferta de lançamento: o à vista (PIX ou 1x no cartão) sai por
-                             R$ 999,90, contra R$ 1.798,80 do parcelado (12 x 149,90).
-                             Todo plano vale um ano a partir do primeiro pagamento, inclusive o 12x. -->
-                        <p class="oferta-lancamento"><span class="botao-painel">OFERTA ESPECIAL DE LANÇAMENTO</span> <strong>R$ 999,90 à vista</strong>, no PIX ou em 1x no cartão, em vez de R$ 1.798,80 no parcelado.</p>
-                        <!-- As formas de pagar o Assistant. O desconto existe só no à vista. -->
-                        <ul class="formas-cartao">
-                            <li><span>Anual parcelado</span> <strong>12x R$ 149,90</strong></li>
-                            <li><span>À vista, 1x no cartão</span> <strong>R$ 999,90</strong></li>
-                            <li><span>À vista, no PIX</span> <strong>R$ 999,90</strong></li>
-                        </ul>
-                        <ul class="plano-lista">
-                            <li>PLAB Assistant: a IA que lê e altera o seu modelo do Revit</li>
-                            <li>P-LAB OS incluso: comercial, custos e gestão de horas</li>
-                            <li>P-LAB Viewer completo incluso: pendências, revisões e compartilhamento</li>
-                            <li>P-LAB para Revit com todos os botões, que é gratuito para todos</li>
-                        </ul>
-                        <a href="https://app.plabdev.com.br/assinar?plano=assistant" class="btn-primary" target="_blank" rel="noopener">Assinar no cartão</a>
-                        <a href="#assinar-pix" class="plano-pix-link">Prefere o PIX? Pague à vista: R$ 999,90</a>
+                        <p class="plano-anual">ou <s data-promo-cheio="assistant">R$ 1.499,00</s> <strong data-preco-avista="assistant">R$ 999,90</strong> à vista, no PIX ou 1x no cartão (12 meses pelo preço de 10)</p>
+                        <p class="oferta-lancamento" data-promo="assistant"><span class="botao-painel">PROMOÇÃO DE LANÇAMENTO</span> R$ 999,90 à vista para as 10 primeiras empresas<span data-promo-vagas-texto="assistant"></span>.</p>
+                        <p class="plano-destrava">Pergunte, consulte e rode os botões e receitas no seu modelo.</p>
+                        <hr class="plano-divisor">
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">1.000 créditos de IA por mês
+                                <span class="ajuda" tabindex="0" aria-describedby="tip-cred-junior">?<span class="ajuda-texto" role="tooltip" id="tip-cred-junior">1 crédito equivale a US$ 0,01 de uso de IA. A cota renova todo mês.</span></span>
+                            </span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">IA essencial</span>
+                            <span class="plano-modelos" data-modelos="assistant">Modelos definidos no servidor da P-LAB</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">Integrações</span>
+                            <span class="plano-bloco-texto">Revit 2021 a 2027</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">Formatos</span>
+                            <span class="plano-bloco-texto">Imagem, PDF, DXF e planilha (XLSX, CSV) anexados na conversa</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">Suporte</span>
+                            <span class="plano-bloco-texto">Pela comunidade e pelo WhatsApp da P-LAB</span>
+                        </div>
+                        <p class="plano-cond">Um Assistant por licença: uma pessoa por licença.</p>
+                        <a href="https://app.plabdev.com.br/assinar?plano=assistant" class="btn-secondary plano-botao" target="_blank" rel="noopener">Assinar o <span data-no-translate>PLAB Júnior</span></a>
                     </div>
 
+                    <div class="plano-card plano-card--tracejado plano-card--destaque" data-plano="assistant_pleno">
+                        <span class="plano-tag plano-tag--gratis">Inclui tudo do <span data-no-translate>PLAB Júnior</span></span>
+                        <h3 class="plano-nome"><span data-no-translate>PLAB Pleno</span></h3>
+                        <div class="plano-preco">
+                            <span class="plano-valor"><span data-preco-parcela="assistant_pleno">R$ 350,00</span></span>
+                            <span class="plano-cond">por licença, por mês, no plano anual em 12x no cartão</span>
+                        </div>
+                        <p class="plano-anual">ou <strong data-preco-avista="assistant_pleno">R$ 3.500,00</strong> à vista, no PIX ou 1x no cartão (12 meses pelo preço de 10)</p>
+                        <p class="plano-destrava">Um agente que lê, escreve e modela no Revit por você, inclusive a partir de DWG, PDF e foto.</p>
+                        <hr class="plano-divisor">
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">3.500 créditos de IA por mês
+                                <span class="ajuda" tabindex="0" aria-describedby="tip-cred-pleno">?<span class="ajuda-texto" role="tooltip" id="tip-cred-pleno">1 crédito equivale a US$ 0,01 de uso de IA. Passou da franquia, o agente continua com um modelo mais econômico até virar o mês: não bloqueia.</span></span>
+                            </span>
+                            <span class="plano-bloco-texto">Créditos adicionais: em breve</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">IA de fronteira</span>
+                            <span class="plano-modelos" data-modelos="assistant_pleno">Modelos definidos no servidor da P-LAB</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">Integrações</span>
+                            <span class="plano-bloco-texto">Revit 2021 a 2027 e agente externo (MCP), para quem usa outro cliente de IA</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">Formatos</span>
+                            <span class="plano-bloco-texto">Os do Júnior e DWG vinculado no Revit. Modela a partir de DXF, PDF, DWG, foto de croqui ou texto</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">Suporte</span>
+                            <span class="plano-bloco-texto">Suporte individualizado</span>
+                        </div>
+                        <p class="plano-cond">Um Assistant por licença: uma pessoa por licença.</p>
+                        <a href="https://app.plabdev.com.br/assinar?plano=assistant_pleno" class="btn-primary plano-botao" target="_blank" rel="noopener">Assinar o <span data-no-translate>PLAB Pleno</span></a>
+                    </div>
+
+                    <div class="plano-card plano-card--tracejado plano-card--em-breve">
+                        <span class="plano-tag">Em breve</span>
+                        <h3 class="plano-nome"><span data-no-translate>PLAB Sênior</span></h3>
+                        <p class="plano-destrava">O próximo nível do Assistant, depois que o <span data-no-translate>PLAB Pleno</span> estiver em uso nos escritórios.</p>
+                        <hr class="plano-divisor">
+                        <p class="plano-cond">Sem preço ainda. Entre na lista e avisamos quando abrir.</p>
+                        <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20entrar%20na%20lista%20de%20espera%20do%20PLAB%20S%C3%AAnior." class="btn-secondary plano-botao" target="_blank" rel="noopener">Entrar na lista de espera</a>
+                    </div>
+
+                </div>
+
+                <p class="planos-comum">Nos dois planos: tudo em português · os seus dados ficam no seu computador · a IA é da P-LAB, sem assinatura de IA à parte · os seus dados nunca treinam IA · o P-LAB OS e o Viewer completo vêm inclusos.</p>
+
+                <!-- Faixa larga no lugar do "Enterprise" da referência. O Assistant
+                     personalizado (treinado com o padrão do escritório) entra aqui. -->
+                <div class="equipe-band assistant-personalizado">
+                    <div>
+                        <span class="botao-painel">ESCRITÓRIO INTEIRO</span>
+                        <h3>Assistant para a equipe toda, do jeito do seu escritório</h3>
+                        <ul class="plano-lista plano-lista--duas">
+                            <li>Implantação acompanhada pela P-LAB</li>
+                            <li>Admin por empresa: quem tem qual plano</li>
+                            <li>Suporte prioritário</li>
+                            <li>Assistant treinado com o template, as famílias e as regras do escritório</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20o%20PLAB%20Assistant%20para%20o%20meu%20escrit%C3%B3rio%20inteiro." class="btn-primary" target="_blank" rel="noopener">Fale com a gente</a>
+                </div>
+
+                <div class="planos-grid planos-grid--pix">
                     <div class="plano-card assinar-pix" id="assinar-pix">
                         <h3 class="plano-nome">Pagar à vista no PIX</h3>
                         <ol class="passos-pix">
                             <li>Pague o valor do plano, por usuário, pelo QR Code ou pela chave. Vale um ano.
                                 <ul class="valores-pix">
-                                    <li>PLAB Assistant <strong>R$ 999,90</strong> (oferta de lançamento)</li>
+                                    <li><span data-no-translate>PLAB Júnior</span> <strong>R$ 999,90</strong> (promoção de lançamento, 10 primeiras empresas; depois R$ 1.499,00)</li>
+                                    <li><span data-no-translate>PLAB Pleno</span> <strong>R$ 3.500,00</strong></li>
                                     <li>P-LAB OS <strong>R$ 299,90</strong></li>
                                     <li>P-LAB Viewer <strong>R$ 199,90</strong></li>
                                 </ul>
@@ -251,7 +331,8 @@
                             </label>
                             <label>Plano que você pagou
                                 <select name="plano" required>
-                                    <option value="assistant">PLAB Assistant, R$ 999,90 por pessoa</option>
+                                    <option value="assistant">PLAB Júnior, R$ 999,90 por pessoa (promoção)</option>
+                                    <option value="assistant_pleno">PLAB Pleno, R$ 3.500,00 por pessoa</option>
                                     <option value="os">P-LAB OS, R$ 299,90 por pessoa</option>
                                     <option value="viewer">P-LAB Viewer, R$ 199,90 por pessoa</option>
                                 </select>
@@ -273,20 +354,29 @@
                         </form>
                         <p class="plano-cond">Prefere falar com a gente? <a href="https://wa.me/5547989168641?text=Ol%C3%A1%21%20Paguei%20um%20plano%20da%20P-LAB%20no%20PIX.%20Plano%3A%20%20.%20E-mail%20da%20minha%20conta%20P-LAB%3A%20%20.%20Segue%20o%20comprovante." target="_blank" rel="noopener">Chame no WhatsApp</a>. O comprovante não libera nada sozinho: o acesso sai depois que o PIX é conferido.</p>
                     </div>
-
                 </div>
-
-                <!-- Assistant personalizado: o mesmo Assistant, treinado com o padrão
-                     do escritório (o "perfil de cliente" do docs/PLANO-nucleo-geral-
-                     receitas.md no repo P-LAB). Sob consulta, sem preço. -->
-                <div class="equipe-band assistant-personalizado">
-                    <div>
-                        <span class="botao-painel">SOB CONSULTA · PARA ESCRITÓRIOS</span>
-                        <h3>Assistant personalizado, treinado com as regras do seu escritório</h3>
-                        <p>Ensinamos ao PLAB Assistant o padrão da sua equipe: template, famílias, nomenclatura e regras de projeto. Aí ele modela, documenta, cria vistas e monta pranchas do jeito do escritório. É um funcionário a mais, integrado ao Revit. Valor sob consulta.</p>
-                    </div>
-                    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20saber%20do%20PLAB%20Assistant%20personalizado%20para%20o%20meu%20escrit%C3%B3rio." class="btn-primary" target="_blank" rel="noopener">Falar sobre o personalizado</a>
-                </div>
+            </div>
+        </section>
+
+        <!-- ============ EM BREVE (textos do §11 do desenho do Pleno, repo P-LAB) ============ -->
+        <section class="section" id="em-breve">
+            <div class="container">
+                <span class="eyebrow">EM BREVE</span>
+                <h2 class="section-title-main">O que vem depois</h2>
+                <div class="planos-grid">
+                    <div class="plano-card plano-card--em-breve">
+                        <h3 class="plano-nome">Nuvem de pontos → BIM</h3>
+                        <p class="plano-cond">Transformar o escaneamento a laser do existente em paredes, pisos e aberturas editáveis, com conferência das medidas.</p>
+                    </div>
+                    <div class="plano-card plano-card--em-breve">
+                        <h3 class="plano-nome">Renderização por texto</h3>
+                        <p class="plano-cond">Imagens de apresentação a partir da vista do modelo, com materiais e entorno descritos em português.</p>
+                    </div>
+                    <div class="plano-card plano-card--em-breve">
+                        <h3 class="plano-nome">Fachadas cinéticas animadas</h3>
+                        <p class="plano-cond">Estudos animados de brises e elementos móveis da fachada direto no Revit.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -297,7 +387,7 @@
                 <div class="equipe-band promo-band">
                     <div>
                         <span class="botao-painel">PROMOÇÃO</span>
-                        <h3>Assinando o PLAB Assistant, o Viewer e o P-LAB OS saem de graça</h3>
+                        <h3>Assinando o <span data-no-translate>PLAB Júnior</span> ou o <span data-no-translate>PLAB Pleno</span>, o Viewer e o P-LAB OS saem de graça</h3>
                         <p>Quem precisa dos dois e também trabalha no Revit paga um plano só.</p>
                     </div>
                     <a href="#assistant" class="btn-primary">Ver o PLAB Assistant</a>
@@ -428,13 +518,18 @@
          traduzido pelo DeepL para /en/ e /es/ (scripts/translate.py) — e
          embutir frase em português ali apagaria a tradução. -->
     <script>
+    // Banco público da vitrine (Supabase do P-LAB OS). Chave "anon": pública
+    // por natureza, a mesma classe de chave que já vai embutida no bundle do
+    // P-LAB OS (RULES.md §6) — não é segredo.
+    var PLAB_VITRINE = {
+      url: 'https://rydgthtnlccryhvgghkw.supabase.co',
+      anon: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5ZGd0aHRubGNjcnlodmdnaGt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4NjA5NzksImV4cCI6MjEwMDQzNjk3OX0.xLjIqUBjgorHad7gD8rZKI4kboSz5_S6DgP9MR5T1zM',
+    };
     (function () {
       if (/\/(en|es)\//.test(location.pathname)) return;
 
-      var URL_BASE = 'https://rydgthtnlccryhvgghkw.supabase.co';
-      // Chave "anon": pública por natureza, a mesma classe de chave que já
-      // vai embutida no bundle do P-LAB OS (RULES.md §6) — não é segredo.
-      var ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5ZGd0aHRubGNjcnlodmdnaGt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4NjA5NzksImV4cCI6MjEwMDQzNjk3OX0.xLjIqUBjgorHad7gD8rZKI4kboSz5_S6DgP9MR5T1zM';
+      var URL_BASE = PLAB_VITRINE.url;
+      var ANON_KEY = PLAB_VITRINE.anon;
 
       var CARTOES = { viewer: 'pl-v', os: 'pl-o' };
 
@@ -474,6 +569,52 @@
           // Sem resposta do banco: o preço estático já escrito na página
           // é o que fica — reserva, não erro.
         });
+    })();
+    </script>
+    <script>
+    // PLAB Júnior e PLAB Pleno (20/10/2026): preço, promoção e modelos de IA
+    // vindos do banco. Roda em todos os idiomas (números e nomes de modelo não
+    // se traduzem); a contagem de vagas, que é texto, só em português.
+    (function () {
+      var cab = { apikey: PLAB_VITRINE.anon, Authorization: 'Bearer ' + PLAB_VITRINE.anon };
+      var emPt = !/\/(en|es)\//.test(location.pathname);
+      function real(v) {
+        return 'R$ ' + Number(v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+      function el(atributo, chave) { return document.querySelector('[' + atributo + '="' + chave + '"]'); }
+
+      fetch(PLAB_VITRINE.url + '/rest/v1/rpc/vitrine_de_planos', { headers: cab })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (planos) {
+          planos.forEach(function (p) {
+            if (p.chave !== 'assistant' && p.chave !== 'assistant_pleno') return;
+            var parcela = el('data-preco-parcela', p.chave);
+            if (parcela && p.valor_usuario_parcela) parcela.textContent = real(p.valor_usuario_parcela);
+            var avista = el('data-preco-avista', p.chave);
+            var cheio = el('data-promo-cheio', p.chave);
+            var promo = el('data-promo', p.chave);
+            var temPromo = p.valor_promocional_avista && p.promo_vagas_restantes > 0;
+            if (avista) avista.textContent = real(temPromo ? p.valor_promocional_avista : p.valor_usuario_avista);
+            if (cheio) { cheio.textContent = real(p.valor_usuario_avista); cheio.hidden = !temPromo; }
+            if (promo) promo.hidden = !temPromo;
+            var vagas = el('data-promo-vagas-texto', p.chave);
+            if (vagas && temPromo && emPt) {
+              vagas.textContent = ' — restam ' + p.promo_vagas_restantes + (p.promo_vagas_restantes === 1 ? ' vaga' : ' vagas');
+            }
+          });
+        })
+        .catch(function () { /* reserva: o texto estático fica */ });
+
+      fetch(PLAB_VITRINE.url + '/rest/v1/rpc/modelos_da_vitrine', { headers: cab })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (linhas) {
+          ['assistant', 'assistant_pleno'].forEach(function (plano) {
+            var alvo = el('data-modelos', plano);
+            var nomes = linhas.filter(function (l) { return l.plano === plano; }).map(function (l) { return l.nome; });
+            if (alvo && nomes.length) alvo.textContent = nomes.join(' · ');
+          });
+        })
+        .catch(function () { /* reserva: "Modelos definidos no servidor da P-LAB" */ });
     })();
     </script>
     <script>

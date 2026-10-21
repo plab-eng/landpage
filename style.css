@@ -1026,6 +1026,65 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .plano-lista li { display: flex; gap: 10px; font-size: 0.95rem; color: var(--text-muted); }
 .plano-lista li::before { content: '+'; color: var(--accent); font-family: var(--font-mono); flex-shrink: 0; }
 .plano-card .btn-primary, .plano-card .btn-plugin { text-align: center; }
+.plano-card .btn-secondary { text-align: center; }
+
+/* ===== PLAB Júnior / Pleno / Sênior (planos.html, 20/10/2026) =====
+   Formato da página de preços da Ideatura: borda tracejada, blocos curtos
+   na mesma ordem em todos os cartões, botão no pé. Só tokens. */
+.planos-grid--assistant { grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); }
+.plano-card--tracejado { border-style: dashed; }
+.plano-card--tracejado.plano-card--destaque { border-style: solid; }
+.plano-card--em-breve { opacity: 0.85; }
+.plano-anual { margin: 0; font-size: 0.92rem; color: var(--text-muted); }
+.plano-anual s { margin-right: 4px; }
+.plano-anual strong { color: var(--text); }
+.plano-destrava { margin: 0; font-size: 1rem; }
+.plano-divisor { border: 0; border-top: 1px solid var(--border); margin: 4px 0; width: 100%; }
+.plano-bloco { display: flex; flex-direction: column; gap: 4px; }
+.plano-bloco-titulo { font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.plano-bloco-texto, .plano-modelos { font-size: 0.9rem; color: var(--text-muted); }
+.plano-botao { margin-top: auto; }
+.planos-comum { margin: 24px 0 0; color: var(--text-muted); font-size: 0.92rem; text-align: center; }
+.plano-lista--duas { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); margin-top: 12px; }
+.planos-grid--pix { margin-top: 28px; }
+
+/* Ícone de ajuda com a explicação do crédito: abre no hover e no foco do
+   teclado (tabindex), lido pelo leitor de tela via aria-describedby. */
+.ajuda {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    cursor: help;
+}
+.ajuda-texto {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translateX(-50%);
+    width: min(260px, 70vw);
+    padding: 10px 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: var(--font-body, inherit);
+    font-weight: 400;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: var(--text);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .15s;
+    z-index: 5;
+}
+.ajuda:hover .ajuda-texto, .ajuda:focus .ajuda-texto, .ajuda:focus-within .ajuda-texto { visibility: visible; opacity: 1; }
 
 /* Selo de plano num botão do add-in */
 .plano-tag {
