@@ -1403,3 +1403,6 @@ img.apoio-qr { background: #ffffff; }
 @keyframes balao-entra { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .assistant-janela__campo { display: flex; justify-content: space-between; align-items: center; margin: 0 12px 12px; padding: 12px 14px; background: #323844; border-radius: 8px; font-size: 0.85rem; color: #9aa3b2; }
 .assistant-janela__campo i { color: #fff; background: #1f7a4d; padding: 6px 7px; border-radius: 4px; font-size: 0.7rem; }
+
+/* Ribbon real da aba P-LAB no topo de "Todos os botões" (21/10/2026). */
+.ribbon-plab { display: block; width: 100%; max-width: 1056px; height: auto; margin: 0 auto 32px; border-radius: var(--radius); border: 1px solid var(--border); }
