@@ -1371,8 +1371,6 @@ img.apoio-qr { background: #ffffff; }
 @media (min-width: 1100px) {
     #exemplos .botao-roda { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .botao-hub { display: flex; align-items: center; justify-content: center; position: relative; }
-    /* A imagem já traz o anel tracejado e os pontos; o nome fica no círculo do meio. */
-    .botao-hub img { width: 100%; max-width: 420px; height: auto; border-radius: var(--radius); }
 }
 .selo-logo { width: 28px; height: 28px; vertical-align: middle; object-fit: contain; }
 
@@ -1386,7 +1384,6 @@ img.apoio-qr { background: #ffffff; }
 .video-popup::backdrop { background: rgba(0,0,0,.75); }
 .video-popup video { display: block; width: 100%; max-height: 85vh; }
 .video-popup__fechar { position: absolute; top: 6px; right: 10px; z-index: 1; border: 0; background: rgba(0,0,0,.5); color: #fff; font-size: 28px; line-height: 1; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
-.botao-hub__nome { position: absolute; font-size: 2rem; font-weight: 600; color: var(--text); letter-spacing: .5px; }
 
 /* Janela do Assistant em HTML com balões (21/10/2026). Cores da janela real (tema escuro). */
 .assistant-janela { background: #2b303b; color: #e6e9ef; border-radius: 12px; border: 1px solid #1d2129; box-shadow: 0 20px 50px rgba(10, 18, 30, 0.25); text-align: left; overflow: hidden; }
@@ -1406,3 +1403,20 @@ img.apoio-qr { background: #ffffff; }
 
 /* Ribbon real da aba P-LAB no topo de "Todos os botões" (21/10/2026). */
 .ribbon-plab { display: block; width: 100%; max-width: 1056px; height: auto; margin: 0 auto 32px; border-radius: var(--radius); border: 1px solid var(--border); }
+
+/* Roda em balões (21/10/2026): o centro é um anel tracejado com o Revit, e linhas
+   desenhadas pelo script ligam o centro à borda de cada cartão. */
+.roda-linhas { display: none; }
+@media (min-width: 1100px) {
+    #exemplos .container { max-width: 1320px; }
+    #exemplos .botao-roda { position: relative; gap: 72px 64px; align-items: center; }
+    #exemplos .botao-roda > .botao-card { position: relative; z-index: 1; background: var(--card-bg, var(--bg)); box-shadow: 0 10px 30px rgba(10, 18, 30, 0.08); }
+    .roda-linhas { display: block; position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: visible; }
+    .roda-linha { stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 5 5; }
+    .roda-ponto { fill: #f5d77a; stroke: var(--accent); stroke-width: 1.5; }
+    .botao-hub { z-index: 1; }
+    .botao-hub__anel { position: relative; width: 240px; height: 240px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: radial-gradient(circle, #ecdcbb 0 66%, transparent 67%); border: 2px dashed var(--accent); }
+    .botao-hub__logo { width: 84px; height: 84px; object-fit: contain; }
+    .botao-hub__nome { font-size: 1.8rem; font-weight: 600; color: #1d2a22; letter-spacing: .5px; }
+}
+.plano-letra-miuda { font-size: 0.78rem; line-height: 1.45; }

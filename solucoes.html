@@ -140,6 +140,7 @@
                 <span class="botao-painel">ALGUNS EXEMPLOS</span>
                 <h2 class="section-title-main">Alguns botões em ação</h2>
                 <div class="botao-grid botao-roda">
+                    <svg class="roda-linhas" aria-hidden="true"></svg>
                     <div class="feature-card botao-card">
                         <h3 data-i18n="bt-cota-t">Cota Automática</h3>
                         <p data-i18n="bt-cota-d">Gera as cotas de locação a partir da configuração salva, sem clicar ponto a ponto.</p>
@@ -178,8 +179,11 @@
                     <!-- Centro da roda (desktop): o Revit, com os botões em volta. No celular
                          some e os cartões viram a grade normal. -->
                     <div class="botao-hub" aria-hidden="true">
-                        <img src="images/revit-centro.webp" alt="" width="800" height="800" loading="lazy">
-                        <span class="botao-hub__nome">Revit</span>
+                        <div class="botao-hub__anel">
+                            <!-- Ícone oficial do Revit: salvar em images/logo-revit.svg (some sozinho enquanto não existir). -->
+                            <img src="images/logo-revit.svg" alt="" class="botao-hub__logo" width="96" height="96" onerror="this.remove()">
+                            <span class="botao-hub__nome">Revit</span>
+                        </div>
                     </div>
 
                     <div class="feature-card botao-card">
@@ -462,6 +466,40 @@
       popup.querySelector('.video-popup__fechar').addEventListener('click', fechar);
       popup.addEventListener('click', function (e) { if (e.target === popup) fechar(); });
       popup.addEventListener('close', function () { video.pause(); video.removeAttribute('src'); video.load(); });
+    })();
+    </script>
+    <script>
+    /* Roda dos botões (21/10/2026): liga o centro (Revit) a cada cartão com uma linha
+       e um ponto na borda do cartão, como balões saindo do centro. Só no desktop. */
+    (function () {
+      var roda = document.querySelector('.botao-roda');
+      if (!roda) return;
+      var svg = roda.querySelector('.roda-linhas');
+      var hub = roda.querySelector('.botao-hub__anel');
+      var NS = 'http://www.w3.org/2000/svg';
+      function el(nome, attrs) { var e = document.createElementNS(NS, nome); for (var k in attrs) e.setAttribute(k, attrs[k]); return e; }
+      function desenhar() {
+        while (svg.firstChild) svg.removeChild(svg.firstChild);
+        if (!hub || hub.offsetParent === null) return;
+        var base = roda.getBoundingClientRect();
+        var h = hub.getBoundingClientRect();
+        var cx = h.left + h.width / 2 - base.left, cy = h.top + h.height / 2 - base.top, r = h.width / 2 + 10;
+        svg.setAttribute('viewBox', '0 0 ' + base.width + ' ' + base.height);
+        roda.querySelectorAll(':scope > .botao-card').forEach(function (card) {
+          var b = card.getBoundingClientRect();
+          var x0 = b.left - base.left, y0 = b.top - base.top, x1 = x0 + b.width, y1 = y0 + b.height;
+          var px = Math.max(x0, Math.min(cx, x1)), py = Math.max(y0, Math.min(cy, y1));
+          var dx = px - cx, dy = py - cy, d = Math.sqrt(dx * dx + dy * dy) || 1;
+          var sx = cx + dx / d * r, sy = cy + dy / d * r;
+          svg.appendChild(el('line', { x1: sx, y1: sy, x2: px, y2: py, 'class': 'roda-linha' }));
+          svg.appendChild(el('circle', { cx: sx, cy: sy, r: 5, 'class': 'roda-ponto' }));
+          svg.appendChild(el('circle', { cx: px, cy: py, r: 5, 'class': 'roda-ponto' }));
+        });
+      }
+      window.addEventListener('resize', desenhar);
+      window.addEventListener('load', desenhar);
+      if (window.ResizeObserver) new ResizeObserver(desenhar).observe(roda);
+      desenhar();
     })();
     </script>
 </body>
