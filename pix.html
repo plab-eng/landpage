@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Aplica o tema antes do render para evitar flash (claro por padrão; respeita preferência do sistema na 1ª visita) -->
+    <script>(function(){try{var t=localStorage.getItem('p-lab-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <!-- Consent Mode v2 (19/09/2026): a tag carrega SEMPRE, com consentimento
+         negado por padrão; o aceite do banner só atualiza o estado (script.js).
+         Antes o gtag só era injetado depois do "Aceitar", e quem recusava ou
+         ignorava o banner não gerava ping nenhum — o Google não recebia sinal e
+         não tinha o que modelar. GA4 G-M9WEG41PNK · Ads AW-18462540145. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      gtag('consent', 'default', {
+        ad_storage:            'denied',
+        ad_user_data:          'denied',
+        ad_personalization:    'denied',
+        analytics_storage:     'denied',
+        functionality_storage: 'granted',
+        security_storage:      'granted',
+        wait_for_update: 500
+      });
+      gtag('set', 'ads_data_redaction', true);
+      gtag('set', 'url_passthrough', true);
+
+      // Quem já aceitou numa visita anterior: atualiza ANTES do primeiro ping,
+      // senão o page_view sai marcado como negado. A chave é a mesma do
+      // script.js (CONSENT_KEY).
+      try {
+        if (localStorage.getItem('p-lab-cookie-consent') === 'accepted') {
+          gtag('consent', 'update', {
+            ad_storage:         'granted',
+            ad_user_data:       'granted',
+            ad_personalization: 'granted',
+            analytics_storage:  'granted'
+          });
+        }
+      } catch (e) {}
+
+      gtag('js', new Date());
+      gtag('config', 'G-M9WEG41PNK');
+      gtag('config', 'AW-18462540145');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9WEG41PNK"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagar no PIX | P-LAB</title>
+    <meta name="description" content="Pague o plano da P-LAB à vista no PIX e envie o comprovante: o acesso é liberado na sua conta depois da conferência.">
+    <meta name="robots" content="noindex">
+    <link rel="canonical" href="https://plabdev.com.br/pix.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/pix.html">
+    <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/pix.html">
+    <link rel="alternate" hreflang="es" href="https://plabdev.com.br/es/pix.html">
+    <link rel="alternate" hreflang="x-default" href="https://plabdev.com.br/pix.html">
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://plabdev.com.br/pix.html">
+    <meta property="og:title" content="Pagar no PIX | P-LAB">
+    <meta property="og:description" content="Pague o plano da P-LAB à vista no PIX e envie o comprovante.">
+    <meta property="og:image" content="https://plabdev.com.br/images/logo-icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="plab-tokens.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header sticky-header">
+        <div class="container header-flex">
+            <div class="header-left">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo-icon.webp" alt="Logo P-LAB" class="header-logo-img logo-invert" width="35" height="36">
+                    <span class="logo">P-LAB</span>
+                </a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-nav">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="primary-nav" id="primary-nav">
+                <ul class="nav-links">
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="planos.html" data-i18n="nav-planos">Assistant</a></li>
+                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
+                    <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
+                </ul>
+                <div class="nav-extra">
+                    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro" title="Alternar tema">
+                        <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                    </button>
+                    <div class="language-selector">
+                        <button class="lang-btn"><i class="fas fa-globe"></i> <span id="current-lang-label">PT</span> <i class="fas fa-chevron-down"></i></button>
+                        <div class="lang-dropdown">
+                            <div class="dropdown-section">
+                                <span class="section-title" data-i18n="lang-suggested">LOCALIZAÇÃO SUGERIDA</span>
+                                <a href="javascript:void(0)" onclick="plabSwitchLang('pt')" data-lang="pt" data-no-translate>Brasil (Português)</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <span class="section-title" data-i18n="lang-available">SÍTIOS DISPONÍVEIS</span>
+                                <a href="javascript:void(0)" onclick="plabSwitchLang('en')" data-lang="en" data-no-translate>Global (English)</a>
+                                <a href="javascript:void(0)" onclick="plabSwitchLang('es')" data-lang="es" data-no-translate>España (Español)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <p class="plano-cond"><a href="planos.html">← Voltar aos planos</a></p>
+                <div class="planos-grid planos-grid--pix">
+                    <div class="plano-card assinar-pix" id="assinar-pix">
+                        <h1 class="plano-nome" id="pix-titulo">Pagar à vista no PIX</h1>
+                        <p class="plano-valor pix-valor" id="pix-valor" hidden></p>
+                        <ol class="passos-pix">
+                            <li>Pague o valor do plano, por usuário, pelo QR Code ou pela chave. Vale um ano.
+                                <ul class="valores-pix">
+                                    <li><span data-no-translate>PLAB Júnior</span> <strong>R$ 1.499,00</strong></li>
+                                    <li><span data-no-translate>PLAB Pleno</span> <strong>R$ 3.500,00</strong></li>
+                                    <li>P-LAB OS <strong>R$ 299,90</strong></li>
+                                    <li>P-LAB Viewer <strong>R$ 199,90</strong></li>
+                                </ul>
+                            </li>
+                            <li>Preencha o formulário abaixo com <strong>o e-mail da sua conta P-LAB</strong> e anexe o comprovante. A conta precisa existir antes: <a href="https://app.plabdev.com.br/" target="_blank" rel="noopener">crie a sua no P-LAB</a>.</li>
+                            <li>A P-LAB confere o PIX no banco e libera o acesso na sua conta, valendo um ano. Você recebe um e-mail quando estiver liberado. A liberação acontece <strong>depois da conferência</strong>, não na hora.</li>
+                        </ol>
+                        <img src="images/pix-qr.png" alt="QR Code do PIX da P-LAB" width="220" height="220" class="apoio-qr">
+                        <span class="botao-painel">Chave PIX</span>
+                        <div class="pix-chave">
+                            <!-- Dentro de <code>: o translate.py não traduz, a chave chega intacta em /en e /es. -->
+                            <code id="pix-chave">37452086000101</code>
+                            <button type="button" class="btn-secondary" data-pix-copiar="planos">Copiar chave</button>
+                        </div>
+                        <p class="pix-status" id="pix-status" role="status" aria-live="polite"></p>
+                        <span hidden id="pix-msg-ok">Chave copiada. Cole no app do banco, na opção PIX.</span>
+                        <span hidden id="pix-msg-manual">A chave ficou selecionada: use Ctrl+C para copiar.</span>
+                        <p class="plano-cond">O app do banco vai mostrar <strong data-no-translate>JOSE PICANCO SERVICOS DE ENGENHARIA E CONSTRUCAO LTDA</strong>, a empresa por trás da P-LAB.</p>
+                        <form id="form-comprovante" class="form-style form-comprovante" novalidate>
+                            <h4 class="comprovante-titulo">Enviar o comprovante</h4>
+                            <label>E-mail da sua conta P-LAB
+                                <input type="email" name="email" required autocomplete="email" placeholder="voce@escritorio.com.br">
+                            </label>
+                            <label>Plano que você pagou
+                                <select name="plano" required>
+                                    <option value="assistant">PLAB Júnior, R$ 1.499,00 por pessoa</option>
+                                    <option value="assistant_pleno">PLAB Pleno, R$ 3.500,00 por pessoa</option>
+                                    <option value="os">P-LAB OS, R$ 299,90 por pessoa</option>
+                                    <option value="viewer">P-LAB Viewer, R$ 199,90 por pessoa</option>
+                                </select>
+                            </label>
+                            <label>Comprovante (PDF, JPG, PNG ou WEBP, até 5 MB)
+                                <input type="file" name="comprovante" required accept="application/pdf,image/jpeg,image/png,image/webp">
+                            </label>
+                            <!-- Campo-isca: gente não vê, robô preenche. Não remover, não mudar o nome. -->
+                            <div class="comprovante-isca" aria-hidden="true">
+                                <input type="text" name="website" tabindex="-1" autocomplete="off">
+                            </div>
+                            <button type="submit" class="btn-primary">Enviar comprovante</button>
+                            <p id="comprovante-status" class="comprovante-status" role="status" aria-live="polite"></p>
+                            <!-- Textos que o script usa: ficam aqui, e não no JS, para o translate.py traduzi-los. -->
+                            <span hidden id="comprovante-msg-enviando">Enviando…</span>
+                            <span hidden id="comprovante-msg-ok">Recebemos! Assim que o PIX for conferido, o acesso é liberado na sua conta e você recebe um e-mail.</span>
+                            <span hidden id="comprovante-msg-falha">Não foi possível enviar agora. Tente de novo ou fale pelo WhatsApp.</span>
+                            <span hidden id="comprovante-msg-rede">Sem conexão. Tente de novo ou fale pelo WhatsApp.</span>
+                        </form>
+                        <p class="plano-cond">Prefere falar com a gente? <a href="https://wa.me/5547989168641?text=Ol%C3%A1%21%20Paguei%20um%20plano%20da%20P-LAB%20no%20PIX.%20Plano%3A%20%20.%20E-mail%20da%20minha%20conta%20P-LAB%3A%20%20.%20Segue%20o%20comprovante." target="_blank" rel="noopener">Chame no WhatsApp</a>. O comprovante não libera nada sozinho: o acesso sai depois que o PIX é conferido.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <span class="logo-footer">P-LAB</span>
+                <p data-i18n="footer-tagline">Software e automação para engenharia.</p>
+                <p>Joinville - SC</p>
+            </div>
+            <div class="footer-nav">
+                <h3 data-i18n="footer-products">Produtos</h3>
+                <ul>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
+                    <li><a href="planos.html" data-i18n="nav-planos">Assistant</a></li>
+                    <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
+                    <li><a href="apoiar.html">Apoiar</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3 data-i18n="footer-social">Siga-nos</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/plab-eng/" target="_blank" rel="noopener" aria-label="LinkedIn da P-LAB"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h3 data-i18n="footer-contact">Contato</h3>
+                <p class="footer-white"><a href="tel:+5547989168641">(47) 98916-8641</a></p>
+                <p class="footer-white">devpicanco@gmail.com</p>
+                <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-whatsapp-footer" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+        <div class="container text-center footer-bottom">
+            <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar com a P-LAB no WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="34" height="34">
+    </a>
+
+    <script src="script.js"></script>
+    <script>
+    /* Plano vindo do botão do cartão (pix.html?plano=…): mostra o valor dele e já
+       deixa o plano escolhido no formulário. Sem parâmetro, a lista inteira vale. */
+    (function () {
+      var NOMES = { assistant: 'PLAB Júnior', assistant_pleno: 'PLAB Pleno', os: 'P-LAB OS', viewer: 'P-LAB Viewer' };
+      var VALORES = { assistant: 'R$ 1.499,00', assistant_pleno: 'R$ 3.500,00', os: 'R$ 299,90', viewer: 'R$ 199,90' };
+      var plano = new URLSearchParams(location.search).get('plano');
+      if (!NOMES[plano]) return;
+      var valor = document.getElementById('pix-valor');
+      valor.textContent = NOMES[plano] + ': ' + VALORES[plano] + ' por pessoa';
+      valor.hidden = false;
+      var select = document.querySelector('#form-comprovante select[name="plano"]');
+      if (select) select.value = plano;
+    })();
+    </script>
+    <script>
+    /* Formulário do comprovante de PIX. A função é pública: não leva chave nenhuma, e o
+       Content-Type é do navegador (multipart com boundary), nunca definido à mão. */
+    (function () {
+      var form = document.getElementById('form-comprovante');
+      if (!form) return;
+      var status = document.getElementById('comprovante-status');
+      var URL = 'https://rydgthtnlccryhvgghkw.supabase.co/functions/v1/registrar-comprovante';
+      function msg(id) { var el = document.getElementById(id); return el ? el.textContent : ''; }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var botao = form.querySelector('button[type="submit"]');
+        botao.disabled = true;
+        status.className = 'comprovante-status';
+        status.textContent = msg('comprovante-msg-enviando');
+        fetch(URL, { method: 'POST', body: new FormData(form) })
+          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, corpo: j }; }, function () { return { ok: false, corpo: {} }; }); })
+          .then(function (r) {
+            if (r.ok && r.corpo.ok) {
+              status.className = 'comprovante-status comprovante-status--ok';
+              status.textContent = msg('comprovante-msg-ok');
+              form.reset();
+              if (typeof trackEvent === 'function') trackEvent('comprovante_pix_enviado');
+            } else {
+              status.className = 'comprovante-status comprovante-status--erro';
+              status.textContent = r.corpo.erro || msg('comprovante-msg-falha');
+            }
+          })
+          .catch(function () {
+            status.className = 'comprovante-status comprovante-status--erro';
+            status.textContent = msg('comprovante-msg-rede');
+          })
+          .then(function () { botao.disabled = false; });
+      });
+    })();
+    </script>
+</body>
+</html>
