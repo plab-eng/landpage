@@ -126,16 +126,13 @@
                     <a href="planos.html#plataforma-web" class="btn-secondary">Assinar o P-LAB OS</a>
                 </p>
 
-                <!-- [VÍDEO] Tour da plataforma. Quando gravar, trocar este .media-slot por:
-                <div class="plugin-video-container" style="max-width:900px;margin:40px auto 0">
-                    <video controls preload="none" poster="images/poster-plab-os.jpg" width="1280" height="720">
-                        <source src="videos/plab-os-tour.mp4" type="video/mp4">
-                    </video>
-                </div> -->
-                <div class="media-slot" style="max-width:900px;margin:40px auto 0">
-                    <span class="media-slot__label" data-i18n="slot-video">Vídeo em breve</span>
-                    <span class="media-slot__file">videos/plab-os-tour.mp4</span>
-                    <p class="media-slot__hint" data-i18n="hb-slot-tour">Tour de 60–90s: login, carteira de projetos, e entrar em um projeto passando por Comercial, Custos e Gestão.</p>
+                <!-- Tour da plataforma (21/10/2026): a miniatura é um quadro do vídeo; o play abre o popup.
+                     O e-mail do menu lateral está coberto no vídeo e na miniatura. -->
+                <div style="max-width:1100px;margin:40px auto 0">
+                    <button type="button" class="midia-play" data-video="videos/plab-os-tour.mp4" aria-label="Ver o vídeo: tour do P-LAB OS">
+                        <img src="images/poster-plab-os.webp" alt="O P-LAB OS por dentro: horas, projetos e propostas" width="1920" height="641" loading="lazy" class="print-plataforma">
+                        <span class="midia-play__icone" aria-hidden="true"></span>
+                    </button>
                 </div>
             </div>
         </section>
@@ -315,5 +312,29 @@
     </a>
 
     <script src="script.js"></script>
+    <!-- Popup do vídeo do tour (21/10/2026), o mesmo dos botões em solucoes.html. -->
+    <dialog class="video-popup" id="video-popup" aria-label="Vídeo do P-LAB OS">
+        <button type="button" class="video-popup__fechar" aria-label="Fechar o vídeo">&times;</button>
+        <video controls playsinline preload="none"></video>
+    </dialog>
+    <script>
+    (function () {
+      var popup = document.getElementById('video-popup');
+      if (!popup || typeof popup.showModal !== 'function') return;
+      var video = popup.querySelector('video');
+      function fechar() { video.pause(); video.removeAttribute('src'); video.load(); if (popup.open) popup.close(); }
+      document.querySelectorAll('[data-video]').forEach(function (botao) {
+        botao.addEventListener('click', function () {
+          video.src = botao.getAttribute('data-video');
+          popup.showModal();
+          video.play().catch(function () {});
+          if (typeof trackEvent === 'function') trackEvent('video_botao', { video: botao.getAttribute('data-video') });
+        });
+      });
+      popup.querySelector('.video-popup__fechar').addEventListener('click', fechar);
+      popup.addEventListener('click', function (e) { if (e.target === popup) fechar(); });
+      popup.addEventListener('close', function () { video.pause(); video.removeAttribute('src'); video.load(); });
+    })();
+    </script>
 </body>
 </html>
