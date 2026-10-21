@@ -1358,3 +1358,9 @@ img.apoio-qr { background: #ffffff; }
 .btn-em-breve { opacity: 0.55; cursor: not-allowed; pointer-events: none; text-align: center; }
 .forma-breve { font-style: normal; font-size: 0.8rem; color: var(--text-muted); margin-left: 4px; }
 
+
+/* Pagamento direto no cartão do plano (21/10/2026): 12x, à vista e PIX empilhados no pé. */
+.plano-pagar { margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
+.plano-pagar .plano-botao { margin-top: 0; text-align: center; }
+.plano-pagar .plano-cond { margin: 4px 0 0; font-size: 0.85rem; }
+.pix-valor { font-size: 1.4rem; margin: 4px 0 12px; }

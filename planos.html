@@ -229,7 +229,14 @@
                             <span class="plano-bloco-texto">Pela comunidade e pelo WhatsApp da P-LAB</span>
                         </div>
                         <p class="plano-cond">Um Assistant por licença: uma pessoa por licença.</p>
-                        <a href="https://app.plabdev.com.br/assinar?plano=assistant" class="btn-secondary plano-botao" target="_blank" rel="noopener">Assinar o <span data-no-translate>PLAB Júnior</span></a>
+                        <!-- Pagamento direto no site (21/10/2026): links fixos do Asaas (tabela links_pagamento_site
+                             no plab-os; o webhook reconhece o link e libera pelo e-mail do pagador) e a página do PIX. -->
+                        <div class="plano-pagar">
+                            <a href="https://www.asaas.com/000/c/orzlcib68gd17b7b" class="btn-primary plano-botao" target="_blank" rel="noopener">Cartão em 12x de R$ 149,90</a>
+                            <a href="https://www.asaas.com/000/c/9l7u0wqqw5f32unz" class="btn-secondary plano-botao" target="_blank" rel="noopener">Cartão à vista, R$ 1.499,00</a>
+                            <a href="pix.html?plano=assistant" class="btn-secondary plano-botao">PIX à vista, R$ 1.499,00</a>
+                            <p class="plano-cond">No cartão, use o e-mail da sua conta P-LAB. Ainda não tem conta? Ela é criada com o e-mail da compra.</p>
+                        </div>
                     </div>
 
                     <div class="plano-card plano-card--tracejado plano-card--destaque" data-plano="assistant_pleno">
@@ -265,7 +272,14 @@
                             <span class="plano-bloco-texto">Suporte individualizado</span>
                         </div>
                         <p class="plano-cond">Um Assistant por licença: uma pessoa por licença.</p>
-                        <a href="https://app.plabdev.com.br/assinar?plano=assistant_pleno" class="btn-primary plano-botao" target="_blank" rel="noopener">Assinar o <span data-no-translate>PLAB Pleno</span></a>
+                        <!-- Pagamento direto no site (21/10/2026): links fixos do Asaas (tabela links_pagamento_site
+                             no plab-os; o webhook reconhece o link e libera pelo e-mail do pagador) e a página do PIX. -->
+                        <div class="plano-pagar">
+                            <a href="https://www.asaas.com/000/c/emj5dp779r4982lv" class="btn-primary plano-botao" target="_blank" rel="noopener">Cartão em 12x de R$ 350,00</a>
+                            <a href="https://www.asaas.com/000/c/ra92rm67bsaq9wdg" class="btn-secondary plano-botao" target="_blank" rel="noopener">Cartão à vista, R$ 3.500,00</a>
+                            <a href="pix.html?plano=assistant_pleno" class="btn-secondary plano-botao">PIX à vista, R$ 3.500,00</a>
+                            <p class="plano-cond">No cartão, use o e-mail da sua conta P-LAB. Ainda não tem conta? Ela é criada com o e-mail da compra.</p>
+                        </div>
                     </div>
 
                     <div class="plano-card plano-card--tracejado plano-card--em-breve">
@@ -297,63 +311,6 @@
                     <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20o%20PLAB%20Assistant%20para%20o%20meu%20escrit%C3%B3rio%20inteiro." class="btn-primary" target="_blank" rel="noopener">Fale com a gente</a>
                 </div>
 
-                <div class="planos-grid planos-grid--pix">
-                    <div class="plano-card assinar-pix" id="assinar-pix">
-                        <h3 class="plano-nome">Pagar à vista no PIX</h3>
-                        <ol class="passos-pix">
-                            <li>Pague o valor do plano, por usuário, pelo QR Code ou pela chave. Vale um ano.
-                                <ul class="valores-pix">
-                                    <li><span data-no-translate>PLAB Júnior</span> <strong>R$ 1.499,00</strong></li>
-                                    <li><span data-no-translate>PLAB Pleno</span> <strong>R$ 3.500,00</strong></li>
-                                    <li>P-LAB OS <strong>R$ 299,90</strong></li>
-                                    <li>P-LAB Viewer <strong>R$ 199,90</strong></li>
-                                </ul>
-                            </li>
-                            <li>Preencha o formulário abaixo com <strong>o e-mail da sua conta P-LAB</strong> e anexe o comprovante. A conta precisa existir antes: <a href="https://app.plabdev.com.br/" target="_blank" rel="noopener">crie a sua no P-LAB</a>.</li>
-                            <li>A P-LAB confere o PIX no banco e libera o acesso na sua conta, valendo um ano. Você recebe um e-mail quando estiver liberado. A liberação acontece <strong>depois da conferência</strong>, não na hora.</li>
-                        </ol>
-                        <img src="images/pix-qr.png" alt="QR Code do PIX da P-LAB" width="220" height="220" class="apoio-qr">
-                        <span class="botao-painel">Chave PIX</span>
-                        <div class="pix-chave">
-                            <!-- Dentro de <code>: o translate.py não traduz, a chave chega intacta em /en e /es. -->
-                            <code id="pix-chave">37452086000101</code>
-                            <button type="button" class="btn-secondary" data-pix-copiar="planos">Copiar chave</button>
-                        </div>
-                        <p class="pix-status" id="pix-status" role="status" aria-live="polite"></p>
-                        <span hidden id="pix-msg-ok">Chave copiada. Cole no app do banco, na opção PIX.</span>
-                        <span hidden id="pix-msg-manual">A chave ficou selecionada: use Ctrl+C para copiar.</span>
-                        <p class="plano-cond">O app do banco vai mostrar <strong data-no-translate>JOSE PICANCO SERVICOS DE ENGENHARIA E CONSTRUCAO LTDA</strong>, a empresa por trás da P-LAB.</p>
-                        <form id="form-comprovante" class="form-style form-comprovante" novalidate>
-                            <h4 class="comprovante-titulo">Enviar o comprovante</h4>
-                            <label>E-mail da sua conta P-LAB
-                                <input type="email" name="email" required autocomplete="email" placeholder="voce@escritorio.com.br">
-                            </label>
-                            <label>Plano que você pagou
-                                <select name="plano" required>
-                                    <option value="assistant">PLAB Júnior, R$ 1.499,00 por pessoa</option>
-                                    <option value="assistant_pleno">PLAB Pleno, R$ 3.500,00 por pessoa</option>
-                                    <option value="os">P-LAB OS, R$ 299,90 por pessoa</option>
-                                    <option value="viewer">P-LAB Viewer, R$ 199,90 por pessoa</option>
-                                </select>
-                            </label>
-                            <label>Comprovante (PDF, JPG, PNG ou WEBP, até 5 MB)
-                                <input type="file" name="comprovante" required accept="application/pdf,image/jpeg,image/png,image/webp">
-                            </label>
-                            <!-- Campo-isca: gente não vê, robô preenche. Não remover, não mudar o nome. -->
-                            <div class="comprovante-isca" aria-hidden="true">
-                                <input type="text" name="website" tabindex="-1" autocomplete="off">
-                            </div>
-                            <button type="submit" class="btn-primary">Enviar comprovante</button>
-                            <p id="comprovante-status" class="comprovante-status" role="status" aria-live="polite"></p>
-                            <!-- Textos que o script usa: ficam aqui, e não no JS, para o translate.py traduzi-los. -->
-                            <span hidden id="comprovante-msg-enviando">Enviando…</span>
-                            <span hidden id="comprovante-msg-ok">Recebemos! Assim que o PIX for conferido, o acesso é liberado na sua conta e você recebe um e-mail.</span>
-                            <span hidden id="comprovante-msg-falha">Não foi possível enviar agora. Tente de novo ou fale pelo WhatsApp.</span>
-                            <span hidden id="comprovante-msg-rede">Sem conexão. Tente de novo ou fale pelo WhatsApp.</span>
-                        </form>
-                        <p class="plano-cond">Prefere falar com a gente? <a href="https://wa.me/5547989168641?text=Ol%C3%A1%21%20Paguei%20um%20plano%20da%20P-LAB%20no%20PIX.%20Plano%3A%20%20.%20E-mail%20da%20minha%20conta%20P-LAB%3A%20%20.%20Segue%20o%20comprovante." target="_blank" rel="noopener">Chame no WhatsApp</a>. O comprovante não libera nada sozinho: o acesso sai depois que o PIX é conferido.</p>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -412,8 +369,14 @@
                             <li data-i18n="pl-v-i3">Histórico do que foi decidido e por quem</li>
                             <li data-i18n="pl-v-i4">Compartilhamento com o cliente por link</li>
                         </ul>
-                        <a href="https://app.plabdev.com.br/assinar?plano=viewer" class="btn-primary" target="_blank" rel="noopener" data-i18n="pl-v-btn">Assinar no cartão</a>
-                        <a href="#assinar-pix" class="plano-pix-link">Prefere o PIX? Pague à vista: R$ 199,90</a>
+                        <!-- Pagamento direto no site (21/10/2026): links fixos do Asaas (tabela links_pagamento_site
+                             no plab-os; o webhook reconhece o link e libera pelo e-mail do pagador) e a página do PIX. -->
+                        <div class="plano-pagar">
+                            <a href="https://www.asaas.com/000/c/63m1yiqy5v6yywkg" class="btn-primary plano-botao" target="_blank" rel="noopener">Cartão em 12x de R$ 19,90</a>
+                            <a href="https://www.asaas.com/000/c/baddhqpf6tsjqgvg" class="btn-secondary plano-botao" target="_blank" rel="noopener">Cartão à vista, R$ 199,90</a>
+                            <a href="pix.html?plano=viewer" class="btn-secondary plano-botao">PIX à vista, R$ 199,90</a>
+                            <p class="plano-cond">No cartão, use o e-mail da sua conta P-LAB. Ainda não tem conta? Ela é criada com o e-mail da compra.</p>
+                        </div>
                     </div>
 
                     <div class="plano-card">
@@ -434,8 +397,14 @@
                             <li data-i18n="pl-o-i2">Custos: previsto contra realizado e margem</li>
                             <li data-i18n="pl-o-i3">Gestão: apontamento de horas por projeto</li>
                         </ul>
-                        <a href="https://app.plabdev.com.br/assinar?plano=os" class="btn-primary" target="_blank" rel="noopener" data-i18n="pl-o-btn">Assinar no cartão</a>
-                        <a href="#assinar-pix" class="plano-pix-link">Prefere o PIX? Pague à vista: R$ 299,90</a>
+                        <!-- Pagamento direto no site (21/10/2026): links fixos do Asaas (tabela links_pagamento_site
+                             no plab-os; o webhook reconhece o link e libera pelo e-mail do pagador) e a página do PIX. -->
+                        <div class="plano-pagar">
+                            <a href="https://www.asaas.com/000/c/fsenlrukosqzchsw" class="btn-primary plano-botao" target="_blank" rel="noopener">Cartão em 12x de R$ 29,90</a>
+                            <a href="https://www.asaas.com/000/c/bthylgsztr8z5y2b" class="btn-secondary plano-botao" target="_blank" rel="noopener">Cartão à vista, R$ 299,90</a>
+                            <a href="pix.html?plano=os" class="btn-secondary plano-botao">PIX à vista, R$ 299,90</a>
+                            <p class="plano-cond">No cartão, use o e-mail da sua conta P-LAB. Ainda não tem conta? Ela é criada com o e-mail da compra.</p>
+                        </div>
                     </div>
 
                 </div>
@@ -606,43 +575,6 @@
           });
         })
         .catch(function () { /* reserva: "Modelos definidos no servidor da P-LAB" */ });
-    })();
-    </script>
-    <script>
-    /* Formulário do comprovante de PIX. A função é pública: não leva chave nenhuma, e o
-       Content-Type é do navegador (multipart com boundary), nunca definido à mão. */
-    (function () {
-      var form = document.getElementById('form-comprovante');
-      if (!form) return;
-      var status = document.getElementById('comprovante-status');
-      var URL = 'https://rydgthtnlccryhvgghkw.supabase.co/functions/v1/registrar-comprovante';
-      function msg(id) { var el = document.getElementById(id); return el ? el.textContent : ''; }
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (!form.checkValidity()) { form.reportValidity(); return; }
-        var botao = form.querySelector('button[type="submit"]');
-        botao.disabled = true;
-        status.className = 'comprovante-status';
-        status.textContent = msg('comprovante-msg-enviando');
-        fetch(URL, { method: 'POST', body: new FormData(form) })
-          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, corpo: j }; }, function () { return { ok: false, corpo: {} }; }); })
-          .then(function (r) {
-            if (r.ok && r.corpo.ok) {
-              status.className = 'comprovante-status comprovante-status--ok';
-              status.textContent = msg('comprovante-msg-ok');
-              form.reset();
-              if (typeof trackEvent === 'function') trackEvent('comprovante_pix_enviado');
-            } else {
-              status.className = 'comprovante-status comprovante-status--erro';
-              status.textContent = r.corpo.erro || msg('comprovante-msg-falha');
-            }
-          })
-          .catch(function () {
-            status.className = 'comprovante-status comprovante-status--erro';
-            status.textContent = msg('comprovante-msg-rede');
-          })
-          .then(function () { botao.disabled = false; });
-      });
     })();
     </script>
 </body>

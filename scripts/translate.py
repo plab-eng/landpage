@@ -61,6 +61,7 @@ PAGES = {
     "consultoria.html": "consultoria.html",   # stub de redirecionamento (URL antiga)
     "obrigado.html": "obrigado.html",
     "apoiar.html": "apoiar.html",   # aberta pelo botão Doar do add-in
+    "pix.html": "pix.html",   # pagamento no PIX, aberto pelos botões dos planos
 }
 
 # Idiomas-alvo: pasta de saída -> código DeepL
