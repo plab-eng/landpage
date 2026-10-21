@@ -145,7 +145,7 @@
                     <div class="feature-card">
                         <i class="fas fa-comments feature-icon"></i>
                         <h3>Peça em português</h3>
-                        <p>Escreva o que precisa, como "crie uma vista 3D" ou "pinte as paredes por tipo", e ele faz no modelo aberto.</p>
+                        <p>Escreva o que precisa, como "crie as cotas desta planta" ou "gere as vistas dos ambientes", e ele roda a ferramenta certa no modelo aberto.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-magnifying-glass feature-icon"></i>
@@ -154,15 +154,34 @@
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-robot feature-icon"></i>
-                        <h3>Escolha a IA</h3>
-                        <p>Funciona com os principais modelos do mercado, como Claude e GPT. O provedor e o modelo se escolhem na própria janela.</p>
+                        <h3>A IA já vem inclusa</h3>
+                        <p>Sem chave nem assinatura de IA à parte: a P-LAB escolhe e mantém os modelos. Os de cada plano estão nos cartões abaixo.</p>
                     </div>
                 </div>
 
                 <div class="assistant-midias">
+                    <!-- Janela do Assistant em HTML (21/10/2026): nítida em qualquer tela, no
+                         lugar do print recortado do vídeo. Mesmo cabeçalho e campo da janela real;
+                         os pedidos em balões são exemplos e se revezam (parados com movimento reduzido). -->
                     <figure class="assistant-midia">
-                        <img src="images/assistant-tela-inicial.webp" alt="Tela inicial atual do PLAB Assistant dentro do Revit, com sugestões de comandos e o campo para pedir ações" width="1056" height="1093" loading="lazy">
-                        <figcaption>A tela inicial atual do PLAB Assistant, integrada ao Revit.</figcaption>
+                        <div class="assistant-janela" aria-label="Exemplo de conversa com o PLAB Assistant" role="img">
+                            <div class="assistant-janela__topo">
+                                <i class="fas fa-helmet-safety" aria-hidden="true"></i>
+                                <div><strong data-no-translate>PLAB Assistant</strong><span>IA da P-LAB</span></div>
+                            </div>
+                            <div class="assistant-janela__conversa" id="assistant-conversa">
+                                <p class="balao balao--eu">Crie as cotas desta planta</p>
+                                <p class="balao balao--ia">Cotas de locação criadas na planta, seguindo a configuração salva.</p>
+                                <p class="balao balao--eu">Gere as vistas dos ambientes do térreo</p>
+                                <p class="balao balao--ia">Plantas e cortes criados em lote, com a nomenclatura do escritório.</p>
+                                <p class="balao balao--eu">Quantas paredes de cada tipo tem no modelo?</p>
+                                <p class="balao balao--ia">Contei as paredes por tipo e montei a lista com os totais.</p>
+                                <p class="balao balao--eu">Exporte as pranchas em PDF</p>
+                                <p class="balao balao--ia">Pranchas exportadas, cada uma com o nome no seu padrão.</p>
+                            </div>
+                            <div class="assistant-janela__campo"><span>Pergunte ou peça algo ao Revit…</span><i class="fas fa-play" aria-hidden="true"></i></div>
+                        </div>
+                        <figcaption>Exemplos de pedidos ao PLAB Assistant, dentro do Revit.</figcaption>
                     </figure>
                     <div class="assistant-video-bloco">
                         <div class="plugin-video-container assistant-video">
@@ -575,6 +594,29 @@
           });
         })
         .catch(function () { /* reserva: "Modelos definidos no servidor da P-LAB" */ });
+    })();
+    </script>
+    <script>
+    /* Conversa de exemplo do Assistant: os balões entram aos pares e recomeçam. */
+    (function () {
+      var caixa = document.getElementById('assistant-conversa');
+      if (!caixa || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+      var baloes = [].slice.call(caixa.querySelectorAll('.balao'));
+      var i = 0;
+      caixa.classList.add('animando');
+      function passo() {
+        if (i >= baloes.length) {
+          baloes.forEach(function (b) { b.classList.remove('visivel'); });
+          i = 0;
+          setTimeout(passo, 600);
+          return;
+        }
+        baloes[i].classList.add('visivel');
+        var era = baloes[i].classList.contains('balao--eu');
+        i++;
+        setTimeout(passo, era ? 900 : 2200);
+      }
+      passo();
     })();
     </script>
 </body>
