@@ -1364,3 +1364,14 @@ img.apoio-qr { background: #ffffff; }
 .plano-pagar .plano-botao { margin-top: 0; text-align: center; }
 .plano-pagar .plano-cond { margin: 4px 0 0; font-size: 0.85rem; }
 .pix-valor { font-size: 1.4rem; margin: 4px 0 12px; }
+/* Botões em ação em roda (21/10/2026): no desktop, 8 cartões em volta do Revit
+   numa grade 3x3 com o centro reservado; abaixo de 1100px, grade normal. */
+.botao-hub { display: none; }
+.botao-card--todos { text-decoration: none; color: inherit; justify-content: center; }
+@media (min-width: 1100px) {
+    #exemplos .botao-roda { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .botao-hub { display: flex; align-items: center; justify-content: center; position: relative; }
+    .botao-hub::before { content: ""; position: absolute; inset: 8%; border: 1px dashed var(--border-strong); border-radius: 50%; }
+    .botao-hub img, .botao-hub .media-slot { position: relative; width: 70%; aspect-ratio: 1; height: auto; border-radius: 50%; object-fit: contain; }
+}
+.selo-logo { width: 28px; height: 28px; vertical-align: middle; object-fit: contain; }

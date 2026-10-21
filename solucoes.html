@@ -162,7 +162,7 @@
             <div class="container">
                 <span class="botao-painel">ALGUNS EXEMPLOS</span>
                 <h2 class="section-title-main">Alguns botões em ação</h2>
-                <div class="botao-grid">
+                <div class="botao-grid botao-roda">
                     <div class="feature-card botao-card">
                         <h3 data-i18n="bt-cota-t">Cota Automática</h3>
                         <p data-i18n="bt-cota-d">Gera as cotas de locação a partir da configuração salva, sem clicar ponto a ponto.</p>
@@ -185,6 +185,29 @@
                     </div>
 
                     <div class="feature-card botao-card">
+                        <h3>DXF/PDF Legenda</h3>
+                        <p>Traz um DXF ou PDF (carimbo, detalhe padrão, nota) para uma vista de legenda do Revit, pronta para ir para a prancha.</p>
+                        <!-- Quando a imagem existir, trocar o .media-slot por:
+                        <img src="images/ex-dxf-pdf-legenda.webp" alt="Um DXF e um PDF virando uma vista de legenda do Revit" width="1600" height="900" loading="lazy" class="print-plataforma"> -->
+                        <div class="media-slot">
+                            <span class="media-slot__label" data-i18n="slot-img">Imagem em breve</span>
+                            <span class="media-slot__file">images/ex-dxf-pdf-legenda.webp</span>
+                            <p class="media-slot__hint">Ilustração no estilo das outras: DXF e PDF entrando numa vista de legenda.</p>
+                        </div>
+                    </div>
+
+                    <!-- Centro da roda (desktop): o Revit, com os botões em volta. No celular
+                         some e os cartões viram a grade normal. -->
+                    <div class="botao-hub" aria-hidden="true">
+                        <!-- Quando a imagem existir, trocar o .media-slot por:
+                        <img src="images/revit-centro.webp" alt="" width="800" height="800" loading="lazy"> -->
+                        <div class="media-slot">
+                            <span class="media-slot__label" data-i18n="slot-img">Imagem em breve</span>
+                            <span class="media-slot__file">images/revit-centro.webp</span>
+                        </div>
+                    </div>
+
+                    <div class="feature-card botao-card">
                         <h3 data-i18n="bt-pranchas-exp-t">Exportar Pranchas</h3>
                         <p data-i18n="bt-pranchas-exp-d">Exporta pranchas em PDF, DWG e DWF em massa, com o nome montado no seu padrão e organização automática em subpastas.</p>
                         <!-- O vídeo antigo deste botão (videos/Exportar pranchas.mp4, poster images/poster-sheets.jpg)
@@ -193,11 +216,28 @@
                     </div>
 
                     <div class="feature-card botao-card">
+                        <h3>Exportar Tabelas</h3>
+                        <p>No botão Exportar: leva as tabelas do modelo para o Excel (.xlsx) em lote, prontas para orçamento e lista de materiais.</p>
+                        <!-- Quando a imagem existir, trocar o .media-slot por:
+                        <img src="images/ex-exportar-tabelas.webp" alt="Tabelas do Revit virando planilhas do Excel em lote" width="1600" height="900" loading="lazy" class="print-plataforma"> -->
+                        <div class="media-slot">
+                            <span class="media-slot__label" data-i18n="slot-img">Imagem em breve</span>
+                            <span class="media-slot__file">images/ex-exportar-tabelas.webp</span>
+                            <p class="media-slot__hint">Ilustração no estilo das outras: tabelas do modelo virando planilhas.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card botao-card">
                         <h3 data-i18n="bt-circ-t">Transferir Circuitos</h3>
                         <p data-i18n="bt-circ-d">Move circuitos de um quadro de distribuição para outro em uma única operação — e um único Ctrl+Z desfaz tudo.</p>
                         <!-- [VÍDEO] Trocar por <video src="videos/transferir-circuitos.mp4"> quando gravado -->
                         <img src="images/ex-transferir-circuitos.webp" alt="Circuitos passando de um quadro de distribuição para outro" width="1600" height="900" loading="lazy" class="print-plataforma">
                     </div>
+
+                    <a class="feature-card botao-card botao-card--todos" href="#botoes">
+                        <h3>Ver todos os botões</h3>
+                        <p>A lista completa do add-in, painel por painel, logo abaixo.</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -297,7 +337,7 @@
                 <div class="botao-grid">
                     <div class="feature-card botao-card">
                         <h3>Clash Works</h3>
-                        <p class="selos-plataforma"><span class="plano-tag">Navisworks</span> <span class="plano-tag">Em desenvolvimento</span></p>
+                        <p class="selos-plataforma"><img src="images/logo-navisworks.webp" alt="Navisworks" class="selo-logo" width="28" height="28" loading="lazy" onerror="this.remove()"> <span class="plano-tag">Navisworks</span> <span class="plano-tag">Em desenvolvimento</span></p>
                         <p>Roda os testes de interferência em lote, agrupa os conflitos por nível, eixo e disciplina, e entrega relatório HTML e BCF que abre direto no Revit.</p>
                         <!-- [navisworks-clash-works.webp] Quando tiver, trocar o .media-slot por:
                         <img src="images/navisworks-clash-works.webp" alt="Clash Works no Navisworks" width="1280" height="720" loading="lazy" class="print-plataforma"> -->
@@ -306,7 +346,7 @@
 
                     <div class="feature-card botao-card">
                         <h3>Quantificação para o P-LAB OS</h3>
-                        <p class="selos-plataforma"><span class="plano-tag">Navisworks</span> <span class="plano-tag">Em desenvolvimento</span></p>
+                        <p class="selos-plataforma"><img src="images/logo-navisworks.webp" alt="Navisworks" class="selo-logo" width="28" height="28" loading="lazy" onerror="this.remove()"> <span class="plano-tag">Navisworks</span> <span class="plano-tag">Em desenvolvimento</span></p>
                         <p>Importa o seu catálogo de serviços para o Quantification e manda as quantidades do modelo para o módulo de custos do P-LAB OS.</p>
                         <!-- [navisworks-quantificacao.webp] Quando tiver, trocar o .media-slot por:
                         <img src="images/navisworks-quantificacao.webp" alt="Quantificação para o P-LAB OS no Navisworks" width="1280" height="720" loading="lazy" class="print-plataforma"> -->
@@ -315,7 +355,7 @@
 
                     <div class="feature-card botao-card">
                         <h3>Verificador de traçado</h3>
-                        <p class="selos-plataforma"><span class="plano-tag">Civil 3D</span> <span class="plano-tag">Em desenvolvimento</span></p>
+                        <p class="selos-plataforma"><img src="images/logo-civil3d.webp" alt="Civil 3D" class="selo-logo" width="28" height="28" loading="lazy" onerror="this.remove()"> <span class="plano-tag">Civil 3D</span> <span class="plano-tag">Em desenvolvimento</span></p>
                         <p>Confere raio, transição, superelevação e rampas de cada curva contra a norma, recalcula os valores do Civil 3D e aponta o que precisa de revisão.</p>
                         <!-- [civil3d-verificador-tracado.webp] Quando tiver, trocar o .media-slot por:
                         <img src="images/civil3d-verificador-tracado.webp" alt="Verificador de traçado no Civil 3D" width="1280" height="720" loading="lazy" class="print-plataforma"> -->
@@ -324,7 +364,7 @@
 
                     <div class="feature-card botao-card">
                         <h3>Distribuição de terraplenagem</h3>
-                        <p class="selos-plataforma"><span class="plano-tag">Civil 3D</span> <span class="plano-tag">Em desenvolvimento</span></p>
+                        <p class="selos-plataforma"><img src="images/logo-civil3d.webp" alt="Civil 3D" class="selo-logo" width="28" height="28" loading="lazy" onerror="this.remove()"> <span class="plano-tag">Civil 3D</span> <span class="plano-tag">Em desenvolvimento</span></p>
                         <p>Calcula a melhor origem e destino para cada corte e aterro, com empréstimos e bota-foras, e entrega o quadro de distribuição de terras.</p>
                         <!-- [civil3d-terraplenagem.webp] Quando tiver, trocar o .media-slot por:
                         <img src="images/civil3d-terraplenagem.webp" alt="Distribuição de terraplenagem no Civil 3D" width="1280" height="720" loading="lazy" class="print-plataforma"> -->
