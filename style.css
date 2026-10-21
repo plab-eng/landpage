@@ -1420,3 +1420,26 @@ img.apoio-qr { background: #ffffff; }
     .botao-hub__nome { font-size: 1.8rem; font-weight: 600; color: #1d2a22; letter-spacing: .5px; }
 }
 .plano-letra-miuda { font-size: 0.78rem; line-height: 1.45; }
+/* Serviços BIM: serviços em colunas, destaque do as built com imagem ao lado e a
+   faixa de formatos. (Restaurado em 21/10/2026: o PR #6 apagou junto com Novidades.) */
+.servicos-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.servico-slot { min-height: 0; aspect-ratio: 4 / 3; }
+.servico-img { width: 100%; height: auto; border-radius: var(--radius); }
+.destaque-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px; align-items: center; }
+.destaque-grid p { color: var(--text-muted); margin: 0 0 16px; }
+.formatos-titulo { display: block; margin-top: 48px; }
+.tech-badges.formatos { margin-top: 12px; }
+/* Aba Assistant: aviso da oferta de lançamento, logo abaixo do preço. */
+.oferta-lancamento { margin: 0; padding: 12px 14px; border: 1px solid var(--accent); border-radius: var(--radius); background: var(--accent-soft); color: var(--text); font-size: 0.95rem; }
+.oferta-lancamento .botao-painel { display: block; color: var(--accent); margin-bottom: 4px; }
+/* Formulário do comprovante de PIX (pix.html). */
+.form-comprovante { max-width: none; margin: 8px 0 0; gap: 12px; }
+.form-comprovante label { display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem; color: var(--text-muted); }
+.form-comprovante select { padding: 14px; border: 1px solid var(--border); border-radius: var(--radius); font-family: inherit; font-size: 1rem; background: var(--surface); color: var(--text); width: 100%; }
+.form-comprovante select:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.form-comprovante input[type="file"] { padding: 10px; font-size: 0.9rem; }
+.comprovante-titulo { margin: 8px 0 0; font-size: 1.05rem; }
+.comprovante-isca { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.comprovante-status { min-height: 1.2em; margin: 0; font-size: 0.9rem; color: var(--text-muted); }
+.comprovante-status--ok { color: var(--accent); }
+.comprovante-status--erro { color: #c0392b; }
