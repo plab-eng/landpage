@@ -192,6 +192,9 @@
              Preços e vagas da promoção vêm do banco (vitrine_de_planos); os nomes
              dos modelos vêm das rotas reais do servidor (modelos_da_vitrine) —
              nunca escritos aqui, porque o modelo troca sem release.
+             Decisão do José (22/10/2026): o cartão mostra "fabricante + nome do modelo",
+             sem o número da versão (Claude Sonnet, DeepSeek Flash...): os do servidor
+             e, depois, OUTROS_MODELOS do script. Nome repetido não aparece duas vezes.
              O HTML abaixo é a reserva estática se o banco não responder. -->
         <section class="section" id="assistant">
             <div class="container">
@@ -215,7 +218,7 @@
                         </div>
                         <div class="plano-bloco">
                             <span class="plano-bloco-titulo">IA essencial</span>
-                            <span class="plano-modelos" data-modelos="assistant">Modelos definidos no servidor da P-LAB</span>
+                            <span class="plano-modelos" data-modelos="assistant">DeepSeek Flash · Claude Haiku · Claude Sonnet · GPT Luna · GPT Terra · Gemini Flash · Kimi Code · Qwen Max</span>
                         </div>
                         <div class="plano-bloco">
                             <span class="plano-bloco-titulo">Integrações</span>
@@ -258,7 +261,7 @@
                         </div>
                         <div class="plano-bloco">
                             <span class="plano-bloco-titulo">IA de fronteira</span>
-                            <span class="plano-modelos" data-modelos="assistant_pleno">Modelos definidos no servidor da P-LAB</span>
+                            <span class="plano-modelos" data-modelos="assistant_pleno">DeepSeek Flash · Claude Haiku · Claude Sonnet · Claude Opus · GPT Luna · GPT Terra · GPT Sol · Gemini Flash · Kimi Code · Qwen Max</span>
                         </div>
                         <div class="plano-bloco">
                             <span class="plano-bloco-titulo">Integrações</span>
@@ -286,8 +289,30 @@
                     <div class="plano-card plano-card--tracejado plano-card--em-breve">
                         <span class="plano-tag">Em breve</span>
                         <h3 class="plano-nome"><span data-no-translate>PLAB Sênior</span></h3>
+                        <!-- O que o Sênior promete (22/10/2026, pedido do José): os modelos mais avançados e os itens
+                             adiados para ele no repo P-LAB (docs/PLANO-X-pacote-concorrencia.md, "Sênior (E)", e
+                             docs/LEVANTAMENTO-proxima-rodada.md), mais modelagem em tempo real e nuvem de pontos. -->
                         <p class="plano-destrava">O próximo nível do Assistant.</p>
                         <hr class="plano-divisor">
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">IA mais avançada</span>
+                            <span class="plano-modelos">Claude Fable · GPT Astra · Gemini Argon</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">O que vem</span>
+                            <ul class="plano-lista">
+                                <li>Modelagem em tempo real no Revit</li>
+                                <li>Suporte a nuvem de pontos</li>
+                                <li>Integração com AutoCAD, Rhino e Blender</li>
+                                <li>Visualizador IFC, BCF e issues</li>
+                                <li>Markup sobre a captura e anotações em PDF</li>
+                                <li>Projetos na nuvem com sincronização</li>
+                                <li>Automações em vários Revits ao mesmo tempo</li>
+                                <li>Modelagem paramétrica</li>
+                                <li>Vídeo ao vivo na conversa</li>
+                                <li>Fórmulas e diagramas na conversa</li>
+                            </ul>
+                        </div>
                         <p class="plano-cond">Sem preço ainda. Entre na lista e avisamos quando abrir.</p>
                         <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20entrar%20na%20lista%20de%20espera%20do%20PLAB%20S%C3%AAnior." class="btn-secondary plano-botao" target="_blank" rel="noopener">Entrar na lista de espera</a>
                     </div>
@@ -539,6 +564,16 @@
       function real(v) {
         return 'R$ ' + Number(v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
       }
+      // Fabricante + nome do modelo, sem o número da versão (22/10/2026):
+      // "DeepSeek V4.1 Flash" vira "DeepSeek Flash"; "GPT-6.1 Sol", "GPT Sol".
+      function semVersao(nome) {
+        return String(nome).replace(/[\s-]*(?:\b[vVkK])?\d+(?:\.\d+)*/g, '').replace(/\s+/g, ' ').trim();
+      }
+      // Citados depois dos modelos do servidor.
+      var OUTROS_MODELOS = {
+        assistant: ['GPT Luna', 'GPT Terra', 'Gemini Flash', 'Kimi Code', 'Qwen Max'],
+        assistant_pleno: ['GPT Luna', 'GPT Terra', 'GPT Sol', 'Gemini Flash', 'Kimi Code', 'Qwen Max']
+      };
       function el(atributo, chave) { return document.querySelector('[' + atributo + '="' + chave + '"]'); }
 
       fetch(PLAB_VITRINE.url + '/rest/v1/rpc/vitrine_de_planos', { headers: cab })
@@ -568,11 +603,16 @@
         .then(function (linhas) {
           ['assistant', 'assistant_pleno'].forEach(function (plano) {
             var alvo = el('data-modelos', plano);
-            var nomes = linhas.filter(function (l) { return l.plano === plano; }).map(function (l) { return l.nome; });
-            if (alvo && nomes.length) alvo.textContent = nomes.join(' · ');
+            var doPlano = linhas.filter(function (l) { return l.plano === plano; });
+            if (!alvo || !doPlano.length) return;
+            var nomes = [];
+            doPlano.map(function (l) { return semVersao(l.nome); }).concat(OUTROS_MODELOS[plano]).forEach(function (n) {
+              if (n && nomes.indexOf(n) < 0) nomes.push(n);
+            });
+            alvo.textContent = nomes.join(' · ');
           });
         })
-        .catch(function () { /* reserva: "Modelos definidos no servidor da P-LAB" */ });
+        .catch(function () { /* reserva: a lista de famílias escrita no HTML */ });
     })();
     </script>
     <script>
