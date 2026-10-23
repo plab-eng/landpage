@@ -662,7 +662,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 /* Palco com proporção FIXA (= a dos vídeos) -> mesmo enquadramento, sem layout shift */
 .carousel-stage {
     position: relative;
-    aspect-ratio: 1418 / 720;
+    aspect-ratio: 16 / 9;
     background: var(--bg-alt);
     border: 1px solid var(--border);
     border-radius: 12px;
