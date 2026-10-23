@@ -176,9 +176,31 @@
                     <div class="carousel-stage">
                         <ul class="carousel-track">
 
-                            <!-- Vídeo 1 — medidas, corte, inspeção -->
+                            <!-- Vídeo 1 — comparação de revisões -->
                             <li class="carousel-slide is-active" role="group" aria-roledescription="slide"
-                                aria-label="Slide 1 de 3: medição, corte e inspeção do modelo">
+                                aria-label="Slide 1 de 4: comparação de revisões do modelo">
+                                <div class="carousel-media">
+                                    <video class="carousel-video" muted loop playsinline preload="none"
+                                           poster="images/viewer-comparacao-revisoes-poster.webp" width="1920" height="1080">
+                                        <source src="videos/viewer-comparacao-revisoes.mp4" type="video/mp4">
+                                    </video>
+                                    <button type="button" class="carousel-bigplay" aria-label="Reproduzir o vídeo">
+                                        <i class="fas fa-play" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="carousel-video-controls">
+                                        <button type="button" class="cv-btn cv-play" aria-label="Pausar vídeo" aria-pressed="true">
+                                            <i class="fas fa-pause icon-pause" aria-hidden="true"></i><i class="fas fa-play icon-play" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="cv-btn cv-sound" aria-label="Ativar som" aria-pressed="false">
+                                            <i class="fas fa-volume-xmark icon-muted" aria-hidden="true"></i><i class="fas fa-volume-high icon-unmuted" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Vídeo 2 — medidas, corte, inspeção -->
+                            <li class="carousel-slide" role="group" aria-roledescription="slide"
+                                aria-label="Slide 2 de 4: medição, corte e inspeção do modelo">
                                 <div class="carousel-media">
                                     <video class="carousel-video" muted loop playsinline preload="none"
                                            poster="images/viewer-medicao-poster.webp" width="1920" height="1080">
@@ -200,9 +222,9 @@
                                 </div>
                             </li>
 
-                            <!-- Vídeo 2 — anotações no modelo IFC -->
+                            <!-- Vídeo 3 — anotações no modelo IFC -->
                             <li class="carousel-slide" role="group" aria-roledescription="slide"
-                                aria-label="Slide 2 de 3: anotações e considerações no modelo IFC">
+                                aria-label="Slide 3 de 4: anotações e considerações no modelo IFC">
                                 <div class="carousel-media">
                                     <video class="carousel-video" muted loop playsinline preload="none"
                                            poster="images/viewer-anotacoes-ifc-poster.webp" width="1920" height="1080">
@@ -223,9 +245,9 @@
                                 </div>
                             </li>
 
-                            <!-- Vídeo 3 — anotações em PDF -->
+                            <!-- Vídeo 4 — anotações em PDF -->
                             <li class="carousel-slide" role="group" aria-roledescription="slide"
-                                aria-label="Slide 3 de 3: marcações e revisão em prancha PDF">
+                                aria-label="Slide 4 de 4: marcações e revisão em prancha PDF">
                                 <div class="carousel-media">
                                     <video class="carousel-video" muted loop playsinline preload="none"
                                            poster="images/viewer-anotacoes-pdf-poster.webp" width="1920" height="1080">
@@ -245,40 +267,6 @@
                                     </div>
                                 </div>
                             </li>
-
-                            <!-- ===== VÍDEO 4 (COMPARAÇÃO DE REVISÕES) — INATIVO =====
-                                 PARA ATIVAR quando o vídeo estiver pronto:
-                                 1) coloque o arquivo em videos/ e renomeie para viewer-comparacao-revisoes.mp4
-                                 2) gere o poster: images/viewer-comparacao-revisoes-poster.webp
-                                    (use scripts/comprimir-midia.sh ou ffmpeg, como nos vídeos ativos)
-                                 3) descomente o bloco <li class="carousel-slide">...</li> abaixo
-                                 4) descomente também a "LEGENDA DO VÍDEO 4" lá embaixo, em .carousel-captions
-                                 5) o contador "/ N" e o total se ajustam SOZINHOS no JS (total = nº de .carousel-slide);
-                                    atualize só os aria-label estáticos "Slide X de N" para o novo total
-                                 Legenda já definida: título "Compare revisões e veja o que mudou" /
-                                 "Visualize automaticamente o que foi adicionado, removido ou modificado entre versões do modelo — sem caçar diferença manualmente."
-
-                            <li class="carousel-slide" role="group" aria-roledescription="slide"
-                                aria-label="Slide 4 de 4: comparação de revisões do modelo">
-                                <div class="carousel-media">
-                                    <video class="carousel-video" muted loop playsinline preload="none"
-                                           poster="images/viewer-comparacao-revisoes-poster.webp" width="1920" height="1080">
-                                        <source src="videos/viewer-comparacao-revisoes.mp4" type="video/mp4">
-                                    </video>
-                                    <button type="button" class="carousel-bigplay" aria-label="Reproduzir o vídeo">
-                                        <i class="fas fa-play" aria-hidden="true"></i>
-                                    </button>
-                                    <div class="carousel-video-controls">
-                                        <button type="button" class="cv-btn cv-play" aria-label="Pausar vídeo" aria-pressed="true">
-                                            <i class="fas fa-pause icon-pause" aria-hidden="true"></i><i class="fas fa-play icon-play" aria-hidden="true"></i>
-                                        </button>
-                                        <button type="button" class="cv-btn cv-sound" aria-label="Ativar som" aria-pressed="false">
-                                            <i class="fas fa-volume-xmark icon-muted" aria-hidden="true"></i><i class="fas fa-volume-high icon-unmuted" aria-hidden="true"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                            ===== FIM VÍDEO 4 ===== -->
 
                             <!-- ===== VÍDEO 5 (CLASH DETECTION) — INATIVO =====
                                  PARA ATIVAR quando o vídeo estiver pronto:
@@ -325,9 +313,13 @@
                     </div>
 
                     <div class="carousel-footer">
-                        <p class="carousel-counter" aria-hidden="true"><span class="cc-current">1</span> / <span class="cc-total">3</span></p>
+                        <p class="carousel-counter" aria-hidden="true"><span class="cc-current">1</span> / <span class="cc-total">4</span></p>
                         <div class="carousel-captions">
                             <div class="carousel-caption is-active">
+                                <strong>Compare revisões e veja o que mudou</strong>
+                                <span>Visualize automaticamente o que foi adicionado, removido ou modificado entre versões do modelo — sem caçar diferença manualmente.</span>
+                            </div>
+                            <div class="carousel-caption">
                                 <strong>Meça, corte e inspecione o modelo</strong>
                                 <span>Tire medidas, faça cortes e consulte as propriedades de cada elemento — ferramentas de revisão num fluxo pensado para o jeito brasileiro de projetar, sem se adaptar a programas feitos para outra realidade.</span>
                             </div>
@@ -339,12 +331,6 @@
                                 <strong>Revise pranchas em PDF com marcações</strong>
                                 <span>Balões, setas e carimbos de aprovação sobre o PDF — todo o ciclo de revisão, do modelo à prancha, numa só plataforma feita para o escritório brasileiro.</span>
                             </div>
-                            <!-- LEGENDA DO VÍDEO 4 (descomente junto com o slide do vídeo 4):
-                            <div class="carousel-caption">
-                                <strong>Compare revisões e veja o que mudou</strong>
-                                <span>Visualize automaticamente o que foi adicionado, removido ou modificado entre versões do modelo — sem caçar diferença manualmente.</span>
-                            </div>
-                            -->
                             <!-- LEGENDA DO VÍDEO 5 (descomente junto com o slide do vídeo 5):
                             <div class="carousel-caption">
                                 <strong>Detecte interferências entre disciplinas</strong>
