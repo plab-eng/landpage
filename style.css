@@ -1479,3 +1479,8 @@ img.apoio-qr { background: #ffffff; }
 #capacidades .cap-card p { margin: 0; }
 #capacidades .cap-exemplo { font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent); }
 #capacidades .media-slot { aspect-ratio: 16 / 9; min-height: 0; margin-top: auto; }
+#apps .apps-os + .apps-os { margin-top: 56px; padding-top: 48px; border-top: 1px solid var(--border); }
+#apps .apps-os--inverso > figure { order: -1; }
+#apps .apps-midia { margin: 0; }
+#apps .apps-midia figcaption { margin-top: 8px; font-size: .85rem; color: var(--text-muted); text-align: center; }
+@media (max-width: 860px) { #apps .apps-os--inverso > figure { order: 0; } }
