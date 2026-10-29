@@ -193,13 +193,22 @@
                 <span class="eyebrow">EM DETALHE</span>
                 <h2 class="section-title-main">O que o Assistant faz no seu projeto</h2>
                 <p class="planos-intro">Antes de alterar qualquer coisa, ele mostra um cartão com o resumo para você aplicar, e tudo tem Desfazer. Pedido de ver, listar ou conferir nunca altera o modelo. Revit 2021 a 2027.</p>
-                <div class="botao-grid cap-grid">
-                    <div class="feature-card cap-card">
-                        <span class="plano-tag">Júnior e Pleno</span>
-                        <h3>Faz pelos botões que você já tem</h3>
-                        <p>Peça em português e ele roda o botão do P-LAB, um comando do Revit ou o de outro add-in instalado. O que faltar, como formato, pasta ou quais pranchas, ele pergunta no próprio painel.</p>
-                        <p class="cap-exemplo">“Exporte as pranchas 11 a 20 em PDF combinado no perfil do cliente.”</p>
+                <div class="cap-como">
+                    <div class="cap-como__texto">
+                        <h3>Como ele trabalha</h3>
+                        <p><strong>Faz pelos botões que você já tem.</strong> Peça em português e ele roda o botão do P-LAB, um comando do Revit ou o de outro add-in instalado. O que faltar, como formato, pasta ou quais pranchas, ele pergunta no próprio painel. <span class="plano-tag">Júnior e Pleno</span></p>
+                        <p><strong>Escreve código no Revit quando não há botão.</strong> Lê o modelo, escreve e roda o código, confere o resultado olhando a vista e usa os botões e as receitas como atalhos. Ensaia a tarefa antes e junta tudo num único cartão para você aplicar. <span class="plano-tag plano-tag--gratis">Só no Pleno</span></p>
+                        <p><strong>Trabalha fora do Revit.</strong> Lê PDF, planilha, DXF e imagem, roda os scripts do escritório nas pastas que você autorizar e guarda a memória do projeto. Também se liga ao Claude Code ou ao Codex. <span class="plano-tag plano-tag--gratis">Só no Pleno</span></p>
                     </div>
+                    <figure class="cap-como__video">
+                        <button type="button" class="midia-play cap-video" data-video="videos/assistant-cotas.mp4" aria-label="Ver o vídeo: cotas por pedido">
+                            <img src="images/poster-assistant-cotas.webp" alt="O Assistant cotando uma planta no Revit a partir de um pedido" width="1280" height="720" loading="lazy">
+                            <span class="midia-play__icone" aria-hidden="true"></span>
+                        </button>
+                        <figcaption>Cotas por pedido, escritas e aplicadas pelo agente (Pleno).</figcaption>
+                    </figure>
+                </div>
+                <div class="botao-grid cap-grid">
                     <div class="feature-card cap-card">
                         <span class="plano-tag">Júnior e Pleno</span>
                         <h3>Consulta e leva para o Excel</h3>
@@ -229,6 +238,8 @@
                         <h3>Rede MEP pelos conectores</h3>
                         <p>Segue a rede até os pontos e acha pontas abertas e trechos soltos, como um tubo a 4 cm da conexão. Só lê, não altera.</p>
                         <p class="cap-exemplo">“Existem tubos soltos na rede de esgoto?”</p>
+                        <!-- [videos/assistant-rede-mep.mp4] Roteiro em /home/dev/relatorios/roteiro-video-rede-mep-20261029.md. Quando gravar, trocar o .media-slot por um .midia-play com data-video="videos/assistant-rede-mep.mp4" -->
+                        <div class="media-slot"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/assistant-rede-mep.mp4</span><p class="media-slot__hint">"Siga a rede até os pontos": terminais, pontas abertas e o tubo a 4 cm da conexão.</p></div>
                     </div>
                     <div class="feature-card cap-card">
                         <span class="plano-tag">Júnior e Pleno</span>
@@ -239,12 +250,6 @@
                             <img src="images/poster-assistant-documentacao.webp" alt="documentação de um pavimento pelo Assistant" width="1280" height="720" loading="lazy">
                             <span class="midia-play__icone" aria-hidden="true"></span>
                         </button>
-                    </div>
-                    <div class="feature-card cap-card">
-                        <span class="plano-tag plano-tag--gratis">Só no Pleno</span>
-                        <h3>Agente que escreve código no Revit</h3>
-                        <p>Lê o modelo, escreve e roda código, confere o resultado olhando a vista e usa os botões e receitas como atalhos. Ensaia a tarefa antes e junta tudo num único cartão para você aplicar.</p>
-                        <p class="cap-exemplo">“Crie as tags das luminárias e duplique a vista com cotas.”</p>
                     </div>
                     <div class="feature-card cap-card">
                         <span class="plano-tag plano-tag--gratis">Só no Pleno</span>
@@ -265,12 +270,6 @@
                             <img src="images/poster-assistant-familia-foto.webp" alt="da foto à família no Revit" width="1280" height="720" loading="lazy">
                             <span class="midia-play__icone" aria-hidden="true"></span>
                         </button>
-                    </div>
-                    <div class="feature-card cap-card">
-                        <span class="plano-tag plano-tag--gratis">Só no Pleno</span>
-                        <h3>Trabalha fora do Revit e com o seu cliente de IA</h3>
-                        <p>Lê PDF, planilha, DXF e imagem, roda scripts do escritório nas pastas que você autorizar e guarda a memória do projeto. Também se liga ao Claude Code ou ao Codex.</p>
-                        <p class="cap-exemplo">“Leia esta planilha de cargas e preencha os parâmetros dos circuitos.”</p>
                     </div>
                 </div>
                 <div class="equipe-band">

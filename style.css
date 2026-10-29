@@ -1485,3 +1485,11 @@ img.apoio-qr { background: #ffffff; }
 #apps .apps-midia figcaption { margin-top: 8px; font-size: .85rem; color: var(--text-muted); text-align: center; }
 @media (max-width: 860px) { #apps .apps-os--inverso > figure { order: 0; } }
 #capacidades .cap-video { margin-top: auto; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+#capacidades .cap-como { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; margin-bottom: 36px; }
+#capacidades .cap-como__texto h3 { margin: 0 0 12px; }
+#capacidades .cap-como__texto p { margin: 0 0 12px; color: var(--text-muted); }
+#capacidades .cap-como__texto strong { color: var(--text); }
+#capacidades .cap-como__texto .plano-tag { margin-left: 4px; vertical-align: middle; }
+#capacidades .cap-como__video { margin: 0; }
+#capacidades .cap-como__video figcaption { margin-top: 8px; font-size: .85rem; color: var(--text-muted); text-align: center; }
+@media (max-width: 860px) { #capacidades .cap-como { grid-template-columns: 1fr; } }
