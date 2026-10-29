@@ -1443,3 +1443,15 @@ img.apoio-qr { background: #ffffff; }
 .comprovante-status { min-height: 1.2em; margin: 0; font-size: 0.9rem; color: var(--text-muted); }
 .comprovante-status--ok { color: var(--accent); }
 .comprovante-status--erro { color: #c0392b; }
+
+/* P-LAB PointCloud (solucoes.html#pointcloud, 29/10/2026) */
+#pointcloud .pc-selos { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 24px; }
+#pointcloud .pc-video { aspect-ratio: 16 / 9; min-height: 0; max-width: 880px; margin: 0 auto 28px; }
+#pointcloud .botao-card .media-slot { aspect-ratio: 16 / 9; min-height: 0; margin: 4px 0 12px; }
+#pointcloud .pc-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); margin-bottom: 20px; }
+#pointcloud .pc-lista { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 0.92rem; color: var(--text-muted); }
+#pointcloud .pc-lista strong { color: var(--text); }
+#pointcloud .pc-lista .plano-tag { font-size: 0.68rem; padding: 1px 6px; vertical-align: 1px; }
+#pointcloud .pc-acoes { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+#pointcloud .pc-versoes { font-size: 0.88rem; }
+#pointcloud .pc-acoes .btn-primary, #pointcloud .pc-acoes .btn-secondary { width: auto; padding: 12px 22px; font-size: 0.95rem; line-height: 1.2; }

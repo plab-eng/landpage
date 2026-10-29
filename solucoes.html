@@ -127,8 +127,125 @@
                     <a href="https://github.com/plab-eng/P-LAB-releases/releases" class="btn-secondary" target="_blank" rel="noopener" data-releases data-i18n="sol-hero-btn3">Últimos instaladores</a>
                 </p>
                 <p class="text-center" style="margin-top:20px">
+                    <span class="plano-tag"><a href="#pointcloud">Novo: P-LAB PointCloud, nuvem de pontos no Revit</a></span>
                     <span class="plano-tag"><a href="#sob-medida" data-i18n="sol-hero-sm">Escritório com fluxo próprio? Conheça o plugin sob medida</a></span>
                 </p>
+            </div>
+        </section>
+
+        <!-- ============ P-LAB POINTCLOUD (29/10/2026) ============
+             Add-in à parte, vendido sob consulta (WhatsApp). Funções da release
+             0.3.0 (repo plab-eng/plab-pointcloud-revit); "em teste" = pede
+             confirmação antes de rodar. Vídeo e prints ainda não existem: cada
+             .media-slot mostra o nome do arquivo esperado, e o markup pronto
+             está comentado ao lado. Instalador público em
+             plab-eng/plab-pointcloud-releases. -->
+        <section class="section light-bg" id="pointcloud">
+            <div class="container">
+                <span class="botao-painel">NOVO · NUVEM DE PONTOS NO REVIT</span>
+                <h2 class="section-title-main">P-LAB PointCloud</h2>
+                <p class="planos-intro">A nuvem do seu scanner direto no Revit, sem ReCap e sem conversão: crie níveis, georreferencie, confira a obra contra o modelo e modele o existente a partir dos pontos.</p>
+                <p class="selos-plataforma pc-selos"><span class="plano-tag">Revit 2025 e 2026</span> <span class="plano-tag">E57 · LAS · LAZ · PTS · XYZ · RCP/RCS</span> <span class="plano-tag">Instala sem administrador</span> <span class="plano-tag">Em português</span></p>
+                <!-- [videos/pointcloud-visao-geral.mp4] Quando tiver, trocar o .media-slot por:
+                <button type="button" class="midia-play" data-video="videos/pointcloud-visao-geral.mp4" aria-label="Ver o vídeo: P-LAB PointCloud">
+                    <img src="images/pointcloud-visao-geral-poster.webp" alt="P-LAB PointCloud no Revit" width="1600" height="900" loading="lazy" class="print-plataforma">
+                    <span class="midia-play__icone" aria-hidden="true"></span>
+                </button> -->
+                <div class="media-slot pc-video"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/pointcloud-visao-geral.mp4</span><p class="media-slot__hint">Visão geral: vincular a nuvem, criar os níveis, conferir uma parede e modelar o existente.</p></div>
+                <div class="botao-grid pc-grid">
+                    <div class="feature-card botao-card">
+                        <h3>Vincular e ver a nuvem</h3>
+                        <!-- [pointcloud-vincular.webp] Quando tiver, trocar o .media-slot por:
+                        <img src="images/pointcloud-vincular.webp" alt="Nuvem de pontos vinculada no Revit" width="1600" height="900" loading="lazy" class="print-plataforma"> -->
+                        <div class="media-slot"><span class="media-slot__label">Imagem em breve</span><span class="media-slot__file">images/pointcloud-vincular.webp</span><p class="media-slot__hint">Print da nuvem vinculada e recortada no Revit.</p></div>
+                        <ul class="pc-lista">
+                            <li><strong>Vincular nuvem</strong> — traz E57, LAS, LAZ, PTS, XYZ e RCP/RCS para o Revit, na origem, nas coordenadas compartilhadas ou centralizada.</li>
+                            <li><strong>Info</strong> — lista as nuvens do projeto com tipo, arquivo, posição e extensão.</li>
+                            <li><strong>Estatística</strong> — mostra dimensões e densidade da nuvem e sugere as cotas de pisos e forros.</li>
+                            <li><strong>Cores</strong> — colore a nuvem por elevação, intensidade ou normal (nuvens RCP/RCS).</li>
+                            <li><strong>Recorte</strong> — isola pavimento, seleção, fatia, caixa por 3 pontos ou cerca em planta, e guarda os recortes para reaplicar.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <h3>Níveis e coordenadas</h3>
+                        <!-- [pointcloud-niveis.webp] Quando tiver, trocar o .media-slot por:
+                        <img src="images/pointcloud-niveis.webp" alt="Níveis criados a partir dos pisos da nuvem" width="1600" height="900" loading="lazy" class="print-plataforma"> -->
+                        <div class="media-slot"><span class="media-slot__label">Imagem em breve</span><span class="media-slot__file">images/pointcloud-niveis.webp</span><p class="media-slot__hint">Print dos níveis criados a partir da nuvem.</p></div>
+                        <ul class="pc-lista">
+                            <li><strong>Níveis</strong> — acha os pisos da nuvem e cria os níveis, já com a planta, nos que você marcar.</li>
+                            <li><strong>Nível por clique</strong> — clique no piso da nuvem num corte e o nível nasce com a planta.</li>
+                            <li><strong>Coordenadas pela nuvem</strong> — georreferencia o projeto por pontos de coordenada conhecida: define Survey Point e norte.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <h3>Conferência de obra</h3>
+                        <!-- [pointcloud-analise.webp] Quando tiver, trocar o .media-slot por:
+                        <img src="images/pointcloud-analise.webp" alt="Mapa de desvio entre a parede do modelo e a nuvem" width="1600" height="900" loading="lazy" class="print-plataforma"> -->
+                        <div class="media-slot"><span class="media-slot__label">Imagem em breve</span><span class="media-slot__file">images/pointcloud-analise.webp</span><p class="media-slot__hint">Print do mapa de calor da análise de superfície.</p></div>
+                        <ul class="pc-lista">
+                            <li><strong>Análise de superfície</strong> — compara uma face do modelo com a nuvem: desvio, planicidade, prumo e nível, com mapa de calor, faixas de tolerância LOA e CSV.</li>
+                            <li><strong>Clash nuvem × modelo</strong> — aponta o que o projeto novo bate no que já existe na obra, marca em vermelho e gera CSV.</li>
+                            <li><strong>Planicidade FF/FL</strong> <span class="plano-tag">em teste</span> — calcula os índices FF/FL do piso pela nuvem e gera CSV.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <h3>Modelar o existente</h3>
+                        <!-- [pointcloud-modelar.webp] Quando tiver, trocar o .media-slot por:
+                        <img src="images/pointcloud-modelar.webp" alt="Paredes e pilares modelados sobre a nuvem" width="1600" height="900" loading="lazy" class="print-plataforma"> -->
+                        <div class="media-slot"><span class="media-slot__label">Imagem em breve</span><span class="media-slot__file">images/pointcloud-modelar.webp</span><p class="media-slot__hint">Print de paredes e pilares modelados sobre a nuvem.</p></div>
+                        <ul class="pc-lista">
+                            <li><strong>Alinhar paredes</strong> — endireita, junta e fecha os cantos das paredes modeladas, com prévia antes de aplicar.</li>
+                            <li><strong>Parede</strong> <span class="plano-tag">em teste</span> — 2 cliques em planta: espessura e altura medidas na nuvem.</li>
+                            <li><strong>Laje</strong> <span class="plano-tag">em teste</span> — um retângulo em planta, no topo medido na nuvem.</li>
+                            <li><strong>Pilar</strong> <span class="plano-tag">em teste</span> — mede a seção e insere o pilar já girado, sugerindo o tipo mais próximo.</li>
+                            <li><strong>Tubo</strong> <span class="plano-tag">em teste</span> — 2 cliques: eixo e diâmetro vêm da nuvem.</li>
+                            <li><strong>Porta e janela</strong> <span class="plano-tag">em teste</span> — mede largura, peitoril e verga pela nuvem e insere a peça.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <h3>Medir na nuvem</h3>
+                        <!-- [pointcloud-medir.webp] Quando tiver, trocar o .media-slot por:
+                        <img src="images/pointcloud-medir.webp" alt="Medição de distância e desnível sobre a nuvem" width="1600" height="900" loading="lazy" class="print-plataforma"> -->
+                        <div class="media-slot"><span class="media-slot__label">Imagem em breve</span><span class="media-slot__file">images/pointcloud-medir.webp</span><p class="media-slot__hint">Print de uma medição sobre a nuvem.</p></div>
+                        <ul class="pc-lista">
+                            <li><strong>Point Info</strong> <span class="plano-tag">em teste</span> — um clique mostra coordenadas, cor, intensidade e classe do ponto.</li>
+                            <li><strong>Medir distância</strong> <span class="plano-tag">em teste</span> — distância real, horizontal e desnível em dois cliques.</li>
+                            <li><strong>Medir ruído</strong> <span class="plano-tag">em teste</span> — mede a precisão real do scanner e grava nos ajustes.</li>
+                            <li><strong>Plano de trabalho</strong> <span class="plano-tag">em teste</span> — define o plano de trabalho pela superfície clicada.</li>
+                            <li><strong>Classes da nuvem</strong> <span class="plano-tag">em teste</span> — mostra, oculta e classifica classes de pontos dentro do Revit.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <h3>Entregar</h3>
+                        <!-- [pointcloud-entregar.webp] Quando tiver, trocar o .media-slot por:
+                        <img src="images/pointcloud-entregar.webp" alt="Modelo e nuvem prontos para o P-LAB Viewer" width="1600" height="900" loading="lazy" class="print-plataforma"> -->
+                        <div class="media-slot"><span class="media-slot__label">Imagem em breve</span><span class="media-slot__file">images/pointcloud-entregar.webp</span><p class="media-slot__hint">Print da preparação para o P-LAB Viewer.</p></div>
+                        <ul class="pc-lista">
+                            <li><strong>Publicar no Viewer</strong> <span class="plano-tag">em teste</span> — prepara o modelo em IFC, a nuvem em LAZ e as fotos 360 para o P-LAB Viewer.</li>
+                            <li><strong>Limpar projeto</strong> — tira do arquivo o que o plugin deixou antes de entregar a terceiros; o que você modelou fica.</li>
+                        </ul>
+                    </div>
+
+                </div>
+                <p class="plano-cond">Recursos marcados <span class="plano-tag">em teste</span> já estão no instalador e pedem confirmação antes de rodar. A indexação da nuvem E57, LAS e LAZ acontece uma vez, na primeira abertura.</p>
+
+                <div class="equipe-band">
+                    <div>
+                        <span class="botao-painel">VENDA SOB CONSULTA</span>
+                        <h3>Quer o PointCloud no seu escritório?</h3>
+                        <p>Conte qual scanner e qual versão do Revit a equipe usa. A gente monta a proposta e acompanha a instalação.</p>
+                    </div>
+                    <div class="pc-acoes">
+                        <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20P-LAB%20PointCloud%20%28nuvem%20de%20pontos%20no%20Revit%29." class="btn-primary" target="_blank" rel="noopener">Consultar pelo WhatsApp</a>
+                        <a href="https://github.com/plab-eng/plab-pointcloud-releases/releases/latest/download/PLAB-PointCloud-Setup.exe" class="btn-secondary" rel="noopener">Baixar o instalador</a>
+                        <a href="https://github.com/plab-eng/plab-pointcloud-releases/releases" class="pc-versoes" target="_blank" rel="noopener">Todas as versões</a>
+                    </div>
+                </div>
             </div>
         </section>
 
