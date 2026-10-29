@@ -363,101 +363,6 @@
         </section>
     </main>
 
-    <footer class="main-footer">
-        <div class="container footer-grid">
-            <div class="footer-info">
-                <span class="logo-footer">P-LAB</span>
-                <p data-i18n="footer-tagline">Software e automação para engenharia.</p>
-                <p>Joinville - SC</p>
-            </div>
-            <div class="footer-nav">
-                <h3 data-i18n="footer-products">Produtos</h3>
-                <ul>
-                    <li><a href="#produtos" data-i18n="nav-plugins">Soluções</a></li>
-                    <li><a href="#viewer" data-i18n="nav-viewer">P-LAB Viewer</a></li>
-                    <li><a href="#assistant" data-i18n="nav-planos">Assistant</a></li>
-                    <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
-                    <li><a href="apoiar.html">Apoiar</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <h3 data-i18n="footer-social">Siga-nos</h3>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/company/plab-eng/" target="_blank" rel="noopener" aria-label="LinkedIn da P-LAB"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="footer-contact">
-                <h3 data-i18n="footer-contact">Contato</h3>
-                <p class="footer-white"><a href="tel:+5547989168641">(47) 98916-8641</a></p>
-                <p class="footer-white">devpicanco@gmail.com</p>
-                <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-whatsapp-footer" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            </div>
-        </div>
-        <div class="container text-center footer-bottom">
-            <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-    <!-- Popup dos vídeos dos botões (21/10/2026): a imagem é a miniatura, o play abre aqui. -->
-    <dialog class="video-popup" id="video-popup" aria-label="Vídeo do botão">
-        <button type="button" class="video-popup__fechar" aria-label="Fechar o vídeo">&times;</button>
-        <video controls playsinline preload="none"></video>
-    </dialog>
-    <script>
-    (function () {
-      var popup = document.getElementById('video-popup');
-      if (!popup || typeof popup.showModal !== 'function') return;
-      var video = popup.querySelector('video');
-      function fechar() { video.pause(); video.removeAttribute('src'); video.load(); if (popup.open) popup.close(); }
-      document.querySelectorAll('[data-video]').forEach(function (botao) {
-        botao.addEventListener('click', function () {
-          video.src = botao.getAttribute('data-video');
-          popup.showModal();
-          video.play().catch(function () {});
-          if (typeof trackEvent === 'function') trackEvent('video_botao', { video: botao.getAttribute('data-video') });
-        });
-      });
-      popup.querySelector('.video-popup__fechar').addEventListener('click', fechar);
-      popup.addEventListener('click', function (e) { if (e.target === popup) fechar(); });
-      popup.addEventListener('close', function () { video.pause(); video.removeAttribute('src'); video.load(); });
-    })();
-    </script>
-    <script>
-    /* Roda dos botões (21/10/2026): liga o centro (Revit) a cada cartão com uma linha
-       e um ponto na borda do cartão, como balões saindo do centro. Só no desktop. */
-    (function () {
-      var roda = document.querySelector('.botao-roda');
-      if (!roda) return;
-      var svg = roda.querySelector('.roda-linhas');
-      var hub = roda.querySelector('.botao-hub__anel');
-      var NS = 'http://www.w3.org/2000/svg';
-      function el(nome, attrs) { var e = document.createElementNS(NS, nome); for (var k in attrs) e.setAttribute(k, attrs[k]); return e; }
-      function desenhar() {
-        while (svg.firstChild) svg.removeChild(svg.firstChild);
-        if (!hub || hub.offsetParent === null) return;
-        var base = roda.getBoundingClientRect();
-        var h = hub.getBoundingClientRect();
-        var cx = h.left + h.width / 2 - base.left, cy = h.top + h.height / 2 - base.top, r = h.width / 2 + 10;
-        svg.setAttribute('viewBox', '0 0 ' + base.width + ' ' + base.height);
-        roda.querySelectorAll(':scope > .botao-card').forEach(function (card) {
-          var b = card.getBoundingClientRect();
-          var x0 = b.left - base.left, y0 = b.top - base.top, x1 = x0 + b.width, y1 = y0 + b.height;
-          var px = Math.max(x0, Math.min(cx, x1)), py = Math.max(y0, Math.min(cy, y1));
-          var dx = px - cx, dy = py - cy, d = Math.sqrt(dx * dx + dy * dy) || 1;
-          var sx = cx + dx / d * r, sy = cy + dy / d * r;
-          svg.appendChild(el('line', { x1: sx, y1: sy, x2: px, y2: py, 'class': 'roda-linha' }));
-          svg.appendChild(el('circle', { cx: sx, cy: sy, r: 5, 'class': 'roda-ponto' }));
-          svg.appendChild(el('circle', { cx: px, cy: py, r: 5, 'class': 'roda-ponto' }));
-        });
-      }
-      window.addEventListener('resize', desenhar);
-      window.addEventListener('load', desenhar);
-      if (window.ResizeObserver) new ResizeObserver(desenhar).observe(roda);
-      desenhar();
-    })();
-    </script>
-
     <!-- Painéis das soluções e sanfona (29/10/2026) -->
     <div class="painel" id="painel-addin" role="dialog" aria-modal="true" aria-labelledby="painel-addin-t" hidden>
         <div class="painel__caixa">
@@ -1647,6 +1552,103 @@
             </div>
         </div>
     </div>
+
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <span class="logo-footer">P-LAB</span>
+                <p data-i18n="footer-tagline">Software e automação para engenharia.</p>
+                <p>Joinville - SC</p>
+            </div>
+            <div class="footer-nav">
+                <h3 data-i18n="footer-products">Produtos</h3>
+                <ul>
+                    <li><a href="#produtos" data-i18n="nav-plugins">Soluções</a></li>
+                    <li><a href="#viewer" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="#assistant" data-i18n="nav-planos">Assistant</a></li>
+                    <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
+                    <li><a href="apoiar.html">Apoiar</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3 data-i18n="footer-social">Siga-nos</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/plab-eng/" target="_blank" rel="noopener" aria-label="LinkedIn da P-LAB"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h3 data-i18n="footer-contact">Contato</h3>
+                <p class="footer-white"><a href="tel:+5547989168641">(47) 98916-8641</a></p>
+                <p class="footer-white">devpicanco@gmail.com</p>
+                <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-whatsapp-footer" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+        <div class="container text-center footer-bottom">
+            <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- Popup dos vídeos dos botões (21/10/2026): a imagem é a miniatura, o play abre aqui. -->
+    <dialog class="video-popup" id="video-popup" aria-label="Vídeo do botão">
+        <button type="button" class="video-popup__fechar" aria-label="Fechar o vídeo">&times;</button>
+        <video controls playsinline preload="none"></video>
+    </dialog>
+    <script>
+    (function () {
+      var popup = document.getElementById('video-popup');
+      if (!popup || typeof popup.showModal !== 'function') return;
+      var video = popup.querySelector('video');
+      function fechar() { video.pause(); video.removeAttribute('src'); video.load(); if (popup.open) popup.close(); }
+      document.querySelectorAll('[data-video]').forEach(function (botao) {
+        botao.addEventListener('click', function () {
+          video.src = botao.getAttribute('data-video');
+          popup.showModal();
+          video.play().catch(function () {});
+          if (typeof trackEvent === 'function') trackEvent('video_botao', { video: botao.getAttribute('data-video') });
+        });
+      });
+      popup.querySelector('.video-popup__fechar').addEventListener('click', fechar);
+      popup.addEventListener('click', function (e) { if (e.target === popup) fechar(); });
+      popup.addEventListener('close', function () { video.pause(); video.removeAttribute('src'); video.load(); });
+    })();
+    </script>
+    <script>
+    /* Roda dos botões (21/10/2026): liga o centro (Revit) a cada cartão com uma linha
+       e um ponto na borda do cartão, como balões saindo do centro. Só no desktop. */
+    (function () {
+      var roda = document.querySelector('.botao-roda');
+      if (!roda) return;
+      var svg = roda.querySelector('.roda-linhas');
+      var hub = roda.querySelector('.botao-hub__anel');
+      var NS = 'http://www.w3.org/2000/svg';
+      function el(nome, attrs) { var e = document.createElementNS(NS, nome); for (var k in attrs) e.setAttribute(k, attrs[k]); return e; }
+      function desenhar() {
+        while (svg.firstChild) svg.removeChild(svg.firstChild);
+        if (!hub || hub.offsetParent === null) return;
+        var base = roda.getBoundingClientRect();
+        var h = hub.getBoundingClientRect();
+        var cx = h.left + h.width / 2 - base.left, cy = h.top + h.height / 2 - base.top, r = h.width / 2 + 10;
+        svg.setAttribute('viewBox', '0 0 ' + base.width + ' ' + base.height);
+        roda.querySelectorAll(':scope > .botao-card').forEach(function (card) {
+          var b = card.getBoundingClientRect();
+          var x0 = b.left - base.left, y0 = b.top - base.top, x1 = x0 + b.width, y1 = y0 + b.height;
+          var px = Math.max(x0, Math.min(cx, x1)), py = Math.max(y0, Math.min(cy, y1));
+          var dx = px - cx, dy = py - cy, d = Math.sqrt(dx * dx + dy * dy) || 1;
+          var sx = cx + dx / d * r, sy = cy + dy / d * r;
+          svg.appendChild(el('line', { x1: sx, y1: sy, x2: px, y2: py, 'class': 'roda-linha' }));
+          svg.appendChild(el('circle', { cx: sx, cy: sy, r: 5, 'class': 'roda-ponto' }));
+          svg.appendChild(el('circle', { cx: px, cy: py, r: 5, 'class': 'roda-ponto' }));
+        });
+      }
+      window.addEventListener('resize', desenhar);
+      window.addEventListener('load', desenhar);
+      if (window.ResizeObserver) new ResizeObserver(desenhar).observe(roda);
+      desenhar();
+    })();
+    </script>
+
 <!-- Preço com uma fonte só (13/09/2026): os números acima, escritos à
          mão, são a RESERVA. Se o banco responder, eles saem daqui; se a
          chamada falhar (rede fora, RPC fora do ar), o HTML estático
