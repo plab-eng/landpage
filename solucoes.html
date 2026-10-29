@@ -47,7 +47,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9WEG41PNK"></script>
    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P-LAB para Revit | P-LAB</title>
+    <title>Automações para Revit, Navisworks e Civil 3D | P-LAB</title>
     <meta name="description" content="P-LAB para Revit, o add-in gratuito que documenta sozinho, tira a tarefa repetitiva e calcula dentro do modelo: cotas, vistas, pranchas, exportação e cálculo elétrico.">
     <link rel="canonical" href="https://plabdev.com.br/solucoes.html">
     <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/solucoes.html">
@@ -61,7 +61,7 @@
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://plabdev.com.br/solucoes.html">
-    <meta property="og:title" content="P-LAB para Revit | P-LAB">
+    <meta property="og:title" content="Automações para Revit, Navisworks e Civil 3D | P-LAB">
     <meta property="og:description" content="Documentação automática, tarefas repetitivas em lote e cálculo de engenharia dentro do Revit. Baixe de graça e libere as ferramentas avançadas quando precisar.">
     <meta property="og:image" content="https://plabdev.com.br/images/logo-icon.png">
     <link rel="stylesheet" href="style.css">
@@ -82,10 +82,9 @@
             </button>
             <nav class="primary-nav" id="primary-nav">
                 <ul class="nav-links">
-                    <li><a href="solucoes.html" class="active" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="solucoes.html" class="active" data-i18n="nav-plugins">Automações</a></li>
                     <li><a href="planos.html" data-i18n="nav-planos">Assistant</a></li>
                     <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
-                    <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
                     <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
                 </ul>
                 <div class="nav-extra">
@@ -118,7 +117,7 @@
     <main>
         <section class="section hero-section">
             <div class="container text-center">
-                <span class="eyebrow" data-i18n="sol-eyebrow">P-LAB PARA REVIT</span>
+                <span class="eyebrow" data-i18n="sol-eyebrow">AUTOMAÇÕES · P-LAB PARA REVIT</span>
                 <h1 data-i18n="sol-title">O Revit fazendo a parte chata do projeto</h1>
                 <p class="hero-lead" data-i18n="sol-lead">Documentação que se resolve sozinha, tarefas repetitivas em lote e cálculo de engenharia dentro do modelo. Gratuito: baixe e use todas as ferramentas hoje.</p>
                 <p class="hero-actions" style="justify-content:center">
@@ -130,6 +129,174 @@
                     <span class="plano-tag"><a href="#pointcloud">Novo: P-LAB PointCloud, nuvem de pontos no Revit</a></span>
                     <span class="plano-tag"><a href="#sob-medida" data-i18n="sol-hero-sm">Escritório com fluxo próprio? Conheça o plugin sob medida</a></span>
                 </p>
+            </div>
+        </section>
+
+        <!-- ============ TODOS OS BOTÕES ============
+             Listas entre os marcadores catalogo:... são geradas no deploy por
+             scripts/montar_catalogo.py a partir do catalogo.json do último
+             release, agrupadas pelo painel da ribbon. Para mudar "Em breve",
+             nome ou esconder um botão, edite scripts/catalogo_site.json —
+             edição à mão aqui é sobrescrita. -->
+        <section class="section light-bg" id="botoes">
+            <div class="container">
+                <span class="botao-painel">TODOS OS BOTÕES</span>
+                <h2 class="section-title-main">O que vem no add-in, painel por painel</h2>
+                <p class="planos-intro">A mesma organização da ribbon do Revit. A lista acompanha cada versão nova do add-in.</p>
+                <img src="images/ribbon-plab.webp" alt="A aba P-LAB na ribbon do Revit, com os painéis Tools, MEP e Assistant" width="1056" height="118" loading="lazy" class="ribbon-plab">
+                <div class="modulos-grid">
+                    <div class="feature-card modulo-card">
+                        <h3>Tools</h3>
+                        <p>Modelo, vínculos, vistas, pranchas, cotas e exportação.</p>
+                        <ul class="plano-lista">
+                            <!-- catalogo:tools -->
+                            <li>Transferir Estado</li>
+                            <li>Copiar Propriedades</li>
+                            <li>Copiar entre Projetos</li>
+                            <li>Vínculos</li>
+                            <li>Painel P-LAB</li>
+                            <li>Limpar Grupos</li>
+                            <li>Identificar Pintura</li>
+                            <li>Alinhar Norte</li>
+                            <li>DXF/PDF Legenda</li>
+                            <li>Gerar Vistas</li>
+                            <li>Gerenciador de Pranchas</li>
+                            <li>Cota Automática</li>
+                            <li>Config Cotas</li>
+                            <li>Exportar</li>
+                            <li>Suporte</li>
+                            <li><span>Transferir Parâmetros</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Eliminar Duplicados</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Alinhar Tags / Spots</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Numerar Detalhes</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Ordenar Viewports</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Memória Seleção</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Visibilidade Links</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Exportar Worksets</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <!-- /catalogo:tools -->
+                        </ul>
+                    </div>
+
+                    <div class="feature-card modulo-card">
+                        <h3>MEP</h3>
+                        <p>Elétrica e hidrossanitário pela norma brasileira, direto no modelo.</p>
+                        <ul class="plano-lista">
+                            <!-- catalogo:mep -->
+                            <li>Elétrica</li>
+                            <li>Conectar Tubos</li>
+                            <li><span>Anotar Circuitos, Conduletes e Disjuntores</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Quadros: monitorar e redimensionar</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Verificador NBR 5410</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Croqui → Hidrossanitário</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Prumadas, suportes e seta de fluxo</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <li><span>Verificador NBR 8160 / 5626</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
+                            <!-- /catalogo:mep -->
+                        </ul>
+                    </div>
+
+                    <!-- Coluna do Assistant: o cartão dele é curto, então o do plugin sob
+                         medida entra logo abaixo, em vez de abrir uma linha nova na grade. -->
+                    <div class="modulos-coluna">
+                        <div class="feature-card modulo-card">
+                            <h3>PLAB Assistant</h3>
+                            <p><span class="plano-tag">Pago</span></p>
+                            <p>A IA que lê e altera o seu modelo do Revit. Vem com o P-LAB OS e o P-LAB Viewer. <a href="planos.html#assistant">Ver o plano</a>.</p>
+                        </div>
+                        <div class="feature-card modulo-card modulo-card--sob-medida">
+                            <h3>Plugin personalizado</h3>
+                            <p><span class="plano-tag">Sob medida</span></p>
+                            <p>Precisa de um botão que não está na lista? A gente adapta o plugin ao fluxo, ao template e às famílias do seu escritório.</p>
+                            <p>Fechado em proposta, conforme o escopo. <a href="#sob-medida">Como funciona</a>.</p>
+                            <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20de%20plugin%20sob%20medida." class="btn-primary" target="_blank" rel="noopener">Pedir uma proposta</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ALGUNS EXEMPLOS ============
+             Cinco botões com descrição e vídeo. A lista completa vem logo
+             abaixo (#botoes), montada a partir do release do add-in. -->
+        <section class="section" id="exemplos">
+            <div class="container">
+                <span class="botao-painel">ALGUNS EXEMPLOS</span>
+                <h2 class="section-title-main">Alguns botões em ação</h2>
+                <div class="botao-grid botao-roda">
+                    <svg class="roda-linhas" aria-hidden="true"></svg>
+                    <div class="feature-card botao-card">
+                        <h3 data-i18n="bt-cota-t">Cota Automática</h3>
+                        <p data-i18n="bt-cota-d">Gera as cotas de locação a partir da configuração salva, sem clicar ponto a ponto.</p>
+                        <!-- [VÍDEO] Trocar por <video src="videos/cota-automatica.mp4"> quando gravado -->
+                        <img src="images/ex-cota-automatica.webp" alt="Cotas de locação geradas automaticamente na planta" width="1600" height="900" loading="lazy" class="print-plataforma">
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <h3 data-i18n="bt-vistas-t">Gerar Vistas</h3>
+                        <p data-i18n="bt-vistas-d">Cria plantas, ampliações e cortes a partir de ambientes ou de uma seleção — em lote e com nomenclatura padronizada.</p>
+                        <button type="button" class="midia-play" data-video="videos/gerar-vistas.mp4" aria-label="Ver o vídeo: Gerar Vistas">
+                            <img src="images/ex-gerar-vistas.webp" alt="Vistas geradas em lote a partir dos ambientes" width="1600" height="900" loading="lazy" class="print-plataforma">
+                            <span class="midia-play__icone" aria-hidden="true"></span>
+                        </button>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <h3 data-i18n="bt-pranchas-t">Gerenciador de Pranchas</h3>
+                        <p data-i18n="bt-pranchas-d">Monta as pranchas a partir de um template e posiciona as vistas automaticamente.</p>
+                        <button type="button" class="midia-play" data-video="videos/gerenciador-pranchas.mp4" aria-label="Ver o vídeo: Gerenciador de Pranchas">
+                            <img src="images/ex-gerenciador-pranchas.webp" alt="Vistas posicionadas nas pranchas automaticamente" width="1600" height="900" loading="lazy" class="print-plataforma">
+                            <span class="midia-play__icone" aria-hidden="true"></span>
+                        </button>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <h3>DXF/PDF Legenda</h3>
+                        <p>Traz um DXF ou PDF (carimbo, detalhe padrão, nota) para uma vista de legenda do Revit, pronta para ir para a prancha.</p>
+                        <button type="button" class="midia-play" data-video="videos/dxf-pdf-legenda.mp4" aria-label="Ver o vídeo: DXF/PDF Legenda">
+                            <img src="images/ex-dxf-pdf-legenda.webp" alt="Um DXF e um PDF virando uma vista de legenda do Revit" width="1600" height="900" loading="lazy" class="print-plataforma">
+                            <span class="midia-play__icone" aria-hidden="true"></span>
+                        </button>
+                    </div>
+
+                    <!-- Centro da roda (desktop): o Revit, com os botões em volta. No celular
+                         some e os cartões viram a grade normal. -->
+                    <div class="botao-hub" aria-hidden="true">
+                        <div class="botao-hub__anel">
+                            <!-- Ícone oficial do Revit (enviado pelo José, 21/10/2026). -->
+                            <img src="images/logo-revit.webp" alt="" class="botao-hub__logo" width="96" height="96" onerror="this.remove()">
+                            <span class="botao-hub__nome">Revit</span>
+                        </div>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <h3 data-i18n="bt-pranchas-exp-t">Exportar Pranchas</h3>
+                        <p data-i18n="bt-pranchas-exp-d">Exporta pranchas em PDF, DWG e DWF em massa, com o nome montado no seu padrão e organização automática em subpastas.</p>
+                        <button type="button" class="midia-play" data-video="videos/Exportar%20pranchas.mp4" aria-label="Ver o vídeo: Exportar Pranchas">
+                            <img src="images/ex-exportar-pranchas.webp" alt="Uma pilha de pranchas sendo exportada em lote para PDF, DWG e DWF, cada formato em sua própria pasta" width="1600" height="900" loading="lazy" class="print-plataforma">
+                            <span class="midia-play__icone" aria-hidden="true"></span>
+                        </button>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <h3>Exportar Tabelas</h3>
+                        <p>No botão Exportar: leva as tabelas do modelo para o Excel (.xlsx) em lote, prontas para orçamento e lista de materiais.</p>
+                        <button type="button" class="midia-play" data-video="videos/Exportar%20planilhas.mp4" aria-label="Ver o vídeo: Exportar Tabelas">
+                            <img src="images/ex-exportar-tabelas.webp" alt="Tabelas do Revit virando planilhas do Excel em lote" width="1600" height="900" loading="lazy" class="print-plataforma">
+                            <span class="midia-play__icone" aria-hidden="true"></span>
+                        </button>
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <h3 data-i18n="bt-circ-t">Transferir Circuitos</h3>
+                        <p data-i18n="bt-circ-d">Move circuitos de um quadro de distribuição para outro em uma única operação — e um único Ctrl+Z desfaz tudo.</p>
+                        <!-- [VÍDEO] Trocar por <video src="videos/transferir-circuitos.mp4"> quando gravado -->
+                        <img src="images/ex-transferir-circuitos.webp" alt="Circuitos passando de um quadro de distribuição para outro" width="1600" height="900" loading="lazy" class="print-plataforma">
+                    </div>
+
+                    <a class="feature-card botao-card botao-card--todos" href="#botoes">
+                        <h3>Ver todos os botões</h3>
+                        <p>A lista completa do add-in, painel por painel, logo acima.</p>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -234,6 +401,30 @@
                 </div>
                 <p class="plano-cond">Recursos marcados <span class="plano-tag">em teste</span> já estão no instalador e pedem confirmação antes de rodar. A indexação da nuvem E57, LAS e LAZ acontece uma vez, na primeira abertura.</p>
 
+                <div class="pc-depois">
+                    <span class="botao-painel">O QUE VEM DEPOIS · PLANEJADO</span>
+                    <h3>P-LAB PointCloud para desktop</h3>
+                    <p>Um programa para Windows que trata a nuvem de pontos sem precisar do Revit: importa, georreferencia, limpa, decima, classifica, mede, compara e exporta. Em português, sem travar a tela nas operações longas, com desfazer e sem sobrescrever o arquivo original. O resultado vai direto para o add-in do Revit e para o <a href="viewer.html#viewer-pro">P-LAB Viewer</a>.</p>
+                    <div class="botao-grid pc-etapas">
+                        <div class="feature-card">
+                            <span class="plano-tag">Etapa 1</span>
+                            <h4>Abrir, limpar e exportar</h4>
+                            <p>E57, LAS e LAZ em 3D com cores e caixa de corte; recorte por cerca, redução de pontos e remoção de ruído; exporta E57 e LAS/LAZ e envia ao Viewer. Para quem hoje abre o ReCap só para limpar e converter.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="plano-tag">Etapa 2</span>
+                            <h4>Classificar, georreferenciar e terreno</h4>
+                            <p>Classes e regiões, sistema de coordenadas, união de nuvens, solo automático, seções, volume, modelo de terreno e superfície LandXML para o Civil 3D.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="plano-tag">Etapa 3</span>
+                            <h4>Analisar</h4>
+                            <p>Comparação nuvem × nuvem e nuvem × modelo, alinhamento automático entre nuvens, detecção de formas e malha.</p>
+                        </div>
+                    </div>
+                    <p class="plano-cond">Em planejamento, sem data definida. Quer ser avisado ou participar dos testes? Fale com a gente no WhatsApp.</p>
+                </div>
+
                 <div class="equipe-band">
                     <div>
                         <span class="botao-painel">VENDA SOB CONSULTA</span>
@@ -244,174 +435,6 @@
                         <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20P-LAB%20PointCloud%20%28nuvem%20de%20pontos%20no%20Revit%29." class="btn-primary" target="_blank" rel="noopener">Consultar pelo WhatsApp</a>
                         <a href="https://github.com/plab-eng/plab-pointcloud-releases/releases/latest/download/PLAB-PointCloud-Setup.exe" class="btn-secondary" rel="noopener">Baixar o instalador</a>
                         <a href="https://github.com/plab-eng/plab-pointcloud-releases/releases" class="pc-versoes" target="_blank" rel="noopener">Todas as versões</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ ALGUNS EXEMPLOS ============
-             Cinco botões com descrição e vídeo. A lista completa vem logo
-             abaixo (#botoes), montada a partir do release do add-in. -->
-        <section class="section" id="exemplos">
-            <div class="container">
-                <span class="botao-painel">ALGUNS EXEMPLOS</span>
-                <h2 class="section-title-main">Alguns botões em ação</h2>
-                <div class="botao-grid botao-roda">
-                    <svg class="roda-linhas" aria-hidden="true"></svg>
-                    <div class="feature-card botao-card">
-                        <h3 data-i18n="bt-cota-t">Cota Automática</h3>
-                        <p data-i18n="bt-cota-d">Gera as cotas de locação a partir da configuração salva, sem clicar ponto a ponto.</p>
-                        <!-- [VÍDEO] Trocar por <video src="videos/cota-automatica.mp4"> quando gravado -->
-                        <img src="images/ex-cota-automatica.webp" alt="Cotas de locação geradas automaticamente na planta" width="1600" height="900" loading="lazy" class="print-plataforma">
-                    </div>
-
-                    <div class="feature-card botao-card">
-                        <h3 data-i18n="bt-vistas-t">Gerar Vistas</h3>
-                        <p data-i18n="bt-vistas-d">Cria plantas, ampliações e cortes a partir de ambientes ou de uma seleção — em lote e com nomenclatura padronizada.</p>
-                        <button type="button" class="midia-play" data-video="videos/gerar-vistas.mp4" aria-label="Ver o vídeo: Gerar Vistas">
-                            <img src="images/ex-gerar-vistas.webp" alt="Vistas geradas em lote a partir dos ambientes" width="1600" height="900" loading="lazy" class="print-plataforma">
-                            <span class="midia-play__icone" aria-hidden="true"></span>
-                        </button>
-                    </div>
-
-                    <div class="feature-card botao-card">
-                        <h3 data-i18n="bt-pranchas-t">Gerenciador de Pranchas</h3>
-                        <p data-i18n="bt-pranchas-d">Monta as pranchas a partir de um template e posiciona as vistas automaticamente.</p>
-                        <button type="button" class="midia-play" data-video="videos/gerenciador-pranchas.mp4" aria-label="Ver o vídeo: Gerenciador de Pranchas">
-                            <img src="images/ex-gerenciador-pranchas.webp" alt="Vistas posicionadas nas pranchas automaticamente" width="1600" height="900" loading="lazy" class="print-plataforma">
-                            <span class="midia-play__icone" aria-hidden="true"></span>
-                        </button>
-                    </div>
-
-                    <div class="feature-card botao-card">
-                        <h3>DXF/PDF Legenda</h3>
-                        <p>Traz um DXF ou PDF (carimbo, detalhe padrão, nota) para uma vista de legenda do Revit, pronta para ir para a prancha.</p>
-                        <button type="button" class="midia-play" data-video="videos/dxf-pdf-legenda.mp4" aria-label="Ver o vídeo: DXF/PDF Legenda">
-                            <img src="images/ex-dxf-pdf-legenda.webp" alt="Um DXF e um PDF virando uma vista de legenda do Revit" width="1600" height="900" loading="lazy" class="print-plataforma">
-                            <span class="midia-play__icone" aria-hidden="true"></span>
-                        </button>
-                    </div>
-
-                    <!-- Centro da roda (desktop): o Revit, com os botões em volta. No celular
-                         some e os cartões viram a grade normal. -->
-                    <div class="botao-hub" aria-hidden="true">
-                        <div class="botao-hub__anel">
-                            <!-- Ícone oficial do Revit (enviado pelo José, 21/10/2026). -->
-                            <img src="images/logo-revit.webp" alt="" class="botao-hub__logo" width="96" height="96" onerror="this.remove()">
-                            <span class="botao-hub__nome">Revit</span>
-                        </div>
-                    </div>
-
-                    <div class="feature-card botao-card">
-                        <h3 data-i18n="bt-pranchas-exp-t">Exportar Pranchas</h3>
-                        <p data-i18n="bt-pranchas-exp-d">Exporta pranchas em PDF, DWG e DWF em massa, com o nome montado no seu padrão e organização automática em subpastas.</p>
-                        <button type="button" class="midia-play" data-video="videos/Exportar%20pranchas.mp4" aria-label="Ver o vídeo: Exportar Pranchas">
-                            <img src="images/ex-exportar-pranchas.webp" alt="Uma pilha de pranchas sendo exportada em lote para PDF, DWG e DWF, cada formato em sua própria pasta" width="1600" height="900" loading="lazy" class="print-plataforma">
-                            <span class="midia-play__icone" aria-hidden="true"></span>
-                        </button>
-                    </div>
-
-                    <div class="feature-card botao-card">
-                        <h3>Exportar Tabelas</h3>
-                        <p>No botão Exportar: leva as tabelas do modelo para o Excel (.xlsx) em lote, prontas para orçamento e lista de materiais.</p>
-                        <button type="button" class="midia-play" data-video="videos/Exportar%20planilhas.mp4" aria-label="Ver o vídeo: Exportar Tabelas">
-                            <img src="images/ex-exportar-tabelas.webp" alt="Tabelas do Revit virando planilhas do Excel em lote" width="1600" height="900" loading="lazy" class="print-plataforma">
-                            <span class="midia-play__icone" aria-hidden="true"></span>
-                        </button>
-                    </div>
-
-                    <div class="feature-card botao-card">
-                        <h3 data-i18n="bt-circ-t">Transferir Circuitos</h3>
-                        <p data-i18n="bt-circ-d">Move circuitos de um quadro de distribuição para outro em uma única operação — e um único Ctrl+Z desfaz tudo.</p>
-                        <!-- [VÍDEO] Trocar por <video src="videos/transferir-circuitos.mp4"> quando gravado -->
-                        <img src="images/ex-transferir-circuitos.webp" alt="Circuitos passando de um quadro de distribuição para outro" width="1600" height="900" loading="lazy" class="print-plataforma">
-                    </div>
-
-                    <a class="feature-card botao-card botao-card--todos" href="#botoes">
-                        <h3>Ver todos os botões</h3>
-                        <p>A lista completa do add-in, painel por painel, logo abaixo.</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ TODOS OS BOTÕES ============
-             Listas entre os marcadores catalogo:... são geradas no deploy por
-             scripts/montar_catalogo.py a partir do catalogo.json do último
-             release, agrupadas pelo painel da ribbon. Para mudar "Em breve",
-             nome ou esconder um botão, edite scripts/catalogo_site.json —
-             edição à mão aqui é sobrescrita. -->
-        <section class="section light-bg" id="botoes">
-            <div class="container">
-                <span class="botao-painel">TODOS OS BOTÕES</span>
-                <h2 class="section-title-main">O que vem no add-in, painel por painel</h2>
-                <p class="planos-intro">A mesma organização da ribbon do Revit. A lista acompanha cada versão nova do add-in.</p>
-                <img src="images/ribbon-plab.webp" alt="A aba P-LAB na ribbon do Revit, com os painéis Tools, MEP e Assistant" width="1056" height="118" loading="lazy" class="ribbon-plab">
-                <div class="modulos-grid">
-                    <div class="feature-card modulo-card">
-                        <h3>Tools</h3>
-                        <p>Modelo, vínculos, vistas, pranchas, cotas e exportação.</p>
-                        <ul class="plano-lista">
-                            <!-- catalogo:tools -->
-                            <li>Transferir Estado</li>
-                            <li>Copiar Propriedades</li>
-                            <li>Copiar entre Projetos</li>
-                            <li>Vínculos</li>
-                            <li>Painel P-LAB</li>
-                            <li>Limpar Grupos</li>
-                            <li>Identificar Pintura</li>
-                            <li>Alinhar Norte</li>
-                            <li>DXF/PDF Legenda</li>
-                            <li>Gerar Vistas</li>
-                            <li>Gerenciador de Pranchas</li>
-                            <li>Cota Automática</li>
-                            <li>Config Cotas</li>
-                            <li>Exportar</li>
-                            <li>Suporte</li>
-                            <li><span>Transferir Parâmetros</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
-                            <li><span>Eliminar Duplicados</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
-                            <li><span>Alinhar Tags / Spots</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
-                            <li><span>Numerar Detalhes</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
-                            <li><span>Ordenar Viewports</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
-                            <li><span>Memória Seleção</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
-                            <li><span>Visibilidade Links</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
-                            <li><span>Exportar Worksets</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
-                            <!-- /catalogo:tools -->
-                        </ul>
-                    </div>
-
-                    <div class="feature-card modulo-card">
-                        <h3>MEP</h3>
-                        <p>Elétrica e hidrossanitário pela norma brasileira, direto no modelo.</p>
-                        <ul class="plano-lista">
-                            <!-- catalogo:mep -->
-                            <li>Elétrica</li>
-                            <li>Conectar Tubos</li>
-                            <li><span>Anotar Circuitos, Conduletes e Disjuntores</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
-                            <li><span>Quadros: monitorar e redimensionar</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
-                            <li><span>Verificador NBR 5410</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
-                            <li><span>Croqui → Hidrossanitário</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
-                            <li><span>Prumadas, suportes e seta de fluxo</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
-                            <li><span>Verificador NBR 8160 / 5626</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
-                            <!-- /catalogo:mep -->
-                        </ul>
-                    </div>
-
-                    <!-- Coluna do Assistant: o cartão dele é curto, então o do plugin sob
-                         medida entra logo abaixo, em vez de abrir uma linha nova na grade. -->
-                    <div class="modulos-coluna">
-                        <div class="feature-card modulo-card">
-                            <h3>PLAB Assistant</h3>
-                            <p><span class="plano-tag">Pago</span></p>
-                            <p>A IA que lê e altera o seu modelo do Revit. Vem com o P-LAB OS e o P-LAB Viewer. <a href="planos.html#assistant">Ver o plano</a>.</p>
-                        </div>
-                        <div class="feature-card modulo-card modulo-card--sob-medida">
-                            <h3>Plugin personalizado</h3>
-                            <p><span class="plano-tag">Sob medida</span></p>
-                            <p>Precisa de um botão que não está na lista? A gente adapta o plugin ao fluxo, ao template e às famílias do seu escritório.</p>
-                            <p>Fechado em proposta, conforme o escopo. <a href="#sob-medida">Como funciona</a>.</p>
-                            <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20de%20plugin%20sob%20medida." class="btn-primary" target="_blank" rel="noopener">Pedir uma proposta</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -477,10 +500,39 @@
             </div>
         </section>
 
+        <!-- ============ SOFTWARES E APPS (29/10/2026) ============
+             O P-LAB OS saiu do menu (decisão do José) e virou esta seção. Sem
+             cartão de pagamento: a conversa é pelo WhatsApp. A página antiga
+             plab-os.html redireciona para cá. -->
+        <section class="section light-bg" id="apps">
+            <div class="container">
+                <span class="botao-painel">SOFTWARES E APPS</span>
+                <h2 class="section-title-main">Software para o escritório de projetos</h2>
+                <p class="planos-intro">Além das automações, a P-LAB desenvolve aplicativos para o dia a dia do escritório. O primeiro é o P-LAB OS.</p>
+                <div class="apps-os">
+                    <div>
+                        <h3>P-LAB OS</h3>
+                        <p>Gestão do escritório de projetos no navegador, com uma conta só para a equipe.</p>
+                        <ul class="pc-lista">
+                            <li><strong>Início</strong> — a semana de cada pessoa, o cronômetro de horas por projeto e disciplina, e o desempenho: horas lançadas e consumo do previsto.</li>
+                            <li><strong>Projetos</strong> — carteira de projetos e propostas, com funil de vendas e preço sugerido a partir do custo real da equipe.</li>
+                            <li><strong>Viewer</strong> — modelos IFC, PDF, DXF e DWG no navegador, ligados ao mesmo projeto. Conheça o <a href="viewer.html">P-LAB Viewer</a>.</li>
+                            <li><strong>Dimensions</strong> — dimensionadores de elétrica e hidráulica no navegador, abertos direto do menu.</li>
+                        </ul>
+                        <p class="hero-actions"><a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20OS." class="btn-primary" target="_blank" rel="noopener">Quero conhecer o P-LAB OS</a></p>
+                    </div>
+                    <button type="button" class="midia-play" data-video="videos/plab-os-tour.mp4" aria-label="Ver o vídeo: tour do P-LAB OS">
+                        <img src="images/poster-plab-os.webp" alt="O P-LAB OS por dentro: horas, projetos e propostas" width="1920" height="641" loading="lazy" class="print-plataforma">
+                        <span class="midia-play__icone" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- ============ SOB MEDIDA (escritórios) ============
              A oferta também aparece no cartão "Plugin personalizado"
              da lista de botões (#botoes) — mudou aqui, muda lá. -->
-        <section class="section light-bg" id="sob-medida">
+        <section class="section" id="sob-medida">
             <div class="container">
                 <span class="botao-painel" data-i18n="sol-sm">PARA ESCRITÓRIOS</span>
                 <h2 class="section-title-main" data-i18n="sol-sm-title">O plugin do jeito que o seu escritório trabalha</h2>
@@ -510,7 +562,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section light-bg">
             <div class="container text-center cta-band">
                 <h2 data-i18n="sol-cta-t">Instale de graça e veja funcionando</h2>
                 <p data-i18n="sol-cta-d">A instalação leva menos de dois minutos e todas as ferramentas já ficam disponíveis, sem cartão e sem prazo de teste. Se ele ajuda no seu dia, você pode <a href="apoiar.html">apoiar a P-LAB</a>.</p>
@@ -533,9 +585,8 @@
             <div class="footer-nav">
                 <h3 data-i18n="footer-products">Produtos</h3>
                 <ul>
-                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Automações</a></li>
                     <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
-                    <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
                     <li><a href="planos.html" data-i18n="nav-planos">Assistant</a></li>
                     <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
                     <li><a href="apoiar.html">Apoiar</a></li>

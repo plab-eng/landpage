@@ -1455,3 +1455,27 @@ img.apoio-qr { background: #ffffff; }
 #pointcloud .pc-acoes { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 #pointcloud .pc-versoes { font-size: 0.88rem; }
 #pointcloud .pc-acoes .btn-primary, #pointcloud .pc-acoes .btn-secondary { width: auto; padding: 12px 22px; font-size: 0.95rem; line-height: 1.2; }
+#pointcloud .pc-depois { margin: 36px 0 32px; padding-top: 28px; border-top: 1px solid var(--border); }
+#pointcloud .pc-depois h3 { margin: 6px 0 8px; }
+#pointcloud .pc-depois > p { color: var(--text-muted); max-width: 820px; }
+#pointcloud .pc-etapas { margin: 20px 0 12px; }
+#pointcloud .pc-etapas h4 { margin: 10px 0 6px; font-size: 1.02rem; }
+#pointcloud .pc-etapas p { font-size: 0.92rem; color: var(--text-muted); margin: 0; }
+/* Softwares e apps (solucoes.html#apps) */
+#apps .apps-os { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 32px; align-items: center; }
+#apps .apps-os h3 { margin: 0 0 8px; font-size: 1.4rem; }
+#apps .pc-lista { margin: 12px 0 0; padding-left: 18px; display: grid; gap: 8px; color: var(--text-muted); }
+#apps .pc-lista strong { color: var(--text); }
+@media (max-width: 860px) { #apps .apps-os { grid-template-columns: 1fr; } }
+/* Grátis × Viewer Pro (viewer.html#viewer-pro) */
+.planos-grid--viewer { max-width: 900px; margin: 0 auto; }
+.planos-grid--viewer .pro-nuvem { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--border-strong); }
+.planos-grid--viewer .plano-bloco-texto a { color: var(--accent); }
+/* Assistant em detalhe (planos.html#capacidades) */
+#capacidades .cap-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); margin-bottom: 28px; }
+#capacidades .cap-card { display: flex; flex-direction: column; gap: 8px; }
+#capacidades .cap-card .plano-tag { align-self: flex-start; }
+#capacidades .cap-card h3 { margin: 4px 0 0; }
+#capacidades .cap-card p { margin: 0; }
+#capacidades .cap-exemplo { font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent); }
+#capacidades .media-slot { aspect-ratio: 16 / 9; min-height: 0; margin-top: auto; }

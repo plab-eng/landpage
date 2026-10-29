@@ -80,10 +80,9 @@
             </button>
             <nav class="primary-nav" id="primary-nav">
                 <ul class="nav-links">
-                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Automações</a></li>
                     <li><a href="planos.html" data-i18n="nav-planos">Assistant</a></li>
                     <li><a href="viewer.html" class="active" data-i18n="nav-viewer">P-LAB Viewer</a></li>
-                    <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
                     <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
                 </ul>
                 <div class="nav-extra">
@@ -126,7 +125,7 @@
                 </div>
                 <p class="hero-actions" style="justify-content:center">
                     <a href="https://viewer.plabdev.com.br/abrir.html" class="btn-primary" target="_blank" rel="noopener" data-i18n="vw-hero-btn">Quero conhecer o Viewer</a>
-                    <a href="planos.html#plataforma-web" class="btn-secondary">Assinar o Viewer</a>
+                    <a href="#viewer-pro" class="btn-secondary">Ver o Viewer Pro</a>
                 </p>
             </div>
         </section>
@@ -439,6 +438,71 @@
             </div>
         </section>
 
+        <!-- ============ GRÁTIS × VIEWER PRO (29/10/2026) ============
+             O cartão do Viewer saiu da página do Assistant e veio para cá.
+             Diferença entre os planos = espaço (decisão do José, 29/10/2026):
+             grátis 2 GB, Pro 10 GB (um "Master" de 20 GB pode vir depois).
+             Tamanho por arquivo e envios por minuto: backend/config.py do
+             plab-viewer. Nuvem de pontos: planejada (estágio V1 do plano do
+             PointCloud), por isso "em breve". Preço vem do banco
+             (vitrine_de_planos, script no fim da página); o HTML é a reserva. -->
+        <section class="section" id="viewer-pro">
+            <div class="container">
+                <span class="eyebrow">PLANOS</span>
+                <h2 class="section-title-main">Comece grátis. Precisa de mais espaço? Viewer Pro.</h2>
+                <div class="planos-grid planos-grid--viewer">
+
+                    <div class="plano-card">
+                        <h3 class="plano-nome">Viewer grátis</h3>
+                        <div class="plano-preco">
+                            <span class="plano-valor">R$ 0</span>
+                            <span class="plano-cond">para sempre, com conta P-LAB</span>
+                        </div>
+                        <ul class="plano-lista">
+                            <li><strong>2 GB de armazenamento</strong></li>
+                            <li>Arquivos de até 500 MB</li>
+                            <li>IFC em 3D, PDF, DXF e DWG no navegador</li>
+                            <li>Marcações, comparação de revisões, clash e pendências</li>
+                            <li>Compartilhamento por link e QR Code</li>
+                        </ul>
+                        <div class="plano-pagar">
+                            <a href="https://viewer.plabdev.com.br/" class="btn-secondary plano-botao" target="_blank" rel="noopener">Entrar ou criar conta</a>
+                            <a href="https://viewer.plabdev.com.br/abrir.html" class="btn-secondary plano-botao" target="_blank" rel="noopener">Abrir um arquivo sem conta</a>
+                        </div>
+                    </div>
+
+                    <div class="plano-card plano-card--destaque">
+                        <span class="plano-tag plano-tag--gratis">Incluso no <span data-no-translate>PLAB Júnior</span> e no <span data-no-translate>PLAB Pleno</span></span>
+                        <h3 class="plano-nome"><span data-no-translate>Viewer Pro</span></h3>
+                        <div class="plano-preco">
+                            <span class="plano-valor"><span data-preco-parcela="viewer">R$ 19,90</span>/mês</span>
+                            <span class="plano-cond">por usuário, no cartão: renova sozinho, cancele quando quiser</span>
+                        </div>
+                        <p class="plano-anual">ou <strong data-preco-avista="viewer">R$ 199,90</strong> à vista por um ano, no PIX ou 1x no cartão</p>
+                        <ul class="plano-lista">
+                            <li><strong>10 GB de armazenamento</strong></li>
+                            <li>Arquivos de até 1 GB</li>
+                            <li>Mais envios por minuto, para subir o projeto inteiro de uma vez</li>
+                            <li>Tudo o que o grátis tem</li>
+                        </ul>
+                        <div class="plano-bloco pro-nuvem">
+                            <span class="plano-bloco-titulo">Em breve: nuvem de pontos no navegador</span>
+                            <span class="plano-bloco-texto">Envie E57, LAS ou LAZ e abra a nuvem em partes, sem esperar o arquivo inteiro: cor por RGB, intensidade ou elevação, caixa de corte, medidas de distância, ângulo e área, e o modelo IFC junto, nas mesmas coordenadas. Depois, fotos 360° tiradas do scan. Publicação direto do Revit pelo <a href="solucoes.html#pointcloud">P-LAB PointCloud</a>.</span>
+                        </div>
+                        <!-- Pagamento direto no site (21/10/2026): links fixos do Asaas (tabela links_pagamento_site
+                             no plab-os; o webhook reconhece o link e libera pelo e-mail do pagador) e a página do PIX. -->
+                        <div class="plano-pagar">
+                            <a href="https://www.asaas.com/000/c/yc989frbhqq8u50h" class="btn-primary plano-botao" target="_blank" rel="noopener">Pagamento mensal: R$ 19,90/mês</a>
+                            <a href="https://www.asaas.com/000/c/baddhqpf6tsjqgvg" class="btn-secondary plano-botao" target="_blank" rel="noopener">Cartão à vista, R$ 199,90</a>
+                            <a href="pix.html?plano=viewer" class="btn-secondary plano-botao">PIX à vista, R$ 199,90</a>
+                            <p class="plano-cond plano-letra-miuda">O pagamento mensal é de R$ 19,90, cobrado todo mês no cartão de crédito, de forma automática. Cancele quando quiser em Configurações › Assinatura: o acesso segue até o fim do mês pago. No cartão, use o e-mail da sua conta P-LAB; sem conta, ela é criada com o e-mail da compra.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <!-- ============ SOB MEDIDA (escritórios) ============
              Mesma ideia do "Plugin adaptado ao seu escritório" da aba Plugins,
              mas sem faixa de preço: o escopo de plataforma varia demais e o
@@ -479,7 +543,7 @@
                 <p data-i18n="vw-diff-desc">Uma plataforma de revisão BIM pensada para a realidade do escritório brasileiro — rápida de adotar e sem custo atrelado ao câmbio.</p>
                 <p class="hero-actions" style="justify-content:center">
                     <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20Viewer." class="btn-primary" target="_blank" rel="noopener" data-i18n="vw-cta-btn">Falar sobre o Viewer no WhatsApp</a>
-                    <a href="planos.html#plataforma-web" class="btn-secondary">Assinar o Viewer</a>
+                    <a href="#viewer-pro" class="btn-secondary">Ver o Viewer Pro</a>
                 </p>
             </div>
         </section>
@@ -525,9 +589,8 @@
             <div class="footer-nav">
                 <h3 data-i18n="footer-products">Produtos</h3>
                 <ul>
-                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Automações</a></li>
                     <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
-                    <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
                     <li><a href="planos.html" data-i18n="nav-planos">Assistant</a></li>
                     <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
                     <li><a href="apoiar.html">Apoiar</a></li>
@@ -556,5 +619,27 @@
     </a>
 
     <script src="script.js"></script>
+    <script>
+    // Preço do Viewer Pro vindo do banco (vitrine_de_planos), como na página do
+    // Assistant. Chave "anon": pública por natureza, não é segredo. Sem resposta,
+    // fica o texto escrito acima.
+    (function () {
+      var url = 'https://rydgthtnlccryhvgghkw.supabase.co';
+      var anon = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5ZGd0aHRubGNjcnlodmdnaGt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4NjA5NzksImV4cCI6MjEwMDQzNjk3OX0.xLjIqUBjgorHad7gD8rZKI4kboSz5_S6DgP9MR5T1zM';
+      function real(v) { return 'R$ ' + Number(v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+      fetch(url + '/rest/v1/rpc/vitrine_de_planos', { headers: { apikey: anon, Authorization: 'Bearer ' + anon } })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (planos) {
+          planos.forEach(function (p) {
+            if (p.chave !== 'viewer') return;
+            var parcela = document.querySelector('[data-preco-parcela="viewer"]');
+            var avista = document.querySelector('[data-preco-avista="viewer"]');
+            if (parcela && p.valor_usuario_parcela) parcela.textContent = real(p.valor_usuario_parcela);
+            if (avista && p.valor_usuario_avista) avista.textContent = real(p.valor_usuario_avista);
+          });
+        })
+        .catch(function () {});
+    })();
+    </script>
 </body>
 </html>

@@ -48,7 +48,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PLAB Assistant e planos | P-LAB</title>
-    <meta name="description" content="PLAB Assistant em dois planos: PLAB Júnior (R$ 160,00/mês por licença) e PLAB Pleno, o agente que modela no Revit (R$ 360,00/mês). P-LAB OS e P-LAB Viewer inclusos.">
+    <meta name="description" content="PLAB Assistant em dois planos: PLAB Júnior (R$ 160,00/mês por licença) e PLAB Pleno, o agente que modela no Revit (R$ 360,00/mês). P-LAB Viewer Pro incluso.">
     <link rel="canonical" href="https://plabdev.com.br/planos.html">
     <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/planos.html">
     <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/planos.html">
@@ -62,7 +62,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://plabdev.com.br/planos.html">
     <meta property="og:title" content="PLAB Assistant e planos | P-LAB">
-    <meta property="og:description" content="PLAB Assistant em dois planos: PLAB Júnior (R$ 160,00/mês por licença) e PLAB Pleno, o agente que modela no Revit (R$ 360,00/mês). P-LAB OS e P-LAB Viewer inclusos.">
+    <meta property="og:description" content="PLAB Assistant em dois planos: PLAB Júnior (R$ 160,00/mês por licença) e PLAB Pleno, o agente que modela no Revit (R$ 360,00/mês). P-LAB Viewer Pro incluso.">
     <meta property="og:image" content="https://plabdev.com.br/images/logo-icon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="plab-tokens.css">
@@ -82,10 +82,9 @@
             </button>
             <nav class="primary-nav" id="primary-nav">
                 <ul class="nav-links">
-                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Automações</a></li>
                     <li><a href="planos.html" class="active" data-i18n="nav-planos">Assistant</a></li>
                     <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
-                    <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
                     <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
                 </ul>
                 <div class="nav-extra">
@@ -127,7 +126,7 @@
             <div class="container text-center">
                 <span class="eyebrow" data-i18n="pl-eyebrow">PLAB ASSISTANT</span>
                 <h1 data-i18n="pl-title">A IA que lê e altera o seu modelo do Revit</h1>
-                <p class="hero-lead" data-i18n="pl-lead">Assine o PLAB Assistant e leve junto o P-LAB OS e o P-LAB Viewer, sem custo a mais. O add-in <a href="solucoes.html">P-LAB para Revit</a> continua gratuito para todos.</p>
+                <p class="hero-lead" data-i18n="pl-lead">Assine o PLAB Assistant e leve junto o P-LAB Viewer Pro, sem custo a mais. O add-in <a href="solucoes.html">P-LAB para Revit</a> continua gratuito para todos.</p>
             </div>
         </section>
 
@@ -185,6 +184,100 @@
                 </div>
             </div>
         </section>
+        <!-- ============ O QUE ELE FAZ, EM DETALHE (29/10/2026) ============
+             A partir das notas de versão 2.0 a 2.3 (plab-eng/P-LAB-releases).
+             Os .media-slot esperam os vídeos curtos (30 a 60 s, pedido → cartão →
+             Aplicar → resultado) com modelo da P-LAB, sem dado de cliente. -->
+        <section class="section" id="capacidades">
+            <div class="container">
+                <span class="eyebrow">EM DETALHE</span>
+                <h2 class="section-title-main">O que o Assistant faz no seu projeto</h2>
+                <p class="planos-intro">Antes de alterar qualquer coisa, ele mostra um cartão com o resumo para você aplicar, e tudo tem Desfazer. Pedido de ver, listar ou conferir nunca altera o modelo. Revit 2021 a 2027.</p>
+                <div class="botao-grid cap-grid">
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag">Júnior e Pleno</span>
+                        <h3>Faz pelos botões que você já tem</h3>
+                        <p>Peça em português e ele roda o botão do P-LAB, um comando do Revit ou o de outro add-in instalado. O que faltar, como formato, pasta ou quais pranchas, ele pergunta no próprio painel.</p>
+                        <p class="cap-exemplo">“Exporte as pranchas 11 a 20 em PDF combinado no perfil do cliente.”</p>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag">Júnior e Pleno</span>
+                        <h3>Consulta e leva para o Excel</h3>
+                        <p>Contagens e quantitativos agrupados, e o padrão das pranchas. Exporta para o Excel e traz de volta: você edita a planilha e vê a prévia das mudanças antes de aplicar.</p>
+                        <p class="cap-exemplo">“Exporte as portas para o Excel.”</p>
+                        <!-- [videos/assistant-planilha.mp4] Quando gravar, trocar o .media-slot por um .midia-play com data-video="videos/assistant-planilha.mp4" -->
+                        <div class="media-slot"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/assistant-planilha.mp4</span><p class="media-slot__hint">Exportar as portas, editar no Excel, importar e ver a prévia antes de aplicar.</p></div>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag">Júnior e Pleno</span>
+                        <h3>Saúde do modelo e limpeza guiada</h3>
+                        <p>Avisos agrupados com explicação, CAD importado, famílias no local, vistas fora de prancha e tamanho do arquivo. Na limpeza só sai o que você marcar.</p>
+                        <p class="cap-exemplo">“Como está o modelo?”</p>
+                        <!-- [videos/assistant-saude-modelo.mp4] Quando gravar, trocar o .media-slot por um .midia-play com data-video="videos/assistant-saude-modelo.mp4" -->
+                        <div class="media-slot"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/assistant-saude-modelo.mp4</span><p class="media-slot__hint">Avisos agrupados, botão Explicar e limpeza de duas vistas com Desfazer.</p></div>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag">Júnior e Pleno</span>
+                        <h3>Conferência por texto e checklists</h3>
+                        <p>Escreva a regra do jeito que fala e receba um relatório "N de M ok", com "Ir para" em cada item. Guarde as regras num checklist e rode tudo antes de emitir.</p>
+                        <p class="cap-exemplo">“Confira se toda prancha HID tem as notas gerais.”</p>
+                        <!-- [videos/assistant-conferencia.mp4] Quando gravar, trocar o .media-slot por um .midia-play com data-video="videos/assistant-conferencia.mp4" -->
+                        <div class="media-slot"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/assistant-conferencia.mp4</span><p class="media-slot__hint">A regra escrita, o relatório N de M e o checklist Pré-emissão.</p></div>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag">Júnior e Pleno</span>
+                        <h3>Rede MEP pelos conectores</h3>
+                        <p>Segue a rede até os pontos e acha pontas abertas e trechos soltos, como um tubo a 4 cm da conexão. Só lê, não altera.</p>
+                        <p class="cap-exemplo">“Existem tubos soltos na rede de esgoto?”</p>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag">Júnior e Pleno</span>
+                        <h3>Documentação em lote</h3>
+                        <p>Vistas, cortes, legendas, tabelas e pranchas; renomeia, aplica modelo de vista, tagueia e cota vistas inteiras. Monta as pranchas a partir de uma lista de folhas no padrão de outro projeto.</p>
+                        <p class="cap-exemplo">“Crie as pranchas desta lista no padrão do projeto X.”</p>
+                        <!-- [videos/assistant-pranchas-lista.mp4] Quando gravar, trocar o .media-slot por um .midia-play com data-video="videos/assistant-pranchas-lista.mp4" -->
+                        <div class="media-slot"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/assistant-pranchas-lista.mp4</span><p class="media-slot__hint">Anexar a lista de folhas, ver o plano folha a folha e as pranchas prontas.</p></div>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag plano-tag--gratis">Só no Pleno</span>
+                        <h3>Agente que escreve código no Revit</h3>
+                        <p>Lê o modelo, escreve e roda código, confere o resultado olhando a vista e usa os botões e receitas como atalhos. Ensaia a tarefa antes e junta tudo num único cartão para você aplicar.</p>
+                        <p class="cap-exemplo">“Crie as tags das luminárias e duplique a vista com cotas.”</p>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag plano-tag--gratis">Só no Pleno</span>
+                        <h3>Modela a partir de DXF, PDF, DWG, foto ou texto</h3>
+                        <p>Níveis, eixos, paredes, pilares, pisos, portas, janelas e ambientes com os seus tipos e famílias. Antes de criar, mostra o que não bate: camada, escala, família que falta.</p>
+                        <p class="cap-exemplo">“Modele estes dois pavimentos (com o DXF anexado).”</p>
+                        <!-- [videos/assistant-modelagem.mp4] Quando gravar, trocar o .media-slot por um .midia-play com data-video="videos/assistant-modelagem.mp4" -->
+                        <div class="media-slot"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/assistant-modelagem.mp4</span><p class="media-slot__hint">DXF ou croqui anexado, resumo das pendências e a planta e o 3D aparecendo.</p></div>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag plano-tag--gratis">Só no Pleno</span>
+                        <h3>Cria famílias de qualquer objeto</h3>
+                        <p>A partir de foto, croqui, catálogo, medidas ou descrição: monta peças, parâmetros e materiais, testa no tamanho mínimo e no máximo e carrega no projeto.</p>
+                        <p class="cap-exemplo">“Crie uma família desta luminária (com a foto anexada).”</p>
+                        <!-- [videos/assistant-familia-foto.mp4] Quando gravar, trocar o .media-slot por um .midia-play com data-video="videos/assistant-familia-foto.mp4" -->
+                        <div class="media-slot"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/assistant-familia-foto.mp4</span><p class="media-slot__hint">Foto da luminária, família testada e carregada no projeto.</p></div>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag plano-tag--gratis">Só no Pleno</span>
+                        <h3>Trabalha fora do Revit e com o seu cliente de IA</h3>
+                        <p>Lê PDF, planilha, DXF e imagem, roda scripts do escritório nas pastas que você autorizar e guarda a memória do projeto. Também se liga ao Claude Code ou ao Codex.</p>
+                        <p class="cap-exemplo">“Leia esta planilha de cargas e preencha os parâmetros dos circuitos.”</p>
+                    </div>
+                </div>
+                <div class="equipe-band">
+                    <div>
+                        <span class="botao-painel">RECEITAS E PADRÕES DO ESCRITÓRIO</span>
+                        <h3>O que deu certo vira receita</h3>
+                        <p>Uma conversa que resolveu o problema vira receita, só sua ou da equipe inteira. O que você corrige vira regra do escritório, e o Assistant aprende o padrão de um projeto seu para repetir no próximo.</p>
+                    </div>
+                    <a href="#assistant" class="btn-primary">Ver os planos</a>
+                </div>
+            </div>
+        </section>
+
         <!-- ============ PLAB ASSISTANT: PLAB Júnior e PLAB Pleno (20/10/2026) ============
              Formato da página de preços da Ideatura (referência do José): cartões
              com nome, preço por licença, frase do que destrava, créditos de IA,
@@ -196,7 +289,7 @@
              sem o número da versão (Claude Sonnet, DeepSeek Flash...): os do servidor
              e, depois, OUTROS_MODELOS do script. Nome repetido não aparece duas vezes.
              O HTML abaixo é a reserva estática se o banco não responder. -->
-        <section class="section" id="assistant">
+        <section class="section light-bg" id="assistant">
             <div class="container">
                 <span class="eyebrow" data-i18n="pl-niveis-eyebrow">PLAB ASSISTANT · PLANOS</span>
                 <h2 class="section-title-main" data-i18n="pl-niveis-title">Escolha o nível do seu Assistant</h2>
@@ -342,7 +435,7 @@
                 <div class="planos-grid">
                     <div class="plano-card plano-card--em-breve">
                         <h3 class="plano-nome">Nuvem de pontos → BIM</h3>
-                        <p class="plano-cond">Transformar o escaneamento a laser do existente em paredes, pisos e aberturas editáveis, com conferência das medidas.</p>
+                        <p class="plano-cond">Transformar o escaneamento a laser do existente em paredes, pisos e aberturas editáveis, com conferência das medidas. Enquanto isso, conheça o <a href="solucoes.html#pointcloud">P-LAB PointCloud</a>.</p>
                     </div>
                     <div class="plano-card plano-card--em-breve">
                         <h3 class="plano-nome">Renderização por texto</h3>
@@ -356,79 +449,18 @@
             </div>
         </section>
 
+        <!-- 29/10/2026: o Viewer foi para a página dele (viewer.html#viewer-pro) e o
+             P-LAB OS saiu da vitrine; aqui fica só o aviso. -->
         <section class="section light-bg" id="plataforma-web">
             <div class="container">
-                <span class="eyebrow" data-i18n="pl-ass-eyebrow">SÓ A PLATAFORMA WEB</span>
-                <h2 class="section-title-main" data-i18n="pl-ass-title">Ou assine só o Viewer e o P-LAB OS</h2>
                 <div class="equipe-band promo-band">
                     <div>
-                        <span class="botao-painel">PROMOÇÃO</span>
-                        <h3>Assinando o <span data-no-translate>PLAB Júnior</span> ou o <span data-no-translate>PLAB Pleno</span>, o Viewer e o P-LAB OS saem de graça</h3>
-                        <p>Quem precisa dos dois e também trabalha no Revit paga um plano só.</p>
+                        <span class="botao-painel">INCLUSO NO ASSISTANT</span>
+                        <h3>Assinando o <span data-no-translate>PLAB Júnior</span> ou o <span data-no-translate>PLAB Pleno</span>, o <span data-no-translate>Viewer Pro</span> vem junto</h3>
+                        <p>Só precisa revisar projetos no navegador? O P-LAB Viewer tem plano grátis e o Viewer Pro, com mais espaço.</p>
                     </div>
-                    <a href="#assistant" class="btn-primary">Ver o PLAB Assistant</a>
+                    <a href="viewer.html#viewer-pro" class="btn-primary">Conhecer o Viewer Pro</a>
                 </div>
-                <div class="planos-grid">
-
-                    <div class="plano-card">
-                        <h3 class="plano-nome" data-i18n="pl-v-n">Viewer</h3>
-                        <div class="plano-preco">
-                            <span class="plano-valor" data-i18n="pl-v-v">R$ 19,90/mês</span>
-                            <span class="plano-cond">por usuário, no cartão</span>
-                        </div>
-                        <!-- As duas formas (21/10/2026): mensal recorrente e à vista.
-                             Os valores vêm do banco (data-preco, script da vitrine no fim da página). -->
-                        <ul class="formas-cartao">
-                            <li><span>Mensal, renova sozinho</span> <strong data-preco="viewer-anual">R$ 19,90/mês</strong></li>
-                            <li><span>À vista, PIX ou 1x no cartão</span> <strong data-preco="viewer-avista">R$ 199,90</strong></li>
-                        </ul>
-                        <ul class="plano-lista">
-                            <li data-i18n="pl-v-i1">Registro de pendências e issues no modelo</li>
-                            <li data-i18n="pl-v-i2">Comparação entre revisões (IFC, PDF, DXF e DWG)</li>
-                            <li data-i18n="pl-v-i3">Histórico do que foi decidido e por quem</li>
-                            <li data-i18n="pl-v-i4">Compartilhamento com o cliente por link</li>
-                        </ul>
-                        <!-- Pagamento direto no site (21/10/2026): links fixos do Asaas (tabela links_pagamento_site
-                             no plab-os; o webhook reconhece o link e libera pelo e-mail do pagador) e a página do PIX. -->
-                        <div class="plano-pagar">
-                            <a href="https://www.asaas.com/000/c/yc989frbhqq8u50h" class="btn-primary plano-botao" target="_blank" rel="noopener">Pagamento mensal: R$ 19,90/mês</a>
-                            <a href="https://www.asaas.com/000/c/baddhqpf6tsjqgvg" class="btn-secondary plano-botao" target="_blank" rel="noopener">Cartão à vista, R$ 199,90</a>
-                            <a href="pix.html?plano=viewer" class="btn-secondary plano-botao">PIX à vista, R$ 199,90</a>
-                            <p class="plano-cond plano-letra-miuda">O pagamento mensal é de R$ 19,90, cobrado todo mês no cartão de crédito, de forma automática. Cancele quando quiser em Configurações › Assinatura: o acesso segue até o fim do mês pago. No cartão, use o e-mail da sua conta P-LAB; sem conta, ela é criada com o e-mail da compra.</p>
-                        </div>
-                    </div>
-
-                    <div class="plano-card">
-                        <h3 class="plano-nome" data-i18n="pl-o-n">P-LAB OS</h3>
-                        <div class="plano-preco">
-                            <span class="plano-valor" data-i18n="pl-o-v">R$ 29,90/mês</span>
-                            <span class="plano-cond">por usuário, no cartão</span>
-                        </div>
-                        <!-- As duas formas (21/10/2026): mensal recorrente e à vista.
-                             Os valores vêm do banco (data-preco, script da vitrine no fim da página). -->
-                        <ul class="formas-cartao">
-                            <li><span>Mensal, renova sozinho</span> <strong data-preco="os-anual">R$ 29,90/mês</strong></li>
-                            <li><span>À vista, PIX ou 1x no cartão</span> <strong data-preco="os-avista">R$ 299,90</strong></li>
-                        </ul>
-                        <ul class="plano-lista">
-                            <li>Início: a semana com o cronômetro de horas e o desempenho do escritório</li>
-                            <li>Projetos: carteira, propostas e funil de vendas</li>
-                            <li>Dimensions: dimensionadores de elétrica e hidráulica</li>
-                        </ul>
-                        <!-- Pagamento direto no site (21/10/2026): links fixos do Asaas (tabela links_pagamento_site
-                             no plab-os; o webhook reconhece o link e libera pelo e-mail do pagador) e a página do PIX. -->
-                        <div class="plano-pagar">
-                            <a href="https://www.asaas.com/000/c/ektuyleot5ci4bh5" class="btn-primary plano-botao" target="_blank" rel="noopener">Pagamento mensal: R$ 29,90/mês</a>
-                            <a href="https://www.asaas.com/000/c/bthylgsztr8z5y2b" class="btn-secondary plano-botao" target="_blank" rel="noopener">Cartão à vista, R$ 299,90</a>
-                            <a href="pix.html?plano=os" class="btn-secondary plano-botao">PIX à vista, R$ 299,90</a>
-                            <p class="plano-cond plano-letra-miuda">O pagamento mensal é de R$ 29,90, cobrado todo mês no cartão de crédito, de forma automática. Cancele quando quiser em Configurações › Assinatura: o acesso segue até o fim do mês pago. No cartão, use o e-mail da sua conta P-LAB; sem conta, ela é criada com o e-mail da compra.</p>
-                        </div>
-                    </div>
-
-                </div>
-                <p class="text-center" style="margin-top:28px">
-                    <span class="plano-tag plano-tag--gratis" data-i18n="pl-free-line">Visualizar modelo é gratuito, sempre — basta criar a conta</span>
-                </p>
             </div>
         </section>
 
@@ -451,9 +483,8 @@
             <div class="footer-nav">
                 <h3 data-i18n="footer-products">Produtos</h3>
                 <ul>
-                    <li><a href="solucoes.html" data-i18n="nav-plugins">Plugins</a></li>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Automações</a></li>
                     <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
-                    <li><a href="plab-os.html" data-i18n="nav-hub">P-LAB OS</a></li>
                     <li><a href="planos.html" data-i18n="nav-planos">Assistant</a></li>
                     <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
                     <li><a href="apoiar.html">Apoiar</a></li>
@@ -503,50 +534,6 @@
       url: 'https://rydgthtnlccryhvgghkw.supabase.co',
       anon: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5ZGd0aHRubGNjcnlodmdnaGt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4NjA5NzksImV4cCI6MjEwMDQzNjk3OX0.xLjIqUBjgorHad7gD8rZKI4kboSz5_S6DgP9MR5T1zM',
     };
-    (function () {
-      if (/\/(en|es)\//.test(location.pathname)) return;
-
-      var URL_BASE = PLAB_VITRINE.url;
-      var ANON_KEY = PLAB_VITRINE.anon;
-
-      var CARTOES = { viewer: 'pl-v', os: 'pl-o' };
-
-      function real(v) {
-        return 'R$ ' + Number(v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-      }
-
-      fetch(URL_BASE + '/rest/v1/rpc/vitrine_de_planos', {
-        headers: { apikey: ANON_KEY, Authorization: 'Bearer ' + ANON_KEY },
-      })
-        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
-        .then(function (planos) {
-          var porChave = {};
-          planos.forEach(function (p) { porChave[p.chave] = p; });
-
-          Object.keys(CARTOES).forEach(function (chave) {
-            var p = porChave[chave];
-            if (!p) return; // sem esta linha no banco: mantém o texto estático
-            var prefixo = CARTOES[chave];
-            var elValor = document.querySelector('[data-i18n="' + prefixo + '-v"]');
-            var elCond = document.querySelector('[data-i18n="' + prefixo + '-c"]');
-            var elAnual = document.querySelector('[data-preco="' + chave + '-anual"]');
-            // Mensal recorrente (21/10/2026): o valor do mês é a antiga parcela.
-            if (elAnual) elAnual.textContent = real(p.valor_usuario_parcela) + '/mês';
-            if (elValor) elValor.textContent = real(p.valor_usuario_parcela) + '/mês';
-            if (!elCond) return;
-
-            var cond = 'por usuário, no plano anual · ou ' + real(p.valor_usuario_mensal) + '/mês sem compromisso';
-            // À vista (PIX ou 1x no cartão): valor fixo do banco, por pessoa.
-            var elAvista = document.querySelector('[data-preco="' + chave + '-avista"]');
-            if (elAvista && p.valor_usuario_avista) elAvista.textContent = real(p.valor_usuario_avista);
-            if (elCond) elCond.textContent = cond;
-          });
-        })
-        .catch(function () {
-          // Sem resposta do banco: o preço estático já escrito na página
-          // é o que fica — reserva, não erro.
-        });
-    })();
     </script>
     <script>
     // PLAB Júnior e PLAB Pleno (20/10/2026): preço, promoção e modelos de IA
