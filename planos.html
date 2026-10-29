@@ -235,8 +235,10 @@
                         <h3>Documentação em lote</h3>
                         <p>Vistas, cortes, legendas, tabelas e pranchas; renomeia, aplica modelo de vista, tagueia e cota vistas inteiras. Monta as pranchas a partir de uma lista de folhas no padrão de outro projeto.</p>
                         <p class="cap-exemplo">“Crie as pranchas desta lista no padrão do projeto X.”</p>
-                        <!-- [videos/assistant-pranchas-lista.mp4] Quando gravar, trocar o .media-slot por um .midia-play com data-video="videos/assistant-pranchas-lista.mp4" -->
-                        <div class="media-slot"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/assistant-pranchas-lista.mp4</span><p class="media-slot__hint">Anexar a lista de folhas, ver o plano folha a folha e as pranchas prontas.</p></div>
+                        <button type="button" class="midia-play cap-video" data-video="videos/assistant-documentacao.mp4" aria-label="Ver o vídeo: documentação de um pavimento pelo Assistant">
+                            <img src="images/poster-assistant-documentacao.webp" alt="documentação de um pavimento pelo Assistant" width="1280" height="720" loading="lazy">
+                            <span class="midia-play__icone" aria-hidden="true"></span>
+                        </button>
                     </div>
                     <div class="feature-card cap-card">
                         <span class="plano-tag plano-tag--gratis">Só no Pleno</span>
@@ -249,16 +251,20 @@
                         <h3>Modela a partir de DXF, PDF, DWG, foto ou texto</h3>
                         <p>Níveis, eixos, paredes, pilares, pisos, portas, janelas e ambientes com os seus tipos e famílias. Antes de criar, mostra o que não bate: camada, escala, família que falta.</p>
                         <p class="cap-exemplo">“Modele estes dois pavimentos (com o DXF anexado).”</p>
-                        <!-- [videos/assistant-modelagem.mp4] Quando gravar, trocar o .media-slot por um .midia-play com data-video="videos/assistant-modelagem.mp4" -->
-                        <div class="media-slot"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/assistant-modelagem.mp4</span><p class="media-slot__hint">DXF ou croqui anexado, resumo das pendências e a planta e o 3D aparecendo.</p></div>
+                        <button type="button" class="midia-play cap-video" data-video="videos/assistant-modelagem.mp4" aria-label="Ver o vídeo: do DWG ao modelo no Revit">
+                            <img src="images/poster-assistant-modelagem.webp" alt="do DWG ao modelo no Revit" width="1280" height="720" loading="lazy">
+                            <span class="midia-play__icone" aria-hidden="true"></span>
+                        </button>
                     </div>
                     <div class="feature-card cap-card">
                         <span class="plano-tag plano-tag--gratis">Só no Pleno</span>
                         <h3>Cria famílias de qualquer objeto</h3>
                         <p>A partir de foto, croqui, catálogo, medidas ou descrição: monta peças, parâmetros e materiais, testa no tamanho mínimo e no máximo e carrega no projeto.</p>
                         <p class="cap-exemplo">“Crie uma família desta luminária (com a foto anexada).”</p>
-                        <!-- [videos/assistant-familia-foto.mp4] Quando gravar, trocar o .media-slot por um .midia-play com data-video="videos/assistant-familia-foto.mp4" -->
-                        <div class="media-slot"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/assistant-familia-foto.mp4</span><p class="media-slot__hint">Foto da luminária, família testada e carregada no projeto.</p></div>
+                        <button type="button" class="midia-play cap-video" data-video="videos/assistant-familia-foto.mp4" aria-label="Ver o vídeo: da foto à família no Revit">
+                            <img src="images/poster-assistant-familia-foto.webp" alt="da foto à família no Revit" width="1280" height="720" loading="lazy">
+                            <span class="midia-play__icone" aria-hidden="true"></span>
+                        </button>
                     </div>
                     <div class="feature-card cap-card">
                         <span class="plano-tag plano-tag--gratis">Só no Pleno</span>
@@ -509,6 +515,30 @@
     </footer>
 
     <script src="script.js"></script>
+    <!-- Popup dos vídeos dos botões (21/10/2026): a imagem é a miniatura, o play abre aqui. -->
+    <dialog class="video-popup" id="video-popup" aria-label="Vídeo do Assistant">
+        <button type="button" class="video-popup__fechar" aria-label="Fechar o vídeo">&times;</button>
+        <video controls playsinline preload="none"></video>
+    </dialog>
+    <script>
+    (function () {
+      var popup = document.getElementById('video-popup');
+      if (!popup || typeof popup.showModal !== 'function') return;
+      var video = popup.querySelector('video');
+      function fechar() { video.pause(); video.removeAttribute('src'); video.load(); if (popup.open) popup.close(); }
+      document.querySelectorAll('[data-video]').forEach(function (botao) {
+        botao.addEventListener('click', function () {
+          video.src = botao.getAttribute('data-video');
+          popup.showModal();
+          video.play().catch(function () {});
+          if (typeof trackEvent === 'function') trackEvent('video_botao', { video: botao.getAttribute('data-video') });
+        });
+      });
+      popup.querySelector('.video-popup__fechar').addEventListener('click', fechar);
+      popup.addEventListener('click', function (e) { if (e.target === popup) fechar(); });
+      popup.addEventListener('close', function () { video.pause(); video.removeAttribute('src'); video.load(); });
+    })();
+    </script>
 
     <!-- Preço com uma fonte só (13/09/2026): os números acima, escritos à
          mão, são a RESERVA. Se o banco responder, eles saem daqui; se a

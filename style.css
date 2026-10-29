@@ -1484,3 +1484,4 @@ img.apoio-qr { background: #ffffff; }
 #apps .apps-midia { margin: 0; }
 #apps .apps-midia figcaption { margin-top: 8px; font-size: .85rem; color: var(--text-muted); text-align: center; }
 @media (max-width: 860px) { #apps .apps-os--inverso > figure { order: 0; } }
+#capacidades .cap-video { margin-top: auto; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
