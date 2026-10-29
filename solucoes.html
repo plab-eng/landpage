@@ -1423,12 +1423,10 @@
                 <h2 class="section-title-main">P-LAB PointCloud</h2>
                 <p class="planos-intro">A nuvem do seu scanner direto no Revit, sem ReCap e sem conversão: crie níveis, georreferencie, confira a obra contra o modelo e modele o existente a partir dos pontos.</p>
                 <p class="selos-plataforma pc-selos"><span class="plano-tag">Revit 2025 e 2026</span> <span class="plano-tag">E57 · LAS · LAZ · PTS · XYZ · RCP/RCS</span> <span class="plano-tag">Instala sem administrador</span> <span class="plano-tag">Em português</span></p>
-                <!-- [videos/pointcloud-visao-geral.mp4] Quando tiver, trocar o .media-slot por:
-                <button type="button" class="midia-play" data-video="videos/pointcloud-visao-geral.mp4" aria-label="Ver o vídeo: P-LAB PointCloud">
-                    <img src="images/pointcloud-visao-geral-poster.webp" alt="P-LAB PointCloud no Revit" width="1600" height="900" loading="lazy" class="print-plataforma">
+                <button type="button" class="midia-play pc-video" data-youtube="xbwW6XLi5LU" aria-label="Ver o vídeo: P-LAB PointCloud, nuvem de pontos direto no Revit">
+                    <img src="images/poster-pointcloud-video.webp" alt="P-LAB PointCloud: nuvem de pontos direto no Revit, sem ReCap" width="1280" height="720" loading="lazy" class="print-plataforma">
                     <span class="midia-play__icone" aria-hidden="true"></span>
-                </button> -->
-                <img src="images/pointcloud-painel.webp" alt="Painel do P-LAB PointCloud no Revit, com as ferramentas em cartões por grupo" width="953" height="723" loading="lazy" class="print-plataforma pc-painel">
+                </button>
                 <div class="botao-grid pc-grid">
                     <div class="feature-card botao-card">
                         <h3>Vincular e ver a nuvem</h3>
@@ -1480,9 +1478,7 @@
 
                     <div class="feature-card botao-card">
                         <h3>Medir na nuvem</h3>
-                        <!-- [pointcloud-medir.webp] Quando tiver, trocar o .media-slot por:
-                        <img src="images/pointcloud-medir.webp" alt="Medição de distância e desnível sobre a nuvem" width="1600" height="900" loading="lazy" class="print-plataforma"> -->
-                        <div class="media-slot"><span class="media-slot__label">Imagem em breve</span><span class="media-slot__file" data-no-translate>images/pointcloud-medir.webp</span><p class="media-slot__hint">Print de uma medição sobre a nuvem.</p></div>
+                        <img src="images/pointcloud-painel.webp" alt="Painel do P-LAB PointCloud com as ferramentas de clique na nuvem: Point Info, medir distância e medir ruído" width="953" height="723" loading="lazy" class="print-plataforma">
                         <ul class="pc-lista">
                             <li><strong>Point Info</strong> <span class="plano-tag plano-tag--pago">PAGO</span> <span class="plano-tag">em teste</span> — um clique mostra coordenadas, cor, intensidade e classe do ponto.</li>
                             <li><strong>Medir distância</strong> <span class="plano-tag plano-tag--pago">PAGO</span> <span class="plano-tag">em teste</span> — distância real, horizontal e desnível em dois cliques.</li>
@@ -1591,13 +1587,26 @@
     <dialog class="video-popup" id="video-popup" aria-label="Vídeo do botão">
         <button type="button" class="video-popup__fechar" aria-label="Fechar o vídeo">&times;</button>
         <video controls playsinline preload="none"></video>
+        <div class="video-popup__yt" hidden></div>
     </dialog>
     <script>
     (function () {
       var popup = document.getElementById('video-popup');
       if (!popup || typeof popup.showModal !== 'function') return;
       var video = popup.querySelector('video');
-      function fechar() { video.pause(); video.removeAttribute('src'); video.load(); if (popup.open) popup.close(); }
+      var yt = popup.querySelector('.video-popup__yt');
+      function limpar() { video.pause(); video.removeAttribute('src'); video.load(); yt.innerHTML = ''; yt.hidden = true; video.hidden = false; }
+      function fechar() { limpar(); if (popup.open) popup.close(); }
+      // Vídeos no YouTube (29/10/2026): data-youtube="ID" toca aqui, sem sair do site.
+      document.querySelectorAll('[data-youtube]').forEach(function (botao) {
+        botao.addEventListener('click', function () {
+          var id = botao.getAttribute('data-youtube');
+          video.hidden = true; yt.hidden = false;
+          yt.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+          popup.showModal();
+          if (typeof trackEvent === 'function') trackEvent('video_botao', { video: 'youtube:' + id });
+        });
+      });
       document.querySelectorAll('[data-video]').forEach(function (botao) {
         botao.addEventListener('click', function () {
           video.src = botao.getAttribute('data-video');
@@ -1608,7 +1617,7 @@
       });
       popup.querySelector('.video-popup__fechar').addEventListener('click', fechar);
       popup.addEventListener('click', function (e) { if (e.target === popup) fechar(); });
-      popup.addEventListener('close', function () { video.pause(); video.removeAttribute('src'); video.load(); });
+      popup.addEventListener('close', limpar);
     })();
     </script>
     <script>
