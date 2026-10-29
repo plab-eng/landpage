@@ -1509,7 +1509,7 @@ img.apoio-qr { background: #ffffff; }
 .hero-spotlight > .container { position: relative; z-index: 1; }
 
 /* ===== Soluções: sanfona dos produtos e painéis (29/10/2026) ===== */
-.sanfona { display: flex; height: 540px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--surface); }
+.sanfona { display: flex; min-height: 540px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--surface); }
 .sanfona__item { display: flex; min-width: 0; border-left: 1px solid var(--border); flex: 0 0 76px; transition: flex .45s ease; }
 .sanfona__item:first-child { border-left: 0; }
 .sanfona__item[data-aberto="true"] { flex: 1 1 auto; }
