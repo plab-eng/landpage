@@ -100,3 +100,41 @@ Proporção: **16:9 (1600 × 900)**, exceto a home.
 - Os vídeos dos botões (`cota-automatica.mp4`, `gerar-vistas.mp4`,
   `gerador-pranchas.mp4`, `transferir-circuitos.mp4`) — as imagens 2 a 5
   ficam no lugar só até eles existirem.
+
+---
+
+## Versões para o tema escuro (29/10/2026)
+
+Mesma cena, mesmo enquadramento e mesmo tamanho da versão clara; só as cores
+mudam. Anexe a imagem clara como referência ("same composition as the attached
+image") e comece pelo bloco abaixo. Salve com o sufixo `-escuro`. A primeira
+feita assim foi `mockup-bim-escuro.webp`; a `capa-viewer-escuro.webp` é recorte
+dela.
+
+**Estilo escuro (vai no começo de cada prompt):**
+
+> Dark-mode version of an existing isometric technical illustration — keep
+> EXACTLY the same composition, camera angle, framing and proportions as the
+> attached light version, only the colors change. Clean fine-line architectural
+> drawing on a solid flat background of #141414 (very dark charcoal, no
+> gradient, no vignette). Lines in soft mint green (#34D07A) at medium
+> brightness, secondary lines in muted green (#1F7A4C). Flat fills in dark slate
+> greys (#1E1E1E and #262626) with a few muted warm-gold accents (#B8963E).
+> Small glowing gold circular nodes (#E3B341, soft glow) connected by thin green
+> "data circuit" lines with right-angle bends. Minimal line-art clouds in dim
+> grey (#3A3A3A). Lines readable on the dark background but not neon. No people,
+> no text, no letters, no logos, no watermarks, no UI screenshots.
+
+### A. Add-in (capa da sanfona) — `ex-gerar-vistas-escuro.webp` (1600 × 900)
+
+> [estilo escuro] An isometric house model on the left; to the right, a neat
+> fan of identical small view frames flies out of it — floor plans, an
+> enlarged bathroom detail and two building sections — each frame a simple
+> line drawing. Green lines connect each room of the model to its view.
+
+### B. PointCloud (capa da sanfona) — `servico-nuvem-pontos-escuro.webp` (1600 × 1200)
+
+> [estilo escuro] A 3D laser scanner on a tripod in the corner of an existing
+> room; the room is rendered as a dense cloud of tiny dots that gradually turns
+> into clean solid BIM walls, columns and pipes on the other side. Thin scan
+> rays fan out from the scanner in pale gold.

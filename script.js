@@ -140,15 +140,23 @@ function contarNoPainel(name, params) {
 // Cria o banner de cookies (somente se o usuário ainda não decidiu)
 function buildCookieBanner() {
     if (jaDecidiuCookies()) return;
+    // O texto nasce aqui no JS, fora do alcance do translate.py (que só traduz
+    // o HTML); por isso as três línguas ficam escritas aqui (29/10/2026).
+    const TEXTOS = {
+        pt: { rotulo: 'Aviso de cookies', texto: 'Usamos cookies para análise de tráfego e para melhorar sua experiência. Você decide se aceita.', recusar: 'Recusar', aceitar: 'Aceitar' },
+        en: { rotulo: 'Cookie notice', texto: 'We use cookies to analyze traffic and improve your experience. It is your choice.', recusar: 'Decline', aceitar: 'Accept' },
+        es: { rotulo: 'Aviso de cookies', texto: 'Usamos cookies para analizar el tráfico y mejorar tu experiencia. Tú decides si las aceptas.', recusar: 'Rechazar', aceitar: 'Aceptar' }
+    };
+    const t = TEXTOS[plabCurrentLang()] || TEXTOS.pt;
     const banner = document.createElement('div');
     banner.className = 'cookie-banner';
     banner.setAttribute('role', 'dialog');
-    banner.setAttribute('aria-label', 'Aviso de cookies');
+    banner.setAttribute('aria-label', t.rotulo);
     banner.innerHTML =
-        '<p class="cookie-text">Usamos cookies para análise de tráfego e para melhorar sua experiência. Você decide se aceita.</p>' +
+        '<p class="cookie-text">' + t.texto + '</p>' +
         '<div class="cookie-actions">' +
-        '<button type="button" class="cookie-btn cookie-reject" id="cookie-reject">Recusar</button>' +
-        '<button type="button" class="cookie-btn cookie-accept" id="cookie-accept">Aceitar</button>' +
+        '<button type="button" class="cookie-btn cookie-reject" id="cookie-reject">' + t.recusar + '</button>' +
+        '<button type="button" class="cookie-btn cookie-accept" id="cookie-accept">' + t.aceitar + '</button>' +
         '</div>';
     document.body.appendChild(banner);
     document.getElementById('cookie-accept').addEventListener('click', () => {
