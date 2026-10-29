@@ -1572,3 +1572,8 @@ body.painel-aberto { overflow: hidden; }
   .painel__fechar { display: none; }
   .painel__titulo { text-align: left; }
 }
+/* PointCloud: o que é pago (módulo PointCloud) e a explicação da versão grátis (29/10/2026) */
+.plano-tag--pago { color: #8A5A00; border-color: #D9A93A; background: rgba(227, 179, 65, .12); }
+[data-theme="dark"] .plano-tag--pago { color: #E3B341; border-color: #B8963E; background: rgba(227, 179, 65, .10); }
+#pointcloud .pc-gratis { margin: 10px 0 0; font-size: .88rem; color: var(--text-muted); }
+#pointcloud .pc-gratis strong { color: var(--text); }
