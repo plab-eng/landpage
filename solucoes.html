@@ -47,8 +47,8 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9WEG41PNK"></script>
    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automações para Revit, Navisworks e Civil 3D | P-LAB</title>
-    <meta name="description" content="P-LAB para Revit, o add-in gratuito que documenta sozinho, tira a tarefa repetitiva e calcula dentro do modelo: cotas, vistas, pranchas, exportação e cálculo elétrico.">
+    <title>Soluções P-LAB | Plugins para Revit, IA, nuvem de pontos e Viewer</title>
+    <meta name="description" content="Software para quem projeta: add-in gratuito para Revit, P-LAB Assistant (IA no modelo), P-LAB Viewer no navegador, nuvem de pontos no Revit, plugins para Navisworks e Civil 3D e gestão do escritório.">
     <link rel="canonical" href="https://plabdev.com.br/solucoes.html">
     <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/solucoes.html">
     <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/solucoes.html">
@@ -61,7 +61,7 @@
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://plabdev.com.br/solucoes.html">
-    <meta property="og:title" content="Automações para Revit, Navisworks e Civil 3D | P-LAB">
+    <meta property="og:title" content="Soluções P-LAB">
     <meta property="og:description" content="Documentação automática, tarefas repetitivas em lote e cálculo de engenharia dentro do Revit. Baixe de graça e libere as ferramentas avançadas quando precisar.">
     <meta property="og:image" content="https://plabdev.com.br/images/logo-icon.png">
     <link rel="stylesheet" href="style.css">
@@ -82,9 +82,7 @@
             </button>
             <nav class="primary-nav" id="primary-nav">
                 <ul class="nav-links">
-                    <li><a href="solucoes.html" class="active" data-i18n="nav-plugins">Automações</a></li>
-                    <li><a href="planos.html" data-i18n="nav-planos">Assistant</a></li>
-                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="solucoes.html" class="active" data-i18n="nav-plugins">Soluções</a></li>
                     <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
                 </ul>
                 <div class="nav-extra">
@@ -117,6 +115,360 @@
     <main>
         <section class="section hero-section">
             <div class="container text-center">
+                <span class="eyebrow">SOLUÇÕES</span>
+                <h1>Software para quem projeta</h1>
+                <p class="hero-lead">Plugins para Revit, Navisworks e Civil 3D, IA no modelo, nuvem de pontos, visualizador web e gestão do escritório de projetos.</p>
+            </div>
+        </section>
+
+        <!-- ============ SOLUÇÕES CONSOLIDADAS (29/10/2026) ============
+             Sanfona com os 4 produtos; "Ver tudo" abre o painel do produto
+             (#addin, #assistant, #viewer, #pointcloud), que tem o conteúdo das
+             antigas páginas de Automações, Assistant e Viewer. -->
+        <section class="section light-bg" id="produtos">
+            <div class="container">
+                <span class="botao-painel">SOLUÇÕES CONSOLIDADAS</span>
+                <h2 class="section-title-main">Prontas para usar no seu projeto</h2>
+                <p class="planos-intro">Produtos lançados e com suporte da P-LAB. Comece pelo add-in para Revit, que é gratuito.</p>
+                <div class="sanfona">
+                    <div class="sanfona__item" data-aberto="true">
+                        <button type="button" class="sanfona__aba" aria-expanded="true" aria-controls="sf-addin">
+                            <span class="sanfona__tag">ADD-IN</span>
+                            <span class="sanfona__nome">P-LAB para Revit</span>
+                        </button>
+                        <div class="sanfona__conteudo" id="sf-addin">
+                            <div class="sanfona__texto">
+                                <span class="eyebrow">P-LAB para Revit</span>
+                                <h3>O Revit fazendo a parte chata do projeto</h3>
+                                <p>O add-in gratuito da P-LAB: baixe e use todas as ferramentas, sem cartão e sem prazo.</p>
+                                <ul>
+                                <li>Gerar vistas, gerenciar e exportar pranchas em lote</li>
+                                <li>Cota automática, legendas de DXF e PDF e tabelas para o Excel</li>
+                                <li>MEP: taxa de ocupação, transferência de circuitos e queda de tensão</li>
+                                </ul>
+                                <p class="sanfona__acoes"><a class="btn-primary" href="https://github.com/plab-eng/P-LAB-releases/releases/latest" target="_blank" rel="noopener" data-instalador>Baixar grátis</a><a class="btn-secondary" href="#addin">Ver todos os botões →</a></p>
+                            </div>
+                            <div class="sanfona__midia"><img src="images/ex-gerar-vistas.webp" alt="Ilustração: vistas e pranchas saindo do modelo de uma casa" width="1600" height="900" loading="lazy"></div>
+                        </div>
+                    </div>
+                    <div class="sanfona__item" data-aberto="false">
+                        <button type="button" class="sanfona__aba" aria-expanded="false" aria-controls="sf-assistant">
+                            <span class="sanfona__tag">IA</span>
+                            <span class="sanfona__nome">P-LAB Assistant</span>
+                        </button>
+                        <div class="sanfona__conteudo" id="sf-assistant">
+                            <div class="sanfona__texto">
+                                <span class="eyebrow">P-LAB Assistant</span>
+                                <h3>A IA que trabalha no seu modelo do Revit</h3>
+                                <p>Peça em português; ele mostra um cartão com o que vai fazer e você aplica. Tudo tem Desfazer.</p>
+                                <ul>
+                                <li>Automatiza os add-ins que você já usa e vira receita do escritório</li>
+                                <li>Modela a partir de DWG, PDF ou foto e cria famílias (Pleno)</li>
+                                <li>Júnior R$ 160 e Pleno R$ 360 por mês, com o Viewer Pro incluso</li>
+                                </ul>
+                                <p class="sanfona__acoes"><a class="btn-primary" href="#assistant">Ver planos e tudo o que ele faz →</a></p>
+                            </div>
+                            <div class="sanfona__midia"><img class="capa-claro" src="images/capa-assistant.webp" alt="O mascote do P-LAB Assistant, um robô de capacete" width="1280" height="720" loading="lazy"><img class="capa-escuro" src="images/capa-assistant-escuro.webp" alt="O mascote do P-LAB Assistant, um robô de capacete" width="1280" height="720" loading="lazy"></div>
+                        </div>
+                    </div>
+                    <div class="sanfona__item" data-aberto="false">
+                        <button type="button" class="sanfona__aba" aria-expanded="false" aria-controls="sf-viewer">
+                            <span class="sanfona__tag">WEB</span>
+                            <span class="sanfona__nome">P-LAB Viewer</span>
+                        </button>
+                        <div class="sanfona__conteudo" id="sf-viewer">
+                            <div class="sanfona__texto">
+                                <span class="eyebrow">P-LAB Viewer</span>
+                                <h3>Revisão BIM no navegador</h3>
+                                <p>O cliente e a obra abrem o modelo pelo link, sem instalar nada.</p>
+                                <ul>
+                                <li>IFC, PDF, DXF e DWG no celular ou no computador</li>
+                                <li>Comparação de revisões, medidas e pendências no modelo</li>
+                                <li>Grátis com 2 GB; Viewer Pro com 10 GB por R$ 19,90 por mês</li>
+                                </ul>
+                                <p class="sanfona__acoes"><a class="btn-primary" href="#viewer">Ver o Viewer e os planos →</a><a class="btn-secondary" href="https://viewer.plabdev.com.br" target="_blank" rel="noopener">Abrir o Viewer</a></p>
+                            </div>
+                            <div class="sanfona__midia"><img src="images/capa-viewer.webp" alt="Ilustração: janela do navegador com um prédio em 3D e um QR code" width="1280" height="720" loading="lazy"></div>
+                        </div>
+                    </div>
+                    <div class="sanfona__item" data-aberto="false">
+                        <button type="button" class="sanfona__aba" aria-expanded="false" aria-controls="sf-pointcloud">
+                            <span class="sanfona__tag">NUVEM</span>
+                            <span class="sanfona__nome">P-LAB PointCloud</span>
+                        </button>
+                        <div class="sanfona__conteudo" id="sf-pointcloud">
+                            <div class="sanfona__texto">
+                                <span class="eyebrow">P-LAB PointCloud</span>
+                                <h3>A nuvem do scanner direto no Revit</h3>
+                                <p>Sem ReCap e sem conversão: abre E57, LAS, LAZ, PTS, XYZ e RCP/RCS no Revit 2025 e 2026.</p>
+                                <ul>
+                                <li>Níveis pelos pisos detectados e recortes por pavimento</li>
+                                <li>Coordenadas, conferência da obra contra o modelo e clash</li>
+                                <li>Modelagem do existente a partir dos pontos</li>
+                                </ul>
+                                <p class="sanfona__acoes"><a class="btn-primary" href="#pointcloud">Ver o PointCloud →</a><a class="btn-secondary" href="https://github.com/plab-eng/plab-pointcloud-releases/releases/latest/download/PLAB-PointCloud-Setup.exe" target="_blank" rel="noopener">Baixar</a></p>
+                            </div>
+                            <div class="sanfona__midia"><img src="images/servico-nuvem-pontos.webp" alt="Ilustração: nuvem de pontos virando modelo BIM" width="1600" height="1200" loading="lazy"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="outras-plataformas">
+            <div class="container">
+                <span class="botao-painel">ALÉM DO REVIT</span>
+                <h2 class="section-title-main">Ferramentas para Navisworks e Civil 3D</h2>
+                <p class="planos-intro">Em desenvolvimento e vendidas à parte do add-in gratuito. Fale com a P-LAB para comprar ou acompanhar o lançamento.</p>
+                <div class="botao-grid">
+                    <div class="feature-card botao-card">
+                        <h3>Clash Works</h3>
+                        <p class="selos-plataforma"><img src="images/logo-navisworks.svg" alt="Navisworks" class="selo-logo" width="28" height="28" loading="lazy"> <span class="plano-tag">Navisworks</span> <span class="plano-tag">Em desenvolvimento</span></p>
+                        <p>Roda os testes de interferência em lote, agrupa os conflitos por nível, eixo e disciplina, e entrega relatório HTML e BCF que abre direto no Revit.</p>
+                        <!-- [navisworks-clash-works.webp] Quando tiver, trocar o .media-slot por:
+                        <img src="images/navisworks-clash-works.webp" alt="Clash Works no Navisworks" width="1280" height="720" loading="lazy" class="print-plataforma"> -->
+                        <img src="images/navisworks-clash-works.webp" alt="Conflitos de forro agrupados por nível" width="1600" height="900" loading="lazy" class="print-plataforma">
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <h3>Quantificação para o P-LAB OS</h3>
+                        <p class="selos-plataforma"><img src="images/logo-navisworks.svg" alt="Navisworks" class="selo-logo" width="28" height="28" loading="lazy"> <span class="plano-tag">Navisworks</span> <span class="plano-tag">Em desenvolvimento</span></p>
+                        <p>Importa o seu catálogo de serviços para o Quantification e manda as quantidades do modelo para o módulo de custos do P-LAB OS.</p>
+                        <!-- [navisworks-quantificacao.webp] Quando tiver, trocar o .media-slot por:
+                        <img src="images/navisworks-quantificacao.webp" alt="Quantificação para o P-LAB OS no Navisworks" width="1280" height="720" loading="lazy" class="print-plataforma"> -->
+                        <img src="images/navisworks-quantificacao.webp" alt="Quantidades do modelo virando custo" width="1600" height="900" loading="lazy" class="print-plataforma">
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <h3>Verificador de traçado</h3>
+                        <p class="selos-plataforma"><img src="images/logo-civil3d.svg" alt="Civil 3D" class="selo-logo" width="28" height="28" loading="lazy"> <span class="plano-tag">Civil 3D</span> <span class="plano-tag">Em desenvolvimento</span></p>
+                        <p>Confere raio, transição, superelevação e rampas de cada curva contra a norma, recalcula os valores do Civil 3D e aponta o que precisa de revisão.</p>
+                        <!-- [civil3d-verificador-tracado.webp] Quando tiver, trocar o .media-slot por:
+                        <img src="images/civil3d-verificador-tracado.webp" alt="Verificador de traçado no Civil 3D" width="1280" height="720" loading="lazy" class="print-plataforma"> -->
+                        <img src="images/civil3d-verificador-tracado.webp" alt="Traçado com cada curva conferida" width="1600" height="900" loading="lazy" class="print-plataforma">
+                    </div>
+
+                    <div class="feature-card botao-card">
+                        <h3>Distribuição de terraplenagem</h3>
+                        <p class="selos-plataforma"><img src="images/logo-civil3d.svg" alt="Civil 3D" class="selo-logo" width="28" height="28" loading="lazy"> <span class="plano-tag">Civil 3D</span> <span class="plano-tag">Em desenvolvimento</span></p>
+                        <p>Calcula a melhor origem e destino para cada corte e aterro, com empréstimos e bota-foras, e entrega o quadro de distribuição de terras.</p>
+                        <!-- [civil3d-terraplenagem.webp] Quando tiver, trocar o .media-slot por:
+                        <img src="images/civil3d-terraplenagem.webp" alt="Distribuição de terraplenagem no Civil 3D" width="1280" height="720" loading="lazy" class="print-plataforma"> -->
+                        <img src="images/civil3d-terraplenagem.webp" alt="Distribuição de terra entre cortes e aterros" width="1600" height="900" loading="lazy" class="print-plataforma">
+                    </div>
+                </div>
+
+                <div class="equipe-band">
+                    <div>
+                        <span class="botao-painel">COMPRA SOB CONSULTA</span>
+                        <h3>Quer uma dessas no seu escritório?</h3>
+                        <p>Conte o que você precisa e em qual versão do Navisworks ou do Civil 3D a equipe trabalha. A gente monta a proposta.</p>
+                    </div>
+                    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20tenho%20interesse%20nas%20ferramentas%20da%20P-LAB%20para%20Navisworks%20e%20Civil%203D." class="btn-primary" target="_blank" rel="noopener">Falar sobre compra</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section light-bg" id="apps">
+            <div class="container">
+                <span class="botao-painel">SOFTWARES E APPS</span>
+                <h2 class="section-title-main">Software para o escritório de projetos</h2>
+                <p class="planos-intro">Além das automações, a P-LAB desenvolve aplicativos para o dia a dia do escritório. São dois: o P-LAB OS, para a gestão, e o P-LAB Dimensions, para o cálculo.</p>
+                <div class="apps-os">
+                    <div>
+                        <h3>P-LAB OS</h3>
+                        <p>Gestão do escritório de projetos no navegador, com uma conta só para a equipe.</p>
+                        <ul class="pc-lista">
+                            <li><strong>Início</strong> — a semana de cada pessoa, o cronômetro de horas por projeto e disciplina, e o desempenho: horas lançadas e consumo do previsto.</li>
+                            <li><strong>Projetos</strong> — carteira de projetos e propostas, com funil de vendas e preço sugerido a partir do custo real da equipe.</li>
+                            <li><strong>Viewer</strong> — modelos IFC, PDF, DXF e DWG no navegador, ligados ao mesmo projeto. Conheça o <a href="#viewer">P-LAB Viewer</a>.</li>
+                            <li><strong>Dimensions</strong> — os dimensionadores de hidráulica e elétrica, abertos direto do menu. Veja o <a href="#dimensions">P-LAB Dimensions</a> logo abaixo.</li>
+                        </ul>
+                        <p class="hero-actions"><a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20OS." class="btn-primary" target="_blank" rel="noopener">Quero conhecer o P-LAB OS</a></p>
+                    </div>
+                    <button type="button" class="midia-play" data-video="videos/plab-os-tour.mp4" aria-label="Ver o vídeo: tour do P-LAB OS">
+                        <img src="images/poster-plab-os.webp" alt="O P-LAB OS por dentro: horas, projetos e propostas" width="1920" height="641" loading="lazy" class="print-plataforma">
+                        <span class="midia-play__icone" aria-hidden="true"></span>
+                    </button>
+                </div>
+
+                <!-- P-LAB Dimensions (repo plab-eng/plab-dimensions, publicado em
+                     dimensions.plabdev.com.br atrás do login do plab-os; módulo
+                     `dimensions` nos planos os, assistant e assistant_pleno).
+                     A imagem é print real da tela inicial (29/10/2026). Quando o vídeo
+                     curto existir, trocar a <figure> por um .midia-play com
+                     data-video="videos/plab-dimensions-tour.mp4", como no P-LAB OS. -->
+                <div class="apps-os apps-os--inverso" id="dimensions">
+                    <div>
+                        <h3>P-LAB Dimensions</h3>
+                        <p>Dimensionamento de instalações prediais e redes no navegador, sem instalar nada. Os dados da obra entram uma vez e valem para todas as calculadoras.</p>
+                        <ul class="pc-lista">
+                            <li><strong>Esgoto</strong> — rede coletora com estação elevatória (NBR 9649) e esgoto predial: prumadas, ventilação, subcoletor e caixas de gordura (NBR 8160).</li>
+                            <li><strong>Drenagem</strong> — rede de galerias pelo método racional, com caixa de retenção, e pluvial predial: calhas, condutores e aproveitamento de chuva (NBR 10844 e NBR 15527).</li>
+                            <li><strong>Água fria</strong> <span class="plano-tag">em construção</span> — pressão da rede ao ramal do apartamento, VRP e esquema vertical em DXF (NBR 5626).</li>
+                            <li><strong>Elétrica</strong> <span class="plano-tag">em construção</span> — estudo de proteção, cabos, queda de tensão, curto-circuito, barramento, bus way, eletroduto, luminotécnico e elevador.</li>
+                            <li><strong>Entregas</strong> — planilha em Excel, PDF e arquivo para o Revit, com o seu logo e o responsável técnico.</li>
+                        </ul>
+                        <p>Vem junto com o P-LAB OS e com os planos do <a href="#assistant">P-LAB Assistant</a>, na mesma conta.</p>
+                        <p class="hero-actions"><a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20Dimensions." class="btn-primary" target="_blank" rel="noopener">Quero conhecer o P-LAB Dimensions</a></p>
+                    </div>
+                    <figure class="apps-midia">
+                        <img src="images/plab-dimensions.png" alt="Tela inicial do P-LAB Dimensions: calculadoras de elétrica, esgoto, drenagem e água" width="1275" height="874" loading="lazy" class="print-plataforma">
+                        <figcaption>Vídeo curto em breve.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="sob-medida">
+            <div class="container">
+                <span class="botao-painel" data-i18n="sol-sm">PARA ESCRITÓRIOS</span>
+                <h2 class="section-title-main" data-i18n="sol-sm-title">O plugin do jeito que o seu escritório trabalha</h2>
+                <div class="botao-grid">
+                    <div class="feature-card">
+                        <h3 data-i18n="sol-sm1-t">Parte do que já existe</h3>
+                        <p data-i18n="sol-sm1-d">Começamos pelos botões do P-LAB para Revit e ajustamos comportamento, parâmetros e nomenclatura ao padrão da sua equipe.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 data-i18n="sol-sm2-t">Seu template, suas famílias</h3>
+                        <p data-i18n="sol-sm2-d">O plugin trabalha em cima do template e das famílias que o escritório já usa, e entrega do jeito que o seu cliente pede.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 data-i18n="sol-sm3-t">Licença vitalícia</h3>
+                        <p data-i18n="sol-sm3-d">Licença por código, que funciona sem servidor e sem conta Autodesk. Não é assinatura: fica com o escritório.</p>
+                    </div>
+                </div>
+
+                <div class="equipe-band sob-medida-band">
+                    <div>
+                        <span class="botao-painel" data-i18n="pl-sm-eyebrow">SOB MEDIDA · PROPOSTA</span>
+                        <h3 data-i18n="pl-sm-t">Plugin adaptado ao seu escritório</h3>
+                        <p data-i18n="pl-sm-d">Partimos da base que já existe e ajustamos ao fluxo do escritório — comportamento, parâmetros, nomenclatura, template e famílias. Licença vitalícia por código, que funciona sem servidor e sem conta Autodesk. Valor fechado em proposta, conforme o escopo.</p>
+                    </div>
+                    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20de%20plugin%20sob%20medida." class="btn-primary" target="_blank" rel="noopener" data-i18n="pl-p2-btn">Pedir uma proposta</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section light-bg">
+            <div class="container text-center cta-band">
+                <h2 data-i18n="sol-cta-t">Instale de graça e veja funcionando</h2>
+                <p data-i18n="sol-cta-d">A instalação leva menos de dois minutos e todas as ferramentas já ficam disponíveis, sem cartão e sem prazo de teste. Se ele ajuda no seu dia, você pode <a href="apoiar.html">apoiar a P-LAB</a>.</p>
+                <p class="hero-actions" style="justify-content:center">
+                    <a href="https://github.com/plab-eng/P-LAB-releases/releases/latest" class="btn-primary" target="_blank" rel="noopener" data-instalador data-i18n="sol-cta-btn">Baixar gratuitamente</a>
+                    <a href="#botoes" class="btn-secondary" data-i18n="sol-cta-btn2">Ver todos os botões</a>
+                    <a href="https://github.com/plab-eng/P-LAB-releases/releases" class="btn-secondary" target="_blank" rel="noopener" data-releases data-i18n="sol-cta-btn3">Últimos instaladores</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <span class="logo-footer">P-LAB</span>
+                <p data-i18n="footer-tagline">Software e automação para engenharia.</p>
+                <p>Joinville - SC</p>
+            </div>
+            <div class="footer-nav">
+                <h3 data-i18n="footer-products">Produtos</h3>
+                <ul>
+                    <li><a href="#produtos" data-i18n="nav-plugins">Soluções</a></li>
+                    <li><a href="#viewer" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="#assistant" data-i18n="nav-planos">Assistant</a></li>
+                    <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
+                    <li><a href="apoiar.html">Apoiar</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3 data-i18n="footer-social">Siga-nos</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/plab-eng/" target="_blank" rel="noopener" aria-label="LinkedIn da P-LAB"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h3 data-i18n="footer-contact">Contato</h3>
+                <p class="footer-white"><a href="tel:+5547989168641">(47) 98916-8641</a></p>
+                <p class="footer-white">devpicanco@gmail.com</p>
+                <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-whatsapp-footer" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+        <div class="container text-center footer-bottom">
+            <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- Popup dos vídeos dos botões (21/10/2026): a imagem é a miniatura, o play abre aqui. -->
+    <dialog class="video-popup" id="video-popup" aria-label="Vídeo do botão">
+        <button type="button" class="video-popup__fechar" aria-label="Fechar o vídeo">&times;</button>
+        <video controls playsinline preload="none"></video>
+    </dialog>
+    <script>
+    (function () {
+      var popup = document.getElementById('video-popup');
+      if (!popup || typeof popup.showModal !== 'function') return;
+      var video = popup.querySelector('video');
+      function fechar() { video.pause(); video.removeAttribute('src'); video.load(); if (popup.open) popup.close(); }
+      document.querySelectorAll('[data-video]').forEach(function (botao) {
+        botao.addEventListener('click', function () {
+          video.src = botao.getAttribute('data-video');
+          popup.showModal();
+          video.play().catch(function () {});
+          if (typeof trackEvent === 'function') trackEvent('video_botao', { video: botao.getAttribute('data-video') });
+        });
+      });
+      popup.querySelector('.video-popup__fechar').addEventListener('click', fechar);
+      popup.addEventListener('click', function (e) { if (e.target === popup) fechar(); });
+      popup.addEventListener('close', function () { video.pause(); video.removeAttribute('src'); video.load(); });
+    })();
+    </script>
+    <script>
+    /* Roda dos botões (21/10/2026): liga o centro (Revit) a cada cartão com uma linha
+       e um ponto na borda do cartão, como balões saindo do centro. Só no desktop. */
+    (function () {
+      var roda = document.querySelector('.botao-roda');
+      if (!roda) return;
+      var svg = roda.querySelector('.roda-linhas');
+      var hub = roda.querySelector('.botao-hub__anel');
+      var NS = 'http://www.w3.org/2000/svg';
+      function el(nome, attrs) { var e = document.createElementNS(NS, nome); for (var k in attrs) e.setAttribute(k, attrs[k]); return e; }
+      function desenhar() {
+        while (svg.firstChild) svg.removeChild(svg.firstChild);
+        if (!hub || hub.offsetParent === null) return;
+        var base = roda.getBoundingClientRect();
+        var h = hub.getBoundingClientRect();
+        var cx = h.left + h.width / 2 - base.left, cy = h.top + h.height / 2 - base.top, r = h.width / 2 + 10;
+        svg.setAttribute('viewBox', '0 0 ' + base.width + ' ' + base.height);
+        roda.querySelectorAll(':scope > .botao-card').forEach(function (card) {
+          var b = card.getBoundingClientRect();
+          var x0 = b.left - base.left, y0 = b.top - base.top, x1 = x0 + b.width, y1 = y0 + b.height;
+          var px = Math.max(x0, Math.min(cx, x1)), py = Math.max(y0, Math.min(cy, y1));
+          var dx = px - cx, dy = py - cy, d = Math.sqrt(dx * dx + dy * dy) || 1;
+          var sx = cx + dx / d * r, sy = cy + dy / d * r;
+          svg.appendChild(el('line', { x1: sx, y1: sy, x2: px, y2: py, 'class': 'roda-linha' }));
+          svg.appendChild(el('circle', { cx: sx, cy: sy, r: 5, 'class': 'roda-ponto' }));
+          svg.appendChild(el('circle', { cx: px, cy: py, r: 5, 'class': 'roda-ponto' }));
+        });
+      }
+      window.addEventListener('resize', desenhar);
+      window.addEventListener('load', desenhar);
+      if (window.ResizeObserver) new ResizeObserver(desenhar).observe(roda);
+      desenhar();
+    })();
+    </script>
+
+    <!-- Painéis das soluções e sanfona (29/10/2026) -->
+    <div class="painel" id="painel-addin" role="dialog" aria-modal="true" aria-labelledby="painel-addin-t" hidden>
+        <div class="painel__caixa">
+            <div class="painel__barra">
+                <button type="button" class="painel__voltar" data-fechar aria-label="Voltar para Soluções">← Soluções</button>
+                <span class="painel__titulo" id="painel-addin-t">P-LAB para Revit</span>
+                <button type="button" class="painel__fechar" data-fechar aria-label="Fechar">&times;</button>
+            </div>
+            <div class="painel__corpo">
+        <section class="section hero-section">
+            <div class="container text-center">
                 <span class="eyebrow" data-i18n="sol-eyebrow">AUTOMAÇÕES · P-LAB PARA REVIT</span>
                 <h1 data-i18n="sol-title">O Revit fazendo a parte chata do projeto</h1>
                 <p class="hero-lead" data-i18n="sol-lead">Documentação que se resolve sozinha, tarefas repetitivas em lote e cálculo de engenharia dentro do modelo. Gratuito: baixe e use todas as ferramentas hoje.</p>
@@ -132,12 +484,6 @@
             </div>
         </section>
 
-        <!-- ============ TODOS OS BOTÕES ============
-             Listas entre os marcadores catalogo:... são geradas no deploy por
-             scripts/montar_catalogo.py a partir do catalogo.json do último
-             release, agrupadas pelo painel da ribbon. Para mudar "Em breve",
-             nome ou esconder um botão, edite scripts/catalogo_site.json —
-             edição à mão aqui é sobrescrita. -->
         <section class="section light-bg" id="botoes">
             <div class="container">
                 <span class="botao-painel">TODOS OS BOTÕES</span>
@@ -200,7 +546,7 @@
                         <div class="feature-card modulo-card">
                             <h3>PLAB Assistant</h3>
                             <p><span class="plano-tag">Pago</span></p>
-                            <p>A IA que lê e altera o seu modelo do Revit. Vem com o P-LAB OS e o P-LAB Viewer. <a href="planos.html#assistant">Ver o plano</a>.</p>
+                            <p>A IA que lê e altera o seu modelo do Revit. Vem com o P-LAB OS e o P-LAB Viewer. <a href="#assistant">Ver o plano</a>.</p>
                         </div>
                         <div class="feature-card modulo-card modulo-card--sob-medida">
                             <h3>Plugin personalizado</h3>
@@ -214,9 +560,6 @@
             </div>
         </section>
 
-        <!-- ============ ALGUNS EXEMPLOS ============
-             Cinco botões com descrição e vídeo. A lista completa vem logo
-             abaixo (#botoes), montada a partir do release do add-in. -->
         <section class="section" id="exemplos">
             <div class="container">
                 <span class="botao-painel">ALGUNS EXEMPLOS</span>
@@ -299,14 +642,876 @@
                 </div>
             </div>
         </section>
+            </div>
+        </div>
+    </div>
+    <div class="painel" id="painel-assistant" role="dialog" aria-modal="true" aria-labelledby="painel-assistant-t" hidden>
+        <div class="painel__caixa">
+            <div class="painel__barra">
+                <button type="button" class="painel__voltar" data-fechar aria-label="Voltar para Soluções">← Soluções</button>
+                <span class="painel__titulo" id="painel-assistant-t">P-LAB Assistant</span>
+                <button type="button" class="painel__fechar" data-fechar aria-label="Fechar">&times;</button>
+            </div>
+            <div class="painel__corpo">
 
-        <!-- ============ P-LAB POINTCLOUD (29/10/2026) ============
-             Add-in à parte, vendido sob consulta (WhatsApp). Funções da release
-             0.3.0 (repo plab-eng/plab-pointcloud-revit); "em teste" = pede
-             confirmação antes de rodar. Vídeo e prints ainda não existem: cada
-             .media-slot mostra o nome do arquivo esperado, e o markup pronto
-             está comentado ao lado. Instalador público em
-             plab-eng/plab-pointcloud-releases. -->
+        <section class="section hero-section">
+            <div class="container text-center">
+                <span class="eyebrow" data-i18n="pl-eyebrow">PLAB ASSISTANT</span>
+                <h1 data-i18n="pl-title">A IA que lê e altera o seu modelo do Revit</h1>
+                <p class="hero-lead" data-i18n="pl-lead">Assine o PLAB Assistant e leve junto o P-LAB Viewer Pro, sem custo a mais. O add-in <a href="#produtos">P-LAB para Revit</a> continua gratuito para todos.</p>
+            </div>
+        </section>
+
+        <!-- ============ O QUE O ASSISTANT FAZ ============
+             Texto a partir do que o vídeo de demonstração mostra (docs/PLAB
+             Assistant.mp4 no repo P-LAB). A imagem é a janela do Assistant
+             recortada do vídeo, sem o projeto do cliente que estava atrás.
+             O vídeo em si espera o José: ele mostra o modelo e o carimbo de
+             um cliente, com nome do proprietário. -->
+        <section class="section light-bg" id="o-que-faz">
+            <div class="container">
+                <span class="eyebrow">O QUE ELE FAZ</span>
+                <h2 class="section-title-main">Converse com o seu modelo do Revit</h2>
+                <div class="assistant-midias">
+                    <!-- Janela do Assistant em HTML (21/10/2026): nítida em qualquer tela, no
+                         lugar do print recortado do vídeo. Mesmo cabeçalho e campo da janela real;
+                         os pedidos em balões são exemplos e se revezam (parados com movimento reduzido). -->
+                    <figure class="assistant-midia">
+                        <div class="assistant-janela" aria-label="Exemplo de conversa com o PLAB Assistant" role="img">
+                            <div class="assistant-janela__topo">
+                                <i class="fas fa-helmet-safety" aria-hidden="true"></i>
+                                <div><strong data-no-translate>PLAB Assistant</strong><span>IA da P-LAB</span></div>
+                            </div>
+                            <div class="assistant-janela__conversa" id="assistant-conversa">
+                                <p class="balao balao--eu">Crie as cotas desta planta</p>
+                                <p class="balao balao--ia">Cotas de locação criadas na planta, seguindo a configuração salva.</p>
+                                <p class="balao balao--eu">Gere as vistas dos ambientes do térreo</p>
+                                <p class="balao balao--ia">Plantas e cortes criados em lote, com a nomenclatura do escritório.</p>
+                                <p class="balao balao--eu">Quantas paredes de cada tipo tem no modelo?</p>
+                                <p class="balao balao--ia">Contei as paredes por tipo e montei a lista com os totais.</p>
+                                <p class="balao balao--eu">Exporte as pranchas em PDF</p>
+                                <p class="balao balao--ia">Pranchas exportadas, cada uma com o nome no seu padrão.</p>
+                            </div>
+                            <div class="assistant-janela__campo"><span>Pergunte ou peça algo ao Revit…</span><i class="fas fa-play" aria-hidden="true"></i></div>
+                        </div>
+                        <figcaption>Exemplos de pedidos ao PLAB Assistant, dentro do Revit.</figcaption>
+                    </figure>
+                    <div class="assistant-video-bloco">
+                        <div class="plugin-video-container assistant-video">
+                            <video controls preload="metadata" width="1920" height="1080" aria-label="Demonstração do PLAB Assistant executando uma tarefa dentro do Revit">
+                                <source src="videos/plab-assistant-demo.mp4" type="video/mp4">
+                                Seu navegador não consegue reproduzir este vídeo.
+                            </video>
+                            <button class="assistant-video-capa" type="button" aria-label="Reproduzir demonstração do PLAB Assistant no Revit">
+                                <span class="assistant-video-robo" aria-hidden="true"></span>
+                                <span class="assistant-video-chamada">
+                                    <strong>Veja o PLAB Assistant trabalhando no Revit</strong>
+                                    <span>Do pedido em português à ação no modelo.</span>
+                                </span>
+                                <span class="assistant-video-play" aria-hidden="true"><i class="fas fa-play"></i></span>
+                            </button>
+                        </div>
+                        <p class="assistant-video-legenda">Demonstração real do Assistant executando uma tarefa no projeto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ============ O QUE ELE FAZ, EM DETALHE (29/10/2026) ============
+             A partir das notas de versão 2.0 a 2.3 (plab-eng/P-LAB-releases).
+             Os .media-slot esperam os vídeos curtos (30 a 60 s, pedido → cartão →
+             Aplicar → resultado) com modelo da P-LAB, sem dado de cliente. -->
+        <section class="section" id="capacidades">
+            <div class="container">
+                <span class="eyebrow">EM DETALHE</span>
+                <h2 class="section-title-main">O que o Assistant faz no seu projeto</h2>
+                <p class="planos-intro">Antes de alterar qualquer coisa, ele mostra um cartão com o resumo para você aplicar, e tudo tem Desfazer. Pedido de ver, listar ou conferir nunca altera o modelo. Revit 2021 a 2027.</p>
+                <div class="cap-como">
+                    <div class="cap-como__texto">
+                        <h3>Como ele trabalha</h3>
+                        <p><strong>Automatiza os add-ins que você já usa.</strong> Ele aciona os outros add-ins instalados, o P-LAB e os comandos do Revit, então o resultado sai no padrão que o escritório já tem. Peça “execute o plugin X nestas pranchas” ou “faça a documentação desta vista usando o plugin Y”; o que faltar, ele pergunta no painel. O que deu certo vira receita e passa a ser o padrão. <span class="plano-tag">Júnior e Pleno</span></p>
+                        <p><strong>Escreve código no Revit quando não há botão.</strong> Lê o modelo, escreve e roda o código, confere o resultado olhando a vista e usa os botões e as receitas como atalhos. Ensaia a tarefa antes e junta tudo num único cartão para você aplicar. <span class="plano-tag plano-tag--gratis">Só no Pleno</span></p>
+                        <p><strong>Trabalha fora do Revit.</strong> Lê PDF, planilha, DXF e imagem, roda os scripts do escritório nas pastas que você autorizar e guarda a memória do projeto. Também se liga ao Claude Code ou ao Codex. <span class="plano-tag plano-tag--gratis">Só no Pleno</span></p>
+                    </div>
+                    <figure class="cap-como__video">
+                        <button type="button" class="midia-play cap-video" data-video="videos/assistant-cotas.mp4" aria-label="Ver o vídeo: cotas por pedido">
+                            <img src="images/poster-assistant-cotas.webp" alt="O Assistant cotando uma planta no Revit a partir de um pedido" width="1280" height="720" loading="lazy">
+                            <span class="midia-play__icone" aria-hidden="true"></span>
+                        </button>
+                        <figcaption>Cotas por pedido, escritas e aplicadas pelo agente (Pleno).</figcaption>
+                    </figure>
+                </div>
+                <div class="botao-grid cap-grid">
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag">Júnior e Pleno</span>
+                        <h3>Consulta e leva para o Excel</h3>
+                        <p>Contagens e quantitativos agrupados, e o padrão das pranchas. Exporta para o Excel e traz de volta: você edita a planilha e vê a prévia das mudanças antes de aplicar.</p>
+                        <p class="cap-exemplo">“Exporte as portas para o Excel.”</p>
+                        <!-- [videos/assistant-planilha.mp4] Quando gravar, trocar o .media-slot por um .midia-play com data-video="videos/assistant-planilha.mp4" -->
+                        <div class="media-slot"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/assistant-planilha.mp4</span><p class="media-slot__hint">Exportar as portas, editar no Excel, importar e ver a prévia antes de aplicar.</p></div>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag">Júnior e Pleno</span>
+                        <h3>Saúde do modelo e limpeza guiada</h3>
+                        <p>Avisos agrupados com explicação, CAD importado, famílias no local, vistas fora de prancha e tamanho do arquivo. Na limpeza só sai o que você marcar.</p>
+                        <p class="cap-exemplo">“Como está o modelo?”</p>
+                        <!-- [videos/assistant-saude-modelo.mp4] Quando gravar, trocar o .media-slot por um .midia-play com data-video="videos/assistant-saude-modelo.mp4" -->
+                        <div class="media-slot"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/assistant-saude-modelo.mp4</span><p class="media-slot__hint">Avisos agrupados, botão Explicar e limpeza de duas vistas com Desfazer.</p></div>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag">Júnior e Pleno</span>
+                        <h3>Conferência por texto e checklists</h3>
+                        <p>Escreva a regra do jeito que fala e receba um relatório "N de M ok", com "Ir para" em cada item. Guarde as regras num checklist e rode tudo antes de emitir.</p>
+                        <p class="cap-exemplo">“Confira se toda prancha HID tem as notas gerais.”</p>
+                        <!-- [videos/assistant-conferencia.mp4] Quando gravar, trocar o .media-slot por um .midia-play com data-video="videos/assistant-conferencia.mp4" -->
+                        <div class="media-slot"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/assistant-conferencia.mp4</span><p class="media-slot__hint">A regra escrita, o relatório N de M e o checklist Pré-emissão.</p></div>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag">Júnior e Pleno</span>
+                        <h3>Rede MEP pelos conectores</h3>
+                        <p>Segue a rede até os pontos e acha pontas abertas e trechos soltos, como um tubo a 4 cm da conexão. Só lê, não altera.</p>
+                        <p class="cap-exemplo">“Existem tubos soltos na rede de esgoto?”</p>
+                        <!-- [videos/assistant-rede-mep.mp4] Roteiro em /home/dev/relatorios/roteiro-video-rede-mep-20261029.md. Quando gravar, trocar o .media-slot por um .midia-play com data-video="videos/assistant-rede-mep.mp4" -->
+                        <div class="media-slot"><span class="media-slot__label">Vídeo em breve</span><span class="media-slot__file">videos/assistant-rede-mep.mp4</span><p class="media-slot__hint">"Siga a rede até os pontos": terminais, pontas abertas e o tubo a 4 cm da conexão.</p></div>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag">Júnior e Pleno</span>
+                        <h3>Documentação em lote</h3>
+                        <p>Vistas, cortes, legendas, tabelas e pranchas; renomeia, aplica modelo de vista, tagueia e cota vistas inteiras. Monta as pranchas a partir de uma lista de folhas no padrão de outro projeto.</p>
+                        <p class="cap-exemplo">“Crie as pranchas desta lista no padrão do projeto X.”</p>
+                        <button type="button" class="midia-play cap-video" data-video="videos/assistant-documentacao.mp4" aria-label="Ver o vídeo: documentação de um pavimento pelo Assistant">
+                            <img src="images/poster-assistant-documentacao.webp" alt="documentação de um pavimento pelo Assistant" width="1280" height="720" loading="lazy">
+                            <span class="midia-play__icone" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag plano-tag--gratis">Só no Pleno</span>
+                        <h3>Modela a partir de DXF, PDF, DWG, foto ou texto</h3>
+                        <p>Níveis, eixos, paredes, pilares, pisos, portas, janelas e ambientes com os seus tipos e famílias. Antes de criar, mostra o que não bate: camada, escala, família que falta.</p>
+                        <p class="cap-exemplo">“Modele estes dois pavimentos (com o DXF anexado).”</p>
+                        <button type="button" class="midia-play cap-video" data-video="videos/assistant-modelagem.mp4" aria-label="Ver o vídeo: do DWG ao modelo no Revit">
+                            <img src="images/poster-assistant-modelagem.webp" alt="do DWG ao modelo no Revit" width="1280" height="720" loading="lazy">
+                            <span class="midia-play__icone" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag plano-tag--gratis">Só no Pleno</span>
+                        <h3>Cria famílias de qualquer objeto</h3>
+                        <p>A partir de foto, croqui, catálogo, medidas ou descrição: monta peças, parâmetros e materiais, testa no tamanho mínimo e no máximo e carrega no projeto.</p>
+                        <p class="cap-exemplo">“Crie uma família desta luminária (com a foto anexada).”</p>
+                        <!-- Vídeo no YouTube (@plabdev) com incorporação desligada: abre em outra aba. Se ligar a incorporação no YouTube Studio, pode virar popup. -->
+                        <a class="midia-play cap-video" href="https://www.youtube.com/watch?v=tvzxXxMeFe0" target="_blank" rel="noopener" aria-label="Ver no YouTube: da foto à família no Revit">
+                            <img src="images/poster-assistant-familia-foto.webp" alt="O Assistant criando a família de um ventilador a partir de uma foto" width="1280" height="720" loading="lazy">
+                            <span class="midia-play__icone" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="feature-card cap-card">
+                        <span class="plano-tag plano-tag--gratis">Só no Pleno</span>
+                        <h3>Mobilia o ambiente a partir de uma foto</h3>
+                        <p>Anexe a foto de referência e ele monta o ambiente com as famílias já carregadas no projeto: sofá, mesa, tapete, quadro, rack com TV, cortinas e iluminação, cada peça no seu lugar. Mostra as tarefas, aplica e tudo desfaz com um Ctrl+Z.</p>
+                        <p class="cap-exemplo">“Mobilie a sala como na foto (com a foto anexada).”</p>
+                        <button type="button" class="midia-play cap-video" data-video="videos/assistant-sala-foto.mp4" aria-label="Ver o vídeo: da foto ao ambiente no Revit">
+                            <img src="images/poster-assistant-sala-foto.webp" alt="Sala mobiliada pelo Assistant no Revit a partir de uma foto" width="1280" height="720" loading="lazy">
+                            <span class="midia-play__icone" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="equipe-band">
+                    <div>
+                        <span class="botao-painel">RECEITAS E PADRÕES DO ESCRITÓRIO</span>
+                        <h3>O que deu certo vira receita</h3>
+                        <p>Uma conversa que resolveu o problema vira receita, só sua ou da equipe inteira. O que você corrige vira regra do escritório, e o Assistant aprende o padrão de um projeto seu para repetir no próximo.</p>
+                    </div>
+                    <a href="#assistant" class="btn-primary">Ver os planos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PLAB ASSISTANT: PLAB Júnior e PLAB Pleno (20/10/2026) ============
+             Formato da página de preços da Ideatura (referência do José): cartões
+             com nome, preço por licença, frase do que destrava, créditos de IA,
+             camada de modelos, integrações, formatos, suporte e o botão no pé.
+             Preços e vagas da promoção vêm do banco (vitrine_de_planos); os nomes
+             dos modelos vêm das rotas reais do servidor (modelos_da_vitrine) —
+             nunca escritos aqui, porque o modelo troca sem release.
+             Decisão do José (22/10/2026): o cartão mostra "fabricante + nome do modelo",
+             sem o número da versão (Claude Sonnet, DeepSeek Flash...): os do servidor
+             e, depois, OUTROS_MODELOS do script. Nome repetido não aparece duas vezes.
+             O HTML abaixo é a reserva estática se o banco não responder. -->
+        <section class="section light-bg" id="assistant">
+            <div class="container">
+                <span class="eyebrow" data-i18n="pl-niveis-eyebrow">PLAB ASSISTANT · PLANOS</span>
+                <h2 class="section-title-main" data-i18n="pl-niveis-title">Escolha o nível do seu Assistant</h2>
+                <div class="planos-grid planos-grid--assistant">
+
+                    <div class="plano-card plano-card--tracejado" data-plano="assistant">
+                        <h3 class="plano-nome"><span data-no-translate>PLAB Júnior</span></h3>
+                        <div class="plano-preco">
+                            <span class="plano-valor"><span data-preco-parcela="assistant">R$ 160,00</span></span>
+                            <span class="plano-cond">por licença, por mês, no cartão: renova sozinho, cancele quando quiser</span>
+                        </div>
+                        <p class="plano-destrava">Pergunte, consulte e rode os botões e receitas no seu modelo.</p>
+                        <hr class="plano-divisor">
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">1.000 créditos de IA por mês
+                                <span class="ajuda" tabindex="0" aria-describedby="tip-cred-junior">?<span class="ajuda-texto" role="tooltip" id="tip-cred-junior">Os créditos medem o uso da IA no mês e renovam todo mês. Acabou, o Assistant pausa até o mês seguinte.</span></span>
+                            </span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">IA essencial</span>
+                            <span class="plano-modelos" data-modelos="assistant">DeepSeek Flash · Claude Haiku · Claude Sonnet · GPT Luna · GPT Terra · Gemini Flash · Kimi Code · Qwen Max</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">Integrações</span>
+                            <span class="plano-bloco-texto">Revit 2021 a 2027</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">Formatos</span>
+                            <span class="plano-bloco-texto">Imagem, PDF, DXF e planilha (XLSX, CSV) anexados na conversa</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">Suporte</span>
+                            <span class="plano-bloco-texto">Pela comunidade e pelo WhatsApp da P-LAB</span>
+                        </div>
+                        <p class="plano-cond">Um Assistant por licença: uma pessoa por licença.</p>
+                        <!-- Pagamento direto no site (21/10/2026): links fixos do Asaas (tabela links_pagamento_site
+                             no plab-os; o webhook reconhece o link e libera pelo e-mail do pagador) e a página do PIX. -->
+                        <div class="plano-pagar">
+                            <a href="https://www.asaas.com/000/c/ecgbmzpc8wxy749h" class="btn-primary plano-botao" target="_blank" rel="noopener">Pagamento mensal: R$ 160,00/mês</a>
+                            <p class="plano-cond plano-letra-miuda">O pagamento mensal é de R$ 160,00, cobrado todo mês no cartão de crédito, de forma automática. Cancele quando quiser em Configurações › Assinatura: o acesso segue até o fim do mês pago. No cartão, use o e-mail da sua conta P-LAB; sem conta, ela é criada com o e-mail da compra.</p>
+                        </div>
+                    </div>
+
+                    <div class="plano-card plano-card--tracejado plano-card--destaque" data-plano="assistant_pleno">
+                        <span class="plano-tag plano-tag--gratis">Inclui tudo do <span data-no-translate>PLAB Júnior</span></span>
+                        <h3 class="plano-nome"><span data-no-translate>PLAB Pleno</span></h3>
+                        <div class="plano-preco">
+                            <span class="plano-valor"><span data-preco-parcela="assistant_pleno">R$ 360,00</span></span>
+                            <span class="plano-cond">por licença, por mês, no cartão: renova sozinho, cancele quando quiser</span>
+                        </div>
+                        <p class="plano-destrava">Um agente que lê, escreve e modela no Revit por você, inclusive a partir de DWG, PDF e foto.</p>
+                        <hr class="plano-divisor">
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">2.000 créditos de IA por mês
+                                <span class="ajuda" tabindex="0" aria-describedby="tip-cred-pleno">?<span class="ajuda-texto" role="tooltip" id="tip-cred-pleno">Os créditos medem o uso da IA e renovam todo mês. Passou dos 2.000, o agente continua com um modelo mais econômico até virar o mês: não bloqueia.</span></span>
+                            </span>
+                            <span class="plano-bloco-texto">Créditos adicionais: em breve</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">IA de fronteira</span>
+                            <span class="plano-modelos" data-modelos="assistant_pleno">DeepSeek Flash · Claude Haiku · Claude Sonnet · Claude Opus · GPT Luna · GPT Terra · GPT Sol · Gemini Flash · Kimi Code · Qwen Max</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">Integrações</span>
+                            <span class="plano-bloco-texto">Revit 2021 a 2027 e agente externo (MCP), para quem usa outro cliente de IA</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">Formatos</span>
+                            <span class="plano-bloco-texto">Os do Júnior e DWG vinculado no Revit. Modela a partir de DXF, PDF, DWG, foto de croqui ou texto</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">Suporte</span>
+                            <span class="plano-bloco-texto">Suporte individualizado</span>
+                        </div>
+                        <p class="plano-cond">Um Assistant por licença: uma pessoa por licença.</p>
+                        <!-- Pagamento direto no site (21/10/2026): links fixos do Asaas (tabela links_pagamento_site
+                             no plab-os; o webhook reconhece o link e libera pelo e-mail do pagador) e a página do PIX. -->
+                        <div class="plano-pagar">
+                            <a href="https://www.asaas.com/000/c/ym8awul95ixvvb5y" class="btn-primary plano-botao" target="_blank" rel="noopener">Pagamento mensal: R$ 360,00/mês</a>
+                            <p class="plano-cond plano-letra-miuda">O pagamento mensal é de R$ 360,00, cobrado todo mês no cartão de crédito, de forma automática. Cancele quando quiser em Configurações › Assinatura: o acesso segue até o fim do mês pago. No cartão, use o e-mail da sua conta P-LAB; sem conta, ela é criada com o e-mail da compra.</p>
+                        </div>
+                    </div>
+
+                    <div class="plano-card plano-card--tracejado plano-card--em-breve">
+                        <span class="plano-tag">Em breve</span>
+                        <h3 class="plano-nome"><span data-no-translate>PLAB Sênior</span></h3>
+                        <!-- O que o Sênior promete (22/10/2026, pedido do José): os modelos mais avançados e os itens
+                             adiados para ele no repo P-LAB (docs/PLANO-X-pacote-concorrencia.md, "Sênior (E)", e
+                             docs/LEVANTAMENTO-proxima-rodada.md), mais modelagem em tempo real e nuvem de pontos. -->
+                        <p class="plano-destrava">O próximo nível do Assistant.</p>
+                        <hr class="plano-divisor">
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">IA mais avançada</span>
+                            <span class="plano-modelos">Claude Fable · GPT Astra · Gemini Argon</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">O que vem</span>
+                            <ul class="plano-lista">
+                                <li>Modelagem em tempo real no Revit</li>
+                                <li>Suporte a nuvem de pontos</li>
+                                <li>Integração com AutoCAD, Rhino e Blender</li>
+                                <li>Visualizador IFC, BCF e issues</li>
+                                <li>Markup sobre a captura e anotações em PDF</li>
+                                <li>Projetos na nuvem com sincronização</li>
+                                <li>Automações em vários Revits ao mesmo tempo</li>
+                                <li>Modelagem paramétrica</li>
+                                <li>Vídeo ao vivo na conversa</li>
+                                <li>Fórmulas e diagramas na conversa</li>
+                            </ul>
+                        </div>
+                        <p class="plano-cond">Sem preço ainda. Entre na lista e avisamos quando abrir.</p>
+                        <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20entrar%20na%20lista%20de%20espera%20do%20PLAB%20S%C3%AAnior." class="btn-secondary plano-botao" target="_blank" rel="noopener">Entrar na lista de espera</a>
+                    </div>
+
+                </div>
+
+                <p class="planos-comum">Nos dois planos: tudo em português · o seu modelo não sai do computador · a IA é da P-LAB, sem assinatura de IA à parte · os seus dados nunca treinam IA · o P-LAB OS e o Viewer completo vêm inclusos.</p>
+
+                <!-- Faixa larga no lugar do "Enterprise" da referência. O Assistant
+                     personalizado (treinado com o padrão do escritório) entra aqui. -->
+                <div class="equipe-band assistant-personalizado">
+                    <div>
+                        <span class="botao-painel">ESCRITÓRIO INTEIRO</span>
+                        <h3>Assistant para a equipe toda, do jeito do seu escritório</h3>
+                        <ul class="plano-lista plano-lista--duas">
+                            <li>Implantação acompanhada pela P-LAB</li>
+                            <li>Admin por empresa: quem tem qual plano</li>
+                            <li>Suporte prioritário</li>
+                            <li>Assistant treinado com o template, as famílias e as regras do escritório</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20o%20PLAB%20Assistant%20para%20o%20meu%20escrit%C3%B3rio%20inteiro." class="btn-primary" target="_blank" rel="noopener">Fale com a gente</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============ EM BREVE (textos do §11 do desenho do Pleno, repo P-LAB) ============ -->
+        <section class="section" id="em-breve">
+            <div class="container">
+                <span class="eyebrow">EM BREVE</span>
+                <h2 class="section-title-main">O que vem depois</h2>
+                <div class="planos-grid">
+                    <div class="plano-card plano-card--em-breve">
+                        <h3 class="plano-nome">Nuvem de pontos → BIM</h3>
+                        <p class="plano-cond">Transformar o escaneamento a laser do existente em paredes, pisos e aberturas editáveis, com conferência das medidas. Enquanto isso, conheça o <a href="#pointcloud">P-LAB PointCloud</a>.</p>
+                    </div>
+                    <div class="plano-card plano-card--em-breve">
+                        <h3 class="plano-nome">Renderização por texto</h3>
+                        <p class="plano-cond">Imagens de apresentação a partir da vista do modelo, com materiais e entorno descritos em português.</p>
+                    </div>
+                    <div class="plano-card plano-card--em-breve">
+                        <h3 class="plano-nome">Fachadas cinéticas animadas</h3>
+                        <p class="plano-cond">Estudos animados de brises e elementos móveis da fachada direto no Revit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 29/10/2026: o Viewer foi para a página dele (viewer.html#viewer-pro) e o
+             P-LAB OS saiu da vitrine; aqui fica só o aviso. -->
+        <section class="section light-bg" id="plataforma-web">
+            <div class="container">
+                <div class="equipe-band promo-band">
+                    <div>
+                        <span class="botao-painel">INCLUSO NO ASSISTANT</span>
+                        <h3>Assinando o <span data-no-translate>PLAB Júnior</span> ou o <span data-no-translate>PLAB Pleno</span>, o <span data-no-translate>Viewer Pro</span> vem junto</h3>
+                        <p>Só precisa revisar projetos no navegador? O P-LAB Viewer tem plano grátis e o Viewer Pro, com mais espaço.</p>
+                    </div>
+                    <a href="#viewer-pro" class="btn-primary">Conhecer o Viewer Pro</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container text-center cta-band">
+                <h2 data-i18n="pl-cta-t">Não sabe qual faz sentido?</h2>
+                <p data-i18n="pl-cta-d">Conte como é o fluxo do seu escritório e a gente diz por onde começar — inclusive se a resposta for continuar no gratuito.</p>
+                <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20os%20planos%20da%20P-LAB." class="btn-primary" target="_blank" rel="noopener" data-i18n="pl-cta-btn">Falar no WhatsApp</a>
+            </div>
+        </section>
+    
+            </div>
+        </div>
+    </div>
+    <div class="painel" id="painel-viewer" role="dialog" aria-modal="true" aria-labelledby="painel-viewer-t" hidden>
+        <div class="painel__caixa">
+            <div class="painel__barra">
+                <button type="button" class="painel__voltar" data-fechar aria-label="Voltar para Soluções">← Soluções</button>
+                <span class="painel__titulo" id="painel-viewer-t">P-LAB Viewer</span>
+                <button type="button" class="painel__fechar" data-fechar aria-label="Fechar">&times;</button>
+            </div>
+            <div class="painel__corpo">
+
+        <section class="section hero-section">
+            <div class="container text-center">
+                <span class="eyebrow" data-i18n="vw-eyebrow">PLATAFORMA WEB</span>
+                <h1 data-i18n="vw-hero-title">P-LAB Viewer</h1>
+                <p class="hero-lead" data-i18n="vw-hero-desc">Visualize, compare e revise projetos BIM direto no navegador — sem instalar nada.</p>
+                <span class="badge-soft" data-i18n="vw-badge"><i class="fas fa-circle-check"></i> Escritórios de projetos já utilizam</span>
+                <div class="tech-badges" style="justify-content:center; display:flex; flex-wrap:wrap;">
+                    <span class="tech-badge">IFC</span>
+                    <span class="tech-badge">PDF</span>
+                    <span class="tech-badge">DXF</span>
+                    <span class="tech-badge">DWG</span>
+                    <span class="tech-badge">Web</span>
+                    <span class="tech-badge">QR Code</span>
+                </div>
+                <p class="hero-actions" style="justify-content:center">
+                    <a href="https://viewer.plabdev.com.br/abrir.html" class="btn-primary" target="_blank" rel="noopener" data-i18n="vw-hero-btn">Quero conhecer o Viewer</a>
+                    <a href="#viewer-pro" class="btn-secondary">Ver o Viewer Pro</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== DEMONSTRAÇÃO DO P-LAB VIEWER ===== -->
+        <section class="section">
+            <div class="container">
+
+                <!-- PARTE 1 — GRADE DE IMAGENS FIXAS (todas visíveis, não é carrossel) -->
+                <h2 class="text-center section-title-main">Conheça o P-LAB Viewer por dentro</h2>
+                <div class="viewer-grid">
+                    <figure class="viewer-grid-item">
+                        <img src="images/viewer-tela-inicial.webp" loading="lazy" width="700" height="350"
+                             alt="Tela inicial do P-LAB Viewer com login e destaques dos recursos">
+                        <figcaption>
+                            <h3>Acesso pelo navegador, com controle de quem entra</h3>
+                            <p>Cada usuário com seu acesso e suas permissões, num ambiente protegido — e abrindo arquivos PDF e IFC direto no navegador, sem instalar nada.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="viewer-grid-item">
+                        <img src="images/viewer-projetos.webp" loading="lazy" width="700" height="354"
+                             alt="Painel de projetos do P-LAB Viewer com os arquivos do escritório organizados">
+                        <figcaption>
+                            <h3>Todos os projetos do escritório num só lugar</h3>
+                            <p>Organize modelos, revisões e pendências por projeto, com acesso para toda a equipe.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="viewer-grid-item">
+                        <img src="images/viewer-modelo-ifc.webp" loading="lazy" width="700" height="340"
+                             alt="Modelo estrutural IFC em 3D aberto no P-LAB Viewer">
+                        <figcaption>
+                            <h3>Modelos IFC em 3D, leves e fluidos</h3>
+                            <p>Abra e navegue por modelos pesados sem travamentos — direto do navegador, em qualquer dispositivo.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <!-- PARTE 2 — CARROSSEL APENAS DE VÍDEOS =====
+                     Navegação MANUAL (setas/teclado/swipe) — nunca troca sozinho, para não
+                     interromper a narração. Só o vídeo ativo carrega/toca (preload="none" +
+                     play sob demanda via script.js -> initViewerCarousel()). -->
+                <h2 class="text-center section-title-main carousel-heading">Ferramentas de revisão em ação</h2>
+                <div class="carousel" id="viewer-carousel" tabindex="0"
+                     role="region" aria-roledescription="carrossel"
+                     aria-label="Vídeos de demonstração do P-LAB Viewer">
+
+                    <div class="carousel-stage">
+                        <ul class="carousel-track">
+
+                            <!-- Vídeo 1 — comparação de revisões -->
+                            <li class="carousel-slide is-active" role="group" aria-roledescription="slide"
+                                aria-label="Slide 1 de 4: comparação de revisões do modelo">
+                                <div class="carousel-media">
+                                    <video class="carousel-video" muted loop playsinline preload="none"
+                                           poster="images/viewer-comparacao-revisoes-poster.webp" width="1920" height="1080">
+                                        <source src="videos/viewer-comparacao-revisoes.mp4" type="video/mp4">
+                                    </video>
+                                    <button type="button" class="carousel-bigplay" aria-label="Reproduzir o vídeo">
+                                        <i class="fas fa-play" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="carousel-video-controls">
+                                        <button type="button" class="cv-btn cv-play" aria-label="Pausar vídeo" aria-pressed="true">
+                                            <i class="fas fa-pause icon-pause" aria-hidden="true"></i><i class="fas fa-play icon-play" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="cv-btn cv-sound" aria-label="Ativar som" aria-pressed="false">
+                                            <i class="fas fa-volume-xmark icon-muted" aria-hidden="true"></i><i class="fas fa-volume-high icon-unmuted" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Vídeo 2 — medidas, corte, inspeção -->
+                            <li class="carousel-slide" role="group" aria-roledescription="slide"
+                                aria-label="Slide 2 de 4: medição, corte e inspeção do modelo">
+                                <div class="carousel-media">
+                                    <video class="carousel-video" muted loop playsinline preload="none"
+                                           poster="images/viewer-medicao-poster.webp" width="1920" height="1080">
+                                        <source src="videos/viewer-medicao.mp4" type="video/mp4">
+                                        <!-- Legendas futuras da narração: gere o .vtt e descomente
+                                        <track kind="captions" srclang="pt" label="Português" src="videos/viewer-medicao.pt.vtt" default> -->
+                                    </video>
+                                    <button type="button" class="carousel-bigplay" aria-label="Reproduzir o vídeo">
+                                        <i class="fas fa-play" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="carousel-video-controls">
+                                        <button type="button" class="cv-btn cv-play" aria-label="Pausar vídeo" aria-pressed="true">
+                                            <i class="fas fa-pause icon-pause" aria-hidden="true"></i><i class="fas fa-play icon-play" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="cv-btn cv-sound" aria-label="Ativar som" aria-pressed="false">
+                                            <i class="fas fa-volume-xmark icon-muted" aria-hidden="true"></i><i class="fas fa-volume-high icon-unmuted" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Vídeo 3 — anotações no modelo IFC -->
+                            <li class="carousel-slide" role="group" aria-roledescription="slide"
+                                aria-label="Slide 3 de 4: anotações e considerações no modelo IFC">
+                                <div class="carousel-media">
+                                    <video class="carousel-video" muted loop playsinline preload="none"
+                                           poster="images/viewer-anotacoes-ifc-poster.webp" width="1920" height="1080">
+                                        <source src="videos/viewer-anotacoes-ifc.mp4" type="video/mp4">
+                                        <!-- <track kind="captions" srclang="pt" label="Português" src="videos/viewer-anotacoes-ifc.pt.vtt" default> -->
+                                    </video>
+                                    <button type="button" class="carousel-bigplay" aria-label="Reproduzir o vídeo">
+                                        <i class="fas fa-play" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="carousel-video-controls">
+                                        <button type="button" class="cv-btn cv-play" aria-label="Pausar vídeo" aria-pressed="true">
+                                            <i class="fas fa-pause icon-pause" aria-hidden="true"></i><i class="fas fa-play icon-play" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="cv-btn cv-sound" aria-label="Ativar som" aria-pressed="false">
+                                            <i class="fas fa-volume-xmark icon-muted" aria-hidden="true"></i><i class="fas fa-volume-high icon-unmuted" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Vídeo 4 — anotações em PDF -->
+                            <li class="carousel-slide" role="group" aria-roledescription="slide"
+                                aria-label="Slide 4 de 4: marcações e revisão em prancha PDF">
+                                <div class="carousel-media">
+                                    <video class="carousel-video" muted loop playsinline preload="none"
+                                           poster="images/viewer-anotacoes-pdf-poster.webp" width="1920" height="1080">
+                                        <source src="videos/viewer-anotacoes-pdf.mp4" type="video/mp4">
+                                        <!-- <track kind="captions" srclang="pt" label="Português" src="videos/viewer-anotacoes-pdf.pt.vtt" default> -->
+                                    </video>
+                                    <button type="button" class="carousel-bigplay" aria-label="Reproduzir o vídeo">
+                                        <i class="fas fa-play" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="carousel-video-controls">
+                                        <button type="button" class="cv-btn cv-play" aria-label="Pausar vídeo" aria-pressed="true">
+                                            <i class="fas fa-pause icon-pause" aria-hidden="true"></i><i class="fas fa-play icon-play" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="cv-btn cv-sound" aria-label="Ativar som" aria-pressed="false">
+                                            <i class="fas fa-volume-xmark icon-muted" aria-hidden="true"></i><i class="fas fa-volume-high icon-unmuted" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- ===== VÍDEO 5 (CLASH DETECTION) — INATIVO =====
+                                 PARA ATIVAR quando o vídeo estiver pronto:
+                                 1) coloque o arquivo em videos/ e renomeie para viewer-clash-detection.mp4
+                                 2) gere o poster: images/viewer-clash-detection-poster.webp
+                                    (use scripts/comprimir-midia.sh ou ffmpeg, como nos vídeos ativos)
+                                 3) descomente o bloco <li class="carousel-slide">...</li> abaixo
+                                 4) descomente também a "LEGENDA DO VÍDEO 5" lá embaixo, em .carousel-captions
+                                 5) o contador "/ N" e o total se ajustam SOZINHOS no JS (total = nº de .carousel-slide);
+                                    atualize só os aria-label estáticos "Slide X de N" para o novo total
+                                 Legenda já definida: título "Detecte interferências entre disciplinas" /
+                                 "Encontre conflitos entre estrutural, hidráulico e elétrico antes da obra — revise as incompatibilidades direto no modelo 3D."
+
+                            <li class="carousel-slide" role="group" aria-roledescription="slide"
+                                aria-label="Slide 5 de 5: detecção de interferências entre disciplinas">
+                                <div class="carousel-media">
+                                    <video class="carousel-video" muted loop playsinline preload="none"
+                                           poster="images/viewer-clash-detection-poster.webp" width="1920" height="1080">
+                                        <source src="videos/viewer-clash-detection.mp4" type="video/mp4">
+                                    </video>
+                                    <button type="button" class="carousel-bigplay" aria-label="Reproduzir o vídeo">
+                                        <i class="fas fa-play" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="carousel-video-controls">
+                                        <button type="button" class="cv-btn cv-play" aria-label="Pausar vídeo" aria-pressed="true">
+                                            <i class="fas fa-pause icon-pause" aria-hidden="true"></i><i class="fas fa-play icon-play" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="cv-btn cv-sound" aria-label="Ativar som" aria-pressed="false">
+                                            <i class="fas fa-volume-xmark icon-muted" aria-hidden="true"></i><i class="fas fa-volume-high icon-unmuted" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            ===== FIM VÍDEO 5 ===== -->
+
+                        </ul>
+
+                        <button type="button" class="carousel-arrow carousel-prev" aria-label="Anterior">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="carousel-arrow carousel-next" aria-label="Próximo">
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="carousel-footer">
+                        <p class="carousel-counter" aria-hidden="true"><span class="cc-current">1</span> / <span class="cc-total">4</span></p>
+                        <div class="carousel-captions">
+                            <div class="carousel-caption is-active">
+                                <strong>Compare revisões e veja o que mudou</strong>
+                                <span>Visualize automaticamente o que foi adicionado, removido ou modificado entre versões do modelo — sem caçar diferença manualmente.</span>
+                            </div>
+                            <div class="carousel-caption">
+                                <strong>Meça, corte e inspecione o modelo</strong>
+                                <span>Tire medidas, faça cortes e consulte as propriedades de cada elemento — ferramentas de revisão num fluxo pensado para o jeito brasileiro de projetar, sem se adaptar a programas feitos para outra realidade.</span>
+                            </div>
+                            <div class="carousel-caption">
+                                <strong>Anote e registre considerações direto no modelo</strong>
+                                <span>Marque pendências e observações vinculadas ao elemento, com responsável e prazo — gestão de revisões que segue o processo do escritório brasileiro, não o contrário.</span>
+                            </div>
+                            <div class="carousel-caption">
+                                <strong>Revise pranchas em PDF com marcações</strong>
+                                <span>Balões, setas e carimbos de aprovação sobre o PDF — todo o ciclo de revisão, do modelo à prancha, numa só plataforma feita para o escritório brasileiro.</span>
+                            </div>
+                            <!-- LEGENDA DO VÍDEO 5 (descomente junto com o slide do vídeo 5):
+                            <div class="carousel-caption">
+                                <strong>Detecte interferências entre disciplinas</strong>
+                                <span>Encontre conflitos entre estrutural, hidráulico e elétrico antes da obra — revise as incompatibilidades direto no modelo 3D.</span>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+
+                    <!-- Anúncio de troca de slide para leitores de tela -->
+                    <p class="sr-only" aria-live="polite" id="carousel-live"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTE 3 — FAIXA DE POSICIONAMENTO -->
+        <section class="section viewer-band">
+            <div class="container text-center">
+                <h2>A revisão de projetos que o mercado já conhece — agora acessível</h2>
+                <p>Visualização de IFC, PDF, DXF e DWG, medição, detecção de interferências, comparação de revisões, anotações em modelo e prancha, gestão de pendências e compartilhamento por QR Code. Tudo o que um escritório precisa para revisar e aprovar projetos, numa plataforma em português, pensada para a realidade dos projetistas brasileiros e com preço que cabe no orçamento do escritório.</p>
+            </div>
+        </section>
+
+        <!-- ===== QR CODE — compartilhamento ===== -->
+        <section class="section">
+            <div class="container">
+                <figure class="viewer-qr">
+                    <img src="images/viewer-qrcode.webp" loading="lazy" width="720" height="672"
+                         alt="Tela de geração de QR Code no P-LAB Viewer para compartilhar o modelo">
+                    <figcaption>
+                        <h3>Compartilhe por link ou QR Code</h3>
+                        <p>Gere um QR Code da prancha — o cliente escaneia e abre o modelo 3D no próprio celular, sem instalar nada.</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="section light-bg">
+            <div class="container">
+                <h2 class="text-center section-title-main" data-i18n="vw-feat-title">Tudo o que você precisa para revisar um projeto</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-cube feature-icon"></i>
+                        <h3 data-i18n="vw-f1-t">IFC em 3D no navegador</h3>
+                        <p data-i18n="vw-f1-d">Abra o modelo IFC sem instalar nada: corte, medidas e propriedades de cada elemento.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-pen-ruler feature-icon"></i>
+                        <h3 data-i18n="vw-f2-t">Marcações em PDF, DXF e DWG</h3>
+                        <p data-i18n="vw-f2-d">Revise pranchas com balões, setas e stamps de aprovação direto no documento.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-code-compare feature-icon"></i>
+                        <h3 data-i18n="vw-f3-t">Comparação de revisões</h3>
+                        <p data-i18n="vw-f3-d">Modelos IFC e pranchas em PDF, DXF e DWG: cada mudança marcada com nuvem e, por escrito, o que mudou (cotas, textos e camadas).</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-clipboard-check feature-icon"></i>
+                        <h3 data-i18n="vw-f4-t">Validação de qualidade do IFC</h3>
+                        <p data-i18n="vw-f4-d">Detecta GUIDs duplicados, Psets faltando e problemas de georreferenciamento.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-triangle-exclamation feature-icon"></i>
+                        <h3 data-i18n="vw-f5-t">Clash detection</h3>
+                        <p data-i18n="vw-f5-d">Identifique conflitos entre disciplinas: estrutural × hidráulico × elétrico.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-list-check feature-icon"></i>
+                        <h3 data-i18n="vw-f6-t">Gestão de issues</h3>
+                        <p data-i18n="vw-f6-d">Pendências vinculadas ao elemento do modelo, com responsável e prazo definidos.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-qrcode feature-icon"></i>
+                        <h3 data-i18n="vw-f7-t">Compartilhamento por QR Code</h3>
+                        <p data-i18n="vw-f7-d">O cliente escaneia a prancha e vê o 3D no celular, por link ou QR Code.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fab fa-discord feature-icon"></i>
+                        <h3 data-i18n="vw-f8-t">Notificações e automação</h3>
+                        <p data-i18n="vw-f8-d">Avisos no Discord e importação automática de pastas monitoradas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="text-center section-title-main" data-i18n="vw-how-title">Como funciona</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <h3 data-i18n="vw-s1-t">Envie o IFC</h3>
+                        <p data-i18n="vw-s1-d">Faça o upload do modelo ou deixe uma pasta monitorada importar sozinha.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <h3 data-i18n="vw-s2-t">Revise no navegador</h3>
+                        <p data-i18n="vw-s2-d">Navegue no 3D, compare revisões, rode clash e registre as issues.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <h3 data-i18n="vw-s3-t">Compartilhe por QR Code</h3>
+                        <p data-i18n="vw-s3-d">Gere um link ou QR Code e o cliente vê o projeto no próprio celular.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ GRÁTIS × VIEWER PRO (29/10/2026) ============
+             O cartão do Viewer saiu da página do Assistant e veio para cá.
+             Diferença entre os planos = espaço (decisão do José, 29/10/2026):
+             grátis 2 GB, Pro 10 GB (um "Master" de 20 GB pode vir depois).
+             Tamanho por arquivo e envios por minuto: backend/config.py do
+             plab-viewer. Nuvem de pontos: planejada (estágio V1 do plano do
+             PointCloud), por isso "em breve". Preço vem do banco
+             (vitrine_de_planos, script no fim da página); o HTML é a reserva. -->
+        <section class="section" id="viewer-pro">
+            <div class="container">
+                <span class="eyebrow">PLANOS</span>
+                <h2 class="section-title-main">Comece grátis. Precisa de mais espaço? Viewer Pro.</h2>
+                <div class="planos-grid planos-grid--viewer">
+
+                    <div class="plano-card">
+                        <h3 class="plano-nome">Viewer grátis</h3>
+                        <div class="plano-preco">
+                            <span class="plano-valor">R$ 0</span>
+                            <span class="plano-cond">para sempre, com conta P-LAB</span>
+                        </div>
+                        <ul class="plano-lista">
+                            <li><strong>2 GB de armazenamento</strong></li>
+                            <li>Arquivos de até 500 MB</li>
+                            <li>IFC em 3D, PDF, DXF e DWG no navegador</li>
+                            <li>Marcações, comparação de revisões, clash e pendências</li>
+                            <li>Compartilhamento por link e QR Code</li>
+                        </ul>
+                        <div class="plano-pagar">
+                            <a href="https://viewer.plabdev.com.br/" class="btn-secondary plano-botao" target="_blank" rel="noopener">Entrar ou criar conta</a>
+                            <a href="https://viewer.plabdev.com.br/abrir.html" class="btn-secondary plano-botao" target="_blank" rel="noopener">Abrir um arquivo sem conta</a>
+                        </div>
+                    </div>
+
+                    <div class="plano-card plano-card--destaque">
+                        <span class="plano-tag plano-tag--gratis">Incluso no <span data-no-translate>PLAB Júnior</span> e no <span data-no-translate>PLAB Pleno</span></span>
+                        <h3 class="plano-nome"><span data-no-translate>Viewer Pro</span></h3>
+                        <div class="plano-preco">
+                            <span class="plano-valor"><span data-preco-parcela="viewer">R$ 19,90</span>/mês</span>
+                            <span class="plano-cond">por usuário, no cartão: renova sozinho, cancele quando quiser</span>
+                        </div>
+                        <p class="plano-anual">ou <strong data-preco-avista="viewer">R$ 199,90</strong> à vista por um ano, no PIX ou 1x no cartão</p>
+                        <ul class="plano-lista">
+                            <li><strong>10 GB de armazenamento</strong></li>
+                            <li>Arquivos de até 1 GB</li>
+                            <li>Mais envios por minuto, para subir o projeto inteiro de uma vez</li>
+                            <li>Tudo o que o grátis tem</li>
+                        </ul>
+                        <div class="plano-bloco pro-nuvem">
+                            <span class="plano-bloco-titulo">Em breve: nuvem de pontos no navegador</span>
+                            <span class="plano-bloco-texto">Envie E57, LAS ou LAZ e abra a nuvem em partes, sem esperar o arquivo inteiro: cor por RGB, intensidade ou elevação, caixa de corte, medidas de distância, ângulo e área, e o modelo IFC junto, nas mesmas coordenadas. Depois, fotos 360° tiradas do scan. Publicação direto do Revit pelo <a href="#pointcloud">P-LAB PointCloud</a>.</span>
+                        </div>
+                        <!-- Pagamento direto no site (21/10/2026): links fixos do Asaas (tabela links_pagamento_site
+                             no plab-os; o webhook reconhece o link e libera pelo e-mail do pagador) e a página do PIX. -->
+                        <div class="plano-pagar">
+                            <a href="https://www.asaas.com/000/c/yc989frbhqq8u50h" class="btn-primary plano-botao" target="_blank" rel="noopener">Pagamento mensal: R$ 19,90/mês</a>
+                            <a href="https://www.asaas.com/000/c/baddhqpf6tsjqgvg" class="btn-secondary plano-botao" target="_blank" rel="noopener">Cartão à vista, R$ 199,90</a>
+                            <a href="pix.html?plano=viewer" class="btn-secondary plano-botao">PIX à vista, R$ 199,90</a>
+                            <p class="plano-cond plano-letra-miuda">O pagamento mensal é de R$ 19,90, cobrado todo mês no cartão de crédito, de forma automática. Cancele quando quiser em Configurações › Assinatura: o acesso segue até o fim do mês pago. No cartão, use o e-mail da sua conta P-LAB; sem conta, ela é criada com o e-mail da compra.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SOB MEDIDA (escritórios) ============
+             Mesma ideia do "Plugin adaptado ao seu escritório" da aba Plugins,
+             mas sem faixa de preço: o escopo de plataforma varia demais e o
+             valor sai na proposta. -->
+        <section class="section light-bg" id="viewer-sob-medida">
+            <div class="container">
+                <span class="botao-painel">PARA ESCRITÓRIOS</span>
+                <h2 class="section-title-main">O Viewer do jeito que o seu escritório revisa</h2>
+                <div class="botao-grid">
+                    <div class="feature-card">
+                        <h3>Parte do que já existe</h3>
+                        <p>Começamos pelo P-LAB Viewer e ajustamos status, campos e relatórios de pendência ao processo de revisão da sua equipe.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Integrado ao seu fluxo</h3>
+                        <p>Ligamos o Viewer ao que o escritório já usa: pastas, planilhas e o formato de relatório que o seu cliente pede.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Escopo fechado antes</h3>
+                        <p>Você aprova o que vai ser feito e quanto custa antes de começarmos. Sem surpresa no meio do caminho.</p>
+                    </div>
+                </div>
+
+                <div class="equipe-band sob-medida-band">
+                    <div>
+                        <span class="botao-painel">SOB MEDIDA · PROPOSTA</span>
+                        <h3>Viewer adaptado ao seu escritório</h3>
+                        <p>Partimos da plataforma que já existe e ajustamos ao processo de revisão do escritório: status, campos, relatórios e integrações. Fechado em proposta conforme o escopo.</p>
+                    </div>
+                    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20de%20P-LAB%20Viewer%20sob%20medida." class="btn-primary" target="_blank" rel="noopener">Pedir uma proposta</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container text-center cta-band">
+                <h2 data-i18n="vw-diff-title">Em português, leve e sem mensalidade em dólar</h2>
+                <p data-i18n="vw-diff-desc">Uma plataforma de revisão BIM pensada para a realidade do escritório brasileiro — rápida de adotar e sem custo atrelado ao câmbio.</p>
+                <p class="hero-actions" style="justify-content:center">
+                    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20Viewer." class="btn-primary" target="_blank" rel="noopener" data-i18n="vw-cta-btn">Falar sobre o Viewer no WhatsApp</a>
+                    <a href="#viewer-pro" class="btn-secondary">Ver o Viewer Pro</a>
+                </p>
+            </div>
+        </section>
+
+        <section id="contato" class="section light-bg">
+            <div class="container">
+                <h2 class="text-center section-title-main">Quer ver o P-LAB Viewer no seu modelo?</h2>
+                <p class="text-center" style="max-width:60ch;margin:0 auto 28px">Deixe seu contato e a gente mostra o Viewer rodando com um modelo seu. Prefere conversar agora? O WhatsApp está logo acima.</p>
+                <form action="https://formsubmit.co/devpicanco@gmail.com" method="POST" class="form-style" id="contact-form" novalidate>
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="hidden" name="_next" value="https://plabdev.com.br/obrigado.html">
+                    <input type="hidden" name="_subject" value="Lead P-LAB Viewer (Google Ads)">
+                    <input type="hidden" name="Origem" value="viewer">
+                    <!-- Honeypot anti-spam: invisível para humanos, preenchido por bots -->
+                    <input type="text" name="_honey" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                    <label class="sr-only" for="f-nome">Seu nome</label>
+                    <input type="text" id="f-nome" name="Nome" placeholder="Seu Nome" required>
+
+                    <label class="sr-only" for="f-email">E-mail corporativo</label>
+                    <input type="email" id="f-email" name="Email" placeholder="E-mail Corporativo" required>
+
+                    <label class="sr-only" for="f-doc">CNPJ ou CPF (opcional)</label>
+                    <input type="text" id="f-doc" name="CNPJ_CPF" placeholder="CNPJ ou CPF (opcional)">
+
+                    <label class="sr-only" for="f-msg">Mensagem</label>
+                    <textarea id="f-msg" name="Mensagem" placeholder="Quantas pessoas revisam modelo no seu escritório?" rows="5" required></textarea>
+
+                    <p class="form-error" id="form-error" role="alert" hidden></p>
+                    <button type="submit" class="btn-submit">Falar com a P-LAB</button>
+                </form>
+            </div>
+        </section>
+    
+            </div>
+        </div>
+    </div>
+    <div class="painel" id="painel-pointcloud" role="dialog" aria-modal="true" aria-labelledby="painel-pointcloud-t" hidden>
+        <div class="painel__caixa">
+            <div class="painel__barra">
+                <button type="button" class="painel__voltar" data-fechar aria-label="Voltar para Soluções">← Soluções</button>
+                <span class="painel__titulo" id="painel-pointcloud-t">P-LAB PointCloud</span>
+                <button type="button" class="painel__fechar" data-fechar aria-label="Fechar">&times;</button>
+            </div>
+            <div class="painel__corpo">
         <section class="section light-bg" id="pointcloud">
             <div class="container">
                 <span class="botao-painel">NOVO · NUVEM DE PONTOS NO REVIT</span>
@@ -404,7 +1609,7 @@
                 <div class="pc-depois">
                     <span class="botao-painel">O QUE VEM DEPOIS · PLANEJADO</span>
                     <h3>P-LAB PointCloud para desktop</h3>
-                    <p>Um programa para Windows que trata a nuvem de pontos sem precisar do Revit: importa, georreferencia, limpa, decima, classifica, mede, compara e exporta. Em português, sem travar a tela nas operações longas, com desfazer e sem sobrescrever o arquivo original. O resultado vai direto para o add-in do Revit e para o <a href="viewer.html#viewer-pro">P-LAB Viewer</a>.</p>
+                    <p>Um programa para Windows que trata a nuvem de pontos sem precisar do Revit: importa, georreferencia, limpa, decima, classifica, mede, compara e exporta. Em português, sem travar a tela nas operações longas, com desfazer e sem sobrescrever o arquivo original. O resultado vai direto para o add-in do Revit e para o <a href="#viewer-pro">P-LAB Viewer</a>.</p>
                     <div class="botao-grid pc-etapas">
                         <div class="feature-card">
                             <span class="plano-tag">Etapa 1</span>
@@ -439,261 +1644,221 @@
                 </div>
             </div>
         </section>
-
-        <!-- ============ ALÉM DO REVIT ============
-             Ferramentas pagas, vendidas sob consulta, ainda em desenvolvimento
-             (specs: docs/PROMPT-specs-navisworks-civil3d.md no repo P-LAB).
-             Cada cartão tem o espaço da imagem com o nome do arquivo esperado:
-             é só salvar o print em images/ e trocar o .media-slot pelo <img>
-             que está comentado ao lado. -->
-        <section class="section" id="outras-plataformas">
-            <div class="container">
-                <span class="botao-painel">ALÉM DO REVIT</span>
-                <h2 class="section-title-main">Ferramentas para Navisworks e Civil 3D</h2>
-                <p class="planos-intro">Em desenvolvimento e vendidas à parte do add-in gratuito. Fale com a P-LAB para comprar ou acompanhar o lançamento.</p>
-                <div class="botao-grid">
-                    <div class="feature-card botao-card">
-                        <h3>Clash Works</h3>
-                        <p class="selos-plataforma"><img src="images/logo-navisworks.svg" alt="Navisworks" class="selo-logo" width="28" height="28" loading="lazy"> <span class="plano-tag">Navisworks</span> <span class="plano-tag">Em desenvolvimento</span></p>
-                        <p>Roda os testes de interferência em lote, agrupa os conflitos por nível, eixo e disciplina, e entrega relatório HTML e BCF que abre direto no Revit.</p>
-                        <!-- [navisworks-clash-works.webp] Quando tiver, trocar o .media-slot por:
-                        <img src="images/navisworks-clash-works.webp" alt="Clash Works no Navisworks" width="1280" height="720" loading="lazy" class="print-plataforma"> -->
-                        <img src="images/navisworks-clash-works.webp" alt="Conflitos de forro agrupados por nível" width="1600" height="900" loading="lazy" class="print-plataforma">
-                    </div>
-
-                    <div class="feature-card botao-card">
-                        <h3>Quantificação para o P-LAB OS</h3>
-                        <p class="selos-plataforma"><img src="images/logo-navisworks.svg" alt="Navisworks" class="selo-logo" width="28" height="28" loading="lazy"> <span class="plano-tag">Navisworks</span> <span class="plano-tag">Em desenvolvimento</span></p>
-                        <p>Importa o seu catálogo de serviços para o Quantification e manda as quantidades do modelo para o módulo de custos do P-LAB OS.</p>
-                        <!-- [navisworks-quantificacao.webp] Quando tiver, trocar o .media-slot por:
-                        <img src="images/navisworks-quantificacao.webp" alt="Quantificação para o P-LAB OS no Navisworks" width="1280" height="720" loading="lazy" class="print-plataforma"> -->
-                        <img src="images/navisworks-quantificacao.webp" alt="Quantidades do modelo virando custo" width="1600" height="900" loading="lazy" class="print-plataforma">
-                    </div>
-
-                    <div class="feature-card botao-card">
-                        <h3>Verificador de traçado</h3>
-                        <p class="selos-plataforma"><img src="images/logo-civil3d.svg" alt="Civil 3D" class="selo-logo" width="28" height="28" loading="lazy"> <span class="plano-tag">Civil 3D</span> <span class="plano-tag">Em desenvolvimento</span></p>
-                        <p>Confere raio, transição, superelevação e rampas de cada curva contra a norma, recalcula os valores do Civil 3D e aponta o que precisa de revisão.</p>
-                        <!-- [civil3d-verificador-tracado.webp] Quando tiver, trocar o .media-slot por:
-                        <img src="images/civil3d-verificador-tracado.webp" alt="Verificador de traçado no Civil 3D" width="1280" height="720" loading="lazy" class="print-plataforma"> -->
-                        <img src="images/civil3d-verificador-tracado.webp" alt="Traçado com cada curva conferida" width="1600" height="900" loading="lazy" class="print-plataforma">
-                    </div>
-
-                    <div class="feature-card botao-card">
-                        <h3>Distribuição de terraplenagem</h3>
-                        <p class="selos-plataforma"><img src="images/logo-civil3d.svg" alt="Civil 3D" class="selo-logo" width="28" height="28" loading="lazy"> <span class="plano-tag">Civil 3D</span> <span class="plano-tag">Em desenvolvimento</span></p>
-                        <p>Calcula a melhor origem e destino para cada corte e aterro, com empréstimos e bota-foras, e entrega o quadro de distribuição de terras.</p>
-                        <!-- [civil3d-terraplenagem.webp] Quando tiver, trocar o .media-slot por:
-                        <img src="images/civil3d-terraplenagem.webp" alt="Distribuição de terraplenagem no Civil 3D" width="1280" height="720" loading="lazy" class="print-plataforma"> -->
-                        <img src="images/civil3d-terraplenagem.webp" alt="Distribuição de terra entre cortes e aterros" width="1600" height="900" loading="lazy" class="print-plataforma">
-                    </div>
-                </div>
-
-                <div class="equipe-band">
-                    <div>
-                        <span class="botao-painel">COMPRA SOB CONSULTA</span>
-                        <h3>Quer uma dessas no seu escritório?</h3>
-                        <p>Conte o que você precisa e em qual versão do Navisworks ou do Civil 3D a equipe trabalha. A gente monta a proposta.</p>
-                    </div>
-                    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20tenho%20interesse%20nas%20ferramentas%20da%20P-LAB%20para%20Navisworks%20e%20Civil%203D." class="btn-primary" target="_blank" rel="noopener">Falar sobre compra</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ SOFTWARES E APPS (29/10/2026) ============
-             O P-LAB OS saiu do menu (decisão do José) e virou esta seção. Sem
-             cartão de pagamento: a conversa é pelo WhatsApp. A página antiga
-             plab-os.html redireciona para cá. -->
-        <section class="section light-bg" id="apps">
-            <div class="container">
-                <span class="botao-painel">SOFTWARES E APPS</span>
-                <h2 class="section-title-main">Software para o escritório de projetos</h2>
-                <p class="planos-intro">Além das automações, a P-LAB desenvolve aplicativos para o dia a dia do escritório. São dois: o P-LAB OS, para a gestão, e o P-LAB Dimensions, para o cálculo.</p>
-                <div class="apps-os">
-                    <div>
-                        <h3>P-LAB OS</h3>
-                        <p>Gestão do escritório de projetos no navegador, com uma conta só para a equipe.</p>
-                        <ul class="pc-lista">
-                            <li><strong>Início</strong> — a semana de cada pessoa, o cronômetro de horas por projeto e disciplina, e o desempenho: horas lançadas e consumo do previsto.</li>
-                            <li><strong>Projetos</strong> — carteira de projetos e propostas, com funil de vendas e preço sugerido a partir do custo real da equipe.</li>
-                            <li><strong>Viewer</strong> — modelos IFC, PDF, DXF e DWG no navegador, ligados ao mesmo projeto. Conheça o <a href="viewer.html">P-LAB Viewer</a>.</li>
-                            <li><strong>Dimensions</strong> — os dimensionadores de hidráulica e elétrica, abertos direto do menu. Veja o <a href="#dimensions">P-LAB Dimensions</a> logo abaixo.</li>
-                        </ul>
-                        <p class="hero-actions"><a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20OS." class="btn-primary" target="_blank" rel="noopener">Quero conhecer o P-LAB OS</a></p>
-                    </div>
-                    <button type="button" class="midia-play" data-video="videos/plab-os-tour.mp4" aria-label="Ver o vídeo: tour do P-LAB OS">
-                        <img src="images/poster-plab-os.webp" alt="O P-LAB OS por dentro: horas, projetos e propostas" width="1920" height="641" loading="lazy" class="print-plataforma">
-                        <span class="midia-play__icone" aria-hidden="true"></span>
-                    </button>
-                </div>
-
-                <!-- P-LAB Dimensions (repo plab-eng/plab-dimensions, publicado em
-                     dimensions.plabdev.com.br atrás do login do plab-os; módulo
-                     `dimensions` nos planos os, assistant e assistant_pleno).
-                     A imagem é print real da tela inicial (29/10/2026). Quando o vídeo
-                     curto existir, trocar a <figure> por um .midia-play com
-                     data-video="videos/plab-dimensions-tour.mp4", como no P-LAB OS. -->
-                <div class="apps-os apps-os--inverso" id="dimensions">
-                    <div>
-                        <h3>P-LAB Dimensions</h3>
-                        <p>Dimensionamento de instalações prediais e redes no navegador, sem instalar nada. Os dados da obra entram uma vez e valem para todas as calculadoras.</p>
-                        <ul class="pc-lista">
-                            <li><strong>Esgoto</strong> — rede coletora com estação elevatória (NBR 9649) e esgoto predial: prumadas, ventilação, subcoletor e caixas de gordura (NBR 8160).</li>
-                            <li><strong>Drenagem</strong> — rede de galerias pelo método racional, com caixa de retenção, e pluvial predial: calhas, condutores e aproveitamento de chuva (NBR 10844 e NBR 15527).</li>
-                            <li><strong>Água fria</strong> <span class="plano-tag">em construção</span> — pressão da rede ao ramal do apartamento, VRP e esquema vertical em DXF (NBR 5626).</li>
-                            <li><strong>Elétrica</strong> <span class="plano-tag">em construção</span> — estudo de proteção, cabos, queda de tensão, curto-circuito, barramento, bus way, eletroduto, luminotécnico e elevador.</li>
-                            <li><strong>Entregas</strong> — planilha em Excel, PDF e arquivo para o Revit, com o seu logo e o responsável técnico.</li>
-                        </ul>
-                        <p>Vem junto com o P-LAB OS e com os planos do <a href="planos.html">P-LAB Assistant</a>, na mesma conta.</p>
-                        <p class="hero-actions"><a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20P-LAB%20Dimensions." class="btn-primary" target="_blank" rel="noopener">Quero conhecer o P-LAB Dimensions</a></p>
-                    </div>
-                    <figure class="apps-midia">
-                        <img src="images/plab-dimensions.png" alt="Tela inicial do P-LAB Dimensions: calculadoras de elétrica, esgoto, drenagem e água" width="1275" height="874" loading="lazy" class="print-plataforma">
-                        <figcaption>Vídeo curto em breve.</figcaption>
-                    </figure>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ SOB MEDIDA (escritórios) ============
-             A oferta também aparece no cartão "Plugin personalizado"
-             da lista de botões (#botoes) — mudou aqui, muda lá. -->
-        <section class="section" id="sob-medida">
-            <div class="container">
-                <span class="botao-painel" data-i18n="sol-sm">PARA ESCRITÓRIOS</span>
-                <h2 class="section-title-main" data-i18n="sol-sm-title">O plugin do jeito que o seu escritório trabalha</h2>
-                <div class="botao-grid">
-                    <div class="feature-card">
-                        <h3 data-i18n="sol-sm1-t">Parte do que já existe</h3>
-                        <p data-i18n="sol-sm1-d">Começamos pelos botões do P-LAB para Revit e ajustamos comportamento, parâmetros e nomenclatura ao padrão da sua equipe.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3 data-i18n="sol-sm2-t">Seu template, suas famílias</h3>
-                        <p data-i18n="sol-sm2-d">O plugin trabalha em cima do template e das famílias que o escritório já usa, e entrega do jeito que o seu cliente pede.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3 data-i18n="sol-sm3-t">Licença vitalícia</h3>
-                        <p data-i18n="sol-sm3-d">Licença por código, que funciona sem servidor e sem conta Autodesk. Não é assinatura: fica com o escritório.</p>
-                    </div>
-                </div>
-
-                <div class="equipe-band sob-medida-band">
-                    <div>
-                        <span class="botao-painel" data-i18n="pl-sm-eyebrow">SOB MEDIDA · PROPOSTA</span>
-                        <h3 data-i18n="pl-sm-t">Plugin adaptado ao seu escritório</h3>
-                        <p data-i18n="pl-sm-d">Partimos da base que já existe e ajustamos ao fluxo do escritório — comportamento, parâmetros, nomenclatura, template e famílias. Licença vitalícia por código, que funciona sem servidor e sem conta Autodesk. Valor fechado em proposta, conforme o escopo.</p>
-                    </div>
-                    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20de%20plugin%20sob%20medida." class="btn-primary" target="_blank" rel="noopener" data-i18n="pl-p2-btn">Pedir uma proposta</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section light-bg">
-            <div class="container text-center cta-band">
-                <h2 data-i18n="sol-cta-t">Instale de graça e veja funcionando</h2>
-                <p data-i18n="sol-cta-d">A instalação leva menos de dois minutos e todas as ferramentas já ficam disponíveis, sem cartão e sem prazo de teste. Se ele ajuda no seu dia, você pode <a href="apoiar.html">apoiar a P-LAB</a>.</p>
-                <p class="hero-actions" style="justify-content:center">
-                    <a href="https://github.com/plab-eng/P-LAB-releases/releases/latest" class="btn-primary" target="_blank" rel="noopener" data-instalador data-i18n="sol-cta-btn">Baixar gratuitamente</a>
-                    <a href="#botoes" class="btn-secondary" data-i18n="sol-cta-btn2">Ver todos os botões</a>
-                    <a href="https://github.com/plab-eng/P-LAB-releases/releases" class="btn-secondary" target="_blank" rel="noopener" data-releases data-i18n="sol-cta-btn3">Últimos instaladores</a>
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="main-footer">
-        <div class="container footer-grid">
-            <div class="footer-info">
-                <span class="logo-footer">P-LAB</span>
-                <p data-i18n="footer-tagline">Software e automação para engenharia.</p>
-                <p>Joinville - SC</p>
-            </div>
-            <div class="footer-nav">
-                <h3 data-i18n="footer-products">Produtos</h3>
-                <ul>
-                    <li><a href="solucoes.html" data-i18n="nav-plugins">Automações</a></li>
-                    <li><a href="viewer.html" data-i18n="nav-viewer">P-LAB Viewer</a></li>
-                    <li><a href="planos.html" data-i18n="nav-planos">Assistant</a></li>
-                    <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
-                    <li><a href="apoiar.html">Apoiar</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <h3 data-i18n="footer-social">Siga-nos</h3>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/company/plab-eng/" target="_blank" rel="noopener" aria-label="LinkedIn da P-LAB"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="footer-contact">
-                <h3 data-i18n="footer-contact">Contato</h3>
-                <p class="footer-white"><a href="tel:+5547989168641">(47) 98916-8641</a></p>
-                <p class="footer-white">devpicanco@gmail.com</p>
-                <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-whatsapp-footer" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             </div>
         </div>
-        <div class="container text-center footer-bottom">
-            <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0</p>
-        </div>
-    </footer>
+    </div>
+<!-- Preço com uma fonte só (13/09/2026): os números acima, escritos à
+         mão, são a RESERVA. Se o banco responder, eles saem daqui; se a
+         chamada falhar (rede fora, RPC fora do ar), o HTML estático
+         continua valendo — a vitrine nunca fica em branco por causa disto.
 
-    <script src="script.js"></script>
-    <!-- Popup dos vídeos dos botões (21/10/2026): a imagem é a miniatura, o play abre aqui. -->
-    <dialog class="video-popup" id="video-popup" aria-label="Vídeo do botão">
-        <button type="button" class="video-popup__fechar" aria-label="Fechar o vídeo">&times;</button>
-        <video controls playsinline preload="none"></video>
-    </dialog>
+         14/09/2026: os 4 planos de plugin (um_modulo, dois_modulos, suite,
+         total) entraram no banco — ver PENDENTE-precos-site.md. O texto
+         `-c` deles é a mesma frase dos planos do OS ("por usuário, no
+         plano anual · ou R$X/mês sem compromisso · R$Y à vista no PIX"),
+         então usa a MESMA função abaixo. Se o formato de preço de algum
+         plano de plugin divergir um dia, criar função própria em vez de
+         forçar aqui.
+
+         Só roda na página em português: o texto ao redor do preço já foi
+         traduzido pelo DeepL para /en/ e /es/ (scripts/translate.py) — e
+         embutir frase em português ali apagaria a tradução. -->
     <script>
+    // Banco público da vitrine (Supabase do P-LAB OS). Chave "anon": pública
+    // por natureza, a mesma classe de chave que já vai embutida no bundle do
+    // P-LAB OS (RULES.md §6) — não é segredo.
+    var PLAB_VITRINE = {
+      url: 'https://rydgthtnlccryhvgghkw.supabase.co',
+      anon: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5ZGd0aHRubGNjcnlodmdnaGt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4NjA5NzksImV4cCI6MjEwMDQzNjk3OX0.xLjIqUBjgorHad7gD8rZKI4kboSz5_S6DgP9MR5T1zM',
+    };
+    </script>
+    <script>
+    // PLAB Júnior e PLAB Pleno (20/10/2026): preço, promoção e modelos de IA
+    // vindos do banco. Roda em todos os idiomas (números e nomes de modelo não
+    // se traduzem); a contagem de vagas, que é texto, só em português.
     (function () {
-      var popup = document.getElementById('video-popup');
-      if (!popup || typeof popup.showModal !== 'function') return;
-      var video = popup.querySelector('video');
-      function fechar() { video.pause(); video.removeAttribute('src'); video.load(); if (popup.open) popup.close(); }
-      document.querySelectorAll('[data-video]').forEach(function (botao) {
-        botao.addEventListener('click', function () {
-          video.src = botao.getAttribute('data-video');
-          popup.showModal();
-          video.play().catch(function () {});
-          if (typeof trackEvent === 'function') trackEvent('video_botao', { video: botao.getAttribute('data-video') });
-        });
-      });
-      popup.querySelector('.video-popup__fechar').addEventListener('click', fechar);
-      popup.addEventListener('click', function (e) { if (e.target === popup) fechar(); });
-      popup.addEventListener('close', function () { video.pause(); video.removeAttribute('src'); video.load(); });
+      var cab = { apikey: PLAB_VITRINE.anon, Authorization: 'Bearer ' + PLAB_VITRINE.anon };
+      var emPt = !/\/(en|es)\//.test(location.pathname);
+      function real(v) {
+        return 'R$ ' + Number(v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+      // Fabricante + nome do modelo, sem o número da versão (22/10/2026):
+      // "DeepSeek V4.1 Flash" vira "DeepSeek Flash"; "GPT-6.1 Sol", "GPT Sol".
+      function semVersao(nome) {
+        return String(nome).replace(/[\s-]*(?:\b[vVkK])?\d+(?:\.\d+)*/g, '').replace(/\s+/g, ' ').trim();
+      }
+      // Citados depois dos modelos do servidor.
+      var OUTROS_MODELOS = {
+        assistant: ['GPT Luna', 'GPT Terra', 'Gemini Flash', 'Kimi Code', 'Qwen Max'],
+        assistant_pleno: ['GPT Luna', 'GPT Terra', 'GPT Sol', 'Gemini Flash', 'Kimi Code', 'Qwen Max']
+      };
+      function el(atributo, chave) { return document.querySelector('[' + atributo + '="' + chave + '"]'); }
+
+      fetch(PLAB_VITRINE.url + '/rest/v1/rpc/vitrine_de_planos', { headers: cab })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (planos) {
+          planos.forEach(function (p) {
+            if (p.chave !== 'assistant' && p.chave !== 'assistant_pleno') return;
+            var parcela = el('data-preco-parcela', p.chave);
+            if (parcela && p.valor_usuario_parcela) parcela.textContent = real(p.valor_usuario_parcela);
+            var avista = el('data-preco-avista', p.chave);
+            var cheio = el('data-promo-cheio', p.chave);
+            var promo = el('data-promo', p.chave);
+            var temPromo = p.valor_promocional_avista && p.promo_vagas_restantes > 0;
+            if (avista) avista.textContent = real(temPromo ? p.valor_promocional_avista : p.valor_usuario_avista);
+            if (cheio) { cheio.textContent = real(p.valor_usuario_avista); cheio.hidden = !temPromo; }
+            if (promo) promo.hidden = !temPromo;
+            var vagas = el('data-promo-vagas-texto', p.chave);
+            if (vagas && temPromo && emPt) {
+              vagas.textContent = ' — restam ' + p.promo_vagas_restantes + (p.promo_vagas_restantes === 1 ? ' vaga' : ' vagas');
+            }
+          });
+        })
+        .catch(function () { /* reserva: o texto estático fica */ });
+
+      fetch(PLAB_VITRINE.url + '/rest/v1/rpc/modelos_da_vitrine', { headers: cab })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (linhas) {
+          ['assistant', 'assistant_pleno'].forEach(function (plano) {
+            var alvo = el('data-modelos', plano);
+            var doPlano = linhas.filter(function (l) { return l.plano === plano; });
+            if (!alvo || !doPlano.length) return;
+            var nomes = [];
+            doPlano.map(function (l) { return semVersao(l.nome); }).concat(OUTROS_MODELOS[plano]).forEach(function (n) {
+              if (n && nomes.indexOf(n) < 0) nomes.push(n);
+            });
+            alvo.textContent = nomes.join(' · ');
+          });
+        })
+        .catch(function () { /* reserva: a lista de famílias escrita no HTML */ });
     })();
     </script>
     <script>
-    /* Roda dos botões (21/10/2026): liga o centro (Revit) a cada cartão com uma linha
-       e um ponto na borda do cartão, como balões saindo do centro. Só no desktop. */
+    /* Conversa de exemplo do Assistant: os balões entram aos pares e recomeçam. */
     (function () {
-      var roda = document.querySelector('.botao-roda');
-      if (!roda) return;
-      var svg = roda.querySelector('.roda-linhas');
-      var hub = roda.querySelector('.botao-hub__anel');
-      var NS = 'http://www.w3.org/2000/svg';
-      function el(nome, attrs) { var e = document.createElementNS(NS, nome); for (var k in attrs) e.setAttribute(k, attrs[k]); return e; }
-      function desenhar() {
-        while (svg.firstChild) svg.removeChild(svg.firstChild);
-        if (!hub || hub.offsetParent === null) return;
-        var base = roda.getBoundingClientRect();
-        var h = hub.getBoundingClientRect();
-        var cx = h.left + h.width / 2 - base.left, cy = h.top + h.height / 2 - base.top, r = h.width / 2 + 10;
-        svg.setAttribute('viewBox', '0 0 ' + base.width + ' ' + base.height);
-        roda.querySelectorAll(':scope > .botao-card').forEach(function (card) {
-          var b = card.getBoundingClientRect();
-          var x0 = b.left - base.left, y0 = b.top - base.top, x1 = x0 + b.width, y1 = y0 + b.height;
-          var px = Math.max(x0, Math.min(cx, x1)), py = Math.max(y0, Math.min(cy, y1));
-          var dx = px - cx, dy = py - cy, d = Math.sqrt(dx * dx + dy * dy) || 1;
-          var sx = cx + dx / d * r, sy = cy + dy / d * r;
-          svg.appendChild(el('line', { x1: sx, y1: sy, x2: px, y2: py, 'class': 'roda-linha' }));
-          svg.appendChild(el('circle', { cx: sx, cy: sy, r: 5, 'class': 'roda-ponto' }));
-          svg.appendChild(el('circle', { cx: px, cy: py, r: 5, 'class': 'roda-ponto' }));
-        });
+      var caixa = document.getElementById('assistant-conversa');
+      if (!caixa || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+      var baloes = [].slice.call(caixa.querySelectorAll('.balao'));
+      var i = 0;
+      caixa.classList.add('animando');
+      function passo() {
+        if (i >= baloes.length) {
+          baloes.forEach(function (b) { b.classList.remove('visivel'); });
+          i = 0;
+          setTimeout(passo, 600);
+          return;
+        }
+        baloes[i].classList.add('visivel');
+        var era = baloes[i].classList.contains('balao--eu');
+        i++;
+        setTimeout(passo, era ? 900 : 2200);
       }
-      window.addEventListener('resize', desenhar);
-      window.addEventListener('load', desenhar);
-      if (window.ResizeObserver) new ResizeObserver(desenhar).observe(roda);
-      desenhar();
+      passo();
     })();
+    </script>
+
+<script>
+    // Preço do Viewer Pro vindo do banco (vitrine_de_planos), como na página do
+    // Assistant. Chave "anon": pública por natureza, não é segredo. Sem resposta,
+    // fica o texto escrito acima.
+    (function () {
+      var url = 'https://rydgthtnlccryhvgghkw.supabase.co';
+      var anon = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5ZGd0aHRubGNjcnlodmdnaGt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4NjA5NzksImV4cCI6MjEwMDQzNjk3OX0.xLjIqUBjgorHad7gD8rZKI4kboSz5_S6DgP9MR5T1zM';
+      function real(v) { return 'R$ ' + Number(v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+      fetch(url + '/rest/v1/rpc/vitrine_de_planos', { headers: { apikey: anon, Authorization: 'Bearer ' + anon } })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (planos) {
+          planos.forEach(function (p) {
+            if (p.chave !== 'viewer') return;
+            var parcela = document.querySelector('[data-preco-parcela="viewer"]');
+            var avista = document.querySelector('[data-preco-avista="viewer"]');
+            if (parcela && p.valor_usuario_parcela) parcela.textContent = real(p.valor_usuario_parcela);
+            if (avista && p.valor_usuario_avista) avista.textContent = real(p.valor_usuario_avista);
+          });
+        })
+        .catch(function () {});
+    })();
+    </script>
+
+    <script>
+    /* Painéis das soluções (29/10/2026). Cada produto da sanfona tem um painel
+       grande com o conteúdo completo (antigas páginas Automações, Assistant e
+       Viewer). O endereço manda:
+         #addin, #assistant, #viewer, #pointcloud  -> abre o painel no topo;
+         #<id de algo dentro de um painel>          -> abre o painel e rola até lá
+           (ex.: #viewer-pro, #capacidades, #botoes; planos.html e viewer.html
+           redirecionam para cá mantendo o #).
+       O voltar do navegador fecha o painel. */
+    (function () {
+      var aberto = null;
+      function painelDe(id) {
+        if (!id) return null;
+        var p = document.getElementById('painel-' + id);
+        if (p) return { painel: p, alvo: null };
+        var el = document.getElementById(id);
+        var dentro = el && el.closest ? el.closest('.painel') : null;
+        return dentro ? { painel: dentro, alvo: el } : null;
+      }
+      function abrir(achado, empurrar, id) {
+        var p = achado.painel;
+        if (aberto && aberto !== p) aberto.hidden = true;
+        var jaAberto = aberto === p;
+        p.hidden = false; aberto = p;
+        document.body.classList.add('painel-aberto');
+        var corpo = p.querySelector('.painel__corpo');
+        if (achado.alvo) {
+          requestAnimationFrame(function () {
+            corpo.scrollTop = achado.alvo.getBoundingClientRect().top - corpo.getBoundingClientRect().top + corpo.scrollTop - 12;
+          });
+        } else if (!jaAberto) {
+          corpo.scrollTop = 0;
+        }
+        if (!jaAberto) p.querySelector('[data-fechar]').focus({ preventScroll: true });
+        if (empurrar) try { history.pushState({ painel: id }, '', '#' + id); } catch (e) {}
+        window.dispatchEvent(new Event('resize'));
+        if (typeof trackEvent === 'function' && !jaAberto) trackEvent('painel_solucao', { painel: p.id.replace('painel-', '') });
+      }
+      function fechar(voltar) {
+        if (!aberto) return;
+        aberto.hidden = true; aberto = null;
+        document.body.classList.remove('painel-aberto');
+        if (voltar) try { history.pushState({}, '', location.pathname + location.search); } catch (e) {}
+      }
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (a) {
+          var id = a.getAttribute('href').slice(1);
+          var achado = painelDe(id);
+          if (achado) { e.preventDefault(); abrir(achado, true, id); return; }
+        }
+        if (e.target.closest && e.target.closest('[data-fechar]')) { fechar(true); return; }
+        if (e.target.classList && e.target.classList.contains('painel')) fechar(true);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && aberto && !document.querySelector('dialog[open]')) fechar(true);
+      });
+      window.addEventListener('popstate', function () {
+        var id = location.hash.slice(1), achado = painelDe(id);
+        if (achado) abrir(achado, false, id); else fechar(false);
+      });
+      var inicial = painelDe(location.hash.slice(1));
+      if (inicial) abrir(inicial, false, location.hash.slice(1));
+
+      /* Sanfona: um produto aberto por vez; no celular, o aberto pode fechar. */
+      document.querySelectorAll('.sanfona__aba').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var item = b.parentNode, ja = item.getAttribute('data-aberto') === 'true';
+          var celular = window.matchMedia('(max-width: 860px)').matches;
+          if (ja && !celular) return;
+          item.parentNode.querySelectorAll('.sanfona__item').forEach(function (o) {
+            o.setAttribute('data-aberto', 'false');
+            o.querySelector('.sanfona__aba').setAttribute('aria-expanded', 'false');
+          });
+          if (!ja) { item.setAttribute('data-aberto', 'true'); b.setAttribute('aria-expanded', 'true'); }
+        });
+      });
+    })();
+
     </script>
 </body>
 </html>

@@ -53,9 +53,9 @@ DEEPL_ENDPOINT = "https://api-free.deepl.com/v2/translate"
 PAGES = {
     "index.html": "",
     "solucoes.html": "solucoes.html",
-    "viewer.html": "viewer.html",
+    "viewer.html": "viewer.html",   # stub: virou o painel #viewer de solucoes.html (29/10/2026)
     "plab-os.html": "plab-os.html",
-    "planos.html": "planos.html",
+    "planos.html": "planos.html",   # stub: virou o painel #assistant de solucoes.html (29/10/2026)
     "hub.html": "hub.html",   # stub de redirecionamento (URL antiga)
     "servicos-bim.html": "servicos-bim.html",
     "consultoria.html": "consultoria.html",   # stub de redirecionamento (URL antiga)
