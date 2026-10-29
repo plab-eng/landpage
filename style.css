@@ -1493,3 +1493,6 @@ img.apoio-qr { background: #ffffff; }
 #capacidades .cap-como__video { margin: 0; }
 #capacidades .cap-como__video figcaption { margin-top: 8px; font-size: .85rem; color: var(--text-muted); text-align: center; }
 @media (max-width: 860px) { #capacidades .cap-como { grid-template-columns: 1fr; } }
+.hero-youtube { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; color: var(--text-muted); text-decoration: none; font-size: .95rem; }
+.hero-youtube .icon { font-size: 1.5rem; }
+.hero-youtube:hover strong { text-decoration: underline; }
