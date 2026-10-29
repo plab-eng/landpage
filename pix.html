@@ -121,8 +121,6 @@
                         <ol class="passos-pix">
                             <li>Pague o valor do plano, por usuário, pelo QR Code ou pela chave. Vale um ano.
                                 <ul class="valores-pix">
-                                    <li><span data-no-translate>PLAB Júnior</span> <strong>R$ 1.499,00</strong></li>
-                                    <li><span data-no-translate>PLAB Pleno</span> <strong>R$ 3.500,00</strong></li>
                                     <li>P-LAB OS <strong>R$ 299,90</strong></li>
                                     <li>P-LAB Viewer <strong>R$ 199,90</strong></li>
                                 </ul>
@@ -148,8 +146,6 @@
                             </label>
                             <label>Plano que você pagou
                                 <select name="plano" required>
-                                    <option value="assistant">PLAB Júnior, R$ 1.499,00 por pessoa</option>
-                                    <option value="assistant_pleno">PLAB Pleno, R$ 3.500,00 por pessoa</option>
                                     <option value="os">P-LAB OS, R$ 299,90 por pessoa</option>
                                     <option value="viewer">P-LAB Viewer, R$ 199,90 por pessoa</option>
                                 </select>
@@ -221,8 +217,9 @@
     /* Plano vindo do botão do cartão (pix.html?plano=…): mostra o valor dele e já
        deixa o plano escolhido no formulário. Sem parâmetro, a lista inteira vale. */
     (function () {
-      var NOMES = { assistant: 'PLAB Júnior', assistant_pleno: 'PLAB Pleno', os: 'P-LAB OS', viewer: 'P-LAB Viewer' };
-      var VALORES = { assistant: 'R$ 1.499,00', assistant_pleno: 'R$ 3.500,00', os: 'R$ 299,90', viewer: 'R$ 199,90' };
+      // 29/10/2026: o PLAB Júnior e o Pleno saíram do PIX à vista (só mensal no cartão).
+      var NOMES = { os: 'P-LAB OS', viewer: 'P-LAB Viewer' };
+      var VALORES = { os: 'R$ 299,90', viewer: 'R$ 199,90' };
       var plano = new URLSearchParams(location.search).get('plano');
       if (!NOMES[plano]) return;
       var valor = document.getElementById('pix-valor');
