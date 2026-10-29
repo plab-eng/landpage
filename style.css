@@ -1402,7 +1402,7 @@ img.apoio-qr { background: #ffffff; }
 .assistant-janela__campo i { color: #fff; background: #1f7a4d; padding: 6px 7px; border-radius: 4px; font-size: 0.7rem; }
 
 /* Ribbon real da aba P-LAB no topo de "Todos os botões" (21/10/2026). */
-.ribbon-plab { display: block; width: 100%; max-width: 1056px; height: auto; margin: 0 auto 32px; border-radius: var(--radius); border: 1px solid var(--border); }
+.ribbon-plab { display: block; width: 100%; max-width: 1077px; height: auto; margin: 0 auto 32px; border-radius: var(--radius); border: 1px solid var(--border); }
 
 /* Roda em balões (21/10/2026): o centro é um anel tracejado com o Revit, e linhas
    desenhadas pelo script ligam o centro à borda de cada cartão. */
@@ -1577,3 +1577,7 @@ body.painel-aberto { overflow: hidden; }
 [data-theme="dark"] .plano-tag--pago { color: #E3B341; border-color: #B8963E; background: rgba(227, 179, 65, .10); }
 #pointcloud .pc-gratis { margin: 10px 0 0; font-size: .88rem; color: var(--text-muted); }
 #pointcloud .pc-gratis strong { color: var(--text); }
+/* Ribbon do add-in: print do Revit no tema claro e no escuro (29/10/2026) */
+.ribbon-escuro { display: none !important; }
+[data-theme="dark"] .ribbon-claro { display: none !important; }
+[data-theme="dark"] .ribbon-escuro { display: block !important; }
