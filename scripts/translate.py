@@ -78,6 +78,8 @@ PROTECTED_TERMS = [
     # Planos do Assistant (20/10/2026): nomes próprios, não "Junior"/"Full".
     "PLAB Júnior", "PLAB Pleno", "PLAB Sênior",
     "Clash Works",
+    # 29/10/2026: o espanhol virava "Nube de puntos P-LAB" e o inglês "Point Cloud".
+    "P-LAB PointCloud", "PointCloud", "P-LAB Dimensions", "Viewer Pro",
     "Export Schedules", "Export Sheets",
     "pyRevit", "Runrun.it", "ClickUp",
 ]
@@ -223,7 +225,10 @@ def fix_path(val):
     """Assets compartilhados na raiz passam a ser referenciados via ../ a partir de /en|/es."""
     if val.startswith(("http://", "https://", "#", "mailto:", "tel:", "javascript:", "data:")):
         return val
-    if val in ("style.css", "script.js"):
+    # Qualquer .css/.js solto na raiz (style.css, plab-tokens.css, script.js,
+    # rede-robos.js...). 29/10/2026: só style.css e script.js ganhavam o ../ e
+    # /en/ e /es/ ficavam sem o plab-tokens.css (fonte, cores e botões do tema).
+    if "/" not in val and val.endswith((".css", ".js")):
         return "../" + val
     if val.startswith(("images/", "videos/", "downloads/")):
         return "../" + val
@@ -231,7 +236,8 @@ def fix_path(val):
 
 def rewrite_paths(soup):
     for tag, attr in (("link", "href"), ("script", "src"), ("img", "src"),
-                      ("source", "src"), ("video", "poster"), ("a", "href")):
+                      ("source", "src"), ("video", "poster"), ("a", "href"),
+                      (True, "data-video")):   # vídeos do popup (29/10/2026)
         for el in soup.find_all(tag):
             if el.has_attr(attr):
                 el[attr] = fix_path(el[attr])
