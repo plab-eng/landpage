@@ -314,7 +314,12 @@ a:focus-visible, button:focus-visible {
 
 /* ---------- 8. FORMA E DENSIDADE ---------- */
 .container { max-width: 1200px; }
-.section    { padding-block: clamp(64px, 8vw, 96px); }
+.section    { padding-block: clamp(32px, 4vw, 48px); }  /* era 64→96px (29/10/2026): o 1º bloco abre na primeira tela */
+/* Topo das páginas internas (sem a imagem da página inicial): mais baixo,
+   para o conteúdo principal já aparecer sem rolar. */
+.hero-section:not(.hero-spotlight) { padding-block: clamp(24px, 3vw, 36px) 8px; }
+.hero-section:not(.hero-spotlight) + .section { padding-top: 24px; }
+.section-title-main { margin-bottom: 28px; }
 
 input, textarea, select {
   background: var(--surface);
