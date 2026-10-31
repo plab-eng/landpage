@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Aplica o tema antes do render para evitar flash (claro por padrão; respeita preferência do sistema na 1ª visita) -->
+    <script>(function(){try{var t=localStorage.getItem('p-lab-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <!-- Consent Mode v2 (19/09/2026): a tag carrega SEMPRE, com consentimento
+         negado por padrão; o aceite do banner só atualiza o estado (script.js).
+         Antes o gtag só era injetado depois do "Aceitar", e quem recusava ou
+         ignorava o banner não gerava ping nenhum — o Google não recebia sinal e
+         não tinha o que modelar. GA4 G-M9WEG41PNK · Ads AW-18462540145. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      gtag('consent', 'default', {
+        ad_storage:            'denied',
+        ad_user_data:          'denied',
+        ad_personalization:    'denied',
+        analytics_storage:     'denied',
+        functionality_storage: 'granted',
+        security_storage:      'granted',
+        wait_for_update: 500
+      });
+      gtag('set', 'ads_data_redaction', true);
+      gtag('set', 'url_passthrough', true);
+
+      // Quem já aceitou numa visita anterior: atualiza ANTES do primeiro ping,
+      // senão o page_view sai marcado como negado. A chave é a mesma do
+      // script.js (CONSENT_KEY).
+      try {
+        if (localStorage.getItem('p-lab-cookie-consent') === 'accepted') {
+          gtag('consent', 'update', {
+            ad_storage:         'granted',
+            ad_user_data:       'granted',
+            ad_personalization: 'granted',
+            analytics_storage:  'granted'
+          });
+        }
+      } catch (e) {}
+
+      gtag('js', new Date());
+      gtag('config', 'G-M9WEG41PNK');
+      gtag('config', 'AW-18462540145');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9WEG41PNK"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade | P-LAB</title>
+    <meta name="description" content="O que o site da P-LAB coleta, para quê, com quem compartilha e como exercer seus direitos pela LGPD.">
+    <link rel="canonical" href="https://plabdev.com.br/privacidade.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/privacidade.html">
+    <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/privacidade.html">
+    <link rel="alternate" hreflang="es" href="https://plabdev.com.br/es/privacidade.html">
+    <link rel="alternate" hreflang="x-default" href="https://plabdev.com.br/privacidade.html">
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://plabdev.com.br/privacidade.html">
+    <meta property="og:title" content="Política de Privacidade | P-LAB">
+    <meta property="og:description" content="O que o site da P-LAB coleta, para quê, com quem compartilha e como exercer seus direitos pela LGPD.">
+    <meta property="og:image" content="https://plabdev.com.br/images/logo-icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="plab-tokens.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      .politica { max-width: 72ch; margin: 0 auto; }
+      .politica h2 { margin: 2.2em 0 .6em; }
+      .politica h3 { margin: 1.6em 0 .4em; font-size: 1.05rem; }
+      .politica ul { margin: .4em 0 1em 1.2em; }
+      .politica li { margin: .35em 0; }
+      .politica code { font-size: .9em; }
+      .politica-data { color: var(--text-muted); font-size: .9rem; margin-top: .8em; }
+    </style>
+</head>
+<body>
+    <header class="main-header sticky-header">
+        <div class="container header-flex">
+            <div class="header-left">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo-icon.webp" alt="Logo P-LAB" class="header-logo-img logo-invert" width="35" height="36">
+                    <span class="logo">P-LAB</span>
+                </a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-nav">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="primary-nav" id="primary-nav">
+                <ul class="nav-links">
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Soluções</a></li>
+                    <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
+                </ul>
+                <div class="nav-extra">
+                    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro" title="Alternar tema">
+                        <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                    </button>
+                    <div class="language-selector">
+                        <button class="lang-btn"><i class="fas fa-globe"></i> <span id="current-lang-label">PT</span> <i class="fas fa-chevron-down"></i></button>
+                        <div class="lang-dropdown">
+                            <div class="dropdown-section">
+                                <span class="section-title" data-i18n="lang-suggested">LOCALIZAÇÃO SUGERIDA</span>
+                                <a href="javascript:void(0)" onclick="plabSwitchLang('pt')" data-lang="pt" data-no-translate>Brasil (Português)</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <span class="section-title" data-i18n="lang-available">SÍTIOS DISPONÍVEIS</span>
+                                <a href="javascript:void(0)" onclick="plabSwitchLang('en')" data-lang="en" data-no-translate>Global (English)</a>
+                                <a href="javascript:void(0)" onclick="plabSwitchLang('es')" data-lang="es" data-no-translate>España (Español)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section hero-section">
+            <div class="container text-center">
+                <span class="eyebrow">PRIVACIDADE</span>
+                <h1>Política de Privacidade</h1>
+                <p class="hero-lead">O que este site coleta, para quê, com quem compartilha e como você exerce seus direitos pela Lei Geral de Proteção de Dados (Lei 13.709/2018).</p>
+                <p class="politica-data">Atualizada em 31 de outubro de 2026.</p>
+            </div>
+        </section>
+
+        <section class="section light-bg">
+            <div class="container politica">
+
+                <h2>1. Quem cuida dos seus dados</h2>
+                <p>O controlador dos dados tratados em <strong>plabdev.com.br</strong> é a <strong>P-LAB Engenharia &amp; Software</strong>, de José Picanço, em Joinville - SC. O encarregado (DPO) é o próprio José Picanço, pelo e-mail <a href="mailto:devpicanco@gmail.com">devpicanco@gmail.com</a> ou pelo WhatsApp <a href="https://wa.me/5547989168641">(47) 98916-8641</a>.</p>
+                <p>Esta política vale para este site. A conta, os planos e os pagamentos do P-LAB OS (app.plabdev.com.br) seguem os termos de uso do próprio app.</p>
+
+                <h2>2. O que coletamos e para quê</h2>
+
+                <h3>Formulário de contato e de orçamento</h3>
+                <p>Quando você envia o formulário, recebemos o que você escreveu: <strong>nome, e-mail, CNPJ ou CPF (opcional) e a mensagem</strong>, além da página de onde veio o pedido. Usamos isso <strong>só para responder e preparar a proposta</strong> que você pediu (LGPD, art. 7º, V). O envio passa pelo serviço <strong>FormSubmit</strong>, que entrega a mensagem no nosso e-mail.</p>
+
+                <h3>Comprovante de pagamento por PIX</h3>
+                <p>Na página de PIX, você informa o <strong>e-mail da sua conta P-LAB, o plano e o arquivo do comprovante</strong>. Usamos esses dados para <strong>confirmar o pagamento e liberar o plano</strong> (art. 7º, V). O comprovante fica num armazenamento privado do P-LAB OS (Supabase), acessível só à P-LAB, e é guardado pelo tempo exigido pelas obrigações fiscais. Para barrar abuso, registramos uma versão embaralhada (hash) do endereço IP, que não permite saber quem você é.</p>
+
+                <h3>Contagem de cliques no painel da P-LAB</h3>
+                <p>Contamos alguns cliques do site, como downloads, WhatsApp, envio de formulário, PIX e visitas, num painel próprio. Cada registro guarda <strong>o evento, a página e a região aproximada (país, estado e cidade)</strong>. A região é deduzida do endereço IP no momento do clique, e <strong>o IP é descartado em seguida, sem ser gravado</strong>. Essa contagem não usa cookie, não identifica você e é apagada depois de 180 dias. Serve para entendermos o que interessa aos visitantes (legítimo interesse, art. 7º, IX).</p>
+
+                <h3>Google Analytics e Google Ads (com o seu consentimento)</h3>
+                <p>Usamos o <strong>Google Analytics 4</strong> para medir o uso do site e o <strong>Google Ads</strong> para medir os resultados dos anúncios. Eles funcionam no <strong>Modo de Consentimento</strong>:</p>
+                <ul>
+                    <li><strong>Se você recusar ou não responder ao aviso de cookies</strong>, nenhum cookie do Google é gravado. O Google recebe apenas sinais anônimos, sem cookie, usados em estatísticas agregadas.</li>
+                    <li><strong>Se você aceitar</strong>, o Google grava cookies de medição e de anúncios (como <code>_ga</code> e <code>_gcl_au</code>). Se você também enviar o formulário de contato, o seu e-mail é repassado ao Google <strong>embaralhado (hash)</strong> para medir se o anúncio gerou o contato. Base legal: consentimento (art. 7º, I).</li>
+                </ul>
+                <p>Você pode mudar de ideia quando quiser: limpe os dados deste site no navegador e o aviso de cookies aparece de novo.</p>
+
+                <h2>3. O que fica guardado no seu navegador</h2>
+                <p>Além dos cookies do Google (só com aceite), o site guarda no armazenamento local do navegador pequenos ajustes que <strong>não saem do seu computador</strong>:</p>
+                <ul>
+                    <li><code>p-lab-cookie-consent</code>: a sua escolha no aviso de cookies;</li>
+                    <li><code>p-lab-theme</code>: tema claro ou escuro;</li>
+                    <li><code>p-lab-apoio-oculto-ate</code>: esconde o convite de apoio por um dia, se você fechou;</li>
+                    <li><code>plab-interno</code>: marca navegadores da equipe da P-LAB, para não contar nossas próprias visitas;</li>
+                    <li><code>plab_lead</code>: guarda o e-mail do formulário só até a página de agradecimento abrir, e é apagado em seguida.</li>
+                </ul>
+
+                <h2>4. Serviços de terceiros que o site carrega</h2>
+                <p>Para funcionar, o site usa serviços externos que recebem o seu endereço IP quando a página carrega, cada um com a sua própria política:</p>
+                <ul>
+                    <li><strong>GitHub Pages</strong> (hospedagem do site) e <strong>GitHub</strong> (arquivos para download);</li>
+                    <li><strong>Google Fonts</strong> (fontes) e <strong>Cloudflare/cdnjs</strong> (ícones);</li>
+                    <li><strong>YouTube</strong> (vídeos, no modo de privacidade reforçada <code>youtube-nocookie.com</code>);</li>
+                    <li><strong>WhatsApp</strong> (Meta), só se você clicar para conversar;</li>
+                    <li><strong>FormSubmit</strong> (formulário de contato) e <strong>Supabase</strong> (comprovante de PIX e contagem de cliques).</li>
+                </ul>
+                <p>Alguns desses serviços ficam fora do Brasil. A transferência internacional acontece para executar o que você pediu ou com o seu consentimento (LGPD, art. 33).</p>
+
+                <h2>5. O que não fazemos</h2>
+                <ul>
+                    <li>Não vendemos nem alugamos os seus dados.</li>
+                    <li>Não usamos os dados do formulário para enviar propaganda sem você pedir.</li>
+                    <li>Não pedimos nem guardamos senhas, cartões ou documentos pelo site.</li>
+                </ul>
+
+                <h2>6. Por quanto tempo guardamos</h2>
+                <p>Mensagens de contato ficam no nosso e-mail enquanto houver conversa ou proposta em andamento. Os cliques contados no painel são apagados depois de 180 dias. Comprovantes de pagamento ficam pelo prazo das obrigações fiscais. Os dados do Google seguem os prazos configurados na conta do Google Analytics e do Google Ads.</p>
+
+                <h2>7. Seus direitos</h2>
+                <p>Pela LGPD (art. 18), você pode pedir a qualquer momento: confirmação de que tratamos seus dados, acesso, correção, anonimização ou exclusão, portabilidade, informação sobre com quem compartilhamos, e a revogação do consentimento. Escreva para <a href="mailto:devpicanco@gmail.com">devpicanco@gmail.com</a>. Respondemos em até 15 dias. Se não ficar satisfeito, você também pode reclamar na Autoridade Nacional de Proteção de Dados (<a href="https://www.gov.br/anpd" target="_blank" rel="noopener">ANPD</a>).</p>
+
+                <h2>8. Mudanças nesta política</h2>
+                <p>Quando o site passar a coletar algo novo, esta página é atualizada, e a data no topo muda.</p>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <span class="logo-footer">P-LAB</span>
+                <p data-i18n="footer-tagline">Software e automação para engenharia.</p>
+                <p>Joinville - SC</p>
+            </div>
+            <div class="footer-nav">
+                <h3 data-i18n="footer-products">Produtos</h3>
+                <ul>
+                    <li><a href="solucoes.html" data-i18n="nav-plugins">Soluções</a></li>
+                    <li><a href="solucoes.html#viewer" data-i18n="nav-viewer">P-LAB Viewer</a></li>
+                    <li><a href="solucoes.html#assistant" data-i18n="nav-planos">Assistant</a></li>
+                    <li><a href="servicos-bim.html" data-i18n="nav-consultoria">Serviços BIM</a></li>
+                    <li><a href="apoiar.html">Apoiar</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3 data-i18n="footer-social">Siga-nos</h3>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@plabdev" target="_blank" rel="noopener" aria-label="Canal da P-LAB no YouTube (@plabdev)"><svg class="icon" style="font-size:1.6rem" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="#FF0000" stroke="none"/><path d="M10 8.6v6.8l5.8-3.4z" fill="#fff" stroke="none"/></svg></a>
+                    <a href="https://www.linkedin.com/company/plab-eng/" target="_blank" rel="noopener" aria-label="LinkedIn da P-LAB"><svg class="icon" style="font-size:1.6rem" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="3" fill="#0A66C2" stroke="none"/><path fill="#fff" stroke="none" d="M7.1 9.6h2.4V17H7.1zM8.3 5.9a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8zM11 9.6h2.3v1h.03c.32-.6 1.1-1.25 2.27-1.25 2.43 0 2.88 1.6 2.88 3.68V17h-2.4v-3.5c0-.84-.02-1.92-1.17-1.92-1.17 0-1.35.91-1.35 1.86V17H11z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h3 data-i18n="footer-contact">Contato</h3>
+                <p class="footer-white"><a href="tel:+5547989168641">(47) 98916-8641</a></p>
+                <p class="footer-white">devpicanco@gmail.com</p>
+                <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="btn-whatsapp-footer" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+        <div class="container text-center footer-bottom">
+            <p>&copy; 2026 P-LAB Engenharia &amp; Software. v3.0.0 · <a href="privacidade.html">Política de Privacidade</a></p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5547989168641?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20P-LAB%20e%20gostaria%20de%20saber%20mais." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar com a P-LAB no WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="34" height="34">
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
