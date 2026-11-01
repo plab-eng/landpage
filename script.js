@@ -195,6 +195,15 @@ function initTracking() {
             versao: a.dataset.versao || 'pagina-do-release',
         }));
     });
+    // Outros plugins com instalador de nome fixo (01/11/2026: PointCloud). Não
+    // usa data-instalador porque aquele troca o href pelo .exe da suíte; aqui o
+    // link já é o certo e só o clique é contado, com o plugin no `detalhe`.
+    document.querySelectorAll('a[data-download-plugin]').forEach(a => {
+        a.addEventListener('click', () => trackEvent('download', {
+            plugin: a.dataset.downloadPlugin,
+            versao: 'latest',
+        }));
+    });
     document.querySelectorAll('a[data-releases]').forEach(a => {
         a.addEventListener('click', () => trackEvent('releases_click', { local: a.className || 'link' }));
     });
