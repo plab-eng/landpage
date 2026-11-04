@@ -1031,7 +1031,13 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 /* ===== PLAB Júnior / Pleno / Sênior (planos.html, 20/10/2026) =====
    Formato da página de preços da Ideatura: borda tracejada, blocos curtos
    na mesma ordem em todos os cartões, botão no pé. Só tokens. */
-.planos-grid--assistant { grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); }
+.planos-grid--assistant { grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 16px; }
+/* 4 cartões lado a lado (agente externo grátis, 03/11/2026): recuo menor e sem quebras no meio de nomes. */
+.planos-grid--assistant .plano-card { padding: 24px 22px; }
+.planos-grid--assistant .plano-nome .plano-cond { display: block; margin-top: 2px; white-space: nowrap; }
+.planos-grid--assistant .plano-tag { white-space: nowrap; }
+.planos-grid--assistant .plano-bloco-titulo { text-wrap: balance; }
+.planos-grid--assistant .plano-botao { justify-content: center; }
 .plano-card--tracejado { border-style: dashed; }
 .plano-card--tracejado.plano-card--destaque { border-style: solid; }
 .plano-card--em-breve { opacity: 0.85; }

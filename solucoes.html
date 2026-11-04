@@ -143,7 +143,7 @@
                                 <p>O add-in gratuito da P-LAB: baixe e use todas as ferramentas, sem cartão e sem prazo.</p>
                                 <ul>
                                 <li>Gerar vistas, gerenciar e exportar pranchas em lote</li>
-                                <li>Cota automática, legendas de DXF e PDF e tabelas para o Excel</li>
+                                <li>Cota automática, legendas de DXF e PDF e tabelas do Revit para o Excel e do Excel para o Revit</li>
                                 <li>MEP: taxa de ocupação, transferência de circuitos e queda de tensão</li>
                                 </ul>
                                 <p class="sanfona__acoes"><a class="btn-primary" href="https://github.com/plab-eng/P-LAB-releases/releases/latest" target="_blank" rel="noopener" data-instalador>Baixar grátis</a><a class="btn-secondary" href="#addin">Ver todos os botões →</a></p>
@@ -394,7 +394,7 @@
                 <span class="botao-painel">TODOS OS BOTÕES</span>
                 <h2 class="section-title-main">O que vem no add-in, painel por painel</h2>
                 <p class="planos-intro">A mesma organização da ribbon do Revit. A lista acompanha cada versão nova do add-in.</p>
-                <img src="images/ribbon-plab.webp" alt="A aba P-LAB na ribbon do Revit, com os painéis Tools, MEP e Assistant" width="1077" height="102" loading="lazy" class="ribbon-plab ribbon-claro"><img src="images/ribbon-plab-escuro.webp" alt="A aba P-LAB na ribbon do Revit, com os painéis Tools, MEP e Assistant" width="1073" height="98" loading="lazy" class="ribbon-plab ribbon-escuro">
+                <img src="images/ribbon-plab.webp" alt="A aba P-LAB na ribbon do Revit, com os painéis Tools, MEP e Assistant" width="1272" height="117" loading="lazy" class="ribbon-plab ribbon-claro"><img src="images/ribbon-plab-escuro.webp" alt="A aba P-LAB na ribbon do Revit, com os painéis Tools, MEP e Assistant" width="1272" height="125" loading="lazy" class="ribbon-plab ribbon-escuro">
                 <div class="modulos-grid">
                     <div class="feature-card modulo-card">
                         <h3>Tools</h3>
@@ -405,16 +405,17 @@
                             <li>Copiar Propriedades</li>
                             <li>Copiar entre Projetos</li>
                             <li>Vínculos</li>
-                            <li>Painel P-LAB</li>
+                            <li>BIM Manager</li>
                             <li>Limpar Grupos</li>
                             <li>Identificar Pintura</li>
                             <li>Alinhar Norte</li>
-                            <li>DXF/PDF Legenda</li>
                             <li>Gerar Vistas</li>
                             <li>Gerenciador de Pranchas</li>
                             <li>Cota Automática</li>
                             <li>Config Cotas</li>
                             <li>Exportar</li>
+                            <li>Importar</li>
+                            <li>Assistant</li>
                             <li>Suporte</li>
                             <li><span>Transferir Parâmetros</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
                             <li><span>Eliminar Duplicados</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
@@ -435,6 +436,7 @@
                             <!-- catalogo:mep -->
                             <li>Elétrica</li>
                             <li>Conectar Tubos</li>
+                            <li>Taxa de Ocupação</li>
                             <li><span>Anotar Circuitos, Conduletes e Disjuntores</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
                             <li><span>Quadros: monitorar e redimensionar</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
                             <li><span>Verificador NBR 5410</span> <span class="plano-tag" data-i18n="em-breve">Em breve</span></li>
@@ -450,8 +452,9 @@
                     <div class="modulos-coluna">
                         <div class="feature-card modulo-card">
                             <h3>PLAB Assistant</h3>
-                            <p><span class="plano-tag">Pago</span></p>
+                            <p><span class="plano-tag">Pago</span> <span class="plano-tag plano-tag--gratis">Agente externo grátis</span></p>
                             <p>A IA que lê e altera o seu modelo do Revit. Vem com o P-LAB OS e o P-LAB Viewer. <a href="#assistant">Ver o plano</a>.</p>
+                            <p>Sem plano, o botão Assistant liga o Claude Code, o Claude Desktop ou o Codex ao seu Revit, de graça. <a href="#agente-externo">Como funciona</a>.</p>
                         </div>
                         <div class="feature-card modulo-card modulo-card--sob-medida">
                             <h3>Plugin personalizado</h3>
@@ -497,8 +500,10 @@
                     </div>
 
                     <div class="feature-card botao-card">
-                        <h3>DXF/PDF Legenda</h3>
-                        <p>Traz um DXF ou PDF (carimbo, detalhe padrão, nota) para uma vista de legenda do Revit, pronta para ir para a prancha.</p>
+                        <!-- Botão Importar (add-in 2.3.2): espelho do Exportar, junta o DXF/PDF Legenda e o Import Schedules (2.3.1). -->
+                        <h3>Importar</h3>
+                        <p><strong>DXF/PDF Legenda:</strong> traz um DXF ou PDF (carimbo, detalhe padrão, nota) para uma vista de legenda do Revit, pronta para ir para a prancha.</p>
+                        <p><strong>Import Schedules:</strong> traz tabelas do Excel como linhas e texto nativos do Revit, vinculadas à planilha. Ao abrir o modelo, elas se atualizam sozinhas quando a planilha mudou.</p>
                         <button type="button" class="midia-play" data-video="videos/dxf-pdf-legenda.mp4" aria-label="Ver o vídeo: DXF/PDF Legenda">
                             <img src="images/ex-dxf-pdf-legenda.webp" alt="Um DXF e um PDF virando uma vista de legenda do Revit" width="1600" height="900" loading="lazy" class="print-plataforma">
                             <span class="midia-play__icone" aria-hidden="true"></span>
@@ -635,7 +640,8 @@
                         <h3>Como ele trabalha</h3>
                         <p><strong>Automatiza os add-ins que você já usa.</strong> Ele aciona os outros add-ins instalados, o P-LAB e os comandos do Revit, então o resultado sai no padrão que o escritório já tem. Peça “execute o plugin X nestas pranchas” ou “faça a documentação desta vista usando o plugin Y”; o que faltar, ele pergunta no painel. O que deu certo vira receita e passa a ser o padrão. <span class="plano-tag">Júnior e Pleno</span></p>
                         <p><strong>Escreve código no Revit quando não há botão.</strong> Lê o modelo, escreve e roda o código, confere o resultado olhando a vista e usa os botões e as receitas como atalhos. Ensaia a tarefa antes e junta tudo num único cartão para você aplicar. <span class="plano-tag plano-tag--gratis">Só no Pleno</span></p>
-                        <p><strong>Trabalha fora do Revit.</strong> Lê PDF, planilha, DXF e imagem, roda os scripts do escritório nas pastas que você autorizar e guarda a memória do projeto. Também se liga ao Claude Code ou ao Codex. <span class="plano-tag plano-tag--gratis">Só no Pleno</span></p>
+                        <p><strong>Trabalha fora do Revit.</strong> Lê PDF, planilha, DXF e imagem, roda os scripts do escritório nas pastas que você autorizar e guarda a memória do projeto. <span class="plano-tag plano-tag--gratis">Só no Pleno</span></p>
+                        <p><strong>Liga o Claude Code, o Claude Desktop ou o Codex ao Revit.</strong> O agente externo consulta o modelo, roda código e usa as ferramentas do P-LAB com a IA que você já assina. <span class="plano-tag plano-tag--gratis"><a href="#agente-externo">Grátis</a></span></p>
                     </div>
                     <figure class="cap-como__video">
                         <button type="button" class="midia-play cap-video" data-video="videos/assistant-cotas.mp4" aria-label="Ver o vídeo: cotas por pedido">
@@ -756,6 +762,46 @@
                 <h2 class="section-title-main" data-i18n="pl-niveis-title">Escolha o nível do seu Assistant</h2>
                 <div class="planos-grid planos-grid--assistant">
 
+                    <!-- Agente externo grátis (03/11/2026, add-in 2.3.2): Claude Code, Claude Desktop ou
+                         Codex ligados ao Revit pelo P-LAB MCP, em qualquer licença, com todas as ferramentas.
+                         A IA é a do usuário; não usa créditos da P-LAB. -->
+                    <div class="plano-card plano-card--tracejado" id="agente-externo">
+                        <span class="plano-tag plano-tag--gratis">Grátis no add-in</span>
+                        <h3 class="plano-nome">Agente externo <span class="plano-cond" data-no-translate>P-LAB MCP</span></h3>
+                        <div class="plano-preco">
+                            <span class="plano-valor plano-valor--gratis">R$ 0</span>
+                            <span class="plano-cond">em qualquer licença, inclusive a gratuita, sem cartão</span>
+                        </div>
+                        <p class="plano-destrava">Ligue o Claude Code, o Claude Desktop ou o Codex ao seu Revit, com a conexão em um clique.</p>
+                        <hr class="plano-divisor">
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">A sua IA</span>
+                            <span class="plano-bloco-texto">Usa a assinatura que você já tem do Claude ou do ChatGPT (Codex). Não gasta créditos da P-LAB.</span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">O que o agente faz no Revit</span>
+                            <ul class="plano-lista">
+                                <li>Consulta o modelo</li>
+                                <li>Roda código C# ou Python com um único Desfazer</li>
+                                <li>Vê a vista ativa</li>
+                                <li>Usa as ferramentas prontas do P-LAB</li>
+                                <li>Salvar e exportar sempre perguntam no Revit</li>
+                            </ul>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">Integrações</span>
+                            <span class="plano-bloco-texto">Revit 2021 a 2027, com <span data-no-translate>Claude Code</span>, <span data-no-translate>Claude Desktop</span> e <span data-no-translate>Codex</span></span>
+                        </div>
+                        <div class="plano-bloco">
+                            <span class="plano-bloco-titulo">Suporte</span>
+                            <span class="plano-bloco-texto">Pela comunidade. Ainda em validação no Revit: conte o que encontrar pelo botão Suporte do add-in.</span>
+                        </div>
+                        <div class="plano-pagar">
+                            <a href="https://github.com/plab-eng/P-LAB-releases/releases/latest" class="btn-secondary plano-botao" target="_blank" rel="noopener" data-instalador>Baixar grátis</a>
+                            <p class="plano-cond plano-letra-miuda">No Revit, abra o botão Assistant: sem plano pago, ele abre a janela Agente externo.</p>
+                        </div>
+                    </div>
+
                     <div class="plano-card plano-card--tracejado" data-plano="assistant">
                         <h3 class="plano-nome"><span data-no-translate>PLAB Júnior</span></h3>
                         <div class="plano-preco">
@@ -815,7 +861,7 @@
                         </div>
                         <div class="plano-bloco">
                             <span class="plano-bloco-titulo">Integrações</span>
-                            <span class="plano-bloco-texto">Revit 2021 a 2027 e agente externo (MCP), para quem usa outro cliente de IA</span>
+                            <span class="plano-bloco-texto">Revit 2021 a 2027</span>
                         </div>
                         <div class="plano-bloco">
                             <span class="plano-bloco-titulo">Formatos</span>
@@ -867,7 +913,7 @@
 
                 </div>
 
-                <p class="planos-comum">Nos dois planos: tudo em português · o seu modelo não sai do computador · a IA é da P-LAB, sem assinatura de IA à parte · os seus dados nunca treinam IA · o P-LAB OS e o Viewer completo vêm inclusos.</p>
+                <p class="planos-comum">No Júnior e no Pleno: tudo em português · o seu modelo não sai do computador · a IA é da P-LAB, sem assinatura de IA à parte · os seus dados nunca treinam IA · o P-LAB OS e o Viewer completo vêm inclusos.</p>
 
                 <!-- Faixa larga no lugar do "Enterprise" da referência. O Assistant
                      personalizado (treinado com o padrão do escritório) entra aqui. -->
