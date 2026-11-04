@@ -79,7 +79,7 @@ PROTECTED_TERMS = [
     "PLAB Júnior", "PLAB Pleno", "PLAB Sênior",
     "Clash Works",
     # 29/10/2026: o espanhol virava "Nube de puntos P-LAB" e o inglês "Point Cloud".
-    "P-LAB PointCloud", "PointCloud", "P-LAB Dimensions", "Viewer Pro",
+    "P-LAB PointCloud", "PointCloud", "P-LAB Dimensions", "Viewer Pro", "BIM Manager",
     "Export Schedules", "Export Sheets",
     "pyRevit", "Runrun.it", "ClickUp",
 ]

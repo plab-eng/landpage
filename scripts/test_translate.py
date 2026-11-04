@@ -36,11 +36,16 @@ class NomesProtegidos(unittest.TestCase):
     """Nome de produto não se traduz (o DeepL fazia "Nube de puntos P-LAB")."""
 
     def test_produtos_estao_na_lista(self):
-        for nome in ("P-LAB PointCloud", "PointCloud", "P-LAB Dimensions", "Viewer Pro"):
+        for nome in ("P-LAB PointCloud", "PointCloud", "P-LAB Dimensions", "Viewer Pro", "BIM Manager"):
             self.assertIn(nome, tr.PROTECTED_TERMS)
 
     def test_frase_com_o_produto_esconde_o_nome_do_deepl(self):
         self.assertIn("<x>P-LAB PointCloud</x>", tr.protect("Baixe o P-LAB PointCloud grátis"))
+
+    def test_nome_de_botao_sozinho_nao_vai_para_o_deepl(self):
+        # 03/11/2026: o DeepL traduzia o botão "BIM Manager" como "Responsable de BIM".
+        sopa = BeautifulSoup("<ul><li>BIM Manager</li></ul>", "html.parser")
+        self.assertFalse(tr.is_translatable_text(sopa.li.string))
 
 
 if __name__ == "__main__":
