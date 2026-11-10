@@ -1465,7 +1465,7 @@ img.apoio-qr { background: #ffffff; }
 /* Grade própria do PointCloud: separada da do Assistant de propósito (José, 10/11/2026). */
 .planos-grid--pointcloud { grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 16px; }
 .planos-grid--pointcloud .plano-card { padding: 24px 22px; }
-.planos-grid--pointcloud .plano-tag { white-space: nowrap; }
+.planos-grid--pointcloud .plano-tag { white-space: normal; align-self: flex-start; width: fit-content; max-width: 100%; text-wrap: balance; }
 .planos-grid--pointcloud .plano-bloco-titulo { text-wrap: balance; }
 .planos-grid--pointcloud .plano-botao { justify-content: center; }
 #pointcloud .pc-depois { margin: 36px 0 32px; padding-top: 28px; border-top: 1px solid var(--border); }

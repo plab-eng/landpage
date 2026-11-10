@@ -41,6 +41,21 @@ class PrecoDoPointCloud(unittest.TestCase):
     def test_acima_do_limite_vai_para_o_whatsapp(self):
         self.assertTrue(self.secao.select('a[href^="https://wa.me/"][target="_blank"]'))
 
+    def test_nomes_das_ferramentas_nao_vao_para_o_deepl(self):
+        # 10/11/2026: o DeepL fez "Link to the cloud", "Clear Project", "Borrar proyecto".
+        # O add-in é em português: o nome do botão fica como está no Revit.
+        nomes = ["Vincular nuvem", "Info", "Estatística", "Cores", "Recorte", "Níveis",
+                 "Coordenadas pela nuvem", "Análise de superfície", "Clash nuvem × modelo",
+                 "Alinhar paredes", "Limpar projeto"]
+        protegidos = {n.get_text(strip=True) for n in self.secao.select("[data-no-translate]")}
+        for nome in nomes:
+            self.assertIn(nome, protegidos)
+
+    def test_botao_de_assinar_nao_vira_sign(self):
+        # "Assinar:" virava "Sign:"/"Firmar:" (assinar documento).
+        for a in self.secao.select('a[href*="asaas.com"]'):
+            self.assertTrue(a.get_text(strip=True).startswith("Assinatura mensal:"), a.get_text())
+
     def test_download_mantem_o_marcador(self):
         baixar = self.secao.select('a[href$="PLAB-PointCloud-Setup.exe"]')
         self.assertTrue(baixar)
