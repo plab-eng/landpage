@@ -212,6 +212,18 @@ function initTracking() {
     document.querySelectorAll('a[data-apoio-pagamento]').forEach(a => {
         a.addEventListener('click', () => trackEvent('apoio_pagamento', { meio: a.dataset.apoioPagamento || 'link' }));
     });
+    // Assinar pelo link do Asaas (10/11/2026: PointCloud). Evento recomendado do
+    // GA4 para início de compra; o valor vem do banco quando ele responde (o
+    // script da página atualiza data-pagamento-valor). Só GA4: o painel do
+    // P-LAB OS aceita uma lista fechada de eventos (EVENTOS_DO_PAINEL).
+    document.querySelectorAll('a[data-pagamento-plano]').forEach(a => {
+        a.addEventListener('click', () => trackEvent('begin_checkout', {
+            plano: a.dataset.pagamentoPlano,
+            forma: 'mensal',
+            currency: 'BRL',
+            value: Number(a.dataset.pagamentoValor) || 0,
+        }));
+    });
 }
 
 /* ===== Download direto do instalador do P-LAB para Revit =====
