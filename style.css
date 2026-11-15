@@ -1251,7 +1251,10 @@ img.apoio-qr { background: #ffffff; }
 /* Aba Plugins, "Além do Revit": 2 x 2 (sem estourar no celular) e os dois selos
    lado a lado; o print, quando entrar, ocupa a largura do cartão. */
 #outras-plataformas .botao-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); margin-bottom: 28px; }
-#outras-plataformas .selos-plataforma { display: flex; gap: 8px; flex-wrap: wrap; }
+#outras-plataformas .selos-plataforma { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+/* P-LAB para CAD (add-in 2.4, 14/11/2026): três cartões numa linha e o subtítulo das que estão em desenvolvimento */
+#outras-plataformas #plab-cad { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+#outras-plataformas .cad-subtitulo { margin: 40px 0 24px; padding-top: 28px; border-top: 1px solid var(--border); }
 .print-plataforma { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--border); }
 /* Menus traduzidos (en/es): "Asesoramiento", "Complementos", "Consulting" e
    "Apoyar/Support" são mais longos que em português, e o seletor de idioma

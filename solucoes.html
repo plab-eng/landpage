@@ -48,7 +48,7 @@
    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soluções P-LAB | Plugins para Revit, IA, nuvem de pontos e Viewer</title>
-    <meta name="description" content="Software para quem projeta: add-in gratuito para Revit, P-LAB Assistant (IA no modelo), P-LAB Viewer no navegador, nuvem de pontos no Revit, plugins para Navisworks e Civil 3D e gestão do escritório.">
+    <meta name="description" content="Software para quem projeta: add-in gratuito para Revit, P-LAB Assistant (IA no modelo), P-LAB Viewer no navegador, nuvem de pontos no Revit, P-LAB para AutoCAD, Civil 3D e Navisworks e gestão do escritório.">
     <link rel="canonical" href="https://plabdev.com.br/solucoes.html">
     <link rel="alternate" hreflang="pt-BR" href="https://plabdev.com.br/solucoes.html">
     <link rel="alternate" hreflang="en" href="https://plabdev.com.br/en/solucoes.html">
@@ -117,7 +117,7 @@
             <div class="container text-center">
                 <span class="eyebrow">SOLUÇÕES</span>
                 <h1>Software para quem projeta</h1>
-                <p class="hero-lead">Plugins para Revit, Navisworks e Civil 3D, IA no modelo, nuvem de pontos, visualizador web e gestão do escritório de projetos.</p>
+                <p class="hero-lead">Plugins para Revit, AutoCAD, Civil 3D e Navisworks, IA no modelo, nuvem de pontos, visualizador web e gestão do escritório de projetos.</p>
             </div>
         </section>
 
@@ -145,6 +145,7 @@
                                 <li>Gerar vistas, gerenciar e exportar pranchas em lote</li>
                                 <li>Cota automática, legendas de DXF e PDF e tabelas do Revit para o Excel e do Excel para o Revit</li>
                                 <li>MEP: taxa de ocupação, transferência de circuitos e queda de tensão</li>
+                                <li>O mesmo instalador leva o P-LAB ao AutoCAD, ao Civil 3D e ao Navisworks (<a href="#outras-plataformas">ver</a>)</li>
                                 </ul>
                                 <p class="sanfona__acoes"><a class="btn-primary" href="https://github.com/plab-eng/P-LAB-releases/releases/latest" target="_blank" rel="noopener" data-instalador>Baixar grátis</a><a class="btn-secondary" href="#addin">Ver todos os botões →</a></p>
                             </div>
@@ -219,9 +220,32 @@
         <section class="section" id="outras-plataformas">
             <div class="container">
                 <span class="botao-painel">ALÉM DO REVIT</span>
-                <h2 class="section-title-main">Ferramentas para Navisworks e Civil 3D</h2>
-                <p class="planos-intro">Em desenvolvimento e vendidas à parte do add-in gratuito. Fale com a P-LAB para comprar ou acompanhar o lançamento.</p>
-                <div class="botao-grid">
+                <h2 class="section-title-main">P-LAB para AutoCAD, Civil 3D e Navisworks</h2>
+                <!-- Add-in 2.4 (14/11/2026). Decisão do José: o MCP (agente externo) é grátis em
+                     qualquer plataforma; o chat do Assistant só no Júnior e no Pleno; Fábrica de plugins
+                     a partir do Júnior. Textos simples a pedido dele (15/11/2026). -->
+                <p class="planos-intro">Vem no mesmo instalador do add-in para Revit e se atualiza sozinho. Ligar a sua IA pelo agente externo é grátis; o chat do Assistant é do <span data-no-translate>PLAB Júnior</span> e do <span data-no-translate>PLAB Pleno</span>.</p>
+                <div class="botao-grid" id="plab-cad">
+                    <div class="feature-card botao-card">
+                        <h3>AutoCAD</h3>
+                        <p class="selos-plataforma"><span class="plano-tag">2024 a 2027</span> <span class="plano-tag plano-tag--gratis">MCP grátis</span> <span class="plano-tag">Chat: Júnior e Pleno</span></p>
+                        <p>Peça em português o que fazer no desenho: o P-LAB mostra antes, você aplica e tudo desfaz com <code data-no-translate>U</code>.</p>
+                    </div>
+                    <div class="feature-card botao-card">
+                        <h3>Civil 3D</h3>
+                        <p class="selos-plataforma"><img src="images/logo-civil3d.svg" alt="" class="selo-logo" width="28" height="28" loading="lazy"> <span class="plano-tag">2024 a 2027</span> <span class="plano-tag plano-tag--gratis">MCP grátis</span> <span class="plano-tag">Chat: Júnior e Pleno</span></p>
+                        <p>Tudo o que faz no AutoCAD, entendendo também superfícies, alinhamentos, redes e corredores.</p>
+                    </div>
+                    <div class="feature-card botao-card">
+                        <h3>Navisworks</h3>
+                        <p class="selos-plataforma"><img src="images/logo-navisworks.svg" alt="" class="selo-logo" width="28" height="28" loading="lazy"> <span class="plano-tag">2024 a 2027</span> <span class="plano-tag plano-tag--gratis">MCP grátis</span></p>
+                        <p>Ligue a sua IA ao modelo federado: ela encontra itens, lê propriedades e trabalha nas vistas com você.</p>
+                    </div>
+                </div>
+
+                <h3 class="cad-subtitulo">Em desenvolvimento, vendidas à parte</h3>
+                <p class="planos-intro">Ferramentas pagas para Navisworks e Civil 3D. Fale com a P-LAB para comprar ou acompanhar o lançamento.</p>
+                <div class="botao-grid" id="em-desenvolvimento-cad">
                     <div class="feature-card botao-card">
                         <h3>Clash Works</h3>
                         <p class="selos-plataforma"><img src="images/logo-navisworks.svg" alt="Navisworks" class="selo-logo" width="28" height="28" loading="lazy"> <span class="plano-tag">Navisworks</span> <span class="plano-tag">Em desenvolvimento</span></p>
@@ -635,14 +659,14 @@
             <div class="container">
                 <span class="eyebrow">EM DETALHE</span>
                 <h2 class="section-title-main">O que o Assistant faz no seu projeto</h2>
-                <p class="planos-intro">Antes de alterar qualquer coisa, ele mostra um cartão com o resumo para você aplicar, e tudo tem Desfazer. Pedido de ver, listar ou conferir nunca altera o modelo. Revit 2021 a 2027.</p>
+                <p class="planos-intro">Antes de alterar qualquer coisa, ele mostra um cartão com o resumo para você aplicar, e tudo tem Desfazer. Pedido de ver, listar ou conferir nunca altera o modelo. Revit 2021 a 2027; o chat também no AutoCAD e no Civil 3D 2024 a 2027.</p>
                 <div class="cap-como">
                     <div class="cap-como__texto">
                         <h3>Como ele trabalha</h3>
                         <p><strong>Automatiza os add-ins que você já usa.</strong> Ele aciona os outros add-ins instalados, o P-LAB e os comandos do Revit, então o resultado sai no padrão que o escritório já tem. Peça “execute o plugin X nestas pranchas” ou “faça a documentação desta vista usando o plugin Y”; o que faltar, ele pergunta no painel. O que deu certo vira receita e passa a ser o padrão. <span class="plano-tag">Júnior e Pleno</span></p>
                         <p><strong>Escreve código no Revit quando não há botão.</strong> Lê o modelo, escreve e roda o código, confere o resultado olhando a vista e usa os botões e as receitas como atalhos. Ensaia a tarefa antes e junta tudo num único cartão para você aplicar. <span class="plano-tag plano-tag--gratis">Só no Pleno</span></p>
                         <p><strong>Trabalha fora do Revit.</strong> Lê PDF, planilha, DXF e imagem, roda os scripts do escritório nas pastas que você autorizar e guarda a memória do projeto. <span class="plano-tag plano-tag--gratis">Só no Pleno</span></p>
-                        <p><strong>Liga o Claude Code, o Claude Desktop ou o Codex ao Revit.</strong> O agente externo consulta o modelo, roda código e usa as ferramentas do P-LAB com a IA que você já assina. <span class="plano-tag plano-tag--gratis"><a href="#agente-externo">Grátis</a></span></p>
+                        <p><strong>Liga a IA que você já assina ao Revit.</strong> Claude Code, Claude Desktop, Codex, Cursor, VS Code, Antigravity ou Gemini CLI: o agente externo consulta o modelo, roda código e usa as ferramentas do P-LAB. Também no AutoCAD, no Civil 3D e no Navisworks. <span class="plano-tag plano-tag--gratis"><a href="#agente-externo">Grátis</a></span></p>
                     </div>
                     <figure class="cap-como__video">
                         <button type="button" class="midia-play cap-video" data-video="videos/assistant-cotas.mp4" aria-label="Ver o vídeo: cotas por pedido">
@@ -734,6 +758,19 @@
                             <span class="midia-play__icone" aria-hidden="true"></span>
                         </button>
                     </div>
+                    <!-- Add-in 2.4.0 e 2.4.1 (14/11/2026); Fábrica a partir do Júnior (decisão do José). -->
+                    <div class="feature-card cap-card" id="fabrica-plugins">
+                        <span class="plano-tag">Júnior e Pleno</span>
+                        <h3>Fábrica de plugins</h3>
+                        <p>Em Meus plugins › Gerenciar › Criar, descreva o botão que falta: a IA monta o plugin, o P-LAB compila dentro do Revit e instala numa das 50 vagas da faixa. Ele roda com um Desfazer só, e uma receita do Assistant também vira plugin de um clique. No AutoCAD e no Civil 3D, pelo <code data-no-translate>PLABFABRICA</code>.</p>
+                        <p class="cap-exemplo">“Crie um botão que numere as vagas de garagem da planta.”</p>
+                    </div>
+                    <div class="feature-card cap-card" id="modelos-pedido">
+                        <span class="plano-tag">Júnior e Pleno</span>
+                        <h3>Modelos de pedido</h3>
+                        <p>Guarde os pedidos que você repete, com campos para preencher, e chame pelo raio no topo do painel ou por <code data-no-translate>/modelos</code>. Fixe, busque por <code data-no-translate>#tag</code>, exporte e importe; já vem com 10 exemplos da P-LAB. Fica só no seu computador, cifrado.</p>
+                        <p class="cap-exemplo">“Gere as vistas do pavimento {{nível}} no padrão do escritório.”</p>
+                    </div>
                 </div>
                 <div class="equipe-band">
                     <div>
@@ -773,7 +810,7 @@
                             <span class="plano-valor plano-valor--gratis">R$ 0</span>
                             <span class="plano-cond">em qualquer licença, inclusive a gratuita, sem cartão</span>
                         </div>
-                        <p class="plano-destrava">Ligue o Claude Code, o Claude Desktop ou o Codex ao seu Revit, com a conexão em um clique.</p>
+                        <p class="plano-destrava">Ligue a IA que você já usa ao seu Revit, AutoCAD, Civil 3D ou Navisworks, com a conexão em um clique.</p>
                         <hr class="plano-divisor">
                         <div class="plano-bloco">
                             <span class="plano-bloco-titulo">A sua IA</span>
@@ -791,7 +828,7 @@
                         </div>
                         <div class="plano-bloco">
                             <span class="plano-bloco-titulo">Integrações</span>
-                            <span class="plano-bloco-texto">Revit 2021 a 2027, com <span data-no-translate>Claude Code</span>, <span data-no-translate>Claude Desktop</span> e <span data-no-translate>Codex</span></span>
+                            <span class="plano-bloco-texto">Revit 2021 a 2027; AutoCAD, Civil 3D e Navisworks 2024 a 2027. Com <span data-no-translate>Claude Code</span>, <span data-no-translate>Claude Desktop</span>, <span data-no-translate>Codex</span> (também no <span data-no-translate>ChatGPT</span> desktop), <span data-no-translate>Cursor</span>, <span data-no-translate>VS Code</span>, <span data-no-translate>Antigravity</span> e <span data-no-translate>Gemini CLI</span></span>
                         </div>
                         <div class="plano-bloco">
                             <span class="plano-bloco-titulo">Suporte</span>
@@ -822,7 +859,7 @@
                         </div>
                         <div class="plano-bloco">
                             <span class="plano-bloco-titulo">Integrações</span>
-                            <span class="plano-bloco-texto">Revit 2021 a 2027</span>
+                            <span class="plano-bloco-texto">Revit 2021 a 2027; o chat também no AutoCAD e no Civil 3D 2024 a 2027</span>
                         </div>
                         <div class="plano-bloco">
                             <span class="plano-bloco-titulo">Formatos</span>
@@ -862,7 +899,7 @@
                         </div>
                         <div class="plano-bloco">
                             <span class="plano-bloco-titulo">Integrações</span>
-                            <span class="plano-bloco-texto">Revit 2021 a 2027</span>
+                            <span class="plano-bloco-texto">Revit 2021 a 2027; o chat também no AutoCAD e no Civil 3D 2024 a 2027</span>
                         </div>
                         <div class="plano-bloco">
                             <span class="plano-bloco-titulo">Formatos</span>
@@ -898,7 +935,7 @@
                             <ul class="plano-lista">
                                 <li>Modelagem em tempo real no Revit</li>
                                 <li>Suporte a nuvem de pontos</li>
-                                <li>Integração com AutoCAD, Rhino e Blender</li>
+                                <li>Integração com Rhino, Blender, Archicad, ZWCAD e GstarCAD</li>
                                 <li>Visualizador IFC, BCF e issues</li>
                                 <li>Markup sobre a captura e anotações em PDF</li>
                                 <li>Projetos na nuvem com sincronização</li>
